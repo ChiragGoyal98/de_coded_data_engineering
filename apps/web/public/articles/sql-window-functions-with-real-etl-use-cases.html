@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SQL Window Functions with Real ETL Use Cases | DE-Coded Lab</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="hero hero-tight">
+    <div class="container header-nav">
+      <a class="site-brand" href="../index.html"><img class="logo-img" src="../logo.svg" alt="DE-Coded Lab logo" /><span>DE-Coded Lab</span></a>
+      <nav class="site-nav">
+        <a href="../index.html">Home</a>
+        <a href="../news.html">News</a>
+        <a href="../apis.html">API/SDK</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <article class="article-page section-block">
+      <p class="eyebrow">Generated Article</p>
+      <h1>SQL Window Functions with Real ETL Use Cases</h1>
+      <p class="article-summary">DE-CODED LAB: SQL WINDOW FUNCTIONS WITH REAL ETL USE CASES
+Category: Programming Basics</p>
+      <p>DE-CODED LAB: SQL WINDOW FUNCTIONS WITH REAL ETL USE CASES
+Category: Programming Basics</p>
+<p>INTRODUCTION</p>
+<p>In the world of data engineering and database management, SQL is your primary tool for moving and shaping data. Usually, when we talk about aggregating data, we think of the GROUP BY clause. However, there is a more powerful and flexible tool called Window Functions.</p>
+<p>A window function performs a calculation across a set of table rows that are related to the current row. Unlike a regular GROUP BY, which collapses multiple rows into a single output row, window functions allow you to keep all your original rows while adding a new column containing the calculation. This makes them indispensable for data transformation tasks where you need to compare individual records against a group.</p>
+<p>WHY IT MATTERS</p>
+<p>In ETL (Extract, Transform, Load) pipelines, we rarely just move data from point A to point B. We often need to clean it, rank it, or calculate trends. Window functions matter for three main reasons:</p>
+<p>1. Data Deduplication: They allow you to identify and remove duplicate records by assigning a row number to identical entries and keeping only the first one.
+2. Sequential Analysis: They make it easy to find the previous or next value in a sequence, which is essential for calculating month-over-month growth or time-lag between events.
+3. Running Totals: They allow you to calculate cumulative sums or averages without needing complex self-joins, which significantly improves query performance on large datasets.</p>
+<p>STEP-BY-STEP WALKTHROUGH</p>
+<p>To understand window functions, you need to master the OVER clause and its two main components: PARTITION BY and ORDER BY.</p>
+<p>Step 1: The OVER Clause
+The OVER clause tells SQL that you are using a window function rather than a standard aggregate. Without it, functions like SUM or COUNT will try to collapse your rows.</p>
+<p>Step 2: Partitioning the Data
+The PARTITION BY clause divides the rows into logical groups or buckets. For example, if you want to rank sales, you might partition by region so that the ranking starts over for every new location.</p>
+<p>Step 3: Ordering the Data
+The ORDER BY clause within the window function determines the sequence in which the function is applied to the rows in each partition. This is vital for functions like ROW_NUMBER() or LAG().</p>
+<p>Step 4: Real-World Example
+Let&#x27;s look at a common ETL scenario: Deduplicating a table where a user might have clicked a button multiple times by mistake. We want to keep only the earliest click for each user.</p>
+<p>CODE EXAMPLE START
+SELECT 
+user_id, 
+click_time, 
+ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY click_time ASC) as occurrence
+FROM user_clicks;
+CODE EXAMPLE END</p>
+<p>In this example, the ROW_NUMBER() function assigns 1 to the first click for each user. In your ETL process, you would then simply filter for rows where the occurrence equals 1.</p>
+<p>COMMON MISTAKES</p>
+<p>1. Confusing GROUP BY with PARTITION BY: Remember that GROUP BY reduces the number of rows in your result set, while PARTITION BY keeps every row intact.
+2. Forgetting the ORDER BY: For functions like ROW_NUMBER() or LEAD(), the order is mandatory. If you forget it, the database will assign values randomly, leading to inconsistent data.
+3. Overusing them on massive datasets: While powerful, window functions can be resource-intensive. Using too many partitions or windows in a single query can slow down your ETL pipeline.
+4. Using them in the WHERE clause: You cannot use a window function directly in a WHERE clause. You must first wrap the query in a Subquery or a Common Table Expression (CTE) and then filter it.</p>
+<p>ONE PRACTICE TASK</p>
+<p>Scenario: You are working on a financial ETL pipeline. You have a table called monthly_revenue with two columns: report_month and total_income.</p>
+<p>Your Task: Write a query that creates a third column showing a running total (cumulative sum) of the income, ordered by the month.</p>
+<p>Hint: Use the SUM function with the OVER clause and only use ORDER BY without a PARTITION BY, as you want the running total for the entire company.</p>
+      <p><a class="link-button" href="../index.html">Back to home</a></p>
+    </article>
+  </main>
+</body>
+</html>
