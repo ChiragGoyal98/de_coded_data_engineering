@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API/SDK Playbook | DataFoundry Lab</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <header class="hero hero-tight">
+    <div class="container header-nav">
+      <a class="site-brand" href="index.html"><img class="logo-img" src="logo.svg" alt="DataFoundry Lab logo" /><span>DataFoundry Lab</span></a>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="coding.html">Programming</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section-block">
+      <p class="eyebrow">Code-first Reference</p>
+      <h1>LLM API and SDK snippets for production-style workflows</h1>
+      <p class="subtitle">Use these templates to connect your content pipeline, add retries, and keep outputs stable.</p>
+    </section>
+
+    <section class="section-block">
+      <h2>Gemini call with retry</h2>
+      <pre><code>import json
+import time
+import urllib.request
+
+def call_gemini(api_url, api_key, prompt):
+    payload = {"contents": [{"parts": [{"text": prompt}]}]}
+    request = urllib.request.Request(
+        api_url,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json", "x-goog-api-key": api_key},
+        method="POST",
+    )
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(request, timeout=45) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except Exception:
+            if attempt == 2:
+                raise
+            time.sleep(2 ** attempt)</code></pre>
+    </section>
+
+    <section class="section-block">
+      <h2>SDK wrapper pattern</h2>
+      <pre><code>class ContentClient:
+    def __init__(self, model_client):
+        self.model_client = model_client
+
+    def generate_article(self, topic, category):
+        prompt = (
+            f"Write a detailed beginner article on {topic} "
+            f"for category {category}. Keep examples practical."
+        )
+        return self.model_client.generate(prompt)</code></pre>
+    </section>
+  </main>
+</body>
+</html>
+

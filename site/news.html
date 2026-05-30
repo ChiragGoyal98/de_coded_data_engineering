@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News Briefs | DataFoundry Lab</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <header class="hero hero-tight">
+    <div class="container header-nav">
+      <a class="site-brand" href="index.html"><img class="logo-img" src="logo.svg" alt="DataFoundry Lab logo" /><span>DataFoundry Lab</span></a>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="apis.html">API/SDK</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section-block">
+      <p class="eyebrow">Periodic Briefing</p>
+      <h1>Data engineering news stream</h1>
+      <p class="subtitle">Fresh briefings are generated each content cycle and linked from Telegram.</p>
+    </section>
+
+    <section class="section-block">
+      <div id="news-list" class="content-list">
+        <p>Loading latest news...</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const newsList = document.getElementById("news-list");
+
+    function createNewsCard(item) {
+      const card = document.createElement("article");
+      card.className = "content-card";
+
+      const title = document.createElement("h3");
+      title.textContent = item.headline || "News brief";
+      card.appendChild(title);
+
+      const body = document.createElement("p");
+      body.textContent = item.body || "";
+      card.appendChild(body);
+
+      const published = document.createElement("p");
+      published.textContent = item.published || "";
+      card.appendChild(published);
+      return card;
+    }
+
+    fetch("content.json")
+      .then((response) => {
+        if (!response.ok) throw new Error("Failed to load content");
+        return response.json();
+      })
+      .then((data) => {
+        const news = Array.isArray(data?.news) ? data.news : [];
+        newsList.innerHTML = "";
+        if (!news.length) {
+          newsList.innerHTML = "<p>No news briefs yet. Run the pipeline to publish a cycle.</p>";
+          return;
+        }
+        news.forEach((item) => newsList.appendChild(createNewsCard(item)));
+      })
+      .catch(() => {
+        newsList.innerHTML = "<p>News feed unavailable right now.</p>";
+      });
+  </script>
+</body>
+</html>
+
