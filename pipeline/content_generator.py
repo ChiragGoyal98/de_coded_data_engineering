@@ -100,11 +100,17 @@ def build_summary(generated_text: str) -> str:
     paragraphs = [paragraph.strip() for paragraph in generated_text.split("\n\n") if paragraph.strip()]
     if not paragraphs:
         return generated_text.strip()
-    summary = paragraphs[0]
-    if len(summary) > 240:
-        trimmed = summary[:240].rsplit(" ", 1)[0]
-        return f"{trimmed}..."
-    return summary
+    
+    # Skip paragraphs that look like title headers (all caps or very short)
+    idx = 0
+    while idx < len(paragraphs) and (paragraphs[idx].isupper() or len(paragraphs[idx]) < 70):
+        idx += 1
+    
+    target = paragraphs[idx] if idx < len(paragraphs) else paragraphs[0]
+    
+    if len(target) > 240:
+        target = target[:240].rsplit(" ", 1)[0] + "..."
+    return target
 
 
 def build_article_url(slug: str) -> str:
