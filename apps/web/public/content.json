@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-05-30T15:39:53.956792Z",
+  "generated_at": "2026-05-30T17:03:33.044166Z",
   "articles": [
     {
       "title": "Data Engineering",
       "category": "General",
-      "summary": "Welcome to DE-Coded Lab. If you have ever wondered how a massive company like Netflix suggests exactly what you want to watch, or how a bank detects a fraudulent transaction in seconds, you are looking at the result of data science. But...",
+      "summary": "Welcome to DE-Coded Lab. If you have ever wondered how a company like Netflix knows exactly what movie to recommend to you, or how a bank detects a fraudulent transaction in seconds, you are looking at the result of great data engineering....",
       "url": "articles/data-engineering.html",
       "full_url": "https://ChiragGoyal98.github.io/de_coded_data_engineering/articles/data-engineering.html",
-      "published": "2026-05-30T15:39:53.956706Z",
+      "published": "2026-05-30T17:03:25.278478Z",
       "is_new": true
     },
     {
@@ -71,10 +71,18 @@
   ],
   "news": [
     {
+      "headline": "*   **Cloud Platforms:** Major cloud providers are prioritizing \"zero-ETL\" integrations and serverless architectures. This trend reduces the need for manual pipeline construction by allowing data to flow seamlessly between storage and...",
+      "body": "<ul>\n<li>  **Cloud Platforms:** Major cloud providers are prioritizing &quot;zero-ETL&quot; integrations and serverless architectures. This trend reduces the need for manual pipeline construction by allowing data to flow seamlessly between storage and analytics tools, enabling engineers to focus more on data strategy and less on infrastructure management.</li>\n</ul>\n<ul>\n<li>  **AI API Tooling:** The integration of Large Language Models (LLMs) into data workflows is shifting toward API-driven orchestration. Tools that connect data warehouses to AI services are becoming standard, allowing engineers to build &quot;Retrieval-Augmented Generation&quot; (RAG) pipelines that feed fresh, organizational data directly into AI models for more accurate results.</li>\n</ul>\n<ul>\n<li>  **Practical Learner Advice:** While new tools emerge daily, beginners should prioritize mastering SQL and Python fundamentals. Focus on understanding data modeling and clean architecture first; a strong grasp of how data should be structured is more valuable and enduring than proficiency in any single trending software.</li>\n</ul>",
+      "published": "2026-05-30T17:03:33.044089Z",
+      "published_cycle": "2026-05-30T17",
+      "is_new": true
+    },
+    {
       "headline": "Here is a concise brief on the current state of data engineering:",
       "body": "Here is a concise brief on the current state of data engineering:\n\n*   **Cloud Platforms: The Rise of the \"Lakehouse\"**\n    The industry is moving away from choosing between a Data Lake (raw storage) and a Data Warehouse (structured tables). Major cloud providers are now standardizing on \"Lakehouse\" architectures, which combine the low cost of cloud storage with the high performance of SQL engines. For beginners, this means focusing on tools that allow you to query files directly using SQL without moving them.\n\n*   **AI API Tooling: Engineering for LLMs**\n    Data engineering is shifting from simply moving business data to powering Large Language Models (LLMs). The trend focuses on building pipelines that connect internal data to AI APIs via Vector Databases. Instead of just scheduled batch updates, engineers are now tasked with \"Retrieval-Augmented Generation\" (RAG) workflows, where the goal is to provide AI models with real-time, contextually accurate data.\n\n*   **Practical Learner Advice: Focus on Logic, Not Tools**\n    The \"modern data stack\" changes rapidly, making it easy to feel overwhelmed. To stay relevant, focus on vendor-neutral fundamentals: master **SQL** for transformation, **Python** for automation, and **Data Modeling** to understand how information relates. A beginner who understands how to build a reliable, clean data pipeline will always be more valuable than one who has simply memorized a specific software's interface.",
       "published": "2026-05-30T15:11:22.482682Z",
-      "published_cycle": "2026-05-30T15"
+      "published_cycle": "2026-05-30T15",
+      "is_new": false
     },
     {
       "headline": "### Data Engineering Brief: Industry Trends",
