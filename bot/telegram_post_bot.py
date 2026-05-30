@@ -52,18 +52,33 @@ def build_message(post: dict, news_item=None) -> str:
     if url and not url.startswith("http") and SITE_BASE_URL:
         url = f"{SITE_BASE_URL}/{url.lstrip('/')}"
 
-    category = post.get("category")
-    message = f"*{post.get('title', 'New article')}*\n"
-    if category:
-        message += f"Category: {category}\n"
-    message += (
-        f"{post.get('summary', 'Fresh content just dropped.')}\n\n"
-        f"Read now: {url or 'https://yourdomain.com'}\n\n"
-        "New content is live on the site."
-    )
-    if isinstance(news_item, dict) and news_item.get("headline"):
-        message += f"\n\n*News Brief:* {news_item['headline']}"
-    return message
+    title = post.get('title', 'New Article')
+    category = post.get('category', 'Data Engineering')
+    summary = post.get('summary', '').strip()
+
+    msg = [
+        f"🚀 *New Tutorial Published!*",
+        f"━━━━━━━━━━━━━━",
+        f"📘 *Topic:* {title}",
+        f"🏷 *Category:* {category}",
+        "",
+        f"📝 {summary}",
+        "",
+        f"🔗 *Read the full guide here:*",
+        f"{url or 'https://yourdomain.com'}",
+        "",
+        "━━━━━━━━━━━━━━"
+    ]
+
+    if news_item and news_item.get("headline"):
+        # Clean common LLM intro phrases
+        headline = news_item['headline'].replace('*', '').strip()
+        msg.append(f"📰 *Latest News Brief*")
+        msg.append(f"{headline}")
+        msg.append("")
+
+    msg.append("👉 Visit [DE-Coded Lab](https://chiraggoyal98.github.io/de_coded_data_engineering/)")
+    return "\n".join(msg)
 
 
 async def start_command(update, context: ContextTypes.DEFAULT_TYPE):
@@ -101,6 +116,7 @@ async def post_summary(app):
         await app.bot.send_message(
             chat_id=GROUP_ID,
             text=build_message(post, news_item),
+            parse_mode='Markdown'
         )
         logger.info("Posted summary to group %s", GROUP_ID)
     except TelegramError as error:

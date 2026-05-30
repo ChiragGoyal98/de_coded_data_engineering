@@ -48,16 +48,32 @@ def build_message(post: dict, news_item=None) -> str:
     if url and not url.startswith("http") and SITE_BASE_URL:
         url = f"{SITE_BASE_URL}/{url.lstrip('/')}"
 
-    message = (
-        f"*{post['title']}*\n"
-        f"{post['summary']}\n\n"
-        f"Read more: {url or 'https://yourdomain.com'}\n\n"
-        "This article is now live on the website and shared here in the group."
-    )
-    if news_item:
-        headline = news_item.get("headline", "").split("\n")[0]
-        message += f"\n\n*News Update:* {headline}"
-    return message
+    title = post.get('title', 'New Guide')
+    category = post.get('category', 'Data Engineering')
+    summary = post.get('summary', '').strip()
+
+    msg = [
+        f"🚀 *New Tutorial Available*",
+        f"━━━━━━━━━━━━━━",
+        f"📘 *Topic:* {title}",
+        f"🏷 *Category:* {category}",
+        "",
+        f"📝 {summary}",
+        "",
+        f"🔗 *Read the full guide here:*",
+        f"{url or SITE_BASE_URL}",
+        "",
+        "━━━━━━━━━━━━━━"
+    ]
+
+    if news_item and news_item.get("headline"):
+        headline = news_item['headline'].strip().replace('*', '')
+        msg.append(f"📰 *Daily News Brief*")
+        msg.append(f"{headline}")
+        msg.append("")
+
+    msg.append("👉 Join @DE_Coded_Data_Engineering for more!")
+    return "\n".join(msg)
 
 
 async def send_test():
@@ -72,7 +88,7 @@ async def send_test():
 
     try:
         async with Bot(token=BOT_TOKEN) as bot:
-            result = await bot.send_message(chat_id=GROUP_ID, text=message)
+            result = await bot.send_message(chat_id=GROUP_ID, text=message, parse_mode='Markdown')
             print("Test message sent successfully.")
             print(f"Message ID: {result.message_id}")
             print(f"Article: {post['title']}")
