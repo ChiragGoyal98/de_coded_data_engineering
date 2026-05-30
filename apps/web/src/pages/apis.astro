@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const geminiSnippet = `import json
+import time
+import urllib.request
+
+def call_gemini(api_url, api_key, prompt):
+    payload = {"contents": [{"parts": [{"text": prompt}]}]}
+    request = urllib.request.Request(
+        api_url,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json", "x-goog-api-key": api_key},
+        method="POST",
+    )
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(request, timeout=45) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except Exception:
+            if attempt == 2:
+                raise
+            time.sleep(2 ** attempt)`;
+
+const sdkSnippet = `class ContentClient:
+    def __init__(self, model_client):
+        self.model_client = model_client
+
+    def generate_article(self, topic, category):
+        prompt = (
+            f"Write a detailed beginner article on {topic} "
+            f"for category {category}. Keep examples practical."
+        )
+        return self.model_client.generate(prompt)`;
+---
+
+<BaseLayout title="API/SDK Playbook | DE-Coded Lab" description="Production-style patterns for LLM API integration.">
+  <div slot="hero" class="container hero-content">
+    <p class="eyebrow">Code-first Reference</p>
+    <h1>LLM API and SDK snippets for production-style workflows</h1>
+    <p class="subtitle">Use these templates to connect your content pipeline, add retries, and keep outputs stable.</p>
+  </div>
+
+  <section class="section-block">
+    <h2>Gemini call with retry</h2>
+    <pre><code>{geminiSnippet}</code></pre>
+  </section>
+
+  <section class="section-block">
+    <h2>SDK wrapper pattern</h2>
+    <pre><code>{sdkSnippet}</code></pre>
+  </section>
+</BaseLayout>
+

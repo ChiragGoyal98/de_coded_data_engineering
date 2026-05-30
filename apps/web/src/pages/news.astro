@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="News Briefs | DE-Coded Lab" description="Periodic data engineering news briefings.">
+  <div slot="hero" class="container hero-content">
+    <p class="eyebrow">Periodic Briefing</p>
+    <h1>Data engineering news stream</h1>
+    <p class="subtitle">Fresh briefings are generated each content cycle and linked from Telegram.</p>
+  </div>
+
+  <section class="section-block">
+    <div id="news-list" class="content-list">
+      <p>Loading latest news...</p>
+    </div>
+  </section>
+
+  <script>
+    const newsList = document.getElementById("news-list");
+
+    function createNewsCard(item) {
+      const card = document.createElement("article");
+      card.className = "content-card";
+
+      const title = document.createElement("h3");
+      title.textContent = item.headline || "News brief";
+      card.appendChild(title);
+
+      const body = document.createElement("p");
+      body.textContent = item.body || "";
+      card.appendChild(body);
+
+      const published = document.createElement("p");
+      published.textContent = item.published || "";
+      card.appendChild(published);
+      return card;
+    }
+
+    fetch("/content.json")
+      .then((response) => {
+        if (!response.ok) throw new Error("Failed to load content");
+        return response.json();
+      })
+      .then((data) => {
+        const news = Array.isArray(data?.news) ? data.news : [];
+        newsList.innerHTML = "";
+        if (!news.length) {
+          newsList.innerHTML = "<p>No news briefs yet. Run the pipeline to publish a cycle.</p>";
+          return;
+        }
+        news.forEach((item) => newsList.appendChild(createNewsCard(item)));
+      })
+      .catch(() => {
+        newsList.innerHTML = "<p>News feed unavailable right now.</p>";
+      });
+  </script>
+</BaseLayout>
+
