@@ -1,13 +1,23 @@
 {
-  "generated_at": "2026-05-30T15:11:22.482743Z",
+  "generated_at": "2026-05-30T15:39:53.956792Z",
   "articles": [
+    {
+      "title": "Data Engineering",
+      "category": "General",
+      "summary": "Welcome to DE-Coded Lab. If you have ever wondered how a massive company like Netflix suggests exactly what you want to watch, or how a bank detects a fraudulent transaction in seconds, you are looking at the result of data science. But...",
+      "url": "articles/data-engineering.html",
+      "full_url": "https://ChiragGoyal98.github.io/de_coded_data_engineering/articles/data-engineering.html",
+      "published": "2026-05-30T15:39:53.956706Z",
+      "is_new": true
+    },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
       "category": "Programming Basics",
       "summary": "DE-CODED LAB: SQL WINDOW FUNCTIONS WITH REAL ETL USE CASES\nCategory: Programming Basics",
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://ChiragGoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-05-30T15:11:16.107364Z"
+      "published": "2026-05-30T15:11:16.107364Z",
+      "is_new": false
     },
     {
       "title": "Python OOP for Data Engineers",
@@ -15,42 +25,48 @@
       "summary": "DE-CODED LAB: PROGRAMMING BASICS\nPYTHON OOP FOR DATA ENGINEERS",
       "url": "articles/python-oop-for-data-engineers.html",
       "full_url": "https://yourdomain.com/articles/python-oop-for-data-engineers.html",
-      "published": "2026-05-30T14:26:35.279472Z"
+      "published": "2026-05-30T14:26:35.279472Z",
+      "is_new": false
     },
     {
       "title": "Azure Data Factory orchestration patterns",
       "summary": "Welcome to another edition of **DE-coded with CG**, where we strip away the jargon and get to the heart of data engineering.",
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://yourdomain.com/articles/azure-data-factory-orchestration-patterns.html",
-      "published": "2026-05-30"
+      "published": "2026-05-30",
+      "is_new": false
     },
     {
       "title": "Databricks Delta Lake best practices",
       "summary": "Welcome to another edition of **DE-coded with CG**, where we strip away the complexity of data engineering to help you build faster, smarter, and more reliable pipelines.",
       "url": "articles/databricks-delta-lake-best-practices.html",
       "full_url": "https://yourdomain.com/articles/databricks-delta-lake-best-practices.html",
-      "published": "2026-05-30"
+      "published": "2026-05-30",
+      "is_new": false
     },
     {
       "title": "Building a daily content pipeline for Telegram summaries",
       "summary": "Here is a polished, beginner-friendly summary tailored for your blog, **DE-coded with CG**.",
       "url": "articles/building-a-daily-content-pipeline-for-telegram-summaries.html",
       "full_url": "https://yourdomain.com/articles/building-a-daily-content-pipeline-for-telegram-summaries.html",
-      "published": "2026-05-30"
+      "published": "2026-05-30",
+      "is_new": false
     },
     {
       "title": "Azure Synapse Analytics fundamentals",
       "summary": "**Title: DE-coded with CG | Azure Synapse Analytics: The Unified Powerhouse of Modern Data**",
       "url": "articles/azure-synapse-analytics-fundamentals.html",
       "full_url": "https://yourdomain.com/articles/azure-synapse-analytics-fundamentals.html",
-      "published": "2026-05-30"
+      "published": "2026-05-30",
+      "is_new": false
     },
     {
       "title": "Databricks notebook collaboration best practices",
       "summary": "Welcome to another edition of **DE-coded with CG**, where we break down complex data engineering concepts into bite-sized, actionable insights.",
       "url": "articles/databricks-notebook-collaboration-best-practices.html",
       "full_url": "https://yourdomain.com/articles/databricks-notebook-collaboration-best-practices.html",
-      "published": "2026-05-30"
+      "published": "2026-05-30",
+      "is_new": false
     }
   ],
   "news": [
@@ -64,12 +80,14 @@
       "headline": "### Data Engineering Brief: Industry Trends",
       "body": "### Data Engineering Brief: Industry Trends\n\n*   **Cloud Platforms: The Rise of the Data Lakehouse**\n    Major providers are moving away from siloed storage. The current trend favors \"Lakehouse\" architectures, which combine the cost-effective storage of a Data Lake with the high-performance querying of a Data Warehouse. For beginners, this means learning how to manage unstructured data (like logs) and structured data (like SQL tables) within a single unified environment.\n\n*   **AI API Tooling: Engineering for LLMs**\n    Data engineering is evolving to support Generative AI. Instead of just moving numbers, engineers are now building pipelines for **Vector Databases** and Large Language Model (LLM) APIs. The focus has shifted to \"Data Readiness\"-ensuring that company data is cleaned, formatted, and indexed so that AI models can retrieve accurate information in real-time.\n\n*   **Practical Learner Advice: Focus on Fundamentals**\n    While new tools launch weekly, the core of data engineering remains **SQL and Python**. Beginners should prioritize mastering these two languages and understanding \"Data Modeling\" (how to organize tables) before chasing specialized AI tools. A strong portfolio project involves building a simple pipeline that pulls data from a public API, cleans it with Python, and loads it into a cloud database using SQL.",
       "published": "2026-05-30T14:26:42.525098Z",
-      "published_cycle": "2026-05-30T14"
+      "published_cycle": "2026-05-30T14",
+      "is_new": false
     },
     {
       "headline": "**The Data Stream: Azure & Databricks Update**\n**Date:** May 30, 2026\n**Focus:** Beginner-Friendly News & Trends",
       "body": "**The Data Stream: Azure & Databricks Update**\n**Date:** May 30, 2026\n**Focus:** Beginner-Friendly News & Trends\n\n---\n\n### 🚀 The Big Headlines\n\n**1. Azure Fabric \"LiveLink\" goes GA (General Availability)**\nMicrosoft has officially launched *LiveLink*, a feature that allows beginner data engineers to connect on-premises databases to OneLake with zero ETL code. \n*   **Why it matters:** You no longer need to build complex ingestion pipelines for basic tasks. If you are learning Azure, focus on **OneLake shortcut management** rather than just raw Copy Activities.\n\n**2. Databricks Mosaic AI \"Auto-Cleaner\" is here**\nDatabricks has integrated Mosaic AI directly into the DLT (Delta Live Tables) UI. It now suggests schema fixes and handles \"dirty data\" (nulls, date formatting) automatically.\n*   **Why it matters:** The \"janitor work\" of data engineering is being automated. Beginners should shift their focus from *writing* regex to *validating* AI-generated cleaning logic.\n\n---\n\n### 🤖 AI & Automation Trends: \"Agentic ETL\"\nThe industry has moved past simple ChatBots. We are now seeing **Agentic Data Engineering**. Instead of writing a notebook, you define a \"Goal\" (e.g., \"Merge sales data and predict monthly churn\").\n*   **The Trend:** Tools like **Azure Copilot 3.0** now draft entire Medallion Architectures (Bronze/Silver/Gold) for you. \n*   **The Skill Shift:** Your job is becoming less about \"how to write the code\" and more about **\"how to audit the architecture.\"**\n\n---\n\n### 💡 Practical Advice for Learners\n\n*   **Don't ignore Unity Catalog:** In 2026, security is everything. If you are learning Databricks, stop focusing solely on Spark syntax. Learn **Unity Catalog**—it’s the \"brain\" that governs data, models, and functions.\n*   **SQL is still King (with a twist):** While Python is great, GenAI writes SQL perfectly. Focus on learning **dbt (data build tool)** or **Fabric Data Factory**, as these are the primary ways to orchestrate those SQL scripts.\n*   **Small Language Models (SLMs):** Start experimenting with running small models (like Phi-4) inside your pipelines for metadata tagging. It’s cheaper and faster than calling GPT-5 for every row.\n\n---\n\n### 🛠 This Week’s Learning Lab\n**The \"15-Minute Challenge\":**\nGo into your Azure free tier or Databricks Community Edition. Try to create one **Serverless SQL Warehouse**. Why? Because in 2026, \"managing clusters\" is a dying art—**Serverless** is the industry standard.\n\n**Keep building! The barrier to entry has never been lower, but the need for \"Data Architects\" (thinkers, not just coders) has never been higher.**",
-      "published": "2026-05-30"
+      "published": "2026-05-30",
+      "is_new": false
     }
   ]
 }
