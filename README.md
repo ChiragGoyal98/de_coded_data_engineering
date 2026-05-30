@@ -1,48 +1,44 @@
-# personal-tele-project
+# DE-Coded Lab
 
-A starter repo for a beginner-focused Data Engineering learning hub.
+DE-Coded Lab is an automated data engineering content platform.
+Every 8 hours it generates:
+- one detailed article
+- one news brief
+- one Telegram update
 
-This project includes:
-- `site/` for the static website and brand assets
-- `bot/telegram_post_bot.py` for daily Telegram group posting
-- `pipeline/` for Google AI Studio content generation and website publishing
-- `bot/README.md` with bot setup and hosting guidance
-- `project-plan.md` with the launch plan and content strategy
+## Repository structure
+- `apps/web`: Astro website
+- `apps/web/public/content.json`: generated feed used by homepage and news page
+- `apps/web/public/articles`: generated article pages
+- `pipeline`: LLM content generation scripts
+- `bot`: Telegram posting scripts
+- `.github/workflows/daily-content.yml`: scheduled automation every 8 hours
 
-## What is new
-- Periodic content generation with the pipeline
-- Website integration using `site/content.json` and generated article pages
-- Telegram bot messages that link directly to the latest shared article
-- Free hosting guidance for website and bot deployments
-
-## Quick start
-1. Copy `.env.example` to `.env` and add your values.
-2. Set `GOOGLE_API_KEY`, `GOOGLE_API_URL`, `TELEGRAM_BOT_TOKEN`, and `TELEGRAM_GROUP_ID`.
-3. Set `SITE_BASE_URL` to your live website URL or preview URL.
-4. Run the content generator:
+## Local development
+1. Copy `.env.example` to `.env`.
+2. Fill `GOOGLE_API_KEY`, `GOOGLE_API_URL`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_GROUP_ID`, `SITE_BASE_URL`.
+3. Generate fresh content:
    ```bash
    python pipeline/content_generator.py
    ```
-5. Run the bot locally:
+4. Run Astro web app:
    ```bash
-   python bot/telegram_post_bot.py
+   cd apps/web
+   npm install
+   npm run dev
    ```
-6. Deploy the website using a free static host and keep `site/content.json` synchronized.
+5. Optional Telegram test:
+   ```bash
+   python bot/send_test_message.py
+   ```
 
-## Free hosting options
-- Website: Cloudflare Pages is easiest for the `site/` folder.
-- Bot: Railway free tier or Replit are low-friction hosts for small Telegram bots.
-- Automation: GitHub Actions can run the generator daily and commit new content.
-
-## Automation
-A scheduled workflow is included at `.github/workflows/daily-content.yml` to generate and commit fresh website content each day.
-
-## Secret management
-- Keep secrets in `.env` locally.
-- Do not commit `.env`.
-- Use GitHub Secrets or your hosting provider’s secret store for deployment.
+## Free hosting and deployment strategy
+- Website hosting option A: GitHub Pages (fully free for static site).
+- Website hosting option B: Cloudflare Pages free plan with custom domain.
+- Automated generation: GitHub Actions cron (`0 */8 * * *`).
+- Telegram traffic loop: bot script reads `apps/web/public/content.json`.
+- Cost profile: domain purchase only at early stage.
 
 ## Notes
-- The website homepage now loads `site/content.json` and displays the latest generated articles.
-- The bot reads the same generated content so Telegram and the site stay aligned.
-- Update the Telegram group link in `site/index.html` after your group is ready.
+- Canonical web root is now `apps/web`.
+

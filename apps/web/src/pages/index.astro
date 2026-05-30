@@ -1,0 +1,181 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="DE-Coded Lab"
+  description="Automated data engineering tutorials, news, and API-focused guides."
+>
+  <div slot="hero" class="container hero-content">
+    <p class="eyebrow">Automated Data Engineering Journal</p>
+    <h1>How practical data engineers learn, practice, and ship real portfolio work.</h1>
+    <p class="subtitle">
+      DE-Coded Lab publishes fresh content every 8 hours across Python, SQL, PySpark, Azure,
+      Databricks, and LLM APIs with a community-first Telegram distribution loop.
+    </p>
+    <div class="hero-buttons">
+      <a class="btn primary" href="https://t.me/DE_Coded_Data_Engineering" target="_blank">Join Telegram Group</a>
+      <a class="btn secondary" href="/coding">Start Learning</a>
+    </div>
+    <div class="chip-row">
+      <span class="chip">Azure</span>
+      <span class="chip">Databricks</span>
+      <span class="chip">PySpark</span>
+      <span class="chip">SQL</span>
+      <span class="chip">LLM APIs</span>
+    </div>
+  </div>
+
+  <section id="learn" class="section-block">
+    <p class="eyebrow">Learn</p>
+    <h2>Structured learning paths</h2>
+    <div class="grid">
+      <article class="card">
+        <h2>DE Fundamentals</h2>
+        <p>Core concepts, pipelines, storage layers, and orchestration mindset for beginners.</p>
+        <a class="link-button" href="/coding">Start path</a>
+      </article>
+      <article class="card">
+        <h2>SQL + Python + PySpark</h2>
+        <p>Querying, scripting, and distributed transformations with practical ETL patterns.</p>
+        <a class="link-button" href="/coding">Open path</a>
+      </article>
+      <article class="card">
+        <h2>Cloud + Lakehouse</h2>
+        <p>Azure architecture, Databricks jobs, and production-grade data platform patterns.</p>
+        <a class="link-button" href="/azure">Explore path</a>
+      </article>
+      <article class="card">
+        <h2>AI in Data Engineering</h2>
+        <p>LLM API integration, SDK wrappers, and reliability patterns for data workflows.</p>
+        <a class="link-button" href="/apis">Read playbook</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="practice" class="section-block">
+    <p class="eyebrow">Practice</p>
+    <h2>Practice formats that compound your skills</h2>
+    <div class="feature-grid">
+      <article class="content-card">
+        <h3>Coding Drills</h3>
+        <p>Short SQL, Python, and PySpark exercises built around interview-style patterns.</p>
+      </article>
+      <article class="content-card">
+        <h3>Data Modeling</h3>
+        <p>Star schema design, dimension modeling, and warehouse modeling walkthroughs.</p>
+      </article>
+      <article class="content-card">
+        <h3>Architecture Prompts</h3>
+        <p>System design scenarios for ingestion, streaming, governance, and observability.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="resources" class="section-block">
+    <p class="eyebrow">Resources</p>
+    <h2>Projects and implementation guides</h2>
+    <article class="card">
+      <h2>Azure Pipeline Project</h2>
+      <p>Build ingestion + transform + warehouse flow using Data Factory, Databricks, and Synapse.</p>
+    </article>
+    <article class="card">
+      <h2>LLM Content Automation Project</h2>
+      <p>Create a recurring content engine using Gemini API, static publishing, and Telegram delivery.</p>
+    </article>
+    <article class="card">
+      <h2>Databricks ETL Project</h2>
+      <p>Implement bronze-silver-gold transformations with Delta constraints and scheduled jobs.</p>
+    </article>
+    <article class="card">
+      <h2>Interview Readiness Kit</h2>
+      <p>Topic-wise question sets and guided revision loops for DE interviews.</p>
+    </article>
+  </section>
+
+  <section class="section-block stats-row">
+    <article class="stat-card"><p class="stat-value">8h</p><p>Publishing cadence</p></article>
+    <article class="stat-card"><p class="stat-value">5+</p><p>Topic domains</p></article>
+    <article class="stat-card"><p class="stat-value">24/7</p><p>Telegram distribution</p></article>
+    <article class="stat-card"><p class="stat-value">100%</p><p>Hands-on focus</p></article>
+  </section>
+
+  <section class="section-block">
+    <h2>Latest generated articles</h2>
+    <div id="latest-articles-list" class="content-list">
+      <p>Loading latest articles...</p>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2>FAQ</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Who is this for?</summary>
+        <p>Anyone preparing for data engineering roles or building practical cloud data skills.</p>
+      </details>
+      <details>
+        <summary>How often does content update?</summary>
+        <p>The pipeline generates and publishes new content every 8 hours.</p>
+      </details>
+      <details>
+        <summary>Do I need advanced prerequisites?</summary>
+        <p>No. Start with fundamentals and move toward project-level implementation.</p>
+      </details>
+    </div>
+  </section>
+
+  <script>
+    const contentList = document.getElementById("latest-articles-list");
+
+    function createCard(article) {
+      const card = document.createElement("article");
+      card.className = "content-card";
+
+      if (article.category) {
+        const pill = document.createElement("span");
+        pill.className = "pill";
+        pill.textContent = article.category;
+        card.appendChild(pill);
+      }
+
+      const title = document.createElement("h3");
+      title.textContent = article.title || "Untitled article";
+      card.appendChild(title);
+
+      const summary = document.createElement("p");
+      summary.textContent = article.summary || "No summary available.";
+      card.appendChild(summary);
+
+      const link = document.createElement("a");
+      link.className = "link-button";
+      link.href = `/${article.url || ""}`;
+      link.textContent = "Read article";
+      card.appendChild(link);
+      return card;
+    }
+
+    fetch("/content.json")
+      .then((response) => {
+        if (!response.ok) throw new Error("Failed to load content");
+        return response.json();
+      })
+      .then((data) => {
+        const articles = Array.isArray(data?.articles) ? data.articles : [];
+        contentList.innerHTML = "";
+
+        if (!articles.length) {
+          const fallback = document.createElement("p");
+          fallback.textContent = "No generated articles yet. Run the pipeline to publish your first cycle.";
+          contentList.appendChild(fallback);
+          return;
+        }
+
+        articles.slice(0, 8).forEach((article) => contentList.appendChild(createCard(article)));
+      })
+      .catch(() => {
+        contentList.innerHTML = "<p>Content feed unavailable right now.</p>";
+      });
+  </script>
+</BaseLayout>
+

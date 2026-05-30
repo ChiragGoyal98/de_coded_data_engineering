@@ -1,36 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>News Briefs | DataFoundry Lab</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-</head>
-<body>
-  <header class="hero hero-tight">
-    <div class="container header-nav">
-      <a class="site-brand" href="index.html"><img class="logo-img" src="logo.svg" alt="DataFoundry Lab logo" /><span>DataFoundry Lab</span></a>
-      <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="apis.html">API/SDK</a>
-      </nav>
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="News Briefs | DE-Coded Lab" description="Periodic data engineering news briefings.">
+  <div slot="hero" class="container hero-content">
+    <p class="eyebrow">Periodic Briefing</p>
+    <h1>Data engineering news stream</h1>
+    <p class="subtitle">Fresh briefings are generated each content cycle and linked from Telegram.</p>
+  </div>
+
+  <section class="section-block">
+    <div id="news-list" class="content-list">
+      <p>Loading latest news...</p>
     </div>
-  </header>
-
-  <main class="container">
-    <section class="section-block">
-      <p class="eyebrow">Periodic Briefing</p>
-      <h1>Data engineering news stream</h1>
-      <p class="subtitle">Fresh briefings are generated each content cycle and linked from Telegram.</p>
-    </section>
-
-    <section class="section-block">
-      <div id="news-list" class="content-list">
-        <p>Loading latest news...</p>
-      </div>
-    </section>
-  </main>
+  </section>
 
   <script>
     const newsList = document.getElementById("news-list");
@@ -53,7 +36,7 @@
       return card;
     }
 
-    fetch("content.json")
+    fetch("/content.json")
       .then((response) => {
         if (!response.ok) throw new Error("Failed to load content");
         return response.json();
@@ -71,6 +54,5 @@
         newsList.innerHTML = "<p>News feed unavailable right now.</p>";
       });
   </script>
-</body>
-</html>
+</BaseLayout>
 

@@ -7,7 +7,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 from dotenv import load_dotenv
 from telegram.error import TelegramError
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+from telegram.ext import Application, ApplicationBuilder, CommandHandler, ContextTypes
 
 load_dotenv()
 
@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 GROUP_ID = os.environ.get("TELEGRAM_GROUP_ID")
 SITE_BASE_URL = os.environ.get("SITE_BASE_URL", "").strip().rstrip("/")
-CONTENT_JSON_PATH = Path(__file__).resolve().parent.parent / "site" / "content.json"
+CONTENT_JSON_PATH = Path(__file__).resolve().parent.parent / "apps" / "web" / "public" / "content.json"
 
 FALLBACK_POSTS = [
     {
@@ -108,14 +108,7 @@ async def post_summary(app):
         logger.error("Failed to post summary: %s", error)
 
 
-async def main():
-    if not BOT_TOKEN:
-        logger.error("TELEGRAM_BOT_TOKEN is not set.")
-        return
-
-    app = ApplicationBuilder().token(BOT_TOKEN).build()
-    app.add_handler(CommandHandler("start", start_command))
-
+async def on_startup(app: Application):
     scheduler = AsyncIOScheduler(timezone="UTC")
     scheduler.add_job(
         post_summary,
@@ -124,14 +117,33 @@ async def main():
         id="summary_every_8_hours",
     )
     scheduler.start()
+    app.bot_data["scheduler"] = scheduler
+    logger.info("Scheduler started for 8-hour posting cycle.")
 
+
+async def on_shutdown(app: Application):
+    scheduler = app.bot_data.get("scheduler")
+    if scheduler:
+        scheduler.shutdown(wait=False)
+        logger.info("Scheduler stopped.")
+
+
+def main():
+    if not BOT_TOKEN:
+        logger.error("TELEGRAM_BOT_TOKEN is not set.")
+        return
+
+    app = (
+        ApplicationBuilder()
+        .token(BOT_TOKEN)
+        .post_init(on_startup)
+        .post_shutdown(on_shutdown)
+        .build()
+    )
+    app.add_handler(CommandHandler("start", start_command))
     logger.info("Bot started. Waiting for updates and 8-hour scheduled posts.")
-    await app.start()
-    await app.updater.start_polling()
-    await app.idle()
+    app.run_polling(close_loop=False)
 
 
 if __name__ == "__main__":
-    import asyncio
-
-    asyncio.run(main())
+    main()

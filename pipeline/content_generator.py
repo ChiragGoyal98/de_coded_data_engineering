@@ -17,8 +17,9 @@ GOOGLE_API_URL = os.getenv(
 ).strip()
 SITE_BASE_URL = os.getenv("SITE_BASE_URL", "https://yourdomain.com").strip().rstrip("/")
 
+ROOT_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = Path(__file__).resolve().parent / "output"
-SITE_DIR = Path(__file__).resolve().parent.parent / "site"
+SITE_DIR = ROOT_DIR / "apps" / "web" / "public"
 SITE_ARTICLES_DIR = SITE_DIR / "articles"
 SITE_CONTENT_FILE = SITE_DIR / "content.json"
 
@@ -99,7 +100,7 @@ def slugify(value: str) -> str:
 
 def build_prompt(category: str, topic: str) -> str:
     return (
-        f"You are writing for a beginner-friendly technical blog titled 'DataFoundry Lab'. "
+        f"You are writing for a beginner-friendly technical blog titled 'DE-Coded Lab'. "
         f"Write a detailed tutorial article about '{topic}' under category '{category}'. "
         "Output plain text only and avoid markdown symbols like #, *, or bullets that start with markdown syntax. "
         "Structure as: Introduction, Why it matters, Step-by-step walkthrough, Common mistakes, One practice task. "
@@ -134,13 +135,13 @@ def build_article_html(topic: str, generated_text: str, summary: str) -> str:
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{html.escape(topic)} | DataFoundry Lab</title>
+  <title>{html.escape(topic)} | DE-Coded Lab</title>
   <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
   <header class="hero hero-tight">
     <div class="container header-nav">
-      <a class="site-brand" href="../index.html"><img class="logo-img" src="../logo.svg" alt="DataFoundry Lab logo" /><span>DataFoundry Lab</span></a>
+      <a class="site-brand" href="../index.html"><img class="logo-img" src="../logo.svg" alt="DE-Coded Lab logo" /><span>DE-Coded Lab</span></a>
       <nav class="site-nav">
         <a href="../index.html">Home</a>
         <a href="../news.html">News</a>
@@ -340,3 +341,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

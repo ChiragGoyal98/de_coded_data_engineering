@@ -1,7 +1,8 @@
-import os
-import json
 import asyncio
+import json
+import os
 from pathlib import Path
+
 from dotenv import load_dotenv
 from telegram import Bot
 
@@ -10,7 +11,7 @@ load_dotenv()
 BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 GROUP_ID = os.environ.get("TELEGRAM_GROUP_ID")
 SITE_BASE_URL = os.environ.get("SITE_BASE_URL", "").strip().rstrip("/")
-CONTENT_JSON_PATH = Path(__file__).resolve().parent.parent / "site" / "content.json"
+CONTENT_JSON_PATH = Path(__file__).resolve().parent.parent / "apps" / "web" / "public" / "content.json"
 
 if not BOT_TOKEN or not GROUP_ID:
     raise SystemExit(
@@ -25,8 +26,8 @@ def load_site_content():
     try:
         with CONTENT_JSON_PATH.open("r", encoding="utf-8") as handle:
             return json.load(handle)
-    except Exception as e:
-        print(f"Warning: Failed to load content: {e}")
+    except Exception as err:
+        print(f"Warning: Failed to load content: {err}")
         return None
 
 
@@ -34,9 +35,10 @@ def find_today_news(news_items):
     if not isinstance(news_items, list):
         return None
     from datetime import datetime
+
     today = datetime.utcnow().date().isoformat()
     for item in news_items:
-        if isinstance(item, dict) and item.get("published") == today:
+        if isinstance(item, dict) and item.get("published", "").startswith(today):
             return item
     return None
 
@@ -60,28 +62,23 @@ def build_message(post: dict, news_item=None) -> str:
 
 async def send_test():
     content = load_site_content()
-    
     if not content or not content.get("articles"):
         print("No content available. Run the generator first.")
         return
 
-    articles = content.get("articles", [])
-    news_items = content.get("news", [])
-    news_item = find_today_news(news_items)
-
-    post = articles[0]
+    post = content["articles"][0]
+    news_item = find_today_news(content.get("news", []))
     message = build_message(post, news_item)
 
     try:
         async with Bot(token=BOT_TOKEN) as bot:
             result = await bot.send_message(chat_id=GROUP_ID, text=message, parse_mode="Markdown")
-            print("✓ Test message sent successfully.")
-            print(f"  Message ID: {result.message_id}")
-            print(f"  Article: {post['title']}")
-            if news_item:
-                print(f"  News included: Yes")
-    except Exception as e:
-        raise SystemExit(f"Failed to send message: {e}")
+            print("Test message sent successfully.")
+            print(f"Message ID: {result.message_id}")
+            print(f"Article: {post['title']}")
+            print(f"News included: {'Yes' if news_item else 'No'}")
+    except Exception as err:
+        raise SystemExit(f"Failed to send message: {err}")
 
 
 if __name__ == "__main__":
