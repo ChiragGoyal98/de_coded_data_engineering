@@ -22,23 +22,11 @@ OUTPUT_DIR = Path(__file__).resolve().parent / "output"
 SITE_DIR = ROOT_DIR / "apps" / "web" / "public"
 SITE_ARTICLES_DIR = SITE_DIR / "articles"
 SITE_CONTENT_FILE = SITE_DIR / "content.json"
-
-TOPIC_POOL = [
-    {"category": "Programming Basics", "title": "Python OOP for Data Engineers"},
-    {"category": "Programming Basics", "title": "SQL Window Functions with Real ETL Use Cases"},
-    {"category": "Programming Basics", "title": "PySpark Transformations for Large Datasets"},
-    {"category": "Azure", "title": "Azure Data Factory orchestration patterns"},
-    {"category": "Azure", "title": "Azure Synapse Analytics fundamentals"},
-    {"category": "Azure", "title": "Azure Data Lake design for analytics teams"},
-    {"category": "Databricks", "title": "Databricks Delta Lake best practices"},
-    {"category": "Databricks", "title": "Databricks notebook collaboration best practices"},
-    {"category": "LLM APIs", "title": "Calling LLM APIs from Python with retries and fallbacks"},
-    {"category": "LLM APIs", "title": "SDK patterns for production-grade AI integrations"},
-]
+TOPICS_FILE = Path(__file__).resolve().parent / "topics.json"
 
 NEWS_PROMPT = (
-    "Write a concise beginner-friendly data engineering news brief. "
-    "Focus on verified and generic trends without inventing product launches or dates. "
+    "Write a concise beginner-friendly data engineering news brief for 'DE-Coded Lab'. "
+    "Do not include a title or date in the body. Focus on verified and generic trends. "
     "Include three bullets: cloud platforms, AI API tooling, and practical learner advice."
 )
 MAX_NEWS_ITEMS = 10
@@ -127,9 +115,68 @@ def build_article_full_link(slug: str) -> str:
     return f"{SITE_BASE_URL}/articles/{slug}.html"
 
 
+def convert_markdown_to_html(text: str) -> str:
+    """Basic markdown to HTML converter for headers, bold, and lists."""
+    lines = text.split("\n")
+    html_output = []
+    in_list = False
+    in_code_block = False
+
+    for line in lines:
+        stripped = line.strip()
+
+        # Handle Code Blocks
+        if stripped.startswith("```"):
+            if in_code_block:
+                html_output.append("</code></pre></div>")
+                in_code_block = False
+            else:
+                html_output.append('<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code>')
+                in_code_block = True
+            continue
+        
+        if in_code_block:
+            html_output.append(html.escape(line))
+            continue
+
+        line = stripped
+        if not line:
+            if in_list:
+                html_output.append("</ul>")
+                in_list = False
+            continue
+
+        # Headers
+        if line.startswith("### "):
+            if in_list: html_output.append("</ul>"); in_list = False
+            html_output.append(f"<h3>{html.escape(line[4:])}</h3>")
+        elif line.startswith("## "):
+            if in_list: html_output.append("</ul>"); in_list = False
+            html_output.append(f"<h2>{html.escape(line[3:])}</h2>")
+        # Lists
+        elif line.startswith("* ") or line.startswith("- "):
+            if not in_list:
+                html_output.append("<ul>")
+                in_list = True
+            html_output.append(f"<li>{html.escape(line[2:])}</li>")
+        # Paragraphs
+        else:
+            if in_list:
+                html_output.append("</ul>")
+                in_list = False
+            
+            # Handle bold text within paragraphs
+            content = html.escape(line)
+            content = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', content)
+            html_output.append(f"<p>{content}</p>")
+
+    if in_list:
+        html_output.append("</ul>")
+    return "\n".join(html_output)
+
+
 def build_article_html(topic: str, generated_text: str, summary: str) -> str:
-    paragraphs = [html.escape(paragraph.strip()) for paragraph in generated_text.split("\n\n") if paragraph.strip()]
-    body_html = "\n".join(f"<p>{paragraph}</p>" for paragraph in paragraphs)
+    body_html = convert_markdown_to_html(generated_text)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,6 +184,17 @@ def build_article_html(topic: str, generated_text: str, summary: str) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{html.escape(topic)} | DE-Coded Lab</title>
   <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .code-container {{ position: relative; margin: 1.5rem 0; border: 1px solid #e1e4e8; border-radius: 6px; overflow: hidden; }}
+    .copy-button {{ 
+      position: absolute; top: 0.5rem; right: 0.5rem; z-index: 10;
+      padding: 0.4rem 0.8rem; font-size: 0.75rem; font-weight: 600;
+      cursor: pointer; background: #ffffff; border: 1px solid #d1d5da; border-radius: 4px;
+      transition: background-color 0.2s, box-shadow 0.2s;
+    }}
+    .copy-button:hover {{ background-color: #f3f4f6; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }}
+    pre {{ margin: 0 !important; padding: 1.2rem !important; background: #f6f8fa; overflow-x: auto; }}
+  </style>
 </head>
 <body>
   <header class="hero hero-tight">
@@ -158,6 +216,16 @@ def build_article_html(topic: str, generated_text: str, summary: str) -> str:
       <p><a class="link-button" href="../index.html">Back to home</a></p>
     </article>
   </main>
+  <script>
+    function copyCode(button) {{
+      const pre = button.nextElementSibling;
+      const code = pre.querySelector('code');
+      navigator.clipboard.writeText(code.innerText).then(() => {{
+        button.textContent = 'Copied!';
+        setTimeout(() => {{ button.textContent = 'Copy'; }}, 2000);
+      }});
+    }}
+  </script>
 </body>
 </html>
 """
@@ -278,11 +346,17 @@ def pick_next_topic(existing_articles):
         for item in existing_articles
         if isinstance(item, dict)
     }
-    for entry in TOPIC_POOL:
+    
+    topic_pool = []
+    if TOPICS_FILE.exists():
+        topic_pool = json.loads(TOPICS_FILE.read_text(encoding="utf-8"))
+    
+    for entry in topic_pool:
         if slugify(entry["title"]) not in existing_slugs:
             return entry
-    index = datetime.utcnow().hour % len(TOPIC_POOL)
-    return TOPIC_POOL[index]
+    
+    index = datetime.utcnow().hour % len(topic_pool) if topic_pool else 0
+    return topic_pool[index] if topic_pool else {"category": "General", "title": "Data Engineering"}
 
 
 def main() -> None:
@@ -311,10 +385,12 @@ def main() -> None:
         "url": build_article_url(slug),
         "full_url": build_article_full_link(slug),
         "published": datetime.utcnow().isoformat() + "Z",
+        "is_new": True
     }
 
     articles = [article_data]
     for article in existing_articles:
+        article["is_new"] = False
         if isinstance(article, dict) and slugify(article.get("title", "")) != slug:
             articles.append(article)
     articles = articles[:MAX_ARTICLES]
@@ -324,15 +400,22 @@ def main() -> None:
     if not any(isinstance(item, dict) and item.get("published_cycle") == cycle_stamp for item in news):
         print("Generating a fresh news update for this cycle.")
         news_text = normalize_text(parse_google_response(request_google_ai(NEWS_PROMPT)))
+        # Format the news body as HTML before storing
+        formatted_news = convert_markdown_to_html(news_text)
         news.insert(
             0,
             {
-                "headline": build_summary(news_text),
-                "body": news_text,
+                "headline": build_summary(news_text).replace("#", "").strip(),
+                "body": formatted_news,
                 "published": datetime.utcnow().isoformat() + "Z",
                 "published_cycle": cycle_stamp,
+                "is_new": True
             },
         )
+    
+    for i, item in enumerate(news):
+        if i > 0: item["is_new"] = False
+        
     news = news[:MAX_NEWS_ITEMS]
 
     content_path = save_site_content(articles, news)
@@ -341,4 +424,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

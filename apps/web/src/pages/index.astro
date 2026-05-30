@@ -103,10 +103,42 @@ const base = import.meta.env.BASE_URL;
 
   <section class="section-block">
     <h2>Latest generated articles</h2>
+    <div class="search-container">
+      <input type="text" id="article-search" placeholder="Search tutorials by title, category, or summary..." class="search-input" />
+    </div>
     <div id="latest-articles-list" class="content-list">
       <p>Loading latest articles...</p>
     </div>
   </section>
+
+  <style>
+    .search-container {
+      margin-bottom: 2rem;
+    }
+    .search-input {
+      width: 100%;
+      max-width: 500px;
+      padding: 0.8rem 1.2rem;
+      border: 2px solid #eaeaea;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus {
+      outline: none;
+      border-color: #0078d4;
+    }
+
+    /* Code Copy Styles */
+    :global(.code-container) { position: relative; margin: 1.5rem 0; border: 1px solid #e1e4e8; border-radius: 6px; overflow: hidden; }
+    :global(.copy-button) { 
+      position: absolute; top: 0.5rem; right: 0.5rem; z-index: 10;
+      padding: 0.4rem 0.8rem; font-size: 0.75rem; font-weight: 600;
+      cursor: pointer; background: #ffffff; border: 1px solid #d1d5da; border-radius: 4px;
+    }
+    :global(.copy-button:hover) { background-color: #f3f4f6; }
+    :global(pre) { margin: 0 !important; padding: 1.2rem !important; background: #f6f8fa; overflow-x: auto; }
+  </style>
 
   <section class="section-block">
     <h2>FAQ</h2>
@@ -128,10 +160,31 @@ const base = import.meta.env.BASE_URL;
 
   <script define:vars={{ base }}>
     const contentList = document.getElementById("latest-articles-list");
+    const searchInput = document.getElementById("article-search");
+    let allArticles = [];
+
+    // Global copy function for injected HTML
+    window.copyCode = function(button) {
+      const pre = button.nextElementSibling;
+      const code = pre.querySelector('code');
+      navigator.clipboard.writeText(code.innerText).then(() => {
+        button.textContent = 'Copied!';
+        setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+      });
+    };
 
     function createCard(article) {
       const card = document.createElement("article");
-      card.className = "content-card";
+      card.className = `content-card ${article.is_new ? 'highlight-new' : ''}`;
+
+      if (article.is_new) {
+        const badge = document.createElement("span");
+        badge.className = "badge-new";
+        badge.textContent = "NEW";
+        // Note: You may need to add CSS for .badge-new and .highlight-new 
+        // in your global styles if not already present.
+        card.appendChild(badge);
+      }
 
       if (article.category) {
         const pill = document.createElement("span");
@@ -156,27 +209,48 @@ const base = import.meta.env.BASE_URL;
       return card;
     }
 
+    function renderArticles(articlesToRender) {
+      contentList.innerHTML = "";
+
+      if (!articlesToRender.length) {
+        const fallback = document.createElement("p");
+        fallback.textContent = "No articles found matching your search.";
+        contentList.appendChild(fallback);
+        return;
+      }
+
+      articlesToRender.forEach((article) => contentList.appendChild(createCard(article)));
+    }
+
+    searchInput.addEventListener("input", (e) => {
+      const searchTerm = e.target.value.toLowerCase().trim();
+      
+      if (!searchTerm) {
+        // Show only the latest 8 when search is empty
+        renderArticles(allArticles.slice(0, 8));
+        return;
+      }
+
+      const filtered = allArticles.filter(article => 
+        (article.title || "").toLowerCase().includes(searchTerm) || 
+        (article.summary || "").toLowerCase().includes(searchTerm) ||
+        (article.category || "").toLowerCase().includes(searchTerm)
+      );
+      
+      renderArticles(filtered);
+    });
+
     fetch(`${base}content.json`)
       .then((response) => {
         if (!response.ok) throw new Error("Failed to load content");
         return response.json();
       })
       .then((data) => {
-        const articles = Array.isArray(data?.articles) ? data.articles : [];
-        contentList.innerHTML = "";
-
-        if (!articles.length) {
-          const fallback = document.createElement("p");
-          fallback.textContent = "No generated articles yet. Run the pipeline to publish your first cycle.";
-          contentList.appendChild(fallback);
-          return;
-        }
-
-        articles.slice(0, 8).forEach((article) => contentList.appendChild(createCard(article)));
+        allArticles = Array.isArray(data?.articles) ? data.articles : [];
+        renderArticles(allArticles.slice(0, 8));
       })
       .catch(() => {
         contentList.innerHTML = "<p>Content feed unavailable right now.</p>";
       });
   </script>
 </BaseLayout>
-
