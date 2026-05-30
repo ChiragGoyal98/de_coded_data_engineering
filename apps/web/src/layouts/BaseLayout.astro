@@ -5,6 +5,8 @@ interface Props {
 }
 
 const { title, description = "DE-Coded Lab for data engineering learning." } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const withBase = (path: string) => `${base}${path}`;
 ---
 
 <!doctype html>
@@ -14,23 +16,23 @@ const { title, description = "DE-Coded Lab for data engineering learning." } = A
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={withBase("favicon.svg")} type="image/svg+xml" />
     <meta name="theme-color" content="#0a7f58" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href={withBase("styles.css")} />
   </head>
   <body>
     <header class="hero">
       <div class="container header-nav">
-        <a class="site-brand" href="/">
-          <img class="logo-img" src="/logo.svg" alt="DE-Coded Lab logo" />
+        <a class="site-brand" href={base}>
+          <img class="logo-img" src={withBase("logo.svg")} alt="DE-Coded Lab logo" />
           <span>DE-Coded Lab</span>
         </a>
         <nav class="site-nav">
-          <a href="/#learn">Learn</a>
-          <a href="/#practice">Practice</a>
-          <a href="/#resources">Resources</a>
-          <a href="/news">News</a>
-          <a href="/about">About</a>
+          <a href={`${base}#learn`}>Learn</a>
+          <a href={`${base}#practice`}>Practice</a>
+          <a href={`${base}#resources`}>Resources</a>
+          <a href={withBase("news")}>News</a>
+          <a href={withBase("about")}>About</a>
         </nav>
       </div>
       <slot name="hero" />
