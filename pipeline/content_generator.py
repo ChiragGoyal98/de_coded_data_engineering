@@ -8,6 +8,8 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+from site_urls import article_public_url, canonical_site_base_url
+
 load_dotenv()
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "").strip()
@@ -15,8 +17,7 @@ GOOGLE_API_URL = os.getenv(
     "GOOGLE_API_URL",
     "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
 ).strip()
-DEFAULT_SITE_BASE_URL = "https://chiraggoyal98.github.io/de_coded_data_engineering"
-SITE_BASE_URL = os.getenv("SITE_BASE_URL", DEFAULT_SITE_BASE_URL).strip().rstrip("/")
+SITE_BASE_URL = canonical_site_base_url(os.getenv("SITE_BASE_URL"))
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = Path(__file__).resolve().parent / "output"
@@ -112,6 +113,7 @@ def build_summary(generated_text: str) -> str:
 
     ignore_patterns = [
         r"^WELCOME TO",
+        r"^WELCOME BACK",
         r"^DE-CODED",
         r"^HERE IS",
         r"^TITLE:",
@@ -162,7 +164,7 @@ def build_article_url(slug: str) -> str:
 
 
 def build_article_full_link(slug: str) -> str:
-    return f"{SITE_BASE_URL.rstrip('/')}/articles/{slug}.html"
+    return article_public_url(SITE_BASE_URL, build_article_url(slug))
 
 
 def slug_from_article_url(url: str) -> str:
@@ -183,11 +185,7 @@ def normalize_article_entry(article: dict) -> dict:
     slug = slug_from_article_url(url) if url else slugify(title)
     article["url"] = build_article_url(slug)
 
-    full_url = article.get("full_url", "")
-    if not full_url or any(host in full_url for host in PLACEHOLDER_HOSTS):
-        article["full_url"] = build_article_full_link(slug)
-    elif SITE_BASE_URL.lower() not in full_url.lower():
-        article["full_url"] = build_article_full_link(slug)
+    article["full_url"] = build_article_full_link(slug)
     return article
 
 

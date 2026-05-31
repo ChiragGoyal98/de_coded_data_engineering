@@ -34,7 +34,7 @@
 - `GOOGLE_API_URL`
 - `TELEGRAM_BOT_TOKEN`
 - `TELEGRAM_GROUP_ID`
-- `SITE_BASE_URL`
+- `SITE_BASE_URL` (optional; must be exactly `https://chiraggoyal98.github.io/de_coded_data_engineering` if set — typos like `decodeddataengineering` are ignored)
 
 ## GitHub secrets setup
 In your repository:

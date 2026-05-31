@@ -5,6 +5,7 @@ env:
 
 permissions:
   contents: write
+  actions: write
 
 on:
   workflow_dispatch: {}
@@ -32,18 +33,52 @@ jobs:
 
       - run: python -m pip install --upgrade pip
       - run: pip install -r requirements.txt
+
       - name: Validate required secrets
         run: |
           test -n "$GOOGLE_API_KEY"
           test -n "$GOOGLE_API_URL"
           test -n "$TELEGRAM_BOT_TOKEN"
           test -n "$TELEGRAM_GROUP_ID"
-          test -n "$SITE_BASE_URL"
-      - run: python pipeline/content_generator.py
-      - run: python bot/send_test_message.py
 
-      - run: |
+      - name: Pin canonical GitHub Pages base URL
+        run: |
+          CANONICAL="https://chiraggoyal98.github.io/de_coded_data_engineering"
+          if [ -n "$SITE_BASE_URL" ] && [ "$SITE_BASE_URL" != "$CANONICAL" ]; then
+            echo "::warning::SITE_BASE_URL secret is '$SITE_BASE_URL' — using canonical $CANONICAL"
+          fi
+          echo "SITE_BASE_URL=$CANONICAL" >> "$GITHUB_ENV"
+
+      - run: python pipeline/content_generator.py
+
+      - name: Commit generated content
+        id: commit
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add apps/web/public/content.json apps/web/public/articles || true
-          git diff --cached --quiet || (git commit -m "chore: update generated site content" && git push)
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "chore: update generated site content"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Trigger GitHub Pages deploy
+        if: steps.commit.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'deploy-github-pages.yml',
+              ref: 'main',
+            });
+
+      - name: Wait for Pages deploy to start
+        if: steps.commit.outputs.changed == 'true'
+        run: sleep 90
+
+      - run: python bot/send_test_message.py

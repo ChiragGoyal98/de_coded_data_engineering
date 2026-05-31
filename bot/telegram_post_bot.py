@@ -10,7 +10,16 @@ from dotenv import load_dotenv
 from telegram.error import TelegramError
 from telegram.ext import Application, ApplicationBuilder, CommandHandler, ContextTypes
 
+import sys
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+PIPELINE_DIR = ROOT_DIR / "pipeline"
+if str(PIPELINE_DIR) not in sys.path:
+    sys.path.insert(0, str(PIPELINE_DIR))
+
 from messages import build_message
+from site_urls import canonical_site_base_url
 
 load_dotenv()
 
@@ -19,10 +28,7 @@ logger = logging.getLogger(__name__)
 
 BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 GROUP_ID = os.environ.get("TELEGRAM_GROUP_ID")
-SITE_BASE_URL = os.environ.get(
-    "SITE_BASE_URL",
-    "https://chiraggoyal98.github.io/de_coded_data_engineering",
-).strip().rstrip("/")
+SITE_BASE_URL = canonical_site_base_url(os.environ.get("SITE_BASE_URL"))
 CONTENT_JSON_PATH = Path(__file__).resolve().parent.parent / "apps" / "web" / "public" / "content.json"
 
 FALLBACK_POSTS = [

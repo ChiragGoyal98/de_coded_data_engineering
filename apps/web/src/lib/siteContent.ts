@@ -165,6 +165,7 @@ export function cleanArticleSummary(summary?: string): string {
     .filter(Boolean);
 
   const skip = (text: string) =>
+    /^welcome back/i.test(text) ||
     /^welcome to/i.test(text) ||
     /^de-coded lab:/i.test(text) ||
     /^here is a polished/i.test(text) ||

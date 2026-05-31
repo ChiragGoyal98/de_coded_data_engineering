@@ -1,16 +1,23 @@
 """Shared Telegram message formatting for DE-Coded Lab."""
 
-SITE_BASE_URL = "https://chiraggoyal98.github.io/de_coded_data_engineering"
+import sys
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+PIPELINE_DIR = ROOT_DIR / "pipeline"
+if str(PIPELINE_DIR) not in sys.path:
+    sys.path.insert(0, str(PIPELINE_DIR))
+
+from site_urls import CANONICAL_SITE_BASE_URL, article_public_url, canonical_site_base_url  # noqa: E402
+
+SITE_BASE_URL = CANONICAL_SITE_BASE_URL
 
 
 def resolve_article_url(post: dict, site_base_url: str) -> str:
-    base = (site_base_url or SITE_BASE_URL).strip().rstrip("/")
-    full_url = post.get("full_url", "")
-    if base and full_url and base.lower() in full_url.lower():
-        return full_url
+    base = canonical_site_base_url(site_base_url)
     path = (post.get("url") or "").lstrip("/")
     if path:
-        return f"{base}/{path}"
+        return article_public_url(base, path)
     return f"{base}/"
 
 
@@ -39,6 +46,6 @@ def build_message(post: dict, news_item=None, *, site_base_url: str = SITE_BASE_
         msg.append(f"📰 *News:* {headline}")
         msg.append("")
 
-    site = site_base_url.strip().rstrip("/") or SITE_BASE_URL
+    site = canonical_site_base_url(site_base_url)
     msg.append(f"👉 Visit [DE-Coded Lab]({site}/)")
     return "\n".join(msg)
