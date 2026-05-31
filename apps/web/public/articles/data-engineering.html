@@ -32,29 +32,27 @@
     <article class="article-page section-block">
       <p class="eyebrow">Generated Article</p>
       <h1>Data Engineering</h1>
-      <p class="article-summary">Imagine you are building a high-tech car. You have a powerful engine and a sleek design, but if the fuel you put into it is filled with dirt and water, the car will not move. In the world of technology, data is the fuel. Data Engineering...</p>
+      <p class="article-summary">Welcome to DE-Coded Lab. Today, we are exploring the foundation of the modern data world: Data Engineering. If data is the new oil, then data engineers are the architects who build the refineries, pipelines, and transportation networks...</p>
       <p>DE-Coded Lab: Data Engineering 101</p>
-<p>Category: General</p>
 <p>Introduction</p>
-<p>Imagine you are building a high-tech car. You have a powerful engine and a sleek design, but if the fuel you put into it is filled with dirt and water, the car will not move. In the world of technology, data is the fuel. Data Engineering is the practice of designing and building systems that collect, clean, and transport this fuel so that data scientists and analysts can use it to drive insights. While a data scientist looks for patterns in the data, a data engineer makes sure that the data is available, reliable, and high-quality in the first place. Think of it as the plumbing and infrastructure of the digital age.</p>
-<p>Why It Matters</p>
-<p>Without data engineering, most big tech companies would grind to a halt. We live in an era of big data where information comes from millions of sources like sensors, apps, and websites every second. If this data is not organized, it is just digital noise. Data engineering matters because it ensures data integrity. It allows businesses to make real-time decisions, powers the recommendation algorithms on your favorite streaming services, and provides the clean datasets required to train Artificial Intelligence. If the foundation is weak, the entire analytical structure collapses. By building robust pipelines, data engineers turn raw, messy information into a valuable asset.</p>
-<p>Step-by-Step Walkthrough: Building a Basic Pipeline</p>
-<p>Building a data pipeline usually follows a process known as ETL, which stands for Extract, Transform, and Load.</p>
-<p>Step 1: Extraction. This is the collection phase. You gather data from various sources, such as a database, a cloud storage bucket, or a public API. At this stage, the data is usually raw and unstructured.</p>
-<p>Step 2: Transformation. This is where the magic happens. You clean the data by removing duplicates, fixing formatting errors, and filtering out unnecessary information. You might also perform calculations or join different datasets together to make them more useful.</p>
-<p>Step 3: Loading. Once the data is clean and ready, you move it into a destination where it can be analyzed. This is typically a data warehouse like Snowflake or a data lake. From here, an analyst can plug in a visualization tool like Tableau or PowerBI to create reports.</p>
-<p>Code Example: A Simple Transformation in Python</p>
-<p>Data engineers often use Python to handle data. Here is a simple example of how you might transform a list of user ages to keep only those who are over 18.</p>
-<p>users = [{&#x27;name&#x27;: &#x27;Alice&#x27;, &#x27;age&#x27;: 25}, {&#x27;name&#x27;: &#x27;Bob&#x27;, &#x27;age&#x27;: 16}, {&#x27;name&#x27;: &#x27;Charlie&#x27;, &#x27;age&#x27;: 30}]</p>
-<p>adults = [user for user in users if user[&#x27;age&#x27;] &gt;= 18]</p>
-<p>print(adults)</p>
-<p>Common Mistakes</p>
-<p>One of the most frequent mistakes beginners make is ignoring data quality checks. Just because a pipeline runs without errors does not mean the data is correct. You must always validate that your data matches expected formats and ranges.</p>
-<p>Another common pitfall is over-engineering. It is tempting to use the newest, most complex tools available, but often a simple script is more efficient and easier to maintain.</p>
-<p>Finally, many fail to document their pipelines. If you build a complex system but don&#x27;t explain where the data comes from or what the transformations do, it becomes a nightmare for anyone else to fix or update later.</p>
-<p>One Practice Task</p>
-<p>To get your hands dirty, try this simple task: Create a text file with five lines of random names and numbers, representing a name and a transaction amount (for example: John, 50). Write a small Python script to read that file, add 10 to every transaction amount, and print the results to your console. This mimics the basic Extract and Transform steps of a real-world data pipeline.</p>
+<p>Welcome to DE-Coded Lab. Today, we are exploring the foundation of the modern data world: Data Engineering. If data is the new oil, then data engineers are the architects who build the refineries, pipelines, and transportation networks that turn crude information into something useful. In simple terms, data engineering is the practice of designing and building systems for collecting, storing, and analyzing data at scale. While data scientists focus on interpreting data, data engineers focus on making sure that data is clean, reliable, and available in the first place.</p>
+<p>Why it matters</p>
+<p>Without data engineering, the world of artificial intelligence and business analytics would fall apart. Organizations today collect massive amounts of information, but that information is often messy, stored in different formats, and scattered across various locations. Data engineering matters because it provides the structure and reliability needed for high-level decision making. If a company makes a billion-dollar decision based on incorrect data, the consequences are disastrous. By building robust pipelines, data engineers ensure the &quot;garbage in, garbage out&quot; problem is minimized, allowing businesses to trust their insights.</p>
+<p>Step-by-step walkthrough</p>
+<p>The core of data engineering is often described through a process called ETL, which stands for Extract, Transform, and Load. Here is how a typical project moves from start to finish.</p>
+<p>Step 1: Extract. This is the process of pulling raw data from various sources. These sources could be traditional SQL databases, external APIs, or even simple spreadsheets. The goal is to gather everything into a central environment.</p>
+<p>Step 2: Transform. Raw data is rarely ready for use. It might have missing values, duplicate entries, or inconsistent date formats. During the transformation stage, engineers clean the data. This involves filtering out errors, joining different datasets together, and converting the data into a format that is easy to read.</p>
+<p>Step 3: Load. Once the data is clean and organized, it is moved to a final destination. This is usually a data warehouse or a data lake where analysts and data scientists can access it easily for their reports and models.</p>
+<p>Here is a short Python example using the Pandas library to demonstrate a simple transformation where we remove empty values:</p>
+<p>import pandas as pd</p>
+<p>raw_data = {&#x27;User&#x27;: [&#x27;Alex&#x27;, &#x27;Sam&#x27;, &#x27;Jordan&#x27;], &#x27;Score&#x27;: [95, None, 88]}</p>
+<p>df = pd.DataFrame(raw_data)</p>
+<p>clean_data = df.dropna()</p>
+<p>print(clean_data)</p>
+<p>Common mistakes</p>
+<p>One of the most common mistakes beginners make is neglecting data quality checks. It is easy to assume the data coming in is correct, but a good engineer always writes tests to verify that the numbers make sense. Another mistake is over-engineering. Beginners often try to use complex tools like Spark or Hadoop for small tasks that could be handled by a simple script. Finally, many people forget to document their work. A data pipeline is a living system, and if you do not document where the data comes from and how it changes, it becomes a nightmare to fix when something breaks.</p>
+<p>One practice task</p>
+<p>To get started, try a basic extraction and transformation task. Find a public CSV file online, such as a list of city populations or historical stock prices. Write a small Python script to read that file and filter the results to show only rows that meet a specific condition, such as cities with a population over one million. Once you have filtered the data, save it into a new file. This simple exercise covers the fundamental logic used in massive industrial data pipelines.</p>
       <p><a class="link-button" href="../index.html">Back to home</a></p>
     </article>
   </main>
