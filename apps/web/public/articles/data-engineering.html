@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Engineering | DE-Coded Lab</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .code-container { position: relative; margin: 1.5rem 0; border: 1px solid #e1e4e8; border-radius: 6px; overflow: hidden; }
+    .copy-button { 
+      position: absolute; top: 0.5rem; right: 0.5rem; z-index: 10;
+      padding: 0.4rem 0.8rem; font-size: 0.75rem; font-weight: 600;
+      cursor: pointer; background: #ffffff; border: 1px solid #d1d5da; border-radius: 4px;
+      transition: background-color 0.2s, box-shadow 0.2s;
+    }
+    .copy-button:hover { background-color: #f3f4f6; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    pre { margin: 0 !important; padding: 1.2rem !important; background: #f6f8fa; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <header class="hero hero-tight">
+    <div class="container header-nav">
+      <a class="site-brand" href="../index.html"><img class="logo-img" src="../logo.svg" alt="DE-Coded Lab logo" /><span>DE-Coded Lab</span></a>
+      <nav class="site-nav">
+        <a href="../index.html">Home</a>
+        <a href="../news.html">News</a>
+        <a href="../apis.html">API/SDK</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <article class="article-page section-block">
+      <p class="eyebrow">Generated Article</p>
+      <h1>Data Engineering</h1>
+      <p class="article-summary">Welcome to DE-Coded Lab. Today, we are exploring the foundation of the modern data world: Data Engineering. If data is the new oil, then data engineers are the architects who build the refineries, pipelines, and transportation networks...</p>
+      <p>DE-Coded Lab: Data Engineering 101</p>
+<p>Introduction</p>
+<p>Welcome to DE-Coded Lab. Today, we are exploring the foundation of the modern data world: Data Engineering. If data is the new oil, then data engineers are the architects who build the refineries, pipelines, and transportation networks that turn crude information into something useful. In simple terms, data engineering is the practice of designing and building systems for collecting, storing, and analyzing data at scale. While data scientists focus on interpreting data, data engineers focus on making sure that data is clean, reliable, and available in the first place.</p>
+<p>Why it matters</p>
+<p>Without data engineering, the world of artificial intelligence and business analytics would fall apart. Organizations today collect massive amounts of information, but that information is often messy, stored in different formats, and scattered across various locations. Data engineering matters because it provides the structure and reliability needed for high-level decision making. If a company makes a billion-dollar decision based on incorrect data, the consequences are disastrous. By building robust pipelines, data engineers ensure the &quot;garbage in, garbage out&quot; problem is minimized, allowing businesses to trust their insights.</p>
+<p>Step-by-step walkthrough</p>
+<p>The core of data engineering is often described through a process called ETL, which stands for Extract, Transform, and Load. Here is how a typical project moves from start to finish.</p>
+<p>Step 1: Extract. This is the process of pulling raw data from various sources. These sources could be traditional SQL databases, external APIs, or even simple spreadsheets. The goal is to gather everything into a central environment.</p>
+<p>Step 2: Transform. Raw data is rarely ready for use. It might have missing values, duplicate entries, or inconsistent date formats. During the transformation stage, engineers clean the data. This involves filtering out errors, joining different datasets together, and converting the data into a format that is easy to read.</p>
+<p>Step 3: Load. Once the data is clean and organized, it is moved to a final destination. This is usually a data warehouse or a data lake where analysts and data scientists can access it easily for their reports and models.</p>
+<p>Here is a short Python example using the Pandas library to demonstrate a simple transformation where we remove empty values:</p>
+<p>import pandas as pd</p>
+<p>raw_data = {&#x27;User&#x27;: [&#x27;Alex&#x27;, &#x27;Sam&#x27;, &#x27;Jordan&#x27;], &#x27;Score&#x27;: [95, None, 88]}</p>
+<p>df = pd.DataFrame(raw_data)</p>
+<p>clean_data = df.dropna()</p>
+<p>print(clean_data)</p>
+<p>Common mistakes</p>
+<p>One of the most common mistakes beginners make is neglecting data quality checks. It is easy to assume the data coming in is correct, but a good engineer always writes tests to verify that the numbers make sense. Another mistake is over-engineering. Beginners often try to use complex tools like Spark or Hadoop for small tasks that could be handled by a simple script. Finally, many people forget to document their work. A data pipeline is a living system, and if you do not document where the data comes from and how it changes, it becomes a nightmare to fix when something breaks.</p>
+<p>One practice task</p>
+<p>To get started, try a basic extraction and transformation task. Find a public CSV file online, such as a list of city populations or historical stock prices. Write a small Python script to read that file and filter the results to show only rows that meet a specific condition, such as cities with a population over one million. Once you have filtered the data, save it into a new file. This simple exercise covers the fundamental logic used in massive industrial data pipelines.</p>
+      <p><a class="link-button" href="../index.html">Back to home</a></p>
+    </article>
+  </main>
+  <script>
+    function copyCode(button) {
+      const pre = button.nextElementSibling;
+      const code = pre.querySelector('code');
+      navigator.clipboard.writeText(code.innerText).then(() => {
+        button.textContent = 'Copied!';
+        setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
