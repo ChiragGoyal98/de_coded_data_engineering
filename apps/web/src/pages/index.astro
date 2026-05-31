@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import {
   articleHref,
   articleSearchText,
+  cleanArticleSummary,
   loadSiteContent,
 } from "../lib/siteContent";
 
@@ -135,7 +136,7 @@ const initialVisibleCount = 8;
               {article.is_new ? <span class="badge-new">NEW</span> : null}
               {article.category ? <span class="pill">{article.category}</span> : null}
               <h3>{article.title}</h3>
-              <p>{article.summary || "No summary available."}</p>
+              <p>{cleanArticleSummary(article.summary)}</p>
               <a class="link-button" href={articleHref(base, article)}>
                 Read article
               </a>

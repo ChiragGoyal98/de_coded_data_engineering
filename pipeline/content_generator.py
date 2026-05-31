@@ -27,10 +27,13 @@ TOPICS_FILE = ROOT_DIR / "topics.json"
 PLACEHOLDER_HOSTS = ("yourdomain.com", "example.com")
 
 NEWS_PROMPT = (
-    "Provide a single-line catchy headline for a data engineering news brief. "
-    "Then, on new lines, write a concise beginner-friendly summary. "
-    "Include three bullet points covering: cloud platforms, AI/API tooling, and practical advice. "
-    "Do not include dates or 'Dear Reader' intros."
+    "Write a beginner-friendly data engineering news brief.\n"
+    "First line must be: HEADLINE: <short title, max 12 words, plain text only>\n"
+    "Then exactly three bullet lines:\n"
+    "- Cloud: <one sentence>\n"
+    "- AI: <one sentence>\n"
+    "- Tip: <one sentence>\n"
+    "No markdown symbols, no dates, no introductions."
 )
 MAX_NEWS_ITEMS = 10
 MAX_ARTICLES = 60
@@ -95,24 +98,58 @@ def build_prompt(category: str, topic: str) -> str:
     )
 
 
+def strip_markdown_inline(text: str) -> str:
+    cleaned = re.sub(r"\*\*([^*]+)\*\*", r"\1", text)
+    cleaned = re.sub(r"[*_`#]", "", cleaned)
+    return cleaned.strip()
+
+
 def build_summary(generated_text: str) -> str:
-    # Strip markdown symbols for a clean summary
-    clean_text = re.sub(r'[#*`_]', '', generated_text)
+    clean_text = strip_markdown_inline(generated_text)
     paragraphs = [p.strip() for p in clean_text.split("\n\n") if p.strip()]
     if not paragraphs:
         return clean_text[:200].strip()
-    
-    # Skip meta-talk: all caps, short headers, or common LLM intros
-    ignore_patterns = [r'^WELCOME TO', r'^DE-CODED', r'^HERE IS', r'^TITLE:', r'^INTRODUCTION']
+
+    ignore_patterns = [
+        r"^WELCOME TO",
+        r"^DE-CODED",
+        r"^HERE IS",
+        r"^TITLE:",
+        r"^INTRODUCTION",
+        r"^CATEGORY:",
+    ]
     idx = 0
-    while idx < len(paragraphs) and (paragraphs[idx].isupper() or len(paragraphs[idx]) < 60 or any(re.match(p, paragraphs[idx].upper()) for p in ignore_patterns)):
+    while idx < len(paragraphs) and (
+        paragraphs[idx].isupper()
+        or len(paragraphs[idx]) < 60
+        or any(re.match(p, paragraphs[idx].upper()) for p in ignore_patterns)
+    ):
         idx += 1
-    
+
     target = paragraphs[idx] if idx < len(paragraphs) else paragraphs[0]
-    
+
     if len(target) > 240:
         target = target[:240].rsplit(" ", 1)[0] + "..."
     return target
+
+
+def parse_news_response(news_text: str) -> tuple:
+    lines = [line.strip() for line in news_text.split("\n") if line.strip()]
+    headline = "Data engineering update"
+    body_lines = []
+
+    for line in lines:
+        if line.upper().startswith("HEADLINE:"):
+            headline = strip_markdown_inline(line.split(":", 1)[1])[:120]
+            continue
+        body_lines.append(line)
+
+    if headline == "Data engineering update" and lines:
+        headline = strip_markdown_inline(lines[0])[:120]
+        body_lines = lines[1:]
+
+    body_text = "\n".join(body_lines) if body_lines else news_text
+    return headline, body_text
 
 
 def estimate_reading_time(text: str) -> int:
@@ -475,12 +512,7 @@ def main() -> None:
     if not any(isinstance(item, dict) and item.get("published_cycle") == cycle_stamp for item in news):
         print("Generating a fresh news update for this cycle.")
         news_text = normalize_text(parse_google_response(request_google_ai(NEWS_PROMPT)))
-        
-        # Extract headline (first non-empty line) and body
-        news_lines = [l.strip() for l in news_text.split("\n") if l.strip()]
-        headline = re.sub(r"^[#*\s]+", "", news_lines[0]) if news_lines else "Data Engineering Update"
-        headline = re.sub(r"\*\*", "", headline).strip()[:200]
-        body_text = "\n".join(news_lines[1:]) if len(news_lines) > 1 else news_text
+        headline, body_text = parse_news_response(news_text)
         
         news.insert(
             0,

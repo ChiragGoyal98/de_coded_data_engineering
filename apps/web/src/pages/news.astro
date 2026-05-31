@@ -1,6 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { cleanHeadline, loadSiteContent, newsPreview } from "../lib/siteContent";
+import {
+  deriveNewsHeadline,
+  formatPublishedDate,
+  loadSiteContent,
+  prepareNewsBodyHtml,
+} from "../lib/siteContent";
 
 const { news } = loadSiteContent();
 ---
@@ -12,18 +17,28 @@ const { news } = loadSiteContent();
     <p class="subtitle">Fresh briefings are generated each content cycle and linked from Telegram.</p>
   </div>
 
-  <section class="section-block">
-    <div class="content-list">
+  <section class="section-block news-section">
+    <div class="content-list news-list">
       {
         news.length ? (
-          news.map((item) => (
-            <article class:list={["content-card", { "highlight-new": item.is_new }]}>
-              {item.is_new ? <span class="badge-new">NEW</span> : null}
-              <h3>{cleanHeadline(item.headline || "News brief")}</h3>
-              {item.body ? <p>{newsPreview(item.body)}</p> : null}
-              {item.published ? <p class="news-date">{item.published}</p> : null}
-            </article>
-          ))
+          news.map((item) => {
+            const headline = deriveNewsHeadline(item);
+            const bodyHtml = prepareNewsBodyHtml(item.body || "");
+            const dateLabel = formatPublishedDate(item.published);
+
+            return (
+              <article class:list={["content-card", "news-card", { "highlight-new": item.is_new }]}>
+                {item.is_new ? <span class="badge-new">NEW</span> : null}
+                <h3>{headline}</h3>
+                {bodyHtml ? <div class="news-body" set:html={bodyHtml} /> : null}
+                {dateLabel ? (
+                  <time class="news-date" datetime={item.published}>
+                    {dateLabel}
+                  </time>
+                ) : null}
+              </article>
+            );
+          })
         ) : (
           <p>No news briefs yet. Run the pipeline to publish a cycle.</p>
         )
@@ -32,6 +47,20 @@ const { news } = loadSiteContent();
   </section>
 
   <style>
+    .news-section {
+      margin-top: 0;
+    }
+
+    .news-list {
+      grid-template-columns: 1fr;
+    }
+
+    .news-card h3 {
+      font-size: 1.15rem;
+      line-height: 1.4;
+      margin-bottom: 0.75rem;
+    }
+
     .badge-new {
       display: inline-block;
       margin-bottom: 0.5rem;
@@ -43,13 +72,37 @@ const { news } = loadSiteContent();
       font-weight: 700;
       letter-spacing: 0.04em;
     }
+
     .highlight-new {
       border-color: #0a7f58;
     }
+
     .news-date {
-      margin-top: 0.75rem;
+      display: block;
+      margin-top: 1rem;
       color: #6b7280;
       font-size: 0.85rem;
+    }
+
+    .news-body :global(p) {
+      margin: 0 0 0.75rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .news-body :global(ul) {
+      margin: 0;
+      padding-left: 1.25rem;
+      color: var(--muted);
+    }
+
+    .news-body :global(li) {
+      margin-bottom: 0.65rem;
+      line-height: 1.65;
+    }
+
+    .news-body :global(strong) {
+      color: var(--ink);
     }
   </style>
 </BaseLayout>
