@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const base = import.meta.env.BASE_URL;
+import { cleanHeadline, loadSiteContent, newsPreview } from "../lib/siteContent";
+
+const { news } = loadSiteContent();
 ---
 
 <BaseLayout title="News Briefs | DE-Coded Lab" description="Periodic data engineering news briefings.">
@@ -11,49 +13,43 @@ const base = import.meta.env.BASE_URL;
   </div>
 
   <section class="section-block">
-    <div id="news-list" class="content-list">
-      <p>Loading latest news...</p>
+    <div class="content-list">
+      {
+        news.length ? (
+          news.map((item) => (
+            <article class:list={["content-card", { "highlight-new": item.is_new }]}>
+              {item.is_new ? <span class="badge-new">NEW</span> : null}
+              <h3>{cleanHeadline(item.headline || "News brief")}</h3>
+              {item.body ? <p>{newsPreview(item.body)}</p> : null}
+              {item.published ? <p class="news-date">{item.published}</p> : null}
+            </article>
+          ))
+        ) : (
+          <p>No news briefs yet. Run the pipeline to publish a cycle.</p>
+        )
+      }
     </div>
   </section>
 
-  <script define:vars={{ base }}>
-    const newsList = document.getElementById("news-list");
-
-    function createNewsCard(item) {
-      const card = document.createElement("article");
-      card.className = "content-card";
-
-      const title = document.createElement("h3");
-      title.textContent = item.headline || "News brief";
-      card.appendChild(title);
-
-      const body = document.createElement("p");
-      body.textContent = item.body || "";
-      card.appendChild(body);
-
-      const published = document.createElement("p");
-      published.textContent = item.published || "";
-      card.appendChild(published);
-      return card;
+  <style>
+    .badge-new {
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: #0a7f58;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
     }
-
-    fetch(`${base}content.json`)
-      .then((response) => {
-        if (!response.ok) throw new Error("Failed to load content");
-        return response.json();
-      })
-      .then((data) => {
-        const news = Array.isArray(data?.news) ? data.news : [];
-        newsList.innerHTML = "";
-        if (!news.length) {
-          newsList.innerHTML = "<p>No news briefs yet. Run the pipeline to publish a cycle.</p>";
-          return;
-        }
-        news.forEach((item) => newsList.appendChild(createNewsCard(item)));
-      })
-      .catch(() => {
-        newsList.innerHTML = "<p>News feed unavailable right now.</p>";
-      });
-  </script>
+    .highlight-new {
+      border-color: #0a7f58;
+    }
+    .news-date {
+      margin-top: 0.75rem;
+      color: #6b7280;
+      font-size: 0.85rem;
+    }
+  </style>
 </BaseLayout>
-

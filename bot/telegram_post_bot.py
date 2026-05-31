@@ -1,6 +1,7 @@
 import json
 import logging
 import os
+import sys
 from pathlib import Path
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
@@ -9,6 +10,8 @@ from dotenv import load_dotenv
 from telegram.error import TelegramError
 from telegram.ext import Application, ApplicationBuilder, CommandHandler, ContextTypes
 
+from messages import build_message
+
 load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
@@ -16,19 +19,24 @@ logger = logging.getLogger(__name__)
 
 BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 GROUP_ID = os.environ.get("TELEGRAM_GROUP_ID")
-SITE_BASE_URL = os.environ.get("SITE_BASE_URL", "https://chiraggoyal98.github.io/de_coded_data_engineering").strip().rstrip("/")
+SITE_BASE_URL = os.environ.get(
+    "SITE_BASE_URL",
+    "https://chiraggoyal98.github.io/de_coded_data_engineering",
+).strip().rstrip("/")
 CONTENT_JSON_PATH = Path(__file__).resolve().parent.parent / "apps" / "web" / "public" / "content.json"
 
 FALLBACK_POSTS = [
     {
         "title": "Python OOP for Data Engineers",
+        "category": "Programming Basics",
         "summary": "Use classes and composition to make ETL pipelines easier to maintain.",
-        "url": "https://chiraggoyal98.github.io/de_coded_data_engineering/",
+        "url": "articles/python-oop-for-data-engineers.html",
     },
     {
         "title": "Azure Data Factory orchestration patterns",
+        "category": "Azure",
         "summary": "Design clean parent-child pipelines and resilient retries for production.",
-        "url": "https://chiraggoyal98.github.io/de_coded_data_engineering/",
+        "url": "articles/azure-data-factory-orchestration-patterns.html",
     },
 ]
 
@@ -45,43 +53,6 @@ def load_site_content():
     except Exception as error:
         logger.error("Failed to load site content: %s", error)
     return None
-
-
-def build_message(post: dict, news_item=None) -> str:
-    # Prefer full_url if it matches the current SITE_BASE_URL, otherwise rebuild it
-    full_url = post.get("full_url", "")
-    if SITE_BASE_URL and (not full_url or SITE_BASE_URL not in full_url):
-        path = post.get("url", "").lstrip("/")
-        url = f"{SITE_BASE_URL.rstrip('/')}/{path}"
-    else:
-        url = full_url or post.get("url") or f"{SITE_BASE_URL}/"
-
-    title = post.get('title', 'New Article')
-    category = post.get('category', 'Data Engineering')
-    summary = post.get('summary', '').strip()
-
-    msg = [
-        f"🚀 *New Tutorial Published!*",
-        f"━━━━━━━━━━━━━━",
-        f"📘 *Topic:* {title}",
-        f"🏷 *Category:* {category}",
-        "",
-        f"📝 {summary}",
-        "",
-        f"🔗 *Read the full guide here:*",
-        f"{url}",
-        "",
-        "━━━━━━━━━━━━━━"
-    ]
-
-    if news_item and news_item.get("headline"):
-        # Headline is now pre-cleaned by the updated generator
-        headline = news_item['headline'].strip()
-        msg.append(f"📰 *News:* {headline}")
-        msg.append("")
-
-    msg.append("👉 Visit [DE-Coded Lab](https://chiraggoyal98.github.io/de_coded_data_engineering/)")
-    return "\n".join(msg)
 
 
 async def start_command(update, context: ContextTypes.DEFAULT_TYPE):
@@ -118,8 +89,8 @@ async def post_summary(app):
     try:
         await app.bot.send_message(
             chat_id=GROUP_ID,
-            text=build_message(post, news_item),
-            parse_mode='Markdown'
+            text=build_message(post, news_item, site_base_url=SITE_BASE_URL),
+            parse_mode="Markdown",
         )
         logger.info("Posted summary to group %s", GROUP_ID)
     except TelegramError as error:
@@ -127,6 +98,11 @@ async def post_summary(app):
 
 
 async def on_startup(app: Application):
+    if "--once" in sys.argv:
+        await post_summary(app)
+        logger.info("Posted once via --once flag. Exiting without scheduler.")
+        return
+
     scheduler = AsyncIOScheduler(timezone="UTC")
     scheduler.add_job(
         post_summary,
@@ -159,7 +135,7 @@ def main():
         .build()
     )
     app.add_handler(CommandHandler("start", start_command))
-    logger.info("Bot started. Waiting for updates and 8-hour scheduled posts.")
+    logger.info("Bot started. Use --once for a single post; otherwise waits for scheduled posts.")
     app.run_polling(close_loop=False)
 
 

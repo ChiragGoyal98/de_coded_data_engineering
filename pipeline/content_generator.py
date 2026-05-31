@@ -15,14 +15,16 @@ GOOGLE_API_URL = os.getenv(
     "GOOGLE_API_URL",
     "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent",
 ).strip()
-SITE_BASE_URL = os.getenv("SITE_BASE_URL", "https://chiraggoyal98.github.io/de_coded_data_engineering").strip().rstrip("/")
+DEFAULT_SITE_BASE_URL = "https://chiraggoyal98.github.io/de_coded_data_engineering"
+SITE_BASE_URL = os.getenv("SITE_BASE_URL", DEFAULT_SITE_BASE_URL).strip().rstrip("/")
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = Path(__file__).resolve().parent / "output"
 SITE_DIR = ROOT_DIR / "apps" / "web" / "public"
 SITE_ARTICLES_DIR = SITE_DIR / "articles"
 SITE_CONTENT_FILE = SITE_DIR / "content.json"
-TOPICS_FILE = Path(__file__).resolve().parent / "topics.json"
+TOPICS_FILE = ROOT_DIR / "topics.json"
+PLACEHOLDER_HOSTS = ("yourdomain.com", "example.com")
 
 NEWS_PROMPT = (
     "Provide a single-line catchy headline for a data engineering news brief. "
@@ -124,6 +126,36 @@ def build_article_url(slug: str) -> str:
 
 def build_article_full_link(slug: str) -> str:
     return f"{SITE_BASE_URL.rstrip('/')}/articles/{slug}.html"
+
+
+def slug_from_article_url(url: str) -> str:
+    path = (url or "").strip()
+    if path.startswith("articles/"):
+        path = path[len("articles/") :]
+    if path.endswith(".html"):
+        path = path[: -len(".html")]
+    return path
+
+
+def normalize_article_entry(article: dict) -> dict:
+    if not isinstance(article, dict):
+        return article
+
+    title = article.get("title", "")
+    url = article.get("url", "")
+    slug = slug_from_article_url(url) if url else slugify(title)
+    article["url"] = build_article_url(slug)
+
+    full_url = article.get("full_url", "")
+    if not full_url or any(host in full_url for host in PLACEHOLDER_HOSTS):
+        article["full_url"] = build_article_full_link(slug)
+    elif SITE_BASE_URL.lower() not in full_url.lower():
+        article["full_url"] = build_article_full_link(slug)
+    return article
+
+
+def normalize_articles(articles: list) -> list:
+    return [normalize_article_entry(item) for item in articles if isinstance(item, dict)]
 
 
 def convert_markdown_to_html(text: str) -> str:
@@ -352,7 +384,6 @@ def save_article(topic: str, content: str) -> Path:
     return file_path
 
 
-def save_article_page(topic: str, generated_text: str, summary: str) -> Path:
 def save_article_page(topic: str, category: str, generated_text: str, summary: str) -> Path:
     ensure_site_dirs()
     slug = slugify(topic)
@@ -405,7 +436,7 @@ def pick_next_topic(existing_articles):
 
 def main() -> None:
     existing = load_site_content()
-    existing_articles = existing.get("articles", [])
+    existing_articles = normalize_articles(existing.get("articles", []))
     existing_news = existing.get("news", [])
 
     next_topic = pick_next_topic(existing_articles)
@@ -447,7 +478,8 @@ def main() -> None:
         
         # Extract headline (first non-empty line) and body
         news_lines = [l.strip() for l in news_text.split("\n") if l.strip()]
-        headline = re.sub(r'[#*]', '', news_lines[0]) if news_lines else "Data Engineering Update"
+        headline = re.sub(r"^[#*\s]+", "", news_lines[0]) if news_lines else "Data Engineering Update"
+        headline = re.sub(r"\*\*", "", headline).strip()[:200]
         body_text = "\n".join(news_lines[1:]) if len(news_lines) > 1 else news_text
         
         news.insert(
