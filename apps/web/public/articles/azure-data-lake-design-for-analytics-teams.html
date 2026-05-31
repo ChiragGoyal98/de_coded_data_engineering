@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azure Data Lake design for analytics teams | DE-Coded Lab</title>
+  <meta name="description" content="If you are part of an analytics team, you know that data is only as good as its organization. Without a solid design, your data lake can quickly turn into a &quot;data swamp.&quot; This guide will help you architect a lake that is scalable, secure,..." />
+  <meta property="og:title" content="Azure Data Lake design for analytics teams" />
+  <meta property="og:description" content="If you are part of an analytics team, you know that data is only as good as its organization. Without a solid design, your data lake can quickly turn into a &quot;data swamp.&quot; This guide will help you architect a lake that is scalable, secure,..." />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    :root { --primary: #2563eb; --text: #1f2937; --light-bg: #f9fafb; }
+    body { line-height: 1.7; color: var(--text); font-family: Inter, system-ui, -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+    .article-meta { color: #6b7280; font-size: 0.875rem; margin-bottom: 2rem; }
+    blockquote { border-left: 4px solid var(--primary); padding-left: 1rem; font-style: italic; color: #4b5563; margin: 1.5rem 0; }
+    .code-container { position: relative; margin: 2rem 0; border-radius: 8px; border: 1px solid #e5e7eb; overflow: hidden; }
+    .copy-button { 
+      position: absolute; top: 0.5rem; right: 0.5rem; z-index: 10;
+      padding: 0.4rem 0.8rem; font-size: 0.75rem; font-weight: 600;
+      cursor: pointer; background: #ffffff; border: 1px solid #d1d5da; border-radius: 4px;
+      transition: background-color 0.2s, box-shadow 0.2s;
+    }
+    .copy-button:hover { background-color: #f3f4f6; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    pre { margin: 0 !important; padding: 1.2rem !important; background: #f6f8fa; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <header class="hero hero-tight">
+    <div class="container header-nav">
+      <a class="site-brand" href="../index.html"><img class="logo-img" src="../logo.svg" alt="DE-Coded Lab logo" /><span>DE-Coded Lab</span></a>
+      <nav class="site-nav">
+        <a href="../index.html">Home</a>
+        <a href="../news.html">News</a>
+        <a href="../apis.html">API/SDK</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container content-wrapper">
+    <article class="article-page section-block">
+      <nav class="breadcrumb"><a href="../index.html">Home</a> &raquo; Azure</nav>
+      <h1>Azure Data Lake design for analytics teams</h1>
+      <div class="article-meta">
+        <span>Published: May 31, 2026</span> &bull; 
+        <span>4 min read</span>
+      </div>
+      <p class="article-summary">If you are part of an analytics team, you know that data is only as good as its organization. Without a solid design, your data lake can quickly turn into a &quot;data swamp.&quot; This guide will help you architect a lake that is scalable, secure,...</p>
+      <hr />
+      <p>Welcome to <strong>DE-Coded Lab</strong>! Today, we are diving into the heart of modern data engineering: <strong>Azure Data Lake Storage (ADLS) Gen2</strong>. </p>
+<p>If you are part of an analytics team, you know that data is only as good as its organization. Without a solid design, your data lake can quickly turn into a &quot;data swamp.&quot; This guide will help you architect a lake that is scalable, secure, and ready for high-performance analytics.</p>
+<h2>Introduction</h2>
+<p>Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on Azure Blob Storage. What makes it &quot;Gen2&quot; is the <strong>Hierarchical Namespace</strong>. Unlike traditional cloud storage, which is &quot;flat,&quot; ADLS Gen2 allows you to organize files into nested directories and folders, much like the file explorer on your computer. </p>
+<p>For analytics teams, this means faster processing, better security at the folder level, and a foundation for the &quot;Data Lakehouse&quot; architecture.</p>
+<h2>Why it Matters</h2>
+<p>Why should an analytics team care about the design of their data lake?</p>
+<ul>
+<li><strong>Scalability:</strong> A well-designed lake handles petabytes of data without slowing down your queries.</li>
+<li><strong>Cost-Efficiency:</strong> By partitioning data correctly, you reduce the amount of data your compute engines (like Spark or Synapse) need to read, saving money on every query.</li>
+<li><strong>Data Governance:</strong> Clear folder structures make it easier to apply security rules, ensuring that sensitive HR data isn&#x27;t accidentally visible to the Marketing team.</li>
+<li><strong>Decoupling:</strong> It separates storage from compute. You can use any tool (Power BI, Databricks, Azure Synapse) to read the same data simultaneously.</li>
+</ul>
+<h2>Step-by-Step Walkthrough</h2>
+<p>Follow these steps to build a production-ready data lake for your team.</p>
+<h3>1. Enable Hierarchical Namespace</h3>
+<p>When creating your Storage Account in the Azure Portal, go to the <strong>Advanced</strong> tab and ensure <strong>&quot;Enable hierarchical namespace&quot;</strong> is checked. Without this, you are just using standard Blob storage, which lacks the performance and folder-level security needed for big data.</p>
+<h3>2. Implement the Medallion Architecture</h3>
+<p>The gold standard for data lake design is the <strong>Medallion Architecture</strong>. This organizes data based on its quality and readiness:</p>
+<ul>
+<li><strong>Bronze (Raw):</strong> The landing zone. Data is stored exactly as it arrived from the source (usually in its original format like JSON or CSV). Never delete data from here.</li>
+<li><strong>Silver (Enriched):</strong> Data is cleaned, filtered, and joined. We typically convert data to <strong>Parquet</strong> format here for faster performance.</li>
+<li><strong>Gold (Curated):</strong> Business-ready data. This is structured in &quot;star schemas&quot; (Fact and Dimension tables) ready for Power BI or advanced reporting.</li>
+</ul>
+<h3>3. Define a Naming Convention</h3>
+<p>A consistent folder structure is vital. A common pattern is:</p>
+<p><code>/{zone}/{source<em>system}/{entity</em>name}/{year}/{month}/{day}/</code></p>
+<p>Example: <code>/bronze/sap_erp/orders/2023/10/24/data.json</code></p>
+<h3>4. Choose the Right File Format</h3>
+<p>For analytics, avoid using CSV or JSON in the Silver and Gold layers. Use <strong>Apache Parquet</strong>. It is a columnar storage format that is highly compressed and allows tools to read only the columns required for a specific query.</p>
+<h3>5. Code Example: Writing to the Lake</h3>
+<p>Here is a short Python (PySpark) snippet showing how an analytics engineer might move data from the Raw (Bronze) zone to the Enriched (Silver) zone while converting it to Parquet.</p>
+<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
+# Load raw JSON data from Bronze
+raw_df = spark.read.json(&quot;abfss://bronze@yourstorage.dfs.core.windows.net/sales/2023/10/data.json&quot;)
+
+# Simple cleaning: Filter out null IDs and add a processing timestamp
+clean_df = raw_df.filter(raw_df[&quot;order_id&quot;].isNotNull()) \
+                 .withColumn(&quot;processed_at&quot;, current_timestamp())
+
+# Write to Silver zone in Parquet format, partitioned by Date
+clean_df.write.mode(&quot;overwrite&quot;) \
+        .partitionBy(&quot;order_date&quot;) \
+        .parquet(&quot;abfss://silver@yourstorage.dfs.core.windows.net/sales_enriched/&quot;)
+</code></pre></div>
+<h2>Common Mistakes</h2>
+<ul>
+<li><strong>The &quot;Small File&quot; Problem:</strong> Storing thousands of 1KB files. This kills performance. Aim for file sizes between 256MB and 1GB.</li>
+<li><strong>Flat Security:</strong> Only using Azure RBAC (Role-Based Access Control) at the storage account level. Use <strong>ACLs (Access Control Lists)</strong> to give teams access to specific folders instead of the whole lake.</li>
+<li><strong>Ignoring Lifecycle Management:</strong> Data grows fast. Set up policies in Azure to automatically move old &quot;Bronze&quot; data to &quot;Archive&quot; storage (which is much cheaper) after 90 days.</li>
+<li><strong>Over-Partitioning:</strong> Don&#x27;t partition by a column with too many unique values (like <code>UserID</code>). Partitioning by <code>Year/Month/Day</code> is usually the safest bet.</li>
+</ul>
+<h2>Practice Task</h2>
+<p><strong>The Scenario:</strong> You are building a data lake for a retail company. They have two data sources: &quot;Store<em>Logs&quot; (CSV) and &quot;Customer</em>Reviews&quot; (JSON).</p>
+<p><strong>Your Task:</strong></p>
+<ul>
+<li>Sketch out a folder structure for the <strong>Bronze</strong> layer that accounts for different years and months.</li>
+<li>Decide which file format you will use for the <strong>Gold</strong> layer.</li>
+<li>Write down one reason why you would use a &quot;Silver&quot; layer for the &quot;Customer_Reviews&quot; data before it reaches the &quot;Gold&quot; layer.</li>
+</ul>
+<p>*(Hint: Think about data cleaning or sentiment analysis!)*</p>
+<p>***</p>
+<p>*Found this helpful? Stay tuned to <strong>DE-Coded Lab</strong> for more Azure tutorials where we break down complex cloud concepts into bite-sized guides.*</p>
+      <footer class="article-footer">
+        <p><a class="link-button" href="../index.html">Explore more tutorials &rarr;</a></p>
+      </footer>
+    </article>
+  </main>
+  <script>
+    function copyCode(button) {
+      const pre = button.nextElementSibling;
+      const code = pre.querySelector('code');
+      navigator.clipboard.writeText(code.innerText).then(() => {
+        button.textContent = 'Copied!';
+        setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
