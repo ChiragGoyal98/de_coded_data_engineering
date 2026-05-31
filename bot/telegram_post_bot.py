@@ -16,19 +16,19 @@ logger = logging.getLogger(__name__)
 
 BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 GROUP_ID = os.environ.get("TELEGRAM_GROUP_ID")
-SITE_BASE_URL = os.environ.get("SITE_BASE_URL", "").strip().rstrip("/")
+SITE_BASE_URL = os.environ.get("SITE_BASE_URL", "https://chiraggoyal98.github.io/de_coded_data_engineering").strip().rstrip("/")
 CONTENT_JSON_PATH = Path(__file__).resolve().parent.parent / "apps" / "web" / "public" / "content.json"
 
 FALLBACK_POSTS = [
     {
         "title": "Python OOP for Data Engineers",
         "summary": "Use classes and composition to make ETL pipelines easier to maintain.",
-        "url": "https://yourdomain.com",
+        "url": "https://chiraggoyal98.github.io/de_coded_data_engineering/",
     },
     {
         "title": "Azure Data Factory orchestration patterns",
         "summary": "Design clean parent-child pipelines and resilient retries for production.",
-        "url": "https://yourdomain.com",
+        "url": "https://chiraggoyal98.github.io/de_coded_data_engineering/",
     },
 ]
 
@@ -48,9 +48,13 @@ def load_site_content():
 
 
 def build_message(post: dict, news_item=None) -> str:
-    url = post.get("full_url") or post.get("url")
-    if url and not url.startswith("http") and SITE_BASE_URL:
-        url = f"{SITE_BASE_URL}/{url.lstrip('/')}"
+    # Prefer full_url if it matches the current SITE_BASE_URL, otherwise rebuild it
+    full_url = post.get("full_url", "")
+    if SITE_BASE_URL and (not full_url or SITE_BASE_URL not in full_url):
+        path = post.get("url", "").lstrip("/")
+        url = f"{SITE_BASE_URL.rstrip('/')}/{path}"
+    else:
+        url = full_url or post.get("url") or f"{SITE_BASE_URL}/"
 
     title = post.get('title', 'New Article')
     category = post.get('category', 'Data Engineering')
@@ -65,16 +69,15 @@ def build_message(post: dict, news_item=None) -> str:
         f"📝 {summary}",
         "",
         f"🔗 *Read the full guide here:*",
-        f"{url or 'https://yourdomain.com'}",
+        f"{url}",
         "",
         "━━━━━━━━━━━━━━"
     ]
 
     if news_item and news_item.get("headline"):
-        # Clean common LLM intro phrases
-        headline = news_item['headline'].replace('*', '').strip()
-        msg.append(f"📰 *Latest News Brief*")
-        msg.append(f"{headline}")
+        # Headline is now pre-cleaned by the updated generator
+        headline = news_item['headline'].strip()
+        msg.append(f"📰 *News:* {headline}")
         msg.append("")
 
     msg.append("👉 Visit [DE-Coded Lab](https://chiraggoyal98.github.io/de_coded_data_engineering/)")

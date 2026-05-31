@@ -10,7 +10,7 @@ load_dotenv()
 
 BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 GROUP_ID = os.environ.get("TELEGRAM_GROUP_ID")
-SITE_BASE_URL = os.environ.get("SITE_BASE_URL", "").strip().rstrip("/")
+SITE_BASE_URL = os.environ.get("SITE_BASE_URL", "https://chiraggoyal98.github.io/de_coded_data_engineering").strip().rstrip("/")
 CONTENT_JSON_PATH = Path(__file__).resolve().parent.parent / "apps" / "web" / "public" / "content.json"
 
 if not BOT_TOKEN or not GROUP_ID:
@@ -44,11 +44,14 @@ def find_today_news(news_items):
 
 
 def build_message(post: dict, news_item=None) -> str:
-    url = post.get("full_url") or post.get("url")
-    if url and not url.startswith("http") and SITE_BASE_URL:
-        url = f"{SITE_BASE_URL}/{url.lstrip('/')}"
+    full_url = post.get("full_url", "")
+    if SITE_BASE_URL and (not full_url or SITE_BASE_URL not in full_url):
+        path = post.get("url", "").lstrip("/")
+        url = f"{SITE_BASE_URL.rstrip('/')}/{path}"
+    else:
+        url = full_url or post.get("url") or f"{SITE_BASE_URL}/"
 
-    title = post.get('title', 'New Guide')
+    title = post.get('title', 'New Article')
     category = post.get('category', 'Data Engineering')
     summary = post.get('summary', '').strip()
 
@@ -61,15 +64,14 @@ def build_message(post: dict, news_item=None) -> str:
         f"📝 {summary}",
         "",
         f"🔗 *Read the full guide here:*",
-        f"{url or SITE_BASE_URL}",
+        f"{url}",
         "",
         "━━━━━━━━━━━━━━"
     ]
 
     if news_item and news_item.get("headline"):
-        headline = news_item['headline'].strip().replace('*', '')
-        msg.append(f"📰 *Daily News Brief*")
-        msg.append(f"{headline}")
+        headline = news_item['headline'].strip()
+        msg.append(f"📰 *News:* {headline}")
         msg.append("")
 
     msg.append("👉 Join @DE_Coded_Data_Engineering for more!")
