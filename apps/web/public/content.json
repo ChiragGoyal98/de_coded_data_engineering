@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-05-31T10:15:31.727665Z",
+  "generated_at": "2026-05-31T15:47:32.499821Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "Welcome back to DE-Coded Lab! If you've ever tried to open a 10GB CSV file in Excel or a standard Python list, you know the pain: your computer freezes, the fan starts whirring, and eventually, the program crashes.",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://ChiragGoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-05-31T15:47:12.826240Z",
+      "is_new": true
+    },
     {
       "title": "Data Engineering",
       "category": "General",
@@ -8,7 +17,7 @@
       "url": "articles/data-engineering.html",
       "full_url": "https://ChiragGoyal98.github.io/de_coded_data_engineering/articles/data-engineering.html",
       "published": "2026-05-31T10:15:25.131412Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -25,51 +34,64 @@
       "summary": "DE-CODED LAB: PROGRAMMING BASICS\nPYTHON OOP FOR DATA ENGINEERS",
       "url": "articles/python-oop-for-data-engineers.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
-      "published": "2026-05-30T14:26:35.279472Z"
+      "published": "2026-05-30T14:26:35.279472Z",
+      "is_new": false
     },
     {
       "title": "Azure Data Factory orchestration patterns",
       "summary": "Welcome to another edition of **DE-coded with CG**, where we strip away the jargon and get to the heart of data engineering.",
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
-      "published": "2026-05-30"
+      "published": "2026-05-30",
+      "is_new": false
     },
     {
       "title": "Databricks Delta Lake best practices",
       "summary": "Welcome to another edition of **DE-coded with CG**, where we strip away the complexity of data engineering to help you build faster, smarter, and more reliable pipelines.",
       "url": "articles/databricks-delta-lake-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
-      "published": "2026-05-30"
+      "published": "2026-05-30",
+      "is_new": false
     },
     {
       "title": "Building a daily content pipeline for Telegram summaries",
       "summary": "Here is a polished, beginner-friendly summary tailored for your blog, **DE-coded with CG**.",
       "url": "articles/building-a-daily-content-pipeline-for-telegram-summaries.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/building-a-daily-content-pipeline-for-telegram-summaries.html",
-      "published": "2026-05-30"
+      "published": "2026-05-30",
+      "is_new": false
     },
     {
       "title": "Azure Synapse Analytics fundamentals",
       "summary": "**Title: DE-coded with CG | Azure Synapse Analytics: The Unified Powerhouse of Modern Data**",
       "url": "articles/azure-synapse-analytics-fundamentals.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-synapse-analytics-fundamentals.html",
-      "published": "2026-05-30"
+      "published": "2026-05-30",
+      "is_new": false
     },
     {
       "title": "Databricks notebook collaboration best practices",
       "summary": "Welcome to another edition of **DE-coded with CG**, where we break down complex data engineering concepts into bite-sized, actionable insights.",
       "url": "articles/databricks-notebook-collaboration-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-notebook-collaboration-best-practices.html",
-      "published": "2026-05-30"
+      "published": "2026-05-30",
+      "is_new": false
     }
   ],
   "news": [
+    {
+      "headline": "Beginner Friendly Data Engineering News Brief",
+      "body": "<ul>\n<li>Cloud: Major platforms are launching tools that automatically move data between different storage types without manual coding.</li>\n<li>AI: Automated systems now help beginners identify and fix errors in their data pipelines using natural language.</li>\n<li>Tip: Start by learning SQL because it is the most common language used for data management.</li>\n</ul>",
+      "published": "2026-05-31T15:47:32.499758Z",
+      "published_cycle": "2026-05-31T15",
+      "is_new": true
+    },
     {
       "headline": "* **Cloud Platforms:** Major providers continue to simplify infrastructure through serverless data warehousing and integrated \"Lakehouse\" architectures. For those entering the field, this shift emphasizes learning managed services like...",
       "body": "<ul>\n<li>**Cloud Platforms:** Major providers continue to simplify infrastructure through serverless data warehousing and integrated &quot;Lakehouse&quot; architectures. For those entering the field, this shift emphasizes learning managed services like BigQuery or Snowflake, where the focus moves from server maintenance to efficient data modeling and cost optimization.</li>\n</ul>\n<ul>\n<li>**AI API Tooling:** Data engineering is evolving to include the orchestration of AI APIs to process unstructured information. Instead of manual transformation, engineers are increasingly using tools like LangChain or direct LLM integrations to automate data labeling, sentiment analysis, and metadata generation within their standard ETL pipelines.</li>\n</ul>\n<ul>\n<li>**Practical Learner Advice:** Prioritize a &quot;fundamentals-first&quot; approach by mastering SQL and Python before diving into complex orchestration tools. Build your portfolio by creating a simple pipeline that ingests data from a free API, transforms it, and stores it in a cloud database; demonstrating a clear understanding of the full data lifecycle is the most effective way to stand out to employers.</li>\n</ul>",
       "published": "2026-05-31T10:15:31.727596Z",
       "published_cycle": "2026-05-31T10",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Cloud platforms are increasingly shifting toward \"Serverless-first\" architectures, reducing the need for manual infrastructure management. Major providers are unifying data lakes and warehouses into integrated \"Lakehouse\" environments,...",
