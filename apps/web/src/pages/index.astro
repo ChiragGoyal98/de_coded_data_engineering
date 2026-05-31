@@ -1,6 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+  articleHref,
+  articleSearchText,
+  loadSiteContent,
+} from "../lib/siteContent";
+
 const base = import.meta.env.BASE_URL;
+const { articles: allArticles } = loadSiteContent();
+const initialVisibleCount = 8;
 ---
 
 <BaseLayout
@@ -104,11 +112,47 @@ const base = import.meta.env.BASE_URL;
   <section class="section-block">
     <h2>Latest generated articles</h2>
     <div class="search-container">
-      <input type="text" id="article-search" placeholder="Search tutorials by title, category, or summary..." class="search-input" />
+      <input
+        type="text"
+        id="article-search"
+        placeholder="Search tutorials by title, category, or summary..."
+        class="search-input"
+      />
     </div>
     <div id="latest-articles-list" class="content-list">
-      <p>Loading latest articles...</p>
+      {
+        allArticles.length ? (
+          allArticles.map((article, index) => (
+            <article
+              class:list={[
+                "content-card",
+                "article-feed-card",
+                { "highlight-new": article.is_new, "is-initially-hidden": index >= initialVisibleCount },
+              ]}
+              data-search={articleSearchText(article)}
+              hidden={index >= initialVisibleCount}
+            >
+              {article.is_new ? <span class="badge-new">NEW</span> : null}
+              {article.category ? <span class="pill">{article.category}</span> : null}
+              <h3>{article.title}</h3>
+              <p>{article.summary || "No summary available."}</p>
+              <a class="link-button" href={articleHref(base, article)}>
+                Read article
+              </a>
+            </article>
+          ))
+        ) : (
+          <p>No articles yet. Run the content pipeline to publish the first tutorial.</p>
+        )
+      }
     </div>
+    {
+      allArticles.length > initialVisibleCount ? (
+        <p class="feed-note">
+          Showing {initialVisibleCount} of {allArticles.length} tutorials. Use search to find older articles.
+        </p>
+      ) : null
+    }
   </section>
 
   <style>
@@ -128,16 +172,55 @@ const base = import.meta.env.BASE_URL;
       outline: none;
       border-color: #0078d4;
     }
-
-    /* Code Copy Styles */
-    :global(.code-container) { position: relative; margin: 1.5rem 0; border: 1px solid #e1e4e8; border-radius: 6px; overflow: hidden; }
-    :global(.copy-button) { 
-      position: absolute; top: 0.5rem; right: 0.5rem; z-index: 10;
-      padding: 0.4rem 0.8rem; font-size: 0.75rem; font-weight: 600;
-      cursor: pointer; background: #ffffff; border: 1px solid #d1d5da; border-radius: 4px;
+    .feed-note {
+      margin-top: 1rem;
+      color: #6b7280;
+      font-size: 0.9rem;
     }
-    :global(.copy-button:hover) { background-color: #f3f4f6; }
-    :global(pre) { margin: 0 !important; padding: 1.2rem !important; background: #f6f8fa; overflow-x: auto; }
+    .badge-new {
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: #0a7f58;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .highlight-new {
+      border-color: #0a7f58;
+    }
+
+    :global(.code-container) {
+      position: relative;
+      margin: 1.5rem 0;
+      border: 1px solid #e1e4e8;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    :global(.copy-button) {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      z-index: 10;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: #ffffff;
+      border: 1px solid #d1d5da;
+      border-radius: 4px;
+    }
+    :global(.copy-button:hover) {
+      background-color: #f3f4f6;
+    }
+    :global(pre) {
+      margin: 0 !important;
+      padding: 1.2rem !important;
+      background: #f6f8fa;
+      overflow-x: auto;
+    }
   </style>
 
   <section class="section-block">
@@ -158,99 +241,56 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 
-  <script define:vars={{ base }}>
-    const contentList = document.getElementById("latest-articles-list");
-    const searchInput = document.getElementById("article-search");
-    let allArticles = [];
-
-    // Global copy function for injected HTML
-    window.copyCode = function(button) {
+  <script define:vars={{ initialVisibleCount }}>
+    window.copyCode = function (button) {
       const pre = button.nextElementSibling;
-      const code = pre.querySelector('code');
+      const code = pre?.querySelector("code");
+      if (!code) return;
       navigator.clipboard.writeText(code.innerText).then(() => {
-        button.textContent = 'Copied!';
-        setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+        button.textContent = "Copied!";
+        setTimeout(() => {
+          button.textContent = "Copy";
+        }, 2000);
       });
     };
 
-    function createCard(article) {
-      const card = document.createElement("article");
-      card.className = `content-card ${article.is_new ? 'highlight-new' : ''}`;
+    const contentList = document.getElementById("latest-articles-list");
+    const searchInput = document.getElementById("article-search");
+    if (!contentList || !searchInput) return;
 
-      if (article.is_new) {
-        const badge = document.createElement("span");
-        badge.className = "badge-new";
-        badge.textContent = "NEW";
-        // Note: You may need to add CSS for .badge-new and .highlight-new 
-        // in your global styles if not already present.
-        card.appendChild(badge);
-      }
+    const cards = Array.from(contentList.querySelectorAll(".article-feed-card"));
 
-      if (article.category) {
-        const pill = document.createElement("span");
-        pill.className = "pill";
-        pill.textContent = article.category;
-        card.appendChild(pill);
-      }
+    function renderVisibleCards(visibleCards) {
+      cards.forEach((card) => {
+        card.hidden = !visibleCards.includes(card);
+      });
 
-      const title = document.createElement("h3");
-      title.textContent = article.title || "Untitled article";
-      card.appendChild(title);
+      const emptyState = contentList.querySelector(".search-empty");
+      if (emptyState) emptyState.remove();
 
-      const summary = document.createElement("p");
-      summary.textContent = article.summary || "No summary available.";
-      card.appendChild(summary);
-
-      const link = document.createElement("a");
-      link.className = "link-button";
-      link.href = `${base}${article.url || ""}`;
-      link.textContent = "Read article";
-      card.appendChild(link);
-      return card;
-    }
-
-    function renderArticles(articlesToRender) {
-      contentList.innerHTML = "";
-
-      if (!articlesToRender.length) {
+      if (!visibleCards.length) {
         const fallback = document.createElement("p");
+        fallback.className = "search-empty";
         fallback.textContent = "No articles found matching your search.";
         contentList.appendChild(fallback);
-        return;
       }
-
-      articlesToRender.forEach((article) => contentList.appendChild(createCard(article)));
     }
 
-    searchInput.addEventListener("input", (e) => {
-      const searchTerm = e.target.value.toLowerCase().trim();
-      
+    searchInput.addEventListener("input", (event) => {
+      const searchTerm = event.target.value.toLowerCase().trim();
       if (!searchTerm) {
-        // Show only the latest 8 when search is empty
-        renderArticles(allArticles.slice(0, 8));
+        cards.forEach((card, index) => {
+          card.hidden = index >= initialVisibleCount;
+        });
+        const emptyState = contentList.querySelector(".search-empty");
+        if (emptyState) emptyState.remove();
         return;
       }
 
-      const filtered = allArticles.filter(article => 
-        (article.title || "").toLowerCase().includes(searchTerm) || 
-        (article.summary || "").toLowerCase().includes(searchTerm) ||
-        (article.category || "").toLowerCase().includes(searchTerm)
+      const filtered = cards.filter((card) =>
+        (card.dataset.search || "").includes(searchTerm),
       );
-      
-      renderArticles(filtered);
+      renderVisibleCards(filtered);
     });
-
-    fetch(`${base}content.json`)
-      .then((response) => {
-        if (!response.ok) throw new Error("Failed to load content");
-        return response.json();
-      })
-      .then((data) => {
-        allArticles = Array.isArray(data?.articles) ? data.articles : [];
-        renderArticles(allArticles.slice(0, 8));
-      })
-      .catch(() => {
-        contentList.innerHTML = "<p>Content feed unavailable right now.</p>";
-      });
   </script>
 </BaseLayout>

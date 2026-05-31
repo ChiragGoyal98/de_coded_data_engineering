@@ -16,7 +16,7 @@ Every 8 hours it generates:
 
 ## Local development
 1. Copy `.env.example` to `.env`.
-2. Fill `GOOGLE_API_KEY`, `GOOGLE_API_URL`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_GROUP_ID`, `SITE_BASE_URL`.
+2. Fill `GOOGLE_API_KEY`, `GOOGLE_API_URL`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_GROUP_ID`, and `SITE_BASE_URL` (use your GitHub Pages URL, e.g. `https://chiraggoyal98.github.io/de_coded_data_engineering`).
 3. Generate fresh content:
    ```bash
    python pipeline/content_generator.py
