@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-06-01T11:04:03.734516Z",
+  "generated_at": "2026-06-01T21:19:45.363858Z",
   "articles": [
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
       "category": "Programming Basics",
-      "summary": "That's where Window Functions come in. In this post, we're breaking down how these powerful tools work and why they are the secret weapon of every Data Engineer.",
+      "summary": "SQL Window Functions with Real ETL Use Cases\nCategory: Programming Basics",
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-06-01T11:03:58.702744Z",
+      "published": "2026-06-01T21:19:34.635803Z",
       "is_new": true
     },
     {
@@ -107,11 +107,18 @@
   ],
   "news": [
     {
+      "headline": "Recent Data Engineering Shifts in Cloud Technology and Artificial Intelligence",
+      "body": "<ul>\n<li>Cloud: Major cloud providers are now offering more user-friendly serverless tools that allow beginners to build data pipelines without managing physical servers.</li>\n<li>AI: Large language models are helping data teams automate the creation of complex workflows and improve data cleaning processes through intelligent suggestions.</li>\n<li>Tip: Build your foundation by learning how to use SQL and Python together since they are the most essential tools in any data engineering toolkit.</li>\n</ul>",
+      "published": "2026-06-01T21:19:45.363792Z",
+      "published_cycle": "2026-06-01T21",
+      "is_new": true
+    },
+    {
       "headline": "Essential Data Engineering Updates for Beginners",
       "body": "<ul>\n<li>Cloud: Google and Microsoft are expanding serverless options to make managing databases easier for small teams.</li>\n<li>AI: New generative tools are now writing complex data transformation code based on simple text prompts.</li>\n<li>Tip: Focus on understanding data modeling basics before moving to advanced automation tools.</li>\n</ul>",
       "published": "2026-06-01T11:04:03.734442Z",
       "published_cycle": "2026-06-01T11",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Data Engineering Essentials Latest Trends in Cloud and AI",
@@ -167,12 +174,6 @@
       "body": "### Data Engineering Brief: Industry Trends\n\n*   **Cloud Platforms: The Rise of the Data Lakehouse**\n    Major providers are moving away from siloed storage. The current trend favors \"Lakehouse\" architectures, which combine the cost-effective storage of a Data Lake with the high-performance querying of a Data Warehouse. For beginners, this means learning how to manage unstructured data (like logs) and structured data (like SQL tables) within a single unified environment.\n\n*   **AI API Tooling: Engineering for LLMs**\n    Data engineering is evolving to support Generative AI. Instead of just moving numbers, engineers are now building pipelines for **Vector Databases** and Large Language Model (LLM) APIs. The focus has shifted to \"Data Readiness\"-ensuring that company data is cleaned, formatted, and indexed so that AI models can retrieve accurate information in real-time.\n\n*   **Practical Learner Advice: Focus on Fundamentals**\n    While new tools launch weekly, the core of data engineering remains **SQL and Python**. Beginners should prioritize mastering these two languages and understanding \"Data Modeling\" (how to organize tables) before chasing specialized AI tools. A strong portfolio project involves building a simple pipeline that pulls data from a public API, cleans it with Python, and loads it into a cloud database using SQL.",
       "published": "2026-05-30T14:26:42.525098Z",
       "published_cycle": "2026-05-30T14",
-      "is_new": false
-    },
-    {
-      "headline": "**The Data Stream: Azure & Databricks Update**\n**Date:** May 30, 2026\n**Focus:** Beginner-Friendly News & Trends",
-      "body": "**The Data Stream: Azure & Databricks Update**\n**Date:** May 30, 2026\n**Focus:** Beginner-Friendly News & Trends\n\n---\n\n### 🚀 The Big Headlines\n\n**1. Azure Fabric \"LiveLink\" goes GA (General Availability)**\nMicrosoft has officially launched *LiveLink*, a feature that allows beginner data engineers to connect on-premises databases to OneLake with zero ETL code. \n*   **Why it matters:** You no longer need to build complex ingestion pipelines for basic tasks. If you are learning Azure, focus on **OneLake shortcut management** rather than just raw Copy Activities.\n\n**2. Databricks Mosaic AI \"Auto-Cleaner\" is here**\nDatabricks has integrated Mosaic AI directly into the DLT (Delta Live Tables) UI. It now suggests schema fixes and handles \"dirty data\" (nulls, date formatting) automatically.\n*   **Why it matters:** The \"janitor work\" of data engineering is being automated. Beginners should shift their focus from *writing* regex to *validating* AI-generated cleaning logic.\n\n---\n\n### 🤖 AI & Automation Trends: \"Agentic ETL\"\nThe industry has moved past simple ChatBots. We are now seeing **Agentic Data Engineering**. Instead of writing a notebook, you define a \"Goal\" (e.g., \"Merge sales data and predict monthly churn\").\n*   **The Trend:** Tools like **Azure Copilot 3.0** now draft entire Medallion Architectures (Bronze/Silver/Gold) for you. \n*   **The Skill Shift:** Your job is becoming less about \"how to write the code\" and more about **\"how to audit the architecture.\"**\n\n---\n\n### 💡 Practical Advice for Learners\n\n*   **Don't ignore Unity Catalog:** In 2026, security is everything. If you are learning Databricks, stop focusing solely on Spark syntax. Learn **Unity Catalog**—it’s the \"brain\" that governs data, models, and functions.\n*   **SQL is still King (with a twist):** While Python is great, GenAI writes SQL perfectly. Focus on learning **dbt (data build tool)** or **Fabric Data Factory**, as these are the primary ways to orchestrate those SQL scripts.\n*   **Small Language Models (SLMs):** Start experimenting with running small models (like Phi-4) inside your pipelines for metadata tagging. It’s cheaper and faster than calling GPT-5 for every row.\n\n---\n\n### 🛠 This Week’s Learning Lab\n**The \"15-Minute Challenge\":**\nGo into your Azure free tier or Databricks Community Edition. Try to create one **Serverless SQL Warehouse**. Why? Because in 2026, \"managing clusters\" is a dying art—**Serverless** is the industry standard.\n\n**Keep building! The barrier to entry has never been lower, but the need for \"Data Architects\" (thinkers, not just coders) has never been higher.**",
-      "published": "2026-05-30",
       "is_new": false
     }
   ]
