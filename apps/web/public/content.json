@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-06-02T15:53:45.398128Z",
+  "generated_at": "2026-06-02T20:33:00.653878Z",
   "articles": [
+    {
+      "title": "Python OOP for Data Engineers",
+      "category": "Programming Basics",
+      "summary": "Python OOP for Data Engineers: From Scripts to Scalable Pipelines",
+      "url": "articles/python-oop-for-data-engineers.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
+      "published": "2026-06-02T20:32:55.041791Z",
+      "is_new": true
+    },
     {
       "title": "Azure Data Lake design for analytics teams",
       "category": "Azure",
@@ -8,7 +17,7 @@
       "url": "articles/azure-data-lake-design-for-analytics-teams.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-lake-design-for-analytics-teams.html",
       "published": "2026-06-02T15:53:40.591797Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SDK patterns for production-grade AI integrations",
@@ -56,15 +65,6 @@
       "is_new": false
     },
     {
-      "title": "Python OOP for Data Engineers",
-      "category": "Programming Basics",
-      "summary": "DE-CODED LAB: PROGRAMMING BASICS\nPYTHON OOP FOR DATA ENGINEERS",
-      "url": "articles/python-oop-for-data-engineers.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
-      "published": "2026-05-30T14:26:35.279472Z",
-      "is_new": false
-    },
-    {
       "title": "Azure Data Factory orchestration patterns",
       "summary": "Welcome to another edition of **DE-coded with CG**, where we strip away the jargon and get to the heart of data engineering.",
       "url": "articles/azure-data-factory-orchestration-patterns.html",
@@ -107,11 +107,18 @@
   ],
   "news": [
     {
+      "headline": "New Automated Cloud Scaling And AI Data Cleaning Tools Released",
+      "body": "<ul>\n<li>Cloud: Major providers are introducing serverless options that automatically adjust resources to help new engineers save on monthly costs.</li>\n<li>AI: Large language models are now being integrated directly into data warehouses to help users write complex queries using natural language.</li>\n<li>Tip: Start by building a small project with a public dataset to understand how data flows from a source to a dashboard.</li>\n</ul>",
+      "published": "2026-06-02T20:33:00.653798Z",
+      "published_cycle": "2026-06-02T20",
+      "is_new": true
+    },
+    {
       "headline": "Modern Data Engineering Trends Simplified For New Tech Professionals",
       "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless scaling to help beginners manage growing workloads without manual infrastructure tuning.</li>\n<li>AI: New large language models are increasingly used to automatically generate and debug SQL queries for faster data processing.</li>\n<li>Tip: Master SQL and Python fundamentals first because they remain the core building blocks of every data pipeline.</li>\n</ul>",
       "published": "2026-06-02T15:53:45.398053Z",
       "published_cycle": "2026-06-02T15",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Key Data Engineering Trends in Cloud Computing and Artificial Intelligence",
@@ -167,13 +174,6 @@
       "body": "<ul>\n<li>**Cloud Platforms:** Major providers continue to simplify infrastructure through serverless data warehousing and integrated &quot;Lakehouse&quot; architectures. For those entering the field, this shift emphasizes learning managed services like BigQuery or Snowflake, where the focus moves from server maintenance to efficient data modeling and cost optimization.</li>\n</ul>\n<ul>\n<li>**AI API Tooling:** Data engineering is evolving to include the orchestration of AI APIs to process unstructured information. Instead of manual transformation, engineers are increasingly using tools like LangChain or direct LLM integrations to automate data labeling, sentiment analysis, and metadata generation within their standard ETL pipelines.</li>\n</ul>\n<ul>\n<li>**Practical Learner Advice:** Prioritize a &quot;fundamentals-first&quot; approach by mastering SQL and Python before diving into complex orchestration tools. Build your portfolio by creating a simple pipeline that ingests data from a free API, transforms it, and stores it in a cloud database; demonstrating a clear understanding of the full data lifecycle is the most effective way to stand out to employers.</li>\n</ul>",
       "published": "2026-05-31T10:15:31.727596Z",
       "published_cycle": "2026-05-31T10",
-      "is_new": false
-    },
-    {
-      "headline": "Cloud platforms are increasingly shifting toward \"Serverless-first\" architectures, reducing the need for manual infrastructure management. Major providers are unifying data lakes and warehouses into integrated \"Lakehouse\" environments,...",
-      "body": "<p>Cloud platforms are increasingly shifting toward &quot;Serverless-first&quot; architectures, reducing the need for manual infrastructure management. Major providers are unifying data lakes and warehouses into integrated &quot;Lakehouse&quot; environments, which simplifies the process of storing and querying massive datasets for those just starting their journey.</p>\n<p>AI API tooling is revolutionizing how data engineers handle unstructured data. New orchestration frameworks and vector database APIs allow engineers to feed clean, real-time data into Large Language Models (LLMs). This trend is moving the role beyond simple table management toward building the essential data pipelines that power modern AI applications.</p>\n<p>Practical advice for learners at DE-Coded Lab is to prioritize mastering SQL and Python fundamentals over chasing every new tool. The most effective way to build a portfolio is to complete one end-to-end project: extract data from a public API, transform it using a script, and load it into a cloud-based storage system to demonstrate a solid grasp of the data lifecycle.</p>",
-      "published": "2026-05-31T03:43:45.275816Z",
-      "published_cycle": "2026-05-31T03",
       "is_new": false
     }
   ]
