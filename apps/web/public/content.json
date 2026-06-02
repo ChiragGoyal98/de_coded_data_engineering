@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-06-01T21:19:45.363858Z",
+  "generated_at": "2026-06-02T02:14:31.225604Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "In today's Programming Basics entry, we are diving into the world of PySpark Transformations. This is the secret sauce that allows engineers to process terabytes of data across dozens of computers as if they were working on a single small...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-06-02T02:14:27.571115Z",
+      "is_new": true
+    },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-06-01T21:19:34.635803Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SDK patterns for production-grade AI integrations",
@@ -35,15 +44,6 @@
       "url": "articles/azure-data-lake-design-for-analytics-teams.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-lake-design-for-analytics-teams.html",
       "published": "2026-05-31T15:53:46.643945Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "Welcome back to DE-Coded Lab! If you've ever tried to open a 10GB CSV file in Excel or a standard Python list, you know the pain: your computer freezes, the fan starts whirring, and eventually, the program crashes.",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-05-31T15:47:12.826240Z",
       "is_new": false
     },
     {
@@ -107,11 +107,18 @@
   ],
   "news": [
     {
+      "headline": "Modern Data Engineering Trends Focus on Simplified Cloud and AI Integration",
+      "body": "<ul>\n<li>Cloud: Major providers are expanding serverless options to help beginners build data pipelines without managing complex backend servers.</li>\n<li>AI: New generative tools are making it easier for engineers to automate repetitive coding tasks and data documentation.</li>\n<li>Tip: Focus on learning SQL first because it is the essential language used for querying and transforming data across most platforms.</li>\n</ul>",
+      "published": "2026-06-02T02:14:31.225525Z",
+      "published_cycle": "2026-06-02T02",
+      "is_new": true
+    },
+    {
       "headline": "Recent Data Engineering Shifts in Cloud Technology and Artificial Intelligence",
       "body": "<ul>\n<li>Cloud: Major cloud providers are now offering more user-friendly serverless tools that allow beginners to build data pipelines without managing physical servers.</li>\n<li>AI: Large language models are helping data teams automate the creation of complex workflows and improve data cleaning processes through intelligent suggestions.</li>\n<li>Tip: Build your foundation by learning how to use SQL and Python together since they are the most essential tools in any data engineering toolkit.</li>\n</ul>",
       "published": "2026-06-01T21:19:45.363792Z",
       "published_cycle": "2026-06-01T21",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Essential Data Engineering Updates for Beginners",
@@ -167,13 +174,6 @@
       "body": "Here is a concise brief on the current state of data engineering:\n\n*   **Cloud Platforms: The Rise of the \"Lakehouse\"**\n    The industry is moving away from choosing between a Data Lake (raw storage) and a Data Warehouse (structured tables). Major cloud providers are now standardizing on \"Lakehouse\" architectures, which combine the low cost of cloud storage with the high performance of SQL engines. For beginners, this means focusing on tools that allow you to query files directly using SQL without moving them.\n\n*   **AI API Tooling: Engineering for LLMs**\n    Data engineering is shifting from simply moving business data to powering Large Language Models (LLMs). The trend focuses on building pipelines that connect internal data to AI APIs via Vector Databases. Instead of just scheduled batch updates, engineers are now tasked with \"Retrieval-Augmented Generation\" (RAG) workflows, where the goal is to provide AI models with real-time, contextually accurate data.\n\n*   **Practical Learner Advice: Focus on Logic, Not Tools**\n    The \"modern data stack\" changes rapidly, making it easy to feel overwhelmed. To stay relevant, focus on vendor-neutral fundamentals: master **SQL** for transformation, **Python** for automation, and **Data Modeling** to understand how information relates. A beginner who understands how to build a reliable, clean data pipeline will always be more valuable than one who has simply memorized a specific software's interface.",
       "published": "2026-05-30T15:11:22.482682Z",
       "published_cycle": "2026-05-30T15",
-      "is_new": false
-    },
-    {
-      "headline": "### Data Engineering Brief: Industry Trends",
-      "body": "### Data Engineering Brief: Industry Trends\n\n*   **Cloud Platforms: The Rise of the Data Lakehouse**\n    Major providers are moving away from siloed storage. The current trend favors \"Lakehouse\" architectures, which combine the cost-effective storage of a Data Lake with the high-performance querying of a Data Warehouse. For beginners, this means learning how to manage unstructured data (like logs) and structured data (like SQL tables) within a single unified environment.\n\n*   **AI API Tooling: Engineering for LLMs**\n    Data engineering is evolving to support Generative AI. Instead of just moving numbers, engineers are now building pipelines for **Vector Databases** and Large Language Model (LLM) APIs. The focus has shifted to \"Data Readiness\"-ensuring that company data is cleaned, formatted, and indexed so that AI models can retrieve accurate information in real-time.\n\n*   **Practical Learner Advice: Focus on Fundamentals**\n    While new tools launch weekly, the core of data engineering remains **SQL and Python**. Beginners should prioritize mastering these two languages and understanding \"Data Modeling\" (how to organize tables) before chasing specialized AI tools. A strong portfolio project involves building a simple pipeline that pulls data from a public API, cleans it with Python, and loads it into a cloud database using SQL.",
-      "published": "2026-05-30T14:26:42.525098Z",
-      "published_cycle": "2026-05-30T14",
       "is_new": false
     }
   ]
