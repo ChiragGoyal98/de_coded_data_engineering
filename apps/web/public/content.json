@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-06-02T09:58:33.164138Z",
+  "generated_at": "2026-06-02T15:53:45.398128Z",
   "articles": [
+    {
+      "title": "Azure Data Lake design for analytics teams",
+      "category": "Azure",
+      "summary": "Think of a Data Lake not just as a \"storage bucket,\" but as the foundation of your entire analytics house. If the foundation is shaky or disorganized, everything you build on top-Power BI reports, Machine Learning models, or SQL...",
+      "url": "articles/azure-data-lake-design-for-analytics-teams.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-lake-design-for-analytics-teams.html",
+      "published": "2026-06-02T15:53:40.591797Z",
+      "is_new": true
+    },
     {
       "title": "SDK patterns for production-grade AI integrations",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "published": "2026-06-02T09:58:08.395130Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "PySpark Transformations for Large Datasets",
@@ -35,15 +44,6 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-05-31T19:02:53.461848Z",
-      "is_new": false
-    },
-    {
-      "title": "Azure Data Lake design for analytics teams",
-      "category": "Azure",
-      "summary": "If you are part of an analytics team, you know that data is only as good as its organization. Without a solid design, your data lake can quickly turn into a \"data swamp.\" This guide will help you architect a lake that is scalable, secure,...",
-      "url": "articles/azure-data-lake-design-for-analytics-teams.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-lake-design-for-analytics-teams.html",
-      "published": "2026-05-31T15:53:46.643945Z",
       "is_new": false
     },
     {
@@ -107,11 +107,18 @@
   ],
   "news": [
     {
+      "headline": "Modern Data Engineering Trends Simplified For New Tech Professionals",
+      "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless scaling to help beginners manage growing workloads without manual infrastructure tuning.</li>\n<li>AI: New large language models are increasingly used to automatically generate and debug SQL queries for faster data processing.</li>\n<li>Tip: Master SQL and Python fundamentals first because they remain the core building blocks of every data pipeline.</li>\n</ul>",
+      "published": "2026-06-02T15:53:45.398053Z",
+      "published_cycle": "2026-06-02T15",
+      "is_new": true
+    },
+    {
       "headline": "Key Data Engineering Trends in Cloud Computing and Artificial Intelligence",
       "body": "<ul>\n<li>Cloud: Major providers are introducing serverless data warehouses to help beginners scale their storage without managing infrastructure.</li>\n<li>AI: New automated tools are using large language models to convert natural language requests into efficient SQL transformation code.</li>\n<li>Tip: Focus on learning SQL and Git early to track and transform your data pipelines effectively.</li>\n</ul>",
       "published": "2026-06-02T09:58:33.164074Z",
       "published_cycle": "2026-06-02T09",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Modern Data Engineering Trends Focus on Simplified Cloud and AI Integration",
@@ -167,13 +174,6 @@
       "body": "<p>Cloud platforms are increasingly shifting toward &quot;Serverless-first&quot; architectures, reducing the need for manual infrastructure management. Major providers are unifying data lakes and warehouses into integrated &quot;Lakehouse&quot; environments, which simplifies the process of storing and querying massive datasets for those just starting their journey.</p>\n<p>AI API tooling is revolutionizing how data engineers handle unstructured data. New orchestration frameworks and vector database APIs allow engineers to feed clean, real-time data into Large Language Models (LLMs). This trend is moving the role beyond simple table management toward building the essential data pipelines that power modern AI applications.</p>\n<p>Practical advice for learners at DE-Coded Lab is to prioritize mastering SQL and Python fundamentals over chasing every new tool. The most effective way to build a portfolio is to complete one end-to-end project: extract data from a public API, transform it using a script, and load it into a cloud-based storage system to demonstrate a solid grasp of the data lifecycle.</p>",
       "published": "2026-05-31T03:43:45.275816Z",
       "published_cycle": "2026-05-31T03",
-      "is_new": false
-    },
-    {
-      "headline": "*   **Cloud Platforms:** Major cloud providers are prioritizing \"zero-ETL\" integrations and serverless architectures. This trend reduces the need for manual pipeline construction by allowing data to flow seamlessly between storage and...",
-      "body": "<ul>\n<li>  **Cloud Platforms:** Major cloud providers are prioritizing &quot;zero-ETL&quot; integrations and serverless architectures. This trend reduces the need for manual pipeline construction by allowing data to flow seamlessly between storage and analytics tools, enabling engineers to focus more on data strategy and less on infrastructure management.</li>\n</ul>\n<ul>\n<li>  **AI API Tooling:** The integration of Large Language Models (LLMs) into data workflows is shifting toward API-driven orchestration. Tools that connect data warehouses to AI services are becoming standard, allowing engineers to build &quot;Retrieval-Augmented Generation&quot; (RAG) pipelines that feed fresh, organizational data directly into AI models for more accurate results.</li>\n</ul>\n<ul>\n<li>  **Practical Learner Advice:** While new tools emerge daily, beginners should prioritize mastering SQL and Python fundamentals. Focus on understanding data modeling and clean architecture first; a strong grasp of how data should be structured is more valuable and enduring than proficiency in any single trending software.</li>\n</ul>",
-      "published": "2026-05-30T17:03:33.044089Z",
-      "published_cycle": "2026-05-30T17",
       "is_new": false
     }
   ]
