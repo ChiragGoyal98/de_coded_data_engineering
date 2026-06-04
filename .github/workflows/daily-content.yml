@@ -81,4 +81,25 @@ jobs:
         if: steps.commit.outputs.changed == 'true'
         run: sleep 90
 
+      - name: Verify Telegram URLs before send
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, "pipeline")
+          sys.path.insert(0, "bot")
+          from messages import resolve_article_url
+
+          data = json.loads(Path("apps/web/public/content.json").read_text(encoding="utf-8"))
+          post = data["articles"][0]
+          bad_secret = "https://chiraggoyal98.github.io/decodeddataengineering"
+          url = resolve_article_url(post)
+          assert "de_coded_data_engineering" in url, url
+          assert "decodeddataengineering" not in url, url
+          assert url == resolve_article_url({**post, "full_url": f"{bad_secret}/articles/test.html"})
+          print("Telegram URL check passed:", url)
+          PY
+
       - run: python bot/send_test_message.py

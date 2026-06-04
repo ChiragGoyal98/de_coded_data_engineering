@@ -316,6 +316,105 @@ details p {
   padding: 4px 0 40px;
 }
 
+.article-prose h2,
+.article-prose h3,
+.article-prose h4 {
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  margin: 1.75rem 0 0.75rem;
+  line-height: 1.25;
+}
+
+.article-prose h2 {
+  font-size: 1.45rem;
+}
+
+.article-prose h3 {
+  font-size: 1.2rem;
+}
+
+.article-prose .article-lead {
+  font-size: 1.08rem;
+  color: #374151;
+  font-weight: 500;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.article-prose .article-body ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.article-prose .article-body li {
+  margin-bottom: 0.5rem;
+}
+
+.article-prose .article-body hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 1.5rem 0;
+}
+
+.article-prose .article-body blockquote {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--brand);
+  background: #f0fdfa;
+  color: #134e4a;
+}
+
+.breadcrumb {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.breadcrumb a {
+  color: var(--brand-strong);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.article-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.code-container {
+  position: relative;
+  margin: 1.25rem 0;
+  border-radius: 8px;
+  border: 1px solid #2c2c2c;
+  overflow: hidden;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #d1d5da;
+  border-radius: 4px;
+}
+
 .article-summary {
   color: #3d3a33;
   font-weight: 600;

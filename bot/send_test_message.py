@@ -60,7 +60,7 @@ async def send_test():
 
     post = content["articles"][0]
     news_item = find_today_news(content.get("news", []))
-    message = build_message(post, news_item, site_base_url=SITE_BASE_URL)
+    message = build_message(post, news_item)
 
     try:
         async with Bot(token=BOT_TOKEN) as bot:

@@ -1,21 +1,152 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { author } from "../data/author";
+
+const base = import.meta.env.BASE_URL;
 ---
 
-<BaseLayout title="About | DE-Coded Lab" description="About DE-Coded Lab and its mission.">
+<BaseLayout title="About | DE-Coded Lab" description="About DE-Coded Lab, the author, and community links.">
   <div slot="hero" class="container hero-content">
-    <p class="eyebrow">About the Project</p>
-    <h1>DE-Coded Lab is a practical learning journal for data engineers</h1>
-    <p class="subtitle">Built to publish consistent, useful, code-forward content that helps learners ship real work.</p>
+    <p class="eyebrow">About</p>
+    <h1>Built for data engineers who learn by building</h1>
+    <p class="subtitle">
+      DE-Coded Lab publishes code-forward tutorials every few hours, paired with Telegram briefings for consistent practice.
+    </p>
   </div>
 
-  <section class="section-block">
-    <h2>Mission</h2>
-    <p>Deliver high-signal tutorials and explain complex data engineering ideas in a simple, implementation-ready format.</p>
+  <section class="section-block about-grid">
+    <article class="card about-profile">
+      <p class="eyebrow">Creator</p>
+      <h2>{author.name}</h2>
+      <p class="role-line">{author.role}</p>
+      <p>{author.bio}</p>
+
+      <div class="profile-links">
+        <a class="btn primary" href={author.github.url} target="_blank" rel="noopener noreferrer">
+          {author.github.label}
+        </a>
+        <a class="btn secondary" href={author.linkedin.url} target="_blank" rel="noopener noreferrer">
+          {author.linkedin.label}
+        </a>
+        <a class="btn secondary" href={author.telegram.url} target="_blank" rel="noopener noreferrer">
+          {author.telegram.label}
+        </a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h2>What you'll find here</h2>
+      <ul class="about-list">
+        {author.highlights.map((item) => <li>{item}</li>)}
+      </ul>
+    </article>
   </section>
+
   <section class="section-block">
     <h2>Publishing model</h2>
-    <p>Every 8 hours, a workflow generates a new tutorial and a fresh briefing, then pushes updates to Telegram.</p>
+    <p>
+      A scheduled workflow generates a new tutorial and news brief, commits them to this site, deploys to
+      <a href="https://chiraggoyal98.github.io/de_coded_data_engineering/">GitHub Pages</a>, then shares the update on Telegram.
+    </p>
   </section>
-</BaseLayout>
 
+  {
+    author.linkedinPosts.length > 0 ? (
+      <section class="section-block">
+        <h2>From LinkedIn</h2>
+        <p class="section-intro">
+          Selected posts and threads — static links (LinkedIn does not allow full post embeds on external sites without their widget).
+        </p>
+        <ul class="linkedin-posts">
+          {author.linkedinPosts.map((post) => (
+            <li>
+              <a href={post.url} target="_blank" rel="noopener noreferrer">
+                {post.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ) : (
+      <section class="section-block linkedin-note">
+        <h2>LinkedIn</h2>
+        <p>
+          Follow <a href={author.linkedin.url} target="_blank" rel="noopener noreferrer">{author.name} on LinkedIn</a> for
+          bite-sized data engineering posts. To feature specific posts here, add them to
+          <code>apps/web/src/data/author.ts</code> under <code>linkedinPosts</code>.
+        </p>
+      </section>
+    )
+  }
+
+  <section class="section-block">
+    <h2>Resume / bio</h2>
+    <p>
+      Share your resume in chat and we can refine this section with your experience, certifications, and project highlights.
+      For now, the profile above reflects your public GitHub presence and the focus of DE-Coded Lab.
+    </p>
+    <a class="link-button" href={`${base}`}>Browse latest tutorials</a>
+  </section>
+
+  <style>
+    .about-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .about-profile h2 {
+      margin: 0 0 0.25rem;
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+    }
+
+    .role-line {
+      margin: 0 0 1rem;
+      color: var(--brand-strong);
+      font-weight: 600;
+    }
+
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .about-list {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .linkedin-posts {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .linkedin-posts li {
+      margin-bottom: 0.65rem;
+    }
+
+    .linkedin-posts a {
+      font-weight: 600;
+      color: var(--brand-strong);
+    }
+
+    .section-intro,
+    .linkedin-note p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    code {
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 0.88em;
+      background: #f3f4f6;
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+    }
+  </style>
+</BaseLayout>

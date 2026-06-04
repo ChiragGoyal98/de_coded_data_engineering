@@ -8,7 +8,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from site_urls import article_public_url, canonical_site_base_url
+from site_urls import article_public_url, canonical_site_base_url, site_href
 
 load_dotenv()
 
@@ -93,10 +93,44 @@ def build_prompt(category: str, topic: str) -> str:
     return (
         f"You are writing for a beginner-friendly technical blog titled 'DE-Coded Lab'. "
         f"Write a detailed tutorial article about '{topic}' under category '{category}'. "
-        "Use standard Markdown for structure (## for headers, * for lists). "
+        "Use standard Markdown (## and ### for headers, - for bullet lists). "
+        "Do NOT repeat the article title as a heading. Do NOT write 'Welcome to DE-Coded Lab' or similar intros. "
+        "Do not use ** in the opening paragraph. "
         "Structure as: Introduction, Why it matters, Step-by-step walkthrough, Common mistakes, One practice task. "
         "Include one short code example when relevant."
     )
+
+
+def clean_generated_article_text(topic: str, text: str) -> str:
+    topic_pattern = re.compile(re.escape(topic), re.IGNORECASE)
+    cleaned_lines = []
+    seen_intro = False
+
+    for line in text.split("\n"):
+        stripped = line.strip()
+        if not stripped:
+            cleaned_lines.append(line)
+            continue
+
+        if re.match(r"^\*{3,}$", stripped):
+            continue
+
+        if re.match(r"^#{1,6}\s+", stripped) and topic_pattern.search(stripped):
+            continue
+
+        lower = stripped.lower()
+        if not seen_intro and (
+            lower.startswith("welcome to de-coded")
+            or lower.startswith("welcome back to de-coded")
+            or lower.startswith("title:")
+            or (lower.startswith("# ") and "de-coded" in lower)
+        ):
+            seen_intro = True
+            continue
+
+        cleaned_lines.append(line)
+
+    return "\n".join(cleaned_lines).strip()
 
 
 def strip_markdown_inline(text: str) -> str:
@@ -164,7 +198,7 @@ def build_article_url(slug: str) -> str:
 
 
 def build_article_full_link(slug: str) -> str:
-    return article_public_url(SITE_BASE_URL, build_article_url(slug))
+    return article_public_url(build_article_url(slug))
 
 
 def slug_from_article_url(url: str) -> str:
@@ -236,7 +270,7 @@ def convert_markdown_to_html(text: str) -> str:
             continue
 
         # Headers
-        header_match = re.match(r'^(#{1,3})\s+(.*)', line)
+        header_match = re.match(r'^(#{1,6})\s+(.*)', line)
         if header_match:
             if in_list: html_output.append("</ul>"); in_list = False
             level = len(header_match.group(1))
@@ -270,69 +304,68 @@ def convert_markdown_to_html(text: str) -> str:
 
 
 def build_article_html(topic: str, category: str, generated_text: str, summary: str) -> str:
-    body_html = convert_markdown_to_html(generated_text)
-    reading_time = estimate_reading_time(generated_text)
+    cleaned_text = clean_generated_article_text(topic, generated_text)
+    body_html = convert_markdown_to_html(cleaned_text)
+    reading_time = estimate_reading_time(cleaned_text)
+    clean_summary = strip_markdown_inline(build_summary(cleaned_text))
+    home = site_href("index.html")
+    news = site_href("news/index.html")
+    apis = site_href("apis/index.html")
+    logo = site_href("logo.svg")
+    styles = site_href("styles.css")
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{html.escape(topic)} | DE-Coded Lab</title>
-  <meta name="description" content="{html.escape(summary)}" />
+  <meta name="description" content="{html.escape(clean_summary)}" />
   <meta property="og:title" content="{html.escape(topic)}" />
-  <meta property="og:description" content="{html.escape(summary)}" />
+  <meta property="og:description" content="{html.escape(clean_summary)}" />
   <meta property="og:type" content="article" />
-  <link rel="stylesheet" href="../styles.css" />
-  <style>
-    :root {{ --primary: #2563eb; --text: #1f2937; --light-bg: #f9fafb; }}
-    body {{ line-height: 1.7; color: var(--text); font-family: Inter, system-ui, -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 0 1rem; }}
-    .article-meta {{ color: #6b7280; font-size: 0.875rem; margin-bottom: 2rem; }}
-    blockquote {{ border-left: 4px solid var(--primary); padding-left: 1rem; font-style: italic; color: #4b5563; margin: 1.5rem 0; }}
-    .code-container {{ position: relative; margin: 2rem 0; border-radius: 8px; border: 1px solid #e5e7eb; overflow: hidden; }}
-    .copy-button {{ 
-      position: absolute; top: 0.5rem; right: 0.5rem; z-index: 10;
-      padding: 0.4rem 0.8rem; font-size: 0.75rem; font-weight: 600;
-      cursor: pointer; background: #ffffff; border: 1px solid #d1d5da; border-radius: 4px;
-      transition: background-color 0.2s, box-shadow 0.2s;
-    }}
-    .copy-button:hover {{ background-color: #f3f4f6; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }}
-    pre {{ margin: 0 !important; padding: 1.2rem !important; background: #f6f8fa; overflow-x: auto; }}
-  </style>
+  <link rel="stylesheet" href="{styles}" />
 </head>
 <body>
   <header class="hero hero-tight">
     <div class="container header-nav">
-      <a class="site-brand" href="../index.html"><img class="logo-img" src="../logo.svg" alt="DE-Coded Lab logo" /><span>DE-Coded Lab</span></a>
+      <a class="site-brand" href="{home}"><img class="logo-img" src="{logo}" alt="DE-Coded Lab logo" /><span>DE-Coded Lab</span></a>
       <nav class="site-nav">
-        <a href="../index.html">Home</a>
-        <a href="../news.html">News</a>
-        <a href="../apis.html">API/SDK</a>
+        <a href="{home}">Home</a>
+        <a href="{news}">News</a>
+        <a href="{apis}">APIs</a>
       </nav>
     </div>
   </header>
-  <main class="container content-wrapper">
-    <article class="article-page section-block">
-      <nav class="breadcrumb"><a href="../index.html">Home</a> &raquo; {html.escape(category)}</nav>
+  <main class="container">
+    <article class="article-page section-block article-prose">
+      <nav class="breadcrumb"><a href="{home}">Home</a> &raquo; <span>{html.escape(category)}</span></nav>
+      <p class="pill">{html.escape(category)}</p>
       <h1>{html.escape(topic)}</h1>
       <div class="article-meta">
-        <span>Published: {datetime.utcnow().strftime('%b %d, %Y')}</span> &bull; 
+        <span>Published: {datetime.utcnow().strftime('%b %d, %Y')}</span>
+        <span aria-hidden="true">&bull;</span>
         <span>{reading_time} min read</span>
       </div>
-      <p class="article-summary">{html.escape(summary)}</p>
-      <hr />
+      <p class="article-lead">{html.escape(clean_summary)}</p>
+      <div class="article-body">
       {body_html}
+      </div>
       <footer class="article-footer">
-        <p><a class="link-button" href="../index.html">Explore more tutorials &rarr;</a></p>
+        <a class="link-button" href="{home}">Explore more tutorials &rarr;</a>
       </footer>
     </article>
   </main>
+  <footer class="footer">
+    <p>DE-Coded Lab — practical data engineering tutorials.</p>
+  </footer>
   <script>
     function copyCode(button) {{
       const pre = button.nextElementSibling;
-      const code = pre.querySelector('code');
+      const code = pre && pre.querySelector("code");
+      if (!code) return;
       navigator.clipboard.writeText(code.innerText).then(() => {{
-        button.textContent = 'Copied!';
-        setTimeout(() => {{ button.textContent = 'Copy'; }}, 2000);
+        button.textContent = "Copied!";
+        setTimeout(() => {{ button.textContent = "Copy"; }}, 2000);
       }});
     }}
   </script>
@@ -480,6 +513,7 @@ def main() -> None:
     print(f"Generating content for: {topic} ({category})")
 
     generated_text = normalize_text(parse_google_response(request_google_ai(build_prompt(category, topic))))
+    generated_text = clean_generated_article_text(topic, generated_text)
     summary = build_summary(generated_text)
 
     saved_path = save_article(topic, format_markdown(topic, generated_text))

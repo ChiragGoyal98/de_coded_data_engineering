@@ -1,5 +1,6 @@
 """Shared Telegram message formatting for DE-Coded Lab."""
 
+import re
 import sys
 from pathlib import Path
 
@@ -8,44 +9,89 @@ PIPELINE_DIR = ROOT_DIR / "pipeline"
 if str(PIPELINE_DIR) not in sys.path:
     sys.path.insert(0, str(PIPELINE_DIR))
 
-from site_urls import CANONICAL_SITE_BASE_URL, article_public_url, canonical_site_base_url  # noqa: E402
+from site_urls import (  # noqa: E402
+    CANONICAL_SITE_BASE_URL,
+    article_public_url,
+    assert_canonical_article_url,
+)
 
-SITE_BASE_URL = CANONICAL_SITE_BASE_URL
+TELEGRAM_GROUP = "https://t.me/DE_Coded_Data_Engineering"
 
 
-def resolve_article_url(post: dict, site_base_url: str) -> str:
-    base = canonical_site_base_url(site_base_url)
+def resolve_article_url(post: dict) -> str:
+    """Always use the canonical GitHub Pages URL (never trust secrets or full_url)."""
     path = (post.get("url") or "").lstrip("/")
-    if path:
-        return article_public_url(base, path)
-    return f"{base}/"
+    url = article_public_url(path) if path else f"{CANONICAL_SITE_BASE_URL}/"
+    assert_canonical_article_url(url)
+    return url
 
 
-def build_message(post: dict, news_item=None, *, site_base_url: str = SITE_BASE_URL) -> str:
-    url = resolve_article_url(post, site_base_url)
-    title = post.get("title", "New Article")
+def _strip_markdown(text: str) -> str:
+    cleaned = re.sub(r"\*\*([^*]+)\*\*", r"\1", text or "")
+    cleaned = re.sub(r"[*_`#]", "", cleaned)
+    return re.sub(r"\s+", " ", cleaned).strip()
+
+
+def telegram_summary(post: dict, max_length: int = 220) -> str:
+    raw = (post.get("summary") or "").strip()
+    text = _strip_markdown(raw)
+
+    skip = (
+        text.lower().startswith("welcome to"),
+        text.lower().startswith("welcome back"),
+        text.lower().startswith("de-coded lab:"),
+        text.lower().startswith("here is a polished"),
+        text.lower().startswith("title:"),
+        len(text) < 50,
+    )
+    if any(skip) and raw:
+        paragraphs = [_strip_markdown(p) for p in raw.split("\n") if p.strip()]
+        text = next((p for p in paragraphs if len(p) >= 50 and not p.lower().startswith("welcome")), text)
+
+    if len(text) > max_length:
+        text = text[: max_length - 3].rsplit(" ", 1)[0] + "..."
+    return text or "A new hands-on tutorial just dropped on DE-Coded Lab."
+
+
+def _escape_telegram(text: str) -> str:
+    return re.sub(r"([_\[\]`])", r"\\\1", text)
+
+
+def build_message(post: dict, news_item=None, *, site_base_url: str = "") -> str:
+    del site_base_url  # ignored — URLs are always canonical
+
+    url = resolve_article_url(post)
+    title = post.get("title", "New tutorial")
     category = post.get("category", "Data Engineering")
-    summary = (post.get("summary") or "").strip()
+    summary = telegram_summary(post)
+    safe_title = _escape_telegram(title)
 
     msg = [
-        "🚀 *New Tutorial Published!*",
-        "━━━━━━━━━━━━━━",
-        f"📘 *Topic:* {title}",
-        f"🏷 *Category:* {category}",
+        f"🔥 *New on DE-Coded Lab* · _{category}_",
         "",
-        f"📝 {summary}",
+        f"📘 *{safe_title}*",
         "",
-        "🔗 *Read the full guide here:*",
+        summary,
+        "",
+        "💡 _Why open it?_ Step-by-step walkthrough, one code example, and a practice task you can add to your portfolio.",
+        "",
+        "👉 *Read the full tutorial:*",
         url,
-        "",
-        "━━━━━━━━━━━━━━",
     ]
 
     if news_item and news_item.get("headline"):
-        headline = news_item["headline"].strip().lstrip("#").strip()
-        msg.append(f"📰 *News:* {headline}")
-        msg.append("")
+        headline = _strip_markdown(news_item.get("headline", ""))
+        if headline.lower().startswith("headline:"):
+            headline = headline.split(":", 1)[1].strip()
+        if len(headline) > 100:
+            headline = headline[:97].rsplit(" ", 1)[0] + "..."
+        msg.extend(["", f"📰 *Today's brief:* {_escape_telegram(headline)}"])
 
-    site = canonical_site_base_url(site_base_url)
-    msg.append(f"👉 Visit [DE-Coded Lab]({site}/)")
+    msg.extend(
+        [
+            "",
+            f"🧠 More tutorials: [DE-Coded Lab]({CANONICAL_SITE_BASE_URL}/)",
+            f"💬 Discuss & get updates: [Telegram group]({TELEGRAM_GROUP})",
+        ]
+    )
     return "\n".join(msg)

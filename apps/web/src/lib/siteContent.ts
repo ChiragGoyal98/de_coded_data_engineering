@@ -52,7 +52,11 @@ export function articleHref(base: string, article: Article): string {
   if (article.url) {
     return `${base}${article.url}`;
   }
-  return article.full_url || base;
+  const full = article.full_url || "";
+  if (full.includes("/de_coded_data_engineering/")) {
+    return full;
+  }
+  return base;
 }
 
 export function decodeHtmlEntities(value: string): string {
