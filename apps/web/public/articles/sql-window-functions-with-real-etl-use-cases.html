@@ -4,7 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SQL Window Functions with Real ETL Use Cases | DE-Coded Lab</title>
+  <meta name="description" content="SQL Window Functions with Real ETL Use Cases
+Category: Programming Basics" />
+  <meta property="og:title" content="SQL Window Functions with Real ETL Use Cases" />
+  <meta property="og:description" content="SQL Window Functions with Real ETL Use Cases
+Category: Programming Basics" />
+  <meta property="og:type" content="article" />
   <link rel="stylesheet" href="../styles.css" />
+  <style>
+    :root { --primary: #2563eb; --text: #1f2937; --light-bg: #f9fafb; }
+    body { line-height: 1.7; color: var(--text); font-family: Inter, system-ui, -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+    .article-meta { color: #6b7280; font-size: 0.875rem; margin-bottom: 2rem; }
+    blockquote { border-left: 4px solid var(--primary); padding-left: 1rem; font-style: italic; color: #4b5563; margin: 1.5rem 0; }
+    .code-container { position: relative; margin: 2rem 0; border-radius: 8px; border: 1px solid #e5e7eb; overflow: hidden; }
+    .copy-button { 
+      position: absolute; top: 0.5rem; right: 0.5rem; z-index: 10;
+      padding: 0.4rem 0.8rem; font-size: 0.75rem; font-weight: 600;
+      cursor: pointer; background: #ffffff; border: 1px solid #d1d5da; border-radius: 4px;
+      transition: background-color 0.2s, box-shadow 0.2s;
+    }
+    .copy-button:hover { background-color: #f3f4f6; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    pre { margin: 0 !important; padding: 1.2rem !important; background: #f6f8fa; overflow-x: auto; }
+  </style>
 </head>
 <body>
   <header class="hero hero-tight">
@@ -17,51 +38,99 @@
       </nav>
     </div>
   </header>
-  <main class="container">
+  <main class="container content-wrapper">
     <article class="article-page section-block">
-      <p class="eyebrow">Generated Article</p>
+      <nav class="breadcrumb"><a href="../index.html">Home</a> &raquo; Programming Basics</nav>
       <h1>SQL Window Functions with Real ETL Use Cases</h1>
-      <p class="article-summary">DE-CODED LAB: SQL WINDOW FUNCTIONS WITH REAL ETL USE CASES
+      <div class="article-meta">
+        <span>Published: Jun 01, 2026</span> &bull; 
+        <span>3 min read</span>
+      </div>
+      <p class="article-summary">SQL Window Functions with Real ETL Use Cases
 Category: Programming Basics</p>
-      <p>DE-CODED LAB: SQL WINDOW FUNCTIONS WITH REAL ETL USE CASES
-Category: Programming Basics</p>
-<p>INTRODUCTION</p>
-<p>In the world of data engineering and database management, SQL is your primary tool for moving and shaping data. Usually, when we talk about aggregating data, we think of the GROUP BY clause. However, there is a more powerful and flexible tool called Window Functions.</p>
-<p>A window function performs a calculation across a set of table rows that are related to the current row. Unlike a regular GROUP BY, which collapses multiple rows into a single output row, window functions allow you to keep all your original rows while adding a new column containing the calculation. This makes them indispensable for data transformation tasks where you need to compare individual records against a group.</p>
-<p>WHY IT MATTERS</p>
-<p>In ETL (Extract, Transform, Load) pipelines, we rarely just move data from point A to point B. We often need to clean it, rank it, or calculate trends. Window functions matter for three main reasons:</p>
-<p>1. Data Deduplication: They allow you to identify and remove duplicate records by assigning a row number to identical entries and keeping only the first one.
-2. Sequential Analysis: They make it easy to find the previous or next value in a sequence, which is essential for calculating month-over-month growth or time-lag between events.
-3. Running Totals: They allow you to calculate cumulative sums or averages without needing complex self-joins, which significantly improves query performance on large datasets.</p>
-<p>STEP-BY-STEP WALKTHROUGH</p>
-<p>To understand window functions, you need to master the OVER clause and its two main components: PARTITION BY and ORDER BY.</p>
-<p>Step 1: The OVER Clause
-The OVER clause tells SQL that you are using a window function rather than a standard aggregate. Without it, functions like SUM or COUNT will try to collapse your rows.</p>
-<p>Step 2: Partitioning the Data
-The PARTITION BY clause divides the rows into logical groups or buckets. For example, if you want to rank sales, you might partition by region so that the ranking starts over for every new location.</p>
-<p>Step 3: Ordering the Data
-The ORDER BY clause within the window function determines the sequence in which the function is applied to the rows in each partition. This is vital for functions like ROW_NUMBER() or LAG().</p>
-<p>Step 4: Real-World Example
-Let&#x27;s look at a common ETL scenario: Deduplicating a table where a user might have clicked a button multiple times by mistake. We want to keep only the earliest click for each user.</p>
-<p>CODE EXAMPLE START
+      <hr />
+      <h1>SQL Window Functions with Real ETL Use Cases</h1>
+<p><strong>Category: Programming Basics</strong></p>
+<p>Welcome to the <strong>DE-Coded Lab</strong>! If you&#x27;ve been working with SQL for a while, you&#x27;ve likely mastered <code>GROUP BY</code> and <code>JOIN</code>. But there comes a point in every data engineer&#x27;s journey where these basic tools feel a bit clunky-especially when you need to perform calculations across rows without &quot;collapsing&quot; your data. </p>
+<p>This is where <strong>Window Functions</strong> come in. Let&#x27;s break down how they work and how they simplify complex ETL (Extract, Transform, Load) tasks.</p>
+<h2>Introduction</h2>
+<p>A Window Function performs a calculation across a set of table rows that are somehow related to the current row. Unlike regular aggregate functions (<code>SUM</code>, <code>AVG</code>), which group multiple rows into a single output row, window functions allow you to keep your original rows while adding a new column containing the calculation.</p>
+<p>Think of it like a &quot;sliding window&quot; that moves through your dataset, looking at a specific neighborhood of rows to calculate a value for the one you are currently standing on.</p>
+<h2>Why it Matters</h2>
+<p>In the world of ETL and Data Engineering, Window Functions are your &quot;Swiss Army Knife.&quot; They are essential because:</p>
+<ul>
+<li><strong>Row Detail Retention:</strong> You can calculate a total or an average without losing the individual transaction details.</li>
+<li><strong>Deduplication:</strong> They are the gold standard for identifying and removing duplicate records in a landing zone.</li>
+<li><strong>Trend Analysis:</strong> Calculating &quot;Month-over-Month&quot; growth or &quot;Running Totals&quot; is nearly impossible without them.</li>
+<li><strong>Data Cleaning:</strong> They help identify the &quot;most recent&quot; record in a history of changes (SCD Type 1/2 logic).</li>
+</ul>
+<h2>Step-by-step Walkthrough</h2>
+<p>To use a window function, you need three main components: the <strong>Function</strong>, the <strong>Partition</strong>, and the <strong>Order</strong>.</p>
+<h3>1. The Basic Syntax</h3>
+<p>The magic keyword is <code>OVER</code>.</p>
+<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-sql">
 SELECT 
-user_id, 
-click_time, 
-ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY click_time ASC) as occurrence
-FROM user_clicks;
-CODE EXAMPLE END</p>
-<p>In this example, the ROW_NUMBER() function assigns 1 to the first click for each user. In your ETL process, you would then simply filter for rows where the occurrence equals 1.</p>
-<p>COMMON MISTAKES</p>
-<p>1. Confusing GROUP BY with PARTITION BY: Remember that GROUP BY reduces the number of rows in your result set, while PARTITION BY keeps every row intact.
-2. Forgetting the ORDER BY: For functions like ROW_NUMBER() or LEAD(), the order is mandatory. If you forget it, the database will assign values randomly, leading to inconsistent data.
-3. Overusing them on massive datasets: While powerful, window functions can be resource-intensive. Using too many partitions or windows in a single query can slow down your ETL pipeline.
-4. Using them in the WHERE clause: You cannot use a window function directly in a WHERE clause. You must first wrap the query in a Subquery or a Common Table Expression (CTE) and then filter it.</p>
-<p>ONE PRACTICE TASK</p>
-<p>Scenario: You are working on a financial ETL pipeline. You have a table called monthly_revenue with two columns: report_month and total_income.</p>
-<p>Your Task: Write a query that creates a third column showing a running total (cumulative sum) of the income, ordered by the month.</p>
-<p>Hint: Use the SUM function with the OVER clause and only use ORDER BY without a PARTITION BY, as you want the running total for the entire company.</p>
-      <p><a class="link-button" href="../index.html">Back to home</a></p>
+    column_name,
+    FUNCTION() OVER (PARTITION BY group_col ORDER BY sort_col) as alias
+FROM table;
+</code></pre></div>
+<h3>2. PARTITION BY (The Grouping)</h3>
+<p>This defines the &quot;window.&quot; If you want to calculate sales per *Category*, you <code>PARTITION BY category</code>. If you leave this out, the window is the entire table.</p>
+<h3>3. ORDER BY (The Sequence)</h3>
+<p>This determines the order in which the function processes the rows. This is vital for &quot;Running Totals&quot; or &quot;Rankings.&quot;</p>
+<h3>4. Real ETL Use Case: Deduplication</h3>
+<p>Imagine you have a <code>sales</code> table with duplicate entries. You want to keep only the latest entry for each <code>order_id</code>.</p>
+<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-sql">
+WITH RankedSales AS (
+    SELECT 
+        order_id, 
+        sale_date, 
+        amount,
+        -- Assign a 1 to the most recent record per order
+        ROW_NUMBER() OVER (PARTITION BY order_id ORDER BY sale_date DESC) as row_num
+    FROM raw_sales_table
+)
+SELECT * 
+FROM RankedSales 
+WHERE row_num = 1;
+</code></pre></div>
+<h3>5. Real ETL Use Case: Growth Tracking</h3>
+<p>ETL pipelines often require comparing today&#x27;s value to yesterday&#x27;s. The <code>LAG()</code> function looks back at the previous row.</p>
+<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-sql">
+SELECT 
+    sale_date,
+    daily_revenue,
+    -- Get the revenue from the previous day
+    LAG(daily_revenue) OVER (ORDER BY sale_date) as prev_day_revenue
+FROM daily_metrics;
+</code></pre></div>
+<h2>Common Mistakes</h2>
+<ul>
+<li><strong>Forgetting the ORDER BY:</strong> For functions like <code>RANK()</code> or <code>LEAD()</code>, forgetting the <code>ORDER BY</code> inside the <code>OVER</code> clause will lead to unpredictable results or errors.</li>
+<li><strong>Filtering in the same SELECT:</strong> You cannot use a window function result in a <code>WHERE</code> clause in the same query block (e.g., <code>WHERE row_num = 1</code>). You must use a Subquery or a Common Table Expression (CTE).</li>
+<li><strong>Performance Overhead:</strong> Using window functions on massive datasets without proper indexing or partitioning can be slow, as the database has to sort the data in memory.</li>
+<li><strong>Confusing RANK() vs DENSE<em>RANK():</strong> <code>RANK()</code> leaves gaps (1, 2, 2, 4), while <code>DENSE</em>RANK()</code> does not (1, 2, 2, 3). Choose the one that fits your business logic!</li>
+</ul>
+<h2>Practice Task</h2>
+<p><strong>The Scenario:</strong> You have a table called <code>user<em>logins</code> with columns <code>user</em>id</code> and <code>login_timestamp</code>. </p>
+<p><strong>The Goal:</strong> Write a query that shows each user&#x27;s login time alongside the timestamp of their *previous* login. This is a common step for calculating &quot;Session Duration&quot; in ETL pipelines.</p>
+<p>*(Hint: Use the <code>LAG()</code> function partitioned by the user and ordered by the time.)*</p>
+<p>***</p>
+<p>*Thanks for reading DE-Coded Lab! Keep experimenting with your queries, and soon these &quot;windows&quot; will open up a whole new world of data insights.*</p>
+      <footer class="article-footer">
+        <p><a class="link-button" href="../index.html">Explore more tutorials &rarr;</a></p>
+      </footer>
     </article>
   </main>
+  <script>
+    function copyCode(button) {
+      const pre = button.nextElementSibling;
+      const code = pre.querySelector('code');
+      navigator.clipboard.writeText(code.innerText).then(() => {
+        button.textContent = 'Copied!';
+        setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+      });
+    }
+  </script>
 </body>
 </html>

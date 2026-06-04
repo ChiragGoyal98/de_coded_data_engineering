@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SDK patterns for production-grade AI integrations | DE-Coded Lab</title>
+  <meta name="description" content="So, you&#x27;ve successfully sent your first prompt to an LLM using a basic Python script. It feels like magic, right? But there is a massive gap between a script that works on your laptop and a system that can handle thousands of users without..." />
+  <meta property="og:title" content="SDK patterns for production-grade AI integrations" />
+  <meta property="og:description" content="So, you&#x27;ve successfully sent your first prompt to an LLM using a basic Python script. It feels like magic, right? But there is a massive gap between a script that works on your laptop and a system that can handle thousands of users without..." />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    :root { --primary: #2563eb; --text: #1f2937; --light-bg: #f9fafb; }
+    body { line-height: 1.7; color: var(--text); font-family: Inter, system-ui, -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+    .article-meta { color: #6b7280; font-size: 0.875rem; margin-bottom: 2rem; }
+    blockquote { border-left: 4px solid var(--primary); padding-left: 1rem; font-style: italic; color: #4b5563; margin: 1.5rem 0; }
+    .code-container { position: relative; margin: 2rem 0; border-radius: 8px; border: 1px solid #e5e7eb; overflow: hidden; }
+    .copy-button { 
+      position: absolute; top: 0.5rem; right: 0.5rem; z-index: 10;
+      padding: 0.4rem 0.8rem; font-size: 0.75rem; font-weight: 600;
+      cursor: pointer; background: #ffffff; border: 1px solid #d1d5da; border-radius: 4px;
+      transition: background-color 0.2s, box-shadow 0.2s;
+    }
+    .copy-button:hover { background-color: #f3f4f6; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    pre { margin: 0 !important; padding: 1.2rem !important; background: #f6f8fa; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <header class="hero hero-tight">
+    <div class="container header-nav">
+      <a class="site-brand" href="../index.html"><img class="logo-img" src="../logo.svg" alt="DE-Coded Lab logo" /><span>DE-Coded Lab</span></a>
+      <nav class="site-nav">
+        <a href="../index.html">Home</a>
+        <a href="../news.html">News</a>
+        <a href="../apis.html">API/SDK</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container content-wrapper">
+    <article class="article-page section-block">
+      <nav class="breadcrumb"><a href="../index.html">Home</a> &raquo; LLM APIs</nav>
+      <h1>SDK patterns for production-grade AI integrations</h1>
+      <div class="article-meta">
+        <span>Published: Jun 04, 2026</span> &bull; 
+        <span>3 min read</span>
+      </div>
+      <p class="article-summary">So, you&#x27;ve successfully sent your first prompt to an LLM using a basic Python script. It feels like magic, right? But there is a massive gap between a script that works on your laptop and a system that can handle thousands of users without...</p>
+      <hr />
+      <h1>DE-Coded Lab: Building Better AI Connections</h1>
+<p><strong>Category:</strong> LLM APIs</p>
+<p><strong>Topic:</strong> SDK Patterns for Production-Grade AI Integrations</p>
+<h2>Introduction</h2>
+<p>So, you&#x27;ve successfully sent your first prompt to an LLM using a basic Python script. It feels like magic, right? But there is a massive gap between a script that works on your laptop and a system that can handle thousands of users without crashing.</p>
+<p>When we talk about &quot;Production-Grade AI,&quot; we aren&#x27;t just talking about the prompt itself. We are talking about how your code interacts with the <strong>SDK (Software Development Kit)</strong>-the set of tools provided by companies like OpenAI, Anthropic, or Cohere. This tutorial will teach you the patterns used by professional engineers to ensure their AI integrations are reliable, fast, and scalable.</p>
+<h2>Why it Matters</h2>
+<p>In a local experiment, if an API call fails, you just run the cell again. In production, a failed API call can mean a broken checkout page or a crashed chatbot. </p>
+<p>Using professional SDK patterns matters because:</p>
+<ul>
+<li><strong>Resiliency:</strong> APIs go down or get busy. Your code needs to handle &quot;Rate Limits&quot; gracefully.</li>
+<li><strong>Consistency:</strong> LLMs are unpredictable. Patterns like &quot;Structured Outputs&quot; ensure the AI doesn&#x27;t break your database.</li>
+<li><strong>Cost &amp; Performance:</strong> Reusing connections and setting timeouts prevents your cloud bill from skyrocketing and your app from hanging.</li>
+</ul>
+<h2>Step-by-Step Walkthrough</h2>
+<h3>1. The &quot;Singleton&quot; Client Pattern</h3>
+<p>Avoid creating a new instance of the AI client inside every function. Creating a client (like <code>openai.OpenAI()</code>) involves overhead. Instead, initialize it once and reuse it across your application.</p>
+<h3>2. Implement &quot;Exponential Backoff&quot;</h3>
+<p>LLM APIs frequently return &quot;429 Too Many Requests&quot; errors. Instead of crashing, your code should wait a moment and try again. Most modern SDKs have this built-in, but you must configure it to ensure your app doesn&#x27;t give up too early.</p>
+<h3>3. Enforce Structured Outputs</h3>
+<p>Never rely on the LLM to &quot;just return JSON.&quot; Use the SDK&#x27;s integration with libraries like <strong>Pydantic</strong> to force the AI to follow a specific schema. This ensures your code can always parse the response.</p>
+<h3>4. Setting Hard Timeouts</h3>
+<p>LLMs can sometimes take 30+ seconds to respond. Without a timeout, your user is left staring at a loading spinner forever. Always set a <code>timeout</code> parameter in your SDK calls (usually 15-30 seconds).</p>
+<h3>Code Example: A Resilient Wrapper</h3>
+<p>Here is how these patterns look in a simplified Python implementation using the OpenAI SDK:</p>
+<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
+import os
+from openai import OpenAI, APIConnectionError, RateLimitError
+from pydantic import BaseModel
+
+# 1. Singleton pattern: Initialize once
+client = OpenAI(api_key=os.getenv(&quot;OPENAI_API_KEY&quot;), max_retries=3)
+
+# 2. Define a schema for structured output
+class UserSummary(BaseModel):
+    name: str
+    age: int
+    sentiment: str
+
+def get_ai_summary(user_text: str):
+    try:
+        # 3. Request structured output with a timeout
+        response = client.beta.chat.completions.parse(
+            model=&quot;gpt-4o-2024-08-06&quot;,
+            messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: user_text}],
+            response_format=UserSummary,
+            timeout=20.0 
+        )
+        return response.choices[0].message.parsed
+    except RateLimitError:
+        return &quot;System busy, please try again in a moment.&quot;
+    except Exception as e:
+        return f&quot;An unexpected error occurred: {e}&quot;
+</code></pre></div>
+<h2>Common Mistakes</h2>
+<ul>
+<li><strong>Hardcoding API Keys:</strong> Never put your <code>sk-abc123...</code> key directly in the code. Always use environment variables.</li>
+<li><strong>Ignoring Token Limits:</strong> If you send too much text, the SDK will throw an error. Always truncate or &quot;chunk&quot; your input text before sending it to the API.</li>
+<li><strong>No Logging:</strong> When an AI call fails in production, you need to know *why*. Always log the &quot;Request ID&quot; provided by the SDK so you can debug it with the provider&#x27;s support team.</li>
+<li><strong>Infinite Loops:</strong> If you implement your own retry logic, ensure there is a maximum number of attempts, or you might accidentally spend hundreds of dollars in a loop.</li>
+</ul>
+<h2>One Practice Task</h2>
+<p><strong>The Challenge:</strong> Create a &quot;Safe Wrapper&quot; function.</p>
+<p>Write a function called <code>safe_generate</code> that takes a prompt string. Inside the function:</p>
+<ul>
+<li>Use a <code>try/except</code> block.</li>
+<li>Specifically catch a &quot;Timeout&quot; error.</li>
+<li>If a timeout occurs, return a friendly string: &quot;The AI is taking too long to think, try a shorter prompt.&quot;</li>
+<li>If it succeeds, return the text content.</li>
+</ul>
+<p>*Tip: Check the documentation for your chosen SDK to see exactly what the Timeout error class is named!*</p>
+      <footer class="article-footer">
+        <p><a class="link-button" href="../index.html">Explore more tutorials &rarr;</a></p>
+      </footer>
+    </article>
+  </main>
+  <script>
+    function copyCode(button) {
+      const pre = button.nextElementSibling;
+      const code = pre.querySelector('code');
+      navigator.clipboard.writeText(code.innerText).then(() => {
+        button.textContent = 'Copied!';
+        setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
