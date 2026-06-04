@@ -4,131 +4,111 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SDK patterns for production-grade AI integrations | DE-Coded Lab</title>
-  <meta name="description" content="So, you&#x27;ve successfully sent your first prompt to an LLM using a basic Python script. It feels like magic, right? But there is a massive gap between a script that works on your laptop and a system that can handle thousands of users without..." />
+  <meta name="description" content="When building with Large Language Models, the jump from a Jupyter Notebook to a production environment is significant. While a simple API call might work for a quick demo, real-world applications require reliability, security, and..." />
   <meta property="og:title" content="SDK patterns for production-grade AI integrations" />
-  <meta property="og:description" content="So, you&#x27;ve successfully sent your first prompt to an LLM using a basic Python script. It feels like magic, right? But there is a massive gap between a script that works on your laptop and a system that can handle thousands of users without..." />
+  <meta property="og:description" content="When building with Large Language Models, the jump from a Jupyter Notebook to a production environment is significant. While a simple API call might work for a quick demo, real-world applications require reliability, security, and..." />
   <meta property="og:type" content="article" />
-  <link rel="stylesheet" href="../styles.css" />
-  <style>
-    :root { --primary: #2563eb; --text: #1f2937; --light-bg: #f9fafb; }
-    body { line-height: 1.7; color: var(--text); font-family: Inter, system-ui, -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
-    .article-meta { color: #6b7280; font-size: 0.875rem; margin-bottom: 2rem; }
-    blockquote { border-left: 4px solid var(--primary); padding-left: 1rem; font-style: italic; color: #4b5563; margin: 1.5rem 0; }
-    .code-container { position: relative; margin: 2rem 0; border-radius: 8px; border: 1px solid #e5e7eb; overflow: hidden; }
-    .copy-button { 
-      position: absolute; top: 0.5rem; right: 0.5rem; z-index: 10;
-      padding: 0.4rem 0.8rem; font-size: 0.75rem; font-weight: 600;
-      cursor: pointer; background: #ffffff; border: 1px solid #d1d5da; border-radius: 4px;
-      transition: background-color 0.2s, box-shadow 0.2s;
-    }
-    .copy-button:hover { background-color: #f3f4f6; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    pre { margin: 0 !important; padding: 1.2rem !important; background: #f6f8fa; overflow-x: auto; }
-  </style>
+  <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
 <body>
   <header class="hero hero-tight">
     <div class="container header-nav">
-      <a class="site-brand" href="../index.html"><img class="logo-img" src="../logo.svg" alt="DE-Coded Lab logo" /><span>DE-Coded Lab</span></a>
+      <a class="site-brand" href="/de_coded_data_engineering/index.html"><img class="logo-img" src="/de_coded_data_engineering/logo.svg" alt="DE-Coded Lab logo" /><span>DE-Coded Lab</span></a>
       <nav class="site-nav">
-        <a href="../index.html">Home</a>
-        <a href="../news.html">News</a>
-        <a href="../apis.html">API/SDK</a>
+        <a href="/de_coded_data_engineering/index.html">Home</a>
+        <a href="/de_coded_data_engineering/news/index.html">News</a>
+        <a href="/de_coded_data_engineering/apis/index.html">APIs</a>
       </nav>
     </div>
   </header>
-  <main class="container content-wrapper">
-    <article class="article-page section-block">
-      <nav class="breadcrumb"><a href="../index.html">Home</a> &raquo; LLM APIs</nav>
+  <main class="container">
+    <article class="article-page section-block article-prose">
+      <nav class="breadcrumb"><a href="/de_coded_data_engineering/index.html">Home</a> &raquo; <span>LLM APIs</span></nav>
+      <p class="pill">LLM APIs</p>
       <h1>SDK patterns for production-grade AI integrations</h1>
       <div class="article-meta">
-        <span>Published: Jun 04, 2026</span> &bull; 
+        <span>Published: Jun 04, 2026</span>
+        <span aria-hidden="true">&bull;</span>
         <span>3 min read</span>
       </div>
-      <p class="article-summary">So, you&#x27;ve successfully sent your first prompt to an LLM using a basic Python script. It feels like magic, right? But there is a massive gap between a script that works on your laptop and a system that can handle thousands of users without...</p>
-      <hr />
-      <h1>DE-Coded Lab: Building Better AI Connections</h1>
-<p><strong>Category:</strong> LLM APIs</p>
-<p><strong>Topic:</strong> SDK Patterns for Production-Grade AI Integrations</p>
-<h2>Introduction</h2>
-<p>So, you&#x27;ve successfully sent your first prompt to an LLM using a basic Python script. It feels like magic, right? But there is a massive gap between a script that works on your laptop and a system that can handle thousands of users without crashing.</p>
-<p>When we talk about &quot;Production-Grade AI,&quot; we aren&#x27;t just talking about the prompt itself. We are talking about how your code interacts with the <strong>SDK (Software Development Kit)</strong>-the set of tools provided by companies like OpenAI, Anthropic, or Cohere. This tutorial will teach you the patterns used by professional engineers to ensure their AI integrations are reliable, fast, and scalable.</p>
+      <p class="article-lead">When building with Large Language Models, the jump from a Jupyter Notebook to a production environment is significant. While a simple API call might work for a quick demo, real-world applications require reliability, security, and...</p>
+      <div class="article-body">
+      <p>When building with Large Language Models, the jump from a Jupyter Notebook to a production environment is significant. While a simple API call might work for a quick demo, real-world applications require reliability, security, and performance. Using a Software Development Kit (SDK) allows developers to interact with LLMs through structured libraries rather than raw HTTP requests, providing a foundation for scalable AI features.</p>
 <h2>Why it Matters</h2>
-<p>In a local experiment, if an API call fails, you just run the cell again. In production, a failed API call can mean a broken checkout page or a crashed chatbot. </p>
-<p>Using professional SDK patterns matters because:</p>
+<p>In a production environment, your code needs to be resilient to network failures, API rate limits, and unexpected model behavior. Using proper SDK patterns ensures:</p>
 <ul>
-<li><strong>Resiliency:</strong> APIs go down or get busy. Your code needs to handle &quot;Rate Limits&quot; gracefully.</li>
-<li><strong>Consistency:</strong> LLMs are unpredictable. Patterns like &quot;Structured Outputs&quot; ensure the AI doesn&#x27;t break your database.</li>
-<li><strong>Cost &amp; Performance:</strong> Reusing connections and setting timeouts prevents your cloud bill from skyrocketing and your app from hanging.</li>
+<li><strong>Maintainability</strong>: Centralizing your AI logic makes it easier to swap models (e.g., moving from GPT-4o to Claude 3.5 Sonnet) without rewriting your entire application.</li>
+<li><strong>Reliability</strong>: SDKs often include built-in retry logic and timeout handling, preventing your app from crashing when a provider has a momentary hiccup.</li>
+<li><strong>Security</strong>: Following standard patterns prevents common mistakes like hardcoding API keys or exposing sensitive user data in logs.</li>
+<li><strong>Type Safety</strong>: Many modern SDKs provide TypeScript or Python type hints, catching errors at code-time rather than run-time.</li>
 </ul>
 <h2>Step-by-Step Walkthrough</h2>
-<h3>1. The &quot;Singleton&quot; Client Pattern</h3>
-<p>Avoid creating a new instance of the AI client inside every function. Creating a client (like <code>openai.OpenAI()</code>) involves overhead. Instead, initialize it once and reuse it across your application.</p>
-<h3>2. Implement &quot;Exponential Backoff&quot;</h3>
-<p>LLM APIs frequently return &quot;429 Too Many Requests&quot; errors. Instead of crashing, your code should wait a moment and try again. Most modern SDKs have this built-in, but you must configure it to ensure your app doesn&#x27;t give up too early.</p>
-<h3>3. Enforce Structured Outputs</h3>
-<p>Never rely on the LLM to &quot;just return JSON.&quot; Use the SDK&#x27;s integration with libraries like <strong>Pydantic</strong> to force the AI to follow a specific schema. This ensures your code can always parse the response.</p>
-<h3>4. Setting Hard Timeouts</h3>
-<p>LLMs can sometimes take 30+ seconds to respond. Without a timeout, your user is left staring at a loading spinner forever. Always set a <code>timeout</code> parameter in your SDK calls (usually 15-30 seconds).</p>
-<h3>Code Example: A Resilient Wrapper</h3>
-<p>Here is how these patterns look in a simplified Python implementation using the OpenAI SDK:</p>
+<h3>1. Centralize Configuration</h3>
+<p>Avoid scattering API keys and model parameters throughout your codebase. Create a dedicated configuration layer that loads environment variables and sets defaults. This ensures that changing a model version or a temperature setting happens in one place.</p>
+<h3>2. Implement the Client Singleton Pattern</h3>
+<p>Do not instantiate a new SDK client every time you want to send a prompt. Creating a client is an expensive operation that can lead to memory leaks or socket exhaustion. Instead, initialize the client once and reuse it across your application.</p>
+<h3>3. Wrap with Robust Error Handling</h3>
+<p>Production-grade code must handle specific AI-related errors. These include <code>RateLimitError</code> (you&#x27;re sending too many requests), <code>AuthenticationError</code> (expired keys), and <code>InvalidRequestError</code> (context window exceeded). Wrap your calls in try-except blocks that distinguish between a temporary network glitch and a permanent logic error.</p>
+<h3>4. Use Structured Outputs</h3>
+<p>Relying on raw string responses is risky for production apps. Use features like JSON mode or tool calling (Function Calling) provided by the SDK. This forces the model to return data in a specific format that your application can reliably parse and store in a database.</p>
+<h3>Code Example: A Production-Ready Wrapper</h3>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
 import os
-from openai import OpenAI, APIConnectionError, RateLimitError
-from pydantic import BaseModel
+from openai import OpenAI, APIError, RateLimitError
 
-# 1. Singleton pattern: Initialize once
-client = OpenAI(api_key=os.getenv(&quot;OPENAI_API_KEY&quot;), max_retries=3)
+class AIClient:
+    _instance = None
 
-# 2. Define a schema for structured output
-class UserSummary(BaseModel):
-    name: str
-    age: int
-    sentiment: str
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(AIClient, cls).__new__(cls)
+            # Initialize the client once
+            cls._instance.client = OpenAI(api_key=os.getenv(&quot;OPENAI_API_KEY&quot;))
+        return cls._instance
 
-def get_ai_summary(user_text: str):
-    try:
-        # 3. Request structured output with a timeout
-        response = client.beta.chat.completions.parse(
-            model=&quot;gpt-4o-2024-08-06&quot;,
-            messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: user_text}],
-            response_format=UserSummary,
-            timeout=20.0 
-        )
-        return response.choices[0].message.parsed
-    except RateLimitError:
-        return &quot;System busy, please try again in a moment.&quot;
-    except Exception as e:
-        return f&quot;An unexpected error occurred: {e}&quot;
+    def generate_response(self, prompt, model=&quot;gpt-4o-mini&quot;):
+        try:
+            response = self.client.chat.completions.create(
+                model=model,
+                messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: prompt}],
+                timeout=30.0  # Prevent hanging requests
+            )
+            return response.choices[0].message.content
+        except RateLimitError:
+            return &quot;Error: Rate limit exceeded. Please try again later.&quot;
+        except APIError as e:
+            return f&quot;Error: A provider-side error occurred: {e}&quot;
+
+# Usage
+ai_service = AIClient()
+print(ai_service.generate_response(&quot;Explain SDKs in one sentence.&quot;))
 </code></pre></div>
 <h2>Common Mistakes</h2>
 <ul>
-<li><strong>Hardcoding API Keys:</strong> Never put your <code>sk-abc123...</code> key directly in the code. Always use environment variables.</li>
-<li><strong>Ignoring Token Limits:</strong> If you send too much text, the SDK will throw an error. Always truncate or &quot;chunk&quot; your input text before sending it to the API.</li>
-<li><strong>No Logging:</strong> When an AI call fails in production, you need to know *why*. Always log the &quot;Request ID&quot; provided by the SDK so you can debug it with the provider&#x27;s support team.</li>
-<li><strong>Infinite Loops:</strong> If you implement your own retry logic, ensure there is a maximum number of attempts, or you might accidentally spend hundreds of dollars in a loop.</li>
+<li><strong>Hardcoding API Keys</strong>: Never commit your API keys to version control (GitHub). Always use <code>.env</code> files and an environment variable manager.</li>
+<li><strong>Ignoring Token Limits</strong>: SDKs don&#x27;t always warn you if your input is too long. Always implement a check to ensure your prompt fits within the model&#x27;s context window before sending the request.</li>
+<li><strong>Missing Timeouts</strong>: Without an explicit timeout set in the SDK configuration, your application might hang indefinitely if the AI provider&#x27;s server becomes unresponsive.</li>
+<li><strong>Over-reliance on Defaults</strong>: Model providers frequently update default versions. Explicitly pin your model version (e.g., <code>gpt-4-2024-05-13</code> instead of just <code>gpt-4</code>) to prevent your application behavior from changing unexpectedly.</li>
 </ul>
-<h2>One Practice Task</h2>
-<p><strong>The Challenge:</strong> Create a &quot;Safe Wrapper&quot; function.</p>
-<p>Write a function called <code>safe_generate</code> that takes a prompt string. Inside the function:</p>
-<ul>
-<li>Use a <code>try/except</code> block.</li>
-<li>Specifically catch a &quot;Timeout&quot; error.</li>
-<li>If a timeout occurs, return a friendly string: &quot;The AI is taking too long to think, try a shorter prompt.&quot;</li>
-<li>If it succeeds, return the text content.</li>
-</ul>
-<p>*Tip: Check the documentation for your chosen SDK to see exactly what the Timeout error class is named!*</p>
+<h2>Practice Task</h2>
+<p>Create a small Python script or Node.js module that initializes an LLM SDK client. Implement a &quot;safe_complete&quot; function that takes a prompt and returns the result, but specifically includes a <code>try-except</code> (or <code>try-catch</code>) block that catches a &quot;Rate Limit&quot; error and prints a custom message to the console. Test this by temporarily providing an invalid API key to see how your error handling performs.</p>
+      </div>
       <footer class="article-footer">
-        <p><a class="link-button" href="../index.html">Explore more tutorials &rarr;</a></p>
+        <a class="link-button" href="/de_coded_data_engineering/index.html">Explore more tutorials &rarr;</a>
       </footer>
     </article>
   </main>
+  <footer class="footer">
+    <p>DE-Coded Lab — practical data engineering tutorials.</p>
+  </footer>
   <script>
     function copyCode(button) {
       const pre = button.nextElementSibling;
-      const code = pre.querySelector('code');
+      const code = pre && pre.querySelector("code");
+      if (!code) return;
       navigator.clipboard.writeText(code.innerText).then(() => {
-        button.textContent = 'Copied!';
-        setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+        button.textContent = "Copied!";
+        setTimeout(() => { button.textContent = "Copy"; }, 2000);
       });
     }
   </script>
