@@ -4,127 +4,105 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PySpark Transformations for Large Datasets | DE-Coded Lab</title>
-  <meta name="description" content="Today, in our Programming Basics series, we are diving into the world of PySpark-the tool that makes &quot;Big Data&quot; feel small. Specifically, we are looking at Transformations, the engine that drives data manipulation at scale." />
+  <meta name="description" content="Handling massive amounts of data requires a different approach than standard Python programming. When datasets grow too large to fit into a computer&#x27;s memory, tools like PySpark become essential. PySpark is the Python API for Apache Spark,..." />
   <meta property="og:title" content="PySpark Transformations for Large Datasets" />
-  <meta property="og:description" content="Today, in our Programming Basics series, we are diving into the world of PySpark-the tool that makes &quot;Big Data&quot; feel small. Specifically, we are looking at Transformations, the engine that drives data manipulation at scale." />
+  <meta property="og:description" content="Handling massive amounts of data requires a different approach than standard Python programming. When datasets grow too large to fit into a computer&#x27;s memory, tools like PySpark become essential. PySpark is the Python API for Apache Spark,..." />
   <meta property="og:type" content="article" />
-  <link rel="stylesheet" href="../styles.css" />
-  <style>
-    :root { --primary: #2563eb; --text: #1f2937; --light-bg: #f9fafb; }
-    body { line-height: 1.7; color: var(--text); font-family: Inter, system-ui, -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
-    .article-meta { color: #6b7280; font-size: 0.875rem; margin-bottom: 2rem; }
-    blockquote { border-left: 4px solid var(--primary); padding-left: 1rem; font-style: italic; color: #4b5563; margin: 1.5rem 0; }
-    .code-container { position: relative; margin: 2rem 0; border-radius: 8px; border: 1px solid #e5e7eb; overflow: hidden; }
-    .copy-button { 
-      position: absolute; top: 0.5rem; right: 0.5rem; z-index: 10;
-      padding: 0.4rem 0.8rem; font-size: 0.75rem; font-weight: 600;
-      cursor: pointer; background: #ffffff; border: 1px solid #d1d5da; border-radius: 4px;
-      transition: background-color 0.2s, box-shadow 0.2s;
-    }
-    .copy-button:hover { background-color: #f3f4f6; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    pre { margin: 0 !important; padding: 1.2rem !important; background: #f6f8fa; overflow-x: auto; }
-  </style>
+  <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
 <body>
   <header class="hero hero-tight">
     <div class="container header-nav">
-      <a class="site-brand" href="../index.html"><img class="logo-img" src="../logo.svg" alt="DE-Coded Lab logo" /><span>DE-Coded Lab</span></a>
+      <a class="site-brand" href="/de_coded_data_engineering/index.html"><img class="logo-img" src="/de_coded_data_engineering/logo.svg" alt="DE-Coded Lab logo" /><span>DE-Coded Lab</span></a>
       <nav class="site-nav">
-        <a href="../index.html">Home</a>
-        <a href="../news.html">News</a>
-        <a href="../apis.html">API/SDK</a>
+        <a href="/de_coded_data_engineering/index.html">Home</a>
+        <a href="/de_coded_data_engineering/news/index.html">News</a>
+        <a href="/de_coded_data_engineering/apis/index.html">APIs</a>
       </nav>
     </div>
   </header>
-  <main class="container content-wrapper">
-    <article class="article-page section-block">
-      <nav class="breadcrumb"><a href="../index.html">Home</a> &raquo; Programming Basics</nav>
+  <main class="container">
+    <article class="article-page section-block article-prose">
+      <nav class="breadcrumb"><a href="/de_coded_data_engineering/index.html">Home</a> &raquo; <span>Programming Basics</span></nav>
+      <p class="pill">Programming Basics</p>
       <h1>PySpark Transformations for Large Datasets</h1>
       <div class="article-meta">
-        <span>Published: Jun 04, 2026</span> &bull; 
+        <span>Published: Jun 05, 2026</span>
+        <span aria-hidden="true">&bull;</span>
         <span>3 min read</span>
       </div>
-      <p class="article-summary">Today, in our Programming Basics series, we are diving into the world of PySpark-the tool that makes &quot;Big Data&quot; feel small. Specifically, we are looking at Transformations, the engine that drives data manipulation at scale.</p>
-      <hr />
-      <p>Welcome to <strong>DE-Coded Lab</strong>! If you have ever tried to open a 10GB CSV file in Excel or Pandas only to watch your computer freeze, you have encountered the limits of traditional data processing.</p>
-<p>Today, in our <strong>Programming Basics</strong> series, we are diving into the world of PySpark-the tool that makes &quot;Big Data&quot; feel small. Specifically, we are looking at <strong>Transformations</strong>, the engine that drives data manipulation at scale.</p>
-<h2>Introduction</h2>
-<p>At its core, <strong>PySpark</strong> is the Python interface for Apache Spark, a powerful engine designed to process massive amounts of data by spreading the work across a cluster of computers. </p>
-<p>In PySpark, data is often stored in a structure called a <strong>DataFrame</strong>. When you want to change this data-such as filtering out rows, adding columns, or calculating totals-you use <strong>Transformations</strong>. Transformations are essentially instructions that tell Spark how to turn your raw data into the final result you want.</p>
+      <p class="article-lead">Handling massive amounts of data requires a different approach than standard Python programming. When datasets grow too large to fit into a computer&#x27;s memory, tools like PySpark become essential. PySpark is the Python API for Apache Spark,...</p>
+      <div class="article-body">
+      <p>Handling massive amounts of data requires a different approach than standard Python programming. When datasets grow too large to fit into a computer&#x27;s memory, tools like PySpark become essential. PySpark is the Python API for Apache Spark, a distributed computing framework designed to process data across a cluster of computers. At the heart of PySpark are transformations, which are operations that define how data should be modified, filtered, or reshuffled to achieve a specific result.</p>
 <h2>Why it Matters</h2>
-<p>Why can&#x27;t we just use regular Python lists or Pandas?</p>
-<ul>
-<li><strong>Scalability:</strong> Pandas runs on a single machine. PySpark can run on hundreds of machines simultaneously.</li>
-<li><strong>Lazy Evaluation:</strong> This is the &quot;secret sauce.&quot; PySpark doesn&#x27;t execute transformations immediately. Instead, it records your instructions and waits until you ask for a result (an &quot;Action&quot;) to find the most efficient way to run the whole process.</li>
-<li><strong>Efficiency:</strong> Because of lazy evaluation, Spark can optimize your &quot;to-do list,&quot; skipping unnecessary steps and saving memory.</li>
-</ul>
+<p>In traditional data processing with libraries like Pandas, operations happen immediately. If you tell the computer to sort a list, it sorts it right then and there. PySpark works differently through a concept called lazy evaluation. </p>
+<p>When you apply a transformation in PySpark, the engine does not execute the command immediately. Instead, it records the instruction in a logical plan called a Directed Acyclic Graph (DAG). This allows PySpark to optimize the entire sequence of steps before any data is actually moved. This efficiency is why PySpark can handle terabytes of data without crashing; it only performs the heavy lifting when an &quot;Action&quot; (like saving a file or showing a result) is called.</p>
 <h2>Step-by-Step Walkthrough</h2>
-<p>To master PySpark, you need to understand the two types of transformations: <strong>Narrow</strong> and <strong>Wide</strong>.</p>
-<h3>1. Narrow Transformations (The Fast Ones)</h3>
-<p>In a narrow transformation, each input partition contributes to only one output partition. Think of this as &quot;local&quot; work-the computer doesn&#x27;t need to talk to other computers in the cluster.</p>
+<p>To master PySpark, you must distinguish between the two main types of transformations: Narrow and Wide.</p>
+<h3>1. Narrow Transformations</h3>
+<p>Narrow transformations are highly efficient because they do not require data to be moved between different nodes in a cluster. Each partition of data can be processed independently.</p>
 <ul>
-<li><strong><code>filter()</code></strong>: Keeps only the rows that meet a condition.</li>
-<li><strong><code>select()</code></strong>: Picks specific columns to keep.</li>
-<li><strong><code>withColumn()</code></strong>: Creates a new column or updates an existing one.</li>
+<li><strong>Filter:</strong> Removes rows based on a specific condition.</li>
+<li><strong>Select:</strong> Chooses specific columns from a dataset.</li>
+<li><strong>Map:</strong> Applies a function to every row in a dataset.</li>
 </ul>
-<h3>2. Wide Transformations (The Heavy Lifters)</h3>
-<p>Wide transformations require data to be &quot;shuffled&quot; across different machines in the cluster. These are more &quot;expensive&quot; in terms of time and computing power.</p>
+<h3>2. Wide Transformations</h3>
+<p>Wide transformations are more &quot;expensive&quot; in terms of performance because they require a &quot;shuffle.&quot; Shuffling means data from various nodes is moved across the network to be grouped together.</p>
 <ul>
-<li><strong><code>groupBy()</code></strong>: Groups data based on a specific column (like grouping sales by &quot;City&quot;).</li>
-<li><strong><code>orderBy()</code></strong>: Sorts the data.</li>
-<li><strong><code>distinct()</code></strong>: Removes duplicate rows.</li>
+<li><strong>GroupByKey / GroupBy:</strong> Groups data based on a specific key (e.g., finding the average salary per department).</li>
+<li><strong>OrderBy / Sort:</strong> Rearranges the entire dataset based on one or more columns.</li>
+<li><strong>Join:</strong> Combines two different datasets based on a common key.</li>
 </ul>
-<h3>Code Example: Putting it Together</h3>
-<p>Here is how you would use these transformations to process a dataset of store sales.</p>
+<h3>3. Implementing a Basic Transformation</h3>
+<p>The following code demonstrates a simple PySpark pipeline where we load data, filter it, and select specific columns.</p>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col
 
-# Initialize Spark
-spark = SparkSession.builder.appName(&quot;DE-Coded-Demo&quot;).getOrCreate()
+# Initialize a Spark Session
+spark = SparkSession.builder.appName(&quot;DE-CodedLabTutorial&quot;).getOrCreate()
 
-# Load data (Assuming we have a CSV)
-df = spark.read.csv(&quot;sales_data.csv&quot;, header=True, inferSchema=True)
+# Load a sample dataset
+df = spark.read.csv(&quot;user_data.csv&quot;, header=True, inferSchema=True)
 
-# Apply Transformations
-processed_df = (
-    df.select(&quot;product_name&quot;, &quot;category&quot;, &quot;price&quot;) # Narrow
-    .filter(col(&quot;price&quot;) &gt; 50)                     # Narrow
-    .groupBy(&quot;category&quot;)                           # Wide
-    .count()                                       # Wide
-)
+# Apply Transformations: Filter for users over 18 and select their names
+# Note: Nothing is actually computed yet due to lazy evaluation
+transformed_df = df.filter(df[&quot;age&quot;] &gt; 18).select(&quot;first_name&quot;, &quot;last_name&quot;, &quot;city&quot;)
 
-# Remember: Nothing has actually &quot;run&quot; yet until we call an Action!
-processed_df.show()
+# Trigger an Action to see the results
+transformed_df.show()
 </code></pre></div>
 <h2>Common Mistakes</h2>
 <ul>
-<li><strong>The &quot;Lazy&quot; Trap:</strong> Beginners often write ten transformations and wonder why their CPU isn&#x27;t working. Remember: PySpark does nothing until you call an <strong>Action</strong> like <code>.show()</code>, <code>.collect()</code>, or <code>.write()</code>.</li>
-<li><strong>Over-shuffling:</strong> Using too many wide transformations (like <code>groupBy</code>) in a row can significantly slow down your code. Always try to <code>filter</code> your data as early as possible to reduce the volume being shuffled.</li>
-<li><strong>Not Handling Nulls:</strong> Large datasets are messy. If you try to perform math on a column with <code>Null</code> values, your results might be unexpected. Always use <code>.fillna()</code> or <code>.dropna()</code> early in your pipeline.</li>
+<li><strong>Triggering Actions Too Early:</strong> Beginners often call <code>.show()</code> or <code>.collect()</code> after every single line. This forces Spark to execute the plan prematurely, negating the benefits of lazy evaluation and slowing down your pipeline.</li>
+<li><strong>Overusing Wide Transformations:</strong> Every time you use <code>groupBy</code> or <code>sort</code>, you trigger a shuffle. Shuffles are the biggest bottleneck in Spark. Always try to filter your data as much as possible using narrow transformations before performing a wide transformation.</li>
+<li><strong>Ignoring Null Values:</strong> PySpark handles nulls differently than standard Python. Performing transformations on columns with null values without handling them first (using <code>.fillna()</code> or <code>.dropna()</code>) can lead to unexpected results or errors.</li>
 </ul>
-<h2>One Practice Task</h2>
-<p>Ready to try it yourself? Imagine you have a dataset of <strong>User Logs</strong> with columns: <code>user_id</code>, <code>action</code> (e.g., &#x27;login&#x27;, &#x27;logout&#x27;, &#x27;purchase&#x27;), and <code>timestamp</code>.</p>
-<p><strong>Your Task:</strong> </p>
-<p>Write a logic flow (or code) using PySpark transformations to:</p>
+<h2>Practice Task</h2>
+<p>To test your knowledge, imagine you have a dataset of &quot;Store Sales&quot; with columns: <code>Store<em>ID</code>, <code>Product</em>Category</code>, and <code>Revenue</code>. </p>
+<p>Your task is to write a PySpark script that:</p>
 <ul>
-<li>Filter the data to only show &#x27;purchase&#x27; actions.</li>
-<li>Select only the <code>user_id</code> and <code>timestamp</code> columns.</li>
-<li>Count how many purchases were made by each <code>user_id</code>.</li>
+<li>Filters the data to only include rows where <code>Revenue</code> is greater than 500.</li>
+<li>Groups the resulting data by <code>Product_Category</code>.</li>
+<li>Calculates the sum of <code>Revenue</code> for each category.</li>
 </ul>
-<p>*Hint: You will need a <code>filter</code>, a <code>select</code>, and a <code>groupBy</code> followed by a <code>count</code>!*</p>
+<p>Try to identify which of these steps are narrow transformations and which are wide transformations before you run your code.</p>
+      </div>
       <footer class="article-footer">
-        <p><a class="link-button" href="../index.html">Explore more tutorials &rarr;</a></p>
+        <a class="link-button" href="/de_coded_data_engineering/index.html">Explore more tutorials &rarr;</a>
       </footer>
     </article>
   </main>
+  <footer class="footer">
+    <p>DE-Coded Lab — practical data engineering tutorials.</p>
+  </footer>
   <script>
     function copyCode(button) {
       const pre = button.nextElementSibling;
-      const code = pre.querySelector('code');
+      const code = pre && pre.querySelector("code");
+      if (!code) return;
       navigator.clipboard.writeText(code.innerText).then(() => {
-        button.textContent = 'Copied!';
-        setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+        button.textContent = "Copied!";
+        setTimeout(() => { button.textContent = "Copy"; }, 2000);
       });
     }
   </script>
