@@ -228,20 +228,56 @@ def normalize_articles(articles: list) -> list:
 
 
 def convert_markdown_to_html(text: str) -> str:
-    """Basic markdown to HTML converter for headers, bold, and lists."""
+    """Basic markdown to HTML converter for headers, bold, lists, and inline styles."""
     lines = text.split("\n")
     html_output = []
     in_list = False
     in_code_block = False
 
-    def process_inline(text: str) -> str:
-        content = html.escape(text)
-        content = re.sub(r'\*\*\*(.*?)\*\*\*', r'<strong><em>\1</em></strong>', content)
-        content = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', content)
-        content = re.sub(r'_(.*?)_', r'<em>\1</em>', content)
-        content = re.sub(r'`(.*?)`', r'<code>\1</code>', content)
-        content = re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2">\1</a>', content)
-        return content
+    def process_inline(text_val: str) -> str:
+        # 1. Escape HTML first so we don't mess up tags
+        escaped = html.escape(text_val)
+
+        # 2. Extract inline code blocks `code`
+        inline_codes = []
+        def save_code(match):
+            code_content = match.group(1)
+            inline_codes.append(code_content)
+            return f"@@@INLINECODE{len(inline_codes)-1}@@@"
+        
+        temp = re.sub(r'`([^`]+)`', save_code, escaped)
+
+        # 3. Extract markdown links [text](url)
+        links = []
+        def save_link(match):
+            link_text = match.group(1)
+            link_url = match.group(2)
+            links.append((link_text, link_url))
+            return f"@@@LINK{len(links)-1}@@@"
+        
+        temp = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', save_link, temp)
+
+        # 4. Process formatting rules on the rest of the text
+        # Bold/Italics using asterisks
+        temp = re.sub(r'\*\*\*([^\s*](?:[^*]*?[^\s*])?)\*\*\*', r'<strong><em>\1</em></strong>', temp)
+        temp = re.sub(r'\*\*([^\s*](?:[^*]*?[^\s*])?)\*\*', r'<strong>\1</strong>', temp)
+        temp = re.sub(r'\*([^\s*](?:[^*]*?[^\s*])?)\*', r'<em>\1</em>', temp)
+        
+        # Bold/Italics using underscores (using lookbehinds/lookaheads to prevent matching inside words/urls)
+        temp = re.sub(r'(?<!\w)__(?!\s)(.+?)(?<!\s)__(?!\w)', r'<strong>\1</strong>', temp)
+        temp = re.sub(r'(?<!\w)_(?!\s)(.+?)(?<!\s)_(?!\w)', r'<em>\1</em>', temp)
+
+        # 5. Restore links (making sure URLs are not double-escaped, but keep HTML entities in text)
+        for idx, (link_text, link_url) in enumerate(links):
+            placeholder = f"@@@LINK{idx}@@@"
+            temp = temp.replace(placeholder, f'<a href="{link_url}">{link_text}</a>')
+
+        # 6. Restore inline code blocks
+        for idx, code_content in enumerate(inline_codes):
+            placeholder = f"@@@INLINECODE{idx}@@@"
+            temp = temp.replace(placeholder, f'<code>{code_content}</code>')
+
+        return temp
 
     for line in lines:
         # Preserve indentation for code blocks, but strip for logic

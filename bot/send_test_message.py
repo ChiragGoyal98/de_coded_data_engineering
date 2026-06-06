@@ -67,7 +67,7 @@ async def send_test():
             result = await bot.send_message(
                 chat_id=GROUP_ID,
                 text=message,
-                parse_mode="Markdown",
+                parse_mode="HTML",
             )
             print("Test message sent successfully.")
             print(f"Message ID: {result.message_id}")

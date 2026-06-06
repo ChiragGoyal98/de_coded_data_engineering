@@ -1,5 +1,6 @@
 """Shared Telegram message formatting for DE-Coded Lab."""
 
+import html
 import re
 import sys
 from pathlib import Path
@@ -64,18 +65,22 @@ def build_message(post: dict, news_item=None, *, site_base_url: str = "") -> str
     title = post.get("title", "New tutorial")
     category = post.get("category", "Data Engineering")
     summary = telegram_summary(post)
-    safe_title = _escape_telegram(title)
+    
+    # HTML escape dynamic values to prevent telegram HTML parsing errors
+    safe_title = html.escape(title)
+    safe_category = html.escape(category)
+    safe_summary = html.escape(summary)
 
     msg = [
-        f"🔥 *New on DE-Coded Lab* · _{category}_",
+        f"🔥 <b>New on DE-Coded Lab</b> · <i>{safe_category}</i>",
         "",
-        f"📘 *{safe_title}*",
+        f"📘 <b>{safe_title}</b>",
         "",
-        summary,
+        safe_summary,
         "",
-        "💡 _Why open it?_ Step-by-step walkthrough, one code example, and a practice task you can add to your portfolio.",
+        "💡 <i>Why open it?</i> Step-by-step walkthrough, one code example, and a practice task you can add to your portfolio.",
         "",
-        "👉 *Read the full tutorial:*",
+        "👉 <b>Read the full tutorial:</b>",
         url,
     ]
 
@@ -85,13 +90,13 @@ def build_message(post: dict, news_item=None, *, site_base_url: str = "") -> str
             headline = headline.split(":", 1)[1].strip()
         if len(headline) > 100:
             headline = headline[:97].rsplit(" ", 1)[0] + "..."
-        msg.extend(["", f"📰 *Today's brief:* {_escape_telegram(headline)}"])
+        msg.extend(["", f"📰 <b>Today's brief:</b> {html.escape(headline)}"])
 
     msg.extend(
         [
             "",
-            f"🧠 More tutorials: [DE-Coded Lab]({CANONICAL_SITE_BASE_URL}/)",
-            f"💬 Discuss & get updates: [Telegram group]({TELEGRAM_GROUP})",
+            f"🧠 More tutorials: <a href=\"{CANONICAL_SITE_BASE_URL}/\">DE-Coded Lab</a>",
+            f"💬 Discuss & get updates: <a href=\"{TELEGRAM_GROUP}\">Telegram group</a>",
         ]
     )
     return "\n".join(msg)
