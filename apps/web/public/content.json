@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-06-06T01:55:07.489868Z",
+  "generated_at": "2026-06-06T12:05:26.139760Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "When working with data that exceeds the memory capacity of a single computer, traditional libraries like Pandas often struggle or fail entirely. This is where PySpark becomes essential. As the Python API for Apache Spark, it allows you to...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-06-06T12:04:45.519384Z",
+      "is_new": true
+    },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-06-06T01:54:50.796983Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SDK patterns for production-grade AI integrations",
@@ -26,15 +35,6 @@
       "url": "articles/azure-synapse-analytics-fundamentals.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-synapse-analytics-fundamentals.html",
       "published": "2026-06-05T14:19:33.838201Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "Handling massive amounts of data requires a different approach than standard Python programming. When datasets grow too large to fit into a computer's memory, tools like PySpark become essential. PySpark is the Python API for Apache Spark,...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-06-05T02:03:30.636481Z",
       "is_new": false
     },
     {
@@ -109,11 +109,18 @@
   ],
   "news": [
     {
+      "headline": "Modern Data Trends and Simple Tips for Aspiring Engineers",
+      "body": "<ul>\n<li>Cloud: Major providers are launching serverless data warehouses to help beginners scale without managing complex infrastructure.</li>\n<li>AI: Large language models are now being used to automatically generate SQL queries and clean messy datasets for faster analysis.</li>\n<li>Tip: Start by learning Python and SQL because they are the core languages used for moving and transforming data.</li>\n</ul>",
+      "published": "2026-06-06T12:05:26.139679Z",
+      "published_cycle": "2026-06-06T12",
+      "is_new": true
+    },
+    {
       "headline": "Essential Data Engineering Updates for Cloud and AI Beginners",
       "body": "<ul>\n<li>Cloud: Major providers are expanding serverless options to help beginners build data pipelines without managing underlying servers.</li>\n<li>AI: New large language models are increasingly used to automate the generation of data schemas and transformation code.</li>\n<li>Tip: Always validate your data at the point of entry to prevent small errors from breaking your entire downstream pipeline.</li>\n</ul>",
       "published": "2026-06-06T01:55:07.489795Z",
       "published_cycle": "2026-06-06T01",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Essential Data Engineering Updates for Beginners",
@@ -169,13 +176,6 @@
       "body": "<ul>\n<li>Cloud: Major platforms are expanding serverless tools to help beginners process data without managing underlying servers.</li>\n<li>AI: New coding assistants are now capable of generating complex data pipelines from simple natural language descriptions.</li>\n<li>Tip: Focus on mastering the basics of Python and SQL before moving on to specialized cloud certifications.</li>\n</ul>",
       "published": "2026-06-04T09:39:47.378224Z",
       "published_cycle": "2026-06-04T09",
-      "is_new": false
-    },
-    {
-      "headline": "Modern Data Engineering Trends for Cloud Storage and Pipeline Automation",
-      "body": "<ul>\n<li>Cloud: Providers are launching managed services that allow beginners to process large datasets without configuring complex backend servers.</li>\n<li>AI: Large language models are increasingly being used to automatically generate documentation and schema descriptions for messy data sources.</li>\n<li>Tip: Start by mastering SQL because it is the most universal language used for moving and transforming data.</li>\n</ul>",
-      "published": "2026-06-04T02:28:51.701968Z",
-      "published_cycle": "2026-06-04T02",
       "is_new": false
     }
   ]
