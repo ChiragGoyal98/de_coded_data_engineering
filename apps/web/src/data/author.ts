@@ -10,7 +10,7 @@ export const author = {
   },
   linkedin: {
     label: "LinkedIn",
-    url: "https://www.linkedin.com/in/chiraggoyal98/",
+    url: "https://in.linkedin.com/in/chirag-goyal-40959115a",
   },
   telegram: {
     label: "Telegram community",
