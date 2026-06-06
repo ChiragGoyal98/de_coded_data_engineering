@@ -96,7 +96,7 @@ async def post_summary(app):
         await app.bot.send_message(
             chat_id=GROUP_ID,
             text=build_message(post, news_item),
-            parse_mode="Markdown",
+            parse_mode="HTML",
         )
         logger.info("Posted summary to group %s", GROUP_ID)
     except TelegramError as error:
