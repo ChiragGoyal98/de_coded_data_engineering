@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+
 :root {
   --bg: #fbfcff;
   --surface: #ffffff;
@@ -140,19 +142,23 @@ h1 {
   text-decoration: none;
   border-radius: 8px;
   font-weight: 700;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn {
-  padding: 11px 16px;
+  padding: 11px 20px;
 }
 
 .primary {
   background: var(--brand);
   color: #fff;
+  box-shadow: 0 4px 6px -1px rgba(15, 118, 110, 0.2), 0 2px 4px -1px rgba(15, 118, 110, 0.1);
 }
 
 .primary:hover {
   background: var(--brand-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(15, 118, 110, 0.3), 0 4px 6px -4px rgba(15, 118, 110, 0.2);
 }
 
 .secondary {
@@ -163,6 +169,9 @@ h1 {
 
 .secondary:hover {
   border-color: var(--brand);
+  color: var(--brand);
+  transform: translateY(-1px);
+  background: rgba(15, 118, 110, 0.02);
 }
 
 main {
@@ -185,9 +194,17 @@ main {
 .section-block,
 .content-card {
   background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  border: 1px solid rgba(229, 231, 235, 0.7);
+  border-radius: 10px;
   box-shadow: var(--shadow);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover,
+.content-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand);
+  box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.06);
 }
 
 .card {
