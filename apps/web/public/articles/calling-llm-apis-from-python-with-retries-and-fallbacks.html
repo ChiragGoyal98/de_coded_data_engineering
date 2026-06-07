@@ -4,137 +4,91 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calling LLM APIs from Python with retries and fallbacks | DE-Coded Lab</title>
-  <meta name="description" content="In this tutorial, we are going to learn how to move past &quot;fragile&quot; code and build a robust Python setup that handles errors gracefully using Retries and Fallbacks." />
+  <meta name="description" content="When you build an application powered by Large Language Models (LLMs), your code relies on a connection to a remote server. Whether you are using OpenAI, Anthropic, or Google Gemini, these connections can occasionally fail due to network..." />
   <meta property="og:title" content="Calling LLM APIs from Python with retries and fallbacks" />
-  <meta property="og:description" content="In this tutorial, we are going to learn how to move past &quot;fragile&quot; code and build a robust Python setup that handles errors gracefully using Retries and Fallbacks." />
+  <meta property="og:description" content="When you build an application powered by Large Language Models (LLMs), your code relies on a connection to a remote server. Whether you are using OpenAI, Anthropic, or Google Gemini, these connections can occasionally fail due to network..." />
   <meta property="og:type" content="article" />
-  <link rel="stylesheet" href="../styles.css" />
-  <style>
-    :root { --primary: #2563eb; --text: #1f2937; --light-bg: #f9fafb; }
-    body { line-height: 1.7; color: var(--text); font-family: Inter, system-ui, -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
-    .article-meta { color: #6b7280; font-size: 0.875rem; margin-bottom: 2rem; }
-    blockquote { border-left: 4px solid var(--primary); padding-left: 1rem; font-style: italic; color: #4b5563; margin: 1.5rem 0; }
-    .code-container { position: relative; margin: 2rem 0; border-radius: 8px; border: 1px solid #e5e7eb; overflow: hidden; }
-    .copy-button { 
-      position: absolute; top: 0.5rem; right: 0.5rem; z-index: 10;
-      padding: 0.4rem 0.8rem; font-size: 0.75rem; font-weight: 600;
-      cursor: pointer; background: #ffffff; border: 1px solid #d1d5da; border-radius: 4px;
-      transition: background-color 0.2s, box-shadow 0.2s;
-    }
-    .copy-button:hover { background-color: #f3f4f6; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    pre { margin: 0 !important; padding: 1.2rem !important; background: #f6f8fa; overflow-x: auto; }
-  </style>
+  <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
 <body>
   <header class="hero hero-tight">
     <div class="container header-nav">
-      <a class="site-brand" href="../index.html"><img class="logo-img" src="../logo.svg" alt="DE-Coded Lab logo" /><span>DE-Coded Lab</span></a>
+      <a class="site-brand" href="/de_coded_data_engineering/index.html"><img class="logo-img" src="/de_coded_data_engineering/logo.svg" alt="DE-Coded Lab logo" /><span>DE-Coded Lab</span></a>
       <nav class="site-nav">
-        <a href="../index.html">Home</a>
-        <a href="../news.html">News</a>
-        <a href="../apis.html">API/SDK</a>
+        <a href="/de_coded_data_engineering/index.html">Home</a>
+        <a href="/de_coded_data_engineering/news/index.html">News</a>
+        <a href="/de_coded_data_engineering/apis/index.html">APIs</a>
       </nav>
     </div>
   </header>
-  <main class="container content-wrapper">
-    <article class="article-page section-block">
-      <nav class="breadcrumb"><a href="../index.html">Home</a> &raquo; LLM APIs</nav>
+  <main class="container">
+    <article class="article-page section-block article-prose">
+      <nav class="breadcrumb"><a href="/de_coded_data_engineering/index.html">Home</a> &raquo; <span>LLM APIs</span></nav>
+      <p class="pill">LLM APIs</p>
       <h1>Calling LLM APIs from Python with retries and fallbacks</h1>
       <div class="article-meta">
-        <span>Published: May 31, 2026</span> &bull; 
+        <span>Published: Jun 07, 2026</span>
+        <span aria-hidden="true">&bull;</span>
         <span>3 min read</span>
       </div>
-      <p class="article-summary">In this tutorial, we are going to learn how to move past &quot;fragile&quot; code and build a robust Python setup that handles errors gracefully using Retries and Fallbacks.</p>
-      <hr />
-      <h1>DE-Coded Lab: Building Bulletproof LLM Apps with Retries and Fallbacks</h1>
-<p>Welcome back to <strong>DE-Coded Lab</strong>! If you&#x27;ve started building apps with Large Language Models (LLMs), you&#x27;ve likely encountered a frustrating reality: APIs are not 100% reliable. Sometimes the server is busy, sometimes you hit a rate limit, and sometimes the connection just drops.</p>
-<p>In this tutorial, we are going to learn how to move past &quot;fragile&quot; code and build a robust Python setup that handles errors gracefully using <strong>Retries</strong> and <strong>Fallbacks</strong>.</p>
-<h2>Why It Matters</h2>
-<p>When you call an API like OpenAI, Anthropic, or Google Gemini, several things can go wrong:</p>
-<ul>
-<li><strong>Rate Limiting:</strong> You&#x27;ve sent too many requests too quickly.</li>
-<li><strong>Server Overload:</strong> The AI provider is experiencing high traffic.</li>
-<li><strong>Network Glitches:</strong> Your internet connection flickers for a second.</li>
-</ul>
-<p>If your code isn&#x27;t prepared, your entire application will crash. <strong>Retries</strong> allow your code to &quot;try again&quot; automatically after a short wait. <strong>Fallbacks</strong> provide a &quot;Plan B,&quot; such as switching to a cheaper or faster model if the primary one is unavailable.</p>
-<h2>Step-by-Step Walkthrough</h2>
-<h3>1. The Setup</h3>
-<p>We will use the <code>openai</code> library for the API and a popular library called <code>tenacity</code> to handle our retry logic.</p>
-<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-bash">
-pip install openai tenacity
-</code></pre></div>
-<h3>2. Implementing Retries</h3>
-<p>A &quot;Retry&quot; should usually follow an <strong>Exponential Backoff</strong> strategy. This means if the first attempt fails, the code waits 1 second; if it fails again, it waits 2 seconds, then 4, and so on. This prevents you from &quot;spamming&quot; a server that is already struggling.</p>
-<h3>3. Implementing Fallbacks</h3>
-<p>A &quot;Fallback&quot; is a secondary function. If GPT-4o fails after all retry attempts, your code should automatically try a different model (like GPT-4o-mini) to ensure the user still gets an answer.</p>
-<h3>4. The Code Example</h3>
-<p>Here is a robust script that combines both concepts.</p>
+      <p class="article-lead">When you build an application powered by Large Language Models (LLMs), your code relies on a connection to a remote server. Whether you are using OpenAI, Anthropic, or Google Gemini, these connections can occasionally fail due to network...</p>
+      <div class="article-body">
+      <p>When you build an application powered by Large Language Models (LLMs), your code relies on a connection to a remote server. Whether you are using OpenAI, Anthropic, or Google Gemini, these connections can occasionally fail due to network hiccups, rate limits, or server maintenance. Building a production-ready application requires more than just a simple request; it requires a strategy to handle these interruptions gracefully.</p>
+<h2>Why it matters</h2>
+<p>Reliability is the difference between a professional tool and a prototype. If your Python script crashes every time the API is busy, your users will lose trust. Furthermore, LLM providers often impose rate limits-restrictions on how many requests you can send per minute. If you don&#x27;t handle these limits with retries, your application will stop working during peak usage. Fallbacks are equally important; if a high-end model like GPT-4 is experiencing an outage, having your code automatically switch to a lighter, faster model like GPT-4o-mini ensures that your service remains online.</p>
+<h2>Step-by-step walkthrough</h2>
+<p>Handling failures manually with loops and &quot;if&quot; statements can make your code messy. Instead, the standard approach in Python is to use dedicated libraries and structured error handling.</p>
+<h3>1. Implementing Retries with Tenacity</h3>
+<p>The most popular library for this is <code>tenacity</code>. It allows you to add &quot;retry&quot; logic to any function using decorators. You can define how many times to retry and how long to wait between attempts (known as backoff).</p>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
 import openai
-from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
+from tenacity import retry, stop_after_attempt, wait_exponential
 
-client = openai.OpenAI(api_key=&quot;YOUR_API_KEY&quot;)
-
-# 1. Define the Retry Logic
-@retry(
-    stop=stop_after_attempt(3), 
-    wait=wait_exponential(multiplier=1, min=2, max=10),
-    retry=retry_if_exception_type(openai.RateLimitError)
-)
-def call_primary_llm(prompt):
-    print(&quot;Attempting to call Primary Model (GPT-4o)...&quot;)
+# This decorator tells the function to retry up to 3 times
+# It waits longer after each failure (exponential backoff)
+@retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=4, max=10))
+def call_llm_with_retry(prompt):
+    client = openai.OpenAI()
     response = client.chat.completions.create(
-        model=&quot;gpt-4o&quot;,
+        model=&quot;gpt-4&quot;,
         messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: prompt}]
     )
     return response.choices[0].message.content
-
-# 2. Define the Fallback Logic
-def robust_llm_call(prompt):
-    try:
-        # Try the primary model first
-        return call_primary_llm(prompt)
-    except Exception as e:
-        print(f&quot;Primary model failed: {e}. Switching to Fallback...&quot;)
-        # Fallback to a different, more available model
-        response = client.chat.completions.create(
-            model=&quot;gpt-4o-mini&quot;,
-            messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: prompt}]
-        )
-        return response.choices[0].message.content
-
-# Usage
-result = robust_llm_call(&quot;Explain quantum physics to a five-year-old.&quot;)
-print(f&quot;Final Result: {result}&quot;)
 </code></pre></div>
-<h2>Common Mistakes</h2>
+<h3>2. Adding Fallback Logic</h3>
+<p>A fallback is your &quot;Plan B.&quot; If your primary model fails even after multiple retries, you catch the error and attempt the request using a different model or provider.</p>
+<h3>3. Combining Both Strategies</h3>
+<p>In a real-world scenario, you wrap your retrying function inside a try-except block. If the first function exhausts all its retry attempts and still fails, the <code>except</code> block triggers the fallback model. This ensures maximum uptime for your application.</p>
+<h2>Common mistakes</h2>
 <ul>
-<li><strong>Retrying on Authentication Errors:</strong> If your API key is wrong, retrying 10 times won&#x27;t fix it. Only retry on &quot;Retriable&quot; errors like <code>RateLimitError</code> or <code>ServiceUnavailableError</code>.</li>
-<li><strong>Infinite Retries:</strong> Never set your retries to infinite. If the service is down for an hour, your program will just hang forever. Always set a <code>stop<em>after</em>attempt</code> limit.</li>
-<li><strong>Hardcoding Keys:</strong> Never paste your API key directly into the script. Use environment variables or a <code>.env</code> file to keep your credentials safe.</li>
+<li><strong>Retrying on permanent errors:</strong> You should only retry on &quot;transient&quot; errors like timeouts or rate limits. If you have an &quot;Invalid API Key&quot; error (401), retrying 10 times won&#x27;t fix it; it will just waste time.</li>
+<li><strong>Immediate retries:</strong> Sending a retry request the millisecond after a failure is often counterproductive. If the server is overloaded, &quot;hammering&quot; it immediately will likely result in another failure. Always use exponential backoff to give the server room to breathe.</li>
+<li><strong>Ignoring the cost:</strong> If your fallback model is significantly more expensive than your primary model, you might end up with an unexpected bill if your primary model goes down for an extended period.</li>
 </ul>
-<h2>One Practice Task</h2>
-<p><strong>The &quot;Reliable Summarizer&quot; Challenge:</strong></p>
-<p>Create a Python script that takes a long paragraph of text and summarizes it. </p>
+<h2>One practice task</h2>
+<p>Write a Python script that attempts to summarize a paragraph of text. Your script should:</p>
 <ul>
-<li>Set the code to try a fake model name (like <code>gpt-fake-model</code>) first.</li>
-<li>Use <code>tenacity</code> to retry 2 times.</li>
-<li>When it inevitably fails, use a <code>try/except</code> block to fall back to a real model like <code>gpt-4o-mini</code>.</li>
-<li>Print a message to the console every time a retry or a fallback occurs so you can see the logic in action!</li>
+<li>Try to use a primary model (e.g., &quot;gpt-4&quot;).</li>
+<li>Use <code>tenacity</code> to retry 2 times if it fails.</li>
+<li>If the primary model still fails after 2 retries, catch the exception and successfully return a summary using a secondary model (e.g., &quot;gpt-4o-mini&quot;).</li>
 </ul>
-<p>Building reliable AI tools is what separates hobbyists from professional developers. Happy coding!</p>
+      </div>
       <footer class="article-footer">
-        <p><a class="link-button" href="../index.html">Explore more tutorials &rarr;</a></p>
+        <a class="link-button" href="/de_coded_data_engineering/index.html">Explore more tutorials &rarr;</a>
       </footer>
     </article>
   </main>
+  <footer class="footer">
+    <p>DE-Coded Lab — practical data engineering tutorials.</p>
+  </footer>
   <script>
     function copyCode(button) {
       const pre = button.nextElementSibling;
-      const code = pre.querySelector('code');
+      const code = pre && pre.querySelector("code");
+      if (!code) return;
       navigator.clipboard.writeText(code.innerText).then(() => {
-        button.textContent = 'Copied!';
-        setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+        button.textContent = "Copied!";
+        setTimeout(() => { button.textContent = "Copy"; }, 2000);
       });
     }
   </script>

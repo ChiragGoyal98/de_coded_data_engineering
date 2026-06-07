@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-06-07T02:09:45.046509Z",
+  "generated_at": "2026-06-07T08:42:23.540884Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "When you build an application powered by Large Language Models (LLMs), your code relies on a connection to a remote server. Whether you are using OpenAI, Anthropic, or Google Gemini, these connections can occasionally fail due to network...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-06-07T08:42:13.918834Z",
+      "is_new": true
+    },
     {
       "title": "PySpark Transformations for Large Datasets",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-06-07T02:09:36.422428Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SDK patterns for production-grade AI integrations",
@@ -74,15 +83,6 @@
       "is_new": false
     },
     {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "In this tutorial, we are going to learn how to move past \"fragile\" code and build a robust Python setup that handles errors gracefully using Retries and Fallbacks.",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-05-31T19:02:53.461848Z",
-      "is_new": false
-    },
-    {
       "title": "Data Engineering",
       "category": "General",
       "summary": "Welcome to DE-Coded Lab. Today, we are exploring the foundation of the modern data world: Data Engineering. If data is the new oil, then data engineers are the architects who build the refineries, pipelines, and transportation networks...",
@@ -110,11 +110,18 @@
   ],
   "news": [
     {
+      "headline": "Essential Updates on Cloud Storage and AI Data Tools",
+      "body": "<ul>\n<li>Cloud: Major providers are improving serverless features to help new engineers handle data tasks without managing complex infrastructure.</li>\n<li>AI: Generative tools are becoming standard for writing and debugging complex database queries automatically.</li>\n<li>Tip: Start by mastering data modeling basics to ensure your pipelines stay organized and efficient as they scale.</li>\n</ul>",
+      "published": "2026-06-07T08:42:23.540825Z",
+      "published_cycle": "2026-06-07T08",
+      "is_new": true
+    },
+    {
       "headline": "New Cloud Simplification and AI Tools Shape Data Engineering for Beginners",
       "body": "<ul>\n<li>Cloud: Leading cloud providers are launching serverless services that handle scaling and infrastructure management automatically for users.</li>\n<li>AI: Integrated AI assistants are now helping engineers write and debug data pipelines using natural language processing.</li>\n<li>Tip: Beginners should focus on learning core data modeling principles to build a strong technical foundation.</li>\n</ul>",
       "published": "2026-06-07T02:09:45.046429Z",
       "published_cycle": "2026-06-07T02",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simple Updates on Cloud Computing and Artificial Intelligence for Beginners",
@@ -170,13 +177,6 @@
       "body": "<ul>\n<li>Cloud: Google and AWS are expanding serverless options to make scaling data warehouses easier for beginners.</li>\n<li>AI: New automated coding assistants are helping engineers write and debug data pipelines more efficiently.</li>\n<li>Tip: Master the fundamentals of relational databases to build a strong career foundation.</li>\n</ul>",
       "published": "2026-06-05T02:03:56.185805Z",
       "published_cycle": "2026-06-05T02",
-      "is_new": false
-    },
-    {
-      "headline": "Simplified Data Engineering Trends For Beginners In Cloud And AI",
-      "body": "<ul>\n<li>Cloud: Cloud providers are expanding serverless options to allow beginners to build pipelines without managing servers.</li>\n<li>AI: Generative AI tools now help engineers write and debug data transformation code using simple English prompts.</li>\n<li>Tip: Mastering SQL is the most important first step for any aspiring data engineer.</li>\n</ul>",
-      "published": "2026-06-04T19:52:31.815100Z",
-      "published_cycle": "2026-06-04T19",
       "is_new": false
     }
   ]
