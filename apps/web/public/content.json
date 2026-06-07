@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-06-07T13:14:54.792353Z",
+  "generated_at": "2026-06-07T19:02:52.082289Z",
   "articles": [
+    {
+      "title": "SDK patterns for production-grade AI integrations",
+      "category": "LLM APIs",
+      "summary": "When moving from a simple script to a real-world application, the way you interact with Large Language Model (LLM) APIs changes significantly. In a local environment, a failed request is a minor inconvenience, but in production, it can...",
+      "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
+      "published": "2026-06-07T19:02:40.618735Z",
+      "is_new": true
+    },
     {
       "title": "Azure Data Factory orchestration patterns",
       "category": "Azure",
@@ -8,7 +17,7 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-06-07T13:14:50.948843Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
@@ -26,15 +35,6 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-06-07T02:09:36.422428Z",
-      "is_new": false
-    },
-    {
-      "title": "SDK patterns for production-grade AI integrations",
-      "category": "LLM APIs",
-      "summary": "When you first start building with Large Language Models, it is tempting to just copy and paste the quickstart code from an API provider and call it a day. However, moving from a experimental script to a production-grade application...",
-      "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
-      "published": "2026-06-06T19:01:35.603044Z",
       "is_new": false
     },
     {
@@ -110,11 +110,18 @@
   ],
   "news": [
     {
+      "headline": "Beginner Data Engineering Updates Across Cloud and Artificial Intelligence",
+      "body": "<ul>\n<li>Cloud: Providers are simplifying data integration by offering more no-code tools for building reliable pipelines.</li>\n<li>AI: Large language models are now capable of generating complex data schemas and troubleshooting pipeline errors.</li>\n<li>Tip: Practice building a simple data pipeline using a public dataset to understand the end-to-end process.</li>\n</ul>",
+      "published": "2026-06-07T19:02:52.082233Z",
+      "published_cycle": "2026-06-07T19",
+      "is_new": true
+    },
+    {
       "headline": "Beginner Guide to Modern Data Engineering Trends and Basics",
       "body": "<ul>\n<li>Cloud: Amazon Web Services recently simplified data integration by launching new zero-ETL features for seamless database connections.</li>\n<li>AI: Generative AI tools are now helping engineers write complex SQL queries and automate data cleaning tasks.</li>\n<li>Tip: Start your journey by mastering SQL because it remains the most essential language for managing and querying data.</li>\n</ul>",
       "published": "2026-06-07T13:14:54.792279Z",
       "published_cycle": "2026-06-07T13",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Essential Updates on Cloud Storage and AI Data Tools",
@@ -170,13 +177,6 @@
       "body": "<ul>\n<li>Cloud: Google Cloud and AWS are simplifying serverless data integration to make pipeline development easier for those starting out.</li>\n<li>AI: Many data platforms are adding natural language interfaces that allow users to query datasets using simple English sentences.</li>\n<li>Tip: Always document your data schema early in a project to avoid confusion as your pipeline grows.</li>\n</ul>",
       "published": "2026-06-05T14:19:47.217285Z",
       "published_cycle": "2026-06-05T14",
-      "is_new": false
-    },
-    {
-      "headline": "Essential Updates in Modern Data Engineering for New Learners",
-      "body": "<ul>\n<li>Cloud: Tech giants are launching more user-friendly serverless tools that automatically scale resources based on how much data you process.</li>\n<li>AI: Generative artificial intelligence is now being used to automatically generate and optimize code for complex data transformation tasks.</li>\n<li>Tip: Focus on understanding the basics of data modeling before jumping into complex tools to ensure your databases remain organized and efficient.</li>\n</ul>",
-      "published": "2026-06-05T09:01:23.923659Z",
-      "published_cycle": "2026-06-05T09",
       "is_new": false
     }
   ]
