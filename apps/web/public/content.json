@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-06-09T08:55:54.135439Z",
+  "generated_at": "2026-06-10T02:03:11.616051Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "When working with data that fits on a standard laptop, tools like pandas are excellent for manipulation and analysis. However, as datasets grow into the gigabyte or terabyte range, single-machine processing reaches its physical limits....",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-06-10T02:03:06.824637Z",
+      "is_new": true
+    },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-06-09T08:55:32.731933Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -35,15 +44,6 @@
       "url": "articles/python-oop-for-data-engineers.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
       "published": "2026-06-08T10:12:37.299099Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "PySpark is the Python API for Apache Spark, a powerful engine designed to process massive amounts of data across clusters of computers. At the heart of PySpark are transformations, which are instructions that tell Spark how to modify or...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-06-08T02:14:55.249817Z",
       "is_new": false
     },
     {
@@ -110,11 +110,18 @@
   ],
   "news": [
     {
+      "headline": "New Automation Tools Make Data Engineering More Accessible For Beginners",
+      "body": "<ul>\n<li>Cloud: Major cloud platforms are expanding serverless data warehouses to reduce the need for manual infrastructure management.</li>\n<li>AI: Generative tools are increasingly automating the creation of complex data pipelines through simple natural language prompts.</li>\n<li>Tip: Beginners should prioritize mastering SQL as it remains the universal language for interacting with diverse data systems.</li>\n</ul>",
+      "published": "2026-06-10T02:03:11.615972Z",
+      "published_cycle": "2026-06-10T02",
+      "is_new": true
+    },
+    {
       "headline": "New Cloud Tools and AI Automation Trends for Beginner Data Engineers",
       "body": "<p>Cloud: Cloud providers are introducing simplified serverless features that allow beginners to deploy data pipelines with minimal configuration.</p>\n<p>AI: New generative AI tools are helping engineers automatically create technical documentation and unit tests for their data workflows.</p>\n<p>Tip: Focus on mastering SQL fundamentals before moving on to complex orchestration tools or specialized programming languages.</p>",
       "published": "2026-06-09T08:55:54.135354Z",
       "published_cycle": "2026-06-09T08",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Key Data Engineering Updates For Cloud AI And Career Growth",
@@ -170,13 +177,6 @@
       "body": "<ul>\n<li>Cloud: Leading cloud providers are launching serverless services that handle scaling and infrastructure management automatically for users.</li>\n<li>AI: Integrated AI assistants are now helping engineers write and debug data pipelines using natural language processing.</li>\n<li>Tip: Beginners should focus on learning core data modeling principles to build a strong technical foundation.</li>\n</ul>",
       "published": "2026-06-07T02:09:45.046429Z",
       "published_cycle": "2026-06-07T02",
-      "is_new": false
-    },
-    {
-      "headline": "Simple Updates on Cloud Computing and Artificial Intelligence for Beginners",
-      "body": "<ul>\n<li>Cloud: Major providers are simplifying how beginners move large datasets into managed data warehouses.</li>\n<li>AI: New automated features help junior engineers write complex SQL queries using natural language prompts.</li>\n<li>Tip: Start by learning the basics of Python and SQL before moving to complex orchestration tools.</li>\n</ul>",
-      "published": "2026-06-06T19:01:40.935391Z",
-      "published_cycle": "2026-06-06T19",
       "is_new": false
     }
   ]
