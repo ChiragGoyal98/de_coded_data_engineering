@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-06-11T15:29:01.035373Z",
+  "generated_at": "2026-06-12T02:10:18.324655Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "When working with big data, traditional Python libraries like Pandas often run out of memory because they try to process everything on a single machine. PySpark solves this by distributing data across a cluster of computers. The secret to...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-06-12T02:10:08.078793Z",
+      "is_new": true
+    },
     {
       "title": "Azure Data Lake design for analytics teams",
       "category": "Azure",
@@ -8,7 +17,7 @@
       "url": "articles/azure-data-lake-design-for-analytics-teams.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-lake-design-for-analytics-teams.html",
       "published": "2026-06-11T15:28:39.340490Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Python OOP for Data Engineers",
@@ -17,15 +26,6 @@
       "url": "articles/python-oop-for-data-engineers.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
       "published": "2026-06-11T10:00:16.192508Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "When working with massive amounts of data that exceed the memory of a single computer, standard libraries like Pandas often struggle. This is where PySpark comes into play. As a Python interface for Apache Spark, it allows you to process...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-06-11T02:14:36.673277Z",
       "is_new": false
     },
     {
@@ -110,11 +110,18 @@
   ],
   "news": [
     {
+      "headline": "Essential Data Engineering News and Tips for Beginners",
+      "body": "<ul>\n<li>Cloud: Major providers are launching user friendly serverless options that simplify how beginners store and process large datasets.</li>\n<li>AI: Artificial intelligence is now integrated into many data tools to help automatically clean and format incoming information.</li>\n<li>Tip: Focus on learning SQL and data modeling basics before diving into specific high level programming languages or tools.</li>\n</ul>",
+      "published": "2026-06-12T02:10:18.324595Z",
+      "published_cycle": "2026-06-12T02",
+      "is_new": true
+    },
+    {
       "headline": "Modern Data Engineering Trends And Tips For Beginners",
       "body": "<ul>\n<li>Cloud: Cloud providers are simplifying serverless data integration to help beginners build pipelines with minimal infrastructure management.</li>\n<li>AI: Large language models are being integrated into data platforms to assist engineers with writing and debugging complex SQL transformations.</li>\n<li>Tip: Prioritize learning data modeling and SQL basics because these core skills remain relevant regardless of which tools you use.</li>\n</ul>",
       "published": "2026-06-11T15:29:01.035317Z",
       "published_cycle": "2026-06-11T15",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simple Data Engineering Updates on Cloud Computing and Artificial Intelligence",
@@ -170,13 +177,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are expanding serverless options to let you build data pipelines without managing underlying servers.</li>\n<li>AI: Large language models are becoming standard assistants for automating the creation of complex data documentation.</li>\n<li>Tip: Start by learning SQL because it is the primary language used to interact with most modern data warehouses.</li>\n</ul>",
       "published": "2026-06-08T02:15:04.917007Z",
       "published_cycle": "2026-06-08T02",
-      "is_new": false
-    },
-    {
-      "headline": "Beginner Data Engineering Updates Across Cloud and Artificial Intelligence",
-      "body": "<ul>\n<li>Cloud: Providers are simplifying data integration by offering more no-code tools for building reliable pipelines.</li>\n<li>AI: Large language models are now capable of generating complex data schemas and troubleshooting pipeline errors.</li>\n<li>Tip: Practice building a simple data pipeline using a public dataset to understand the end-to-end process.</li>\n</ul>",
-      "published": "2026-06-07T19:02:52.082233Z",
-      "published_cycle": "2026-06-07T19",
       "is_new": false
     }
   ]
