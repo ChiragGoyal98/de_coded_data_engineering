@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-06-12T19:49:03.829210Z",
+  "generated_at": "2026-06-13T02:03:33.451588Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "When working with massive datasets that exceed the memory capacity of a single computer, standard Python libraries like Pandas often struggle or crash. This is where Apache Spark, and its Python API called PySpark, becomes essential. At...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-06-13T02:03:29.360104Z",
+      "is_new": true
+    },
     {
       "title": "SDK patterns for production-grade AI integrations",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "published": "2026-06-12T19:48:52.380359Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Azure Synapse Analytics fundamentals",
@@ -17,15 +26,6 @@
       "url": "articles/azure-synapse-analytics-fundamentals.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-synapse-analytics-fundamentals.html",
       "published": "2026-06-12T14:28:41.908104Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "When working with big data, traditional Python libraries like Pandas often run out of memory because they try to process everything on a single machine. PySpark solves this by distributing data across a cluster of computers. The secret to...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-06-12T02:10:08.078793Z",
       "is_new": false
     },
     {
@@ -110,11 +110,18 @@
   ],
   "news": [
     {
+      "headline": "Essential Data Engineering Updates for New Learners",
+      "body": "<ul>\n<li>Cloud: Major providers are releasing more serverless tools that help beginners build data pipelines without managing complex servers.</li>\n<li>AI: New generative tools now help automate the creation of SQL code and data transformation scripts for faster development.</li>\n<li>Tip: Start by mastering basic SQL and Python as they remain the foundational languages for most data engineering careers.</li>\n</ul>",
+      "published": "2026-06-13T02:03:33.451511Z",
+      "published_cycle": "2026-06-13T02",
+      "is_new": true
+    },
+    {
       "headline": "Simple Guide to Current Data Engineering Trends for New Learners",
       "body": "<ul>\n<li>Cloud: Major providers are simplifying data storage by offering more serverless options that scale automatically based on your needs.</li>\n<li>AI: New artificial intelligence tools are helping beginners write and debug complex database queries using natural language commands.</li>\n<li>Tip: Focus on mastering SQL first because it remains the most essential language for managing and transforming data.</li>\n</ul>",
       "published": "2026-06-12T19:49:03.829142Z",
       "published_cycle": "2026-06-12T19",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Data Engineering News for Beginners Cloud AI and Career Tips",
@@ -170,13 +177,6 @@
       "body": "<p>Cloud: Cloud providers are introducing simplified serverless features that allow beginners to deploy data pipelines with minimal configuration.</p>\n<p>AI: New generative AI tools are helping engineers automatically create technical documentation and unit tests for their data workflows.</p>\n<p>Tip: Focus on mastering SQL fundamentals before moving on to complex orchestration tools or specialized programming languages.</p>",
       "published": "2026-06-09T08:55:54.135354Z",
       "published_cycle": "2026-06-09T08",
-      "is_new": false
-    },
-    {
-      "headline": "Key Data Engineering Updates For Cloud AI And Career Growth",
-      "body": "<ul>\n<li>Cloud: Major providers are releasing more serverless options to help beginners manage large datasets without handling complex hardware configurations.</li>\n<li>AI: Integration between data pipelines and large language models is becoming simpler through automated vector database connectors.</li>\n<li>Tip: Beginners should prioritize learning SQL fundamentals since it is the primary language used to organize and query data across all platforms.</li>\n</ul>",
-      "published": "2026-06-09T01:52:16.276649Z",
-      "published_cycle": "2026-06-09T01",
       "is_new": false
     }
   ]
