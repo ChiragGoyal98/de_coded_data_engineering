@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-06-14T02:13:34.177733Z",
+  "generated_at": "2026-06-14T08:59:11.655034Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "Integrating Large Language Models (LLMs) into your Python applications is an exciting step in software development. However, relying on a cloud-based API means your application is at the mercy of network stability, provider uptime, and...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-06-14T08:59:00.176208Z",
+      "is_new": true
+    },
     {
       "title": "PySpark Transformations for Large Datasets",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-06-14T02:13:26.646217Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SDK patterns for production-grade AI integrations",
@@ -26,15 +35,6 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-06-13T13:19:16.445079Z",
-      "is_new": false
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "When building applications powered by Large Language Models (LLMs), developers quickly realize that these services are not always 100% reliable. Unlike traditional database queries that complete in milliseconds, LLM requests are heavy,...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-06-13T08:43:26.090548Z",
       "is_new": false
     },
     {
@@ -110,11 +110,18 @@
   ],
   "news": [
     {
+      "headline": "Simplified Data Engineering Trends for New Professionals",
+      "body": "<ul>\n<li>Cloud: Major providers are releasing serverless features that automatically manage infrastructure so you can focus on building pipelines.</li>\n<li>AI: Integration of large language models into data warehouses now allows engineers to query datasets using natural language.</li>\n<li>Tip: Prioritize learning the basics of relational database design because it remains the foundation for modern data architecture.</li>\n</ul>",
+      "published": "2026-06-14T08:59:11.654955Z",
+      "published_cycle": "2026-06-14T08",
+      "is_new": true
+    },
+    {
       "headline": "Key Data Engineering Trends for Cloud and AI Beginners",
       "body": "<ul>\n<li>Cloud: Major providers are releasing serverless features that handle scaling automatically so beginners can focus on data logic.</li>\n<li>AI: Generative AI is being used to build smarter pipelines that can identify and fix data quality issues automatically.</li>\n<li>Tip: Focus on understanding how data flows from one system to another before worrying about specialized tools.</li>\n</ul>",
       "published": "2026-06-14T02:13:34.177667Z",
       "published_cycle": "2026-06-14T02",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simple Updates on Cloud Technology and AI Tools for Data Beginners",
@@ -170,13 +177,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are launching user friendly serverless options that simplify how beginners store and process large datasets.</li>\n<li>AI: Artificial intelligence is now integrated into many data tools to help automatically clean and format incoming information.</li>\n<li>Tip: Focus on learning SQL and data modeling basics before diving into specific high level programming languages or tools.</li>\n</ul>",
       "published": "2026-06-12T02:10:18.324595Z",
       "published_cycle": "2026-06-12T02",
-      "is_new": false
-    },
-    {
-      "headline": "Modern Data Engineering Trends And Tips For Beginners",
-      "body": "<ul>\n<li>Cloud: Cloud providers are simplifying serverless data integration to help beginners build pipelines with minimal infrastructure management.</li>\n<li>AI: Large language models are being integrated into data platforms to assist engineers with writing and debugging complex SQL transformations.</li>\n<li>Tip: Prioritize learning data modeling and SQL basics because these core skills remain relevant regardless of which tools you use.</li>\n</ul>",
-      "published": "2026-06-11T15:29:01.035317Z",
-      "published_cycle": "2026-06-11T15",
       "is_new": false
     }
   ]
