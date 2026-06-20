@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-06-19T19:22:13.835309Z",
+  "generated_at": "2026-06-20T02:04:14.338817Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "When working with data, you eventually hit a ceiling where your local computer can no longer process information because the file size is too large for its memory. This is where PySpark enters the picture. PySpark is the Python API for...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-06-20T02:04:03.309913Z",
+      "is_new": true
+    },
     {
       "title": "SDK patterns for production-grade AI integrations",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "published": "2026-06-19T19:21:54.487806Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Python OOP for Data Engineers",
@@ -17,15 +26,6 @@
       "url": "articles/python-oop-for-data-engineers.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
       "published": "2026-06-19T10:08:34.911753Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "When working with massive amounts of data that exceed the memory of a single computer, traditional tools like Excel or standard Python libraries often fall short. This is where PySpark, the Python API for Apache Spark, becomes essential....",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-06-19T02:43:10.380286Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "New Cloud Features And AI Assistants Help Beginners Master Data Engineering",
+      "body": "<ul>\n<li>Cloud: Leading providers are simplifying their serverless offerings to let users process data without managing complex infrastructure.</li>\n<li>AI: New language models can now automatically detect and fix common errors in data transformation scripts to save development time.</li>\n<li>Tip: Focus on learning core SQL and relational database concepts as they remain the foundation for most data engineering roles.</li>\n</ul>",
+      "published": "2026-06-20T02:04:14.338749Z",
+      "published_cycle": "2026-06-20T02",
+      "is_new": true
+    },
+    {
       "headline": "Simplified Tools And Artificial Intelligence Reshape Modern Data Engineering Workflows",
       "body": "<ul>\n<li>Cloud: Major cloud platforms are introducing more serverless options to help new engineers manage data without configuring complex servers.</li>\n<li>AI: Generative artificial intelligence is increasingly used to automate repetitive coding tasks like building data schemas and cleaning messy datasets.</li>\n<li>Tip: Focus on learning the medallion architecture to understand how data moves from raw storage to a polished state.</li>\n</ul>",
       "published": "2026-06-19T19:22:13.835241Z",
       "published_cycle": "2026-06-19T19",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Rising Trends in Data Engineering Focus on Automation and Simplicity",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are launching more serverless tools to help beginners manage data without worrying about complex server maintenance.</li>\n<li>AI: New tools now use generative AI to automatically write SQL queries and clean messy datasets for faster processing.</li>\n<li>Tip: Focus on mastering SQL and Python first since they are the essential languages for almost every data engineering project.</li>\n</ul>",
       "published": "2026-06-15T16:50:00.286759Z",
       "published_cycle": "2026-06-15T16",
-      "is_new": false
-    },
-    {
-      "headline": "Modern Data Engineering Simplified With New Cloud and AI Innovations",
-      "body": "<ul>\n<li>Cloud: Major providers are releasing serverless features that allow beginners to process large datasets without managing physical server hardware.</li>\n<li>AI: Integration of large language models into data platforms is making it easier to automate complex coding and debugging tasks.</li>\n<li>Tip: Focus on learning foundational SQL and Python before moving on to specialized big data tools and frameworks.</li>\n</ul>",
-      "published": "2026-06-14T19:04:39.650121Z",
-      "published_cycle": "2026-06-14T19",
       "is_new": false
     }
   ]
