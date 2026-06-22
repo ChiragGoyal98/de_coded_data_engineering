@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-06-21T19:10:12.584969Z",
+  "generated_at": "2026-06-22T02:30:42.391641Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "Processing massive amounts of data requires more than just standard Python libraries. When datasets grow into the gigabyte or terabyte range, tools like Pandas often hit memory limits and crash. This is where PySpark comes in. As the...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-06-22T02:30:37.763515Z",
+      "is_new": true
+    },
     {
       "title": "SDK patterns for production-grade AI integrations",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "published": "2026-06-21T19:10:04.214092Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Azure Data Factory orchestration patterns",
@@ -17,15 +26,6 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-06-21T13:30:27.057190Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "PySpark is the Python API for Apache Spark, a powerful engine designed to process massive amounts of data across clusters of computers. At the heart of PySpark lies the concept of transformations. These are instructions that tell Spark how...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-06-21T02:16:03.457722Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simple Data Engineering Updates for Cloud and Artificial Intelligence",
+      "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless scaling to help new engineers manage unpredictable workloads without manual tuning.</li>\n<li>AI: Large language models are now being used to automatically generate SQL queries, making it easier for beginners to transform data.</li>\n<li>Tip: Start by learning Python and SQL basics because they remain the fundamental building blocks for almost every modern data pipeline.</li>\n</ul>",
+      "published": "2026-06-22T02:30:42.391577Z",
+      "published_cycle": "2026-06-22T02",
+      "is_new": true
+    },
+    {
       "headline": "Recent Updates in Cloud Computing and AI for Data Engineering",
       "body": "<ul>\n<li>Cloud: Major platforms are releasing simpler tools for migrating data across different regions.</li>\n<li>AI: Large language models are helping new engineers automate the documentation of their code.</li>\n<li>Tip: Learn to use version control early to keep track of your pipeline changes.</li>\n</ul>",
       "published": "2026-06-21T19:10:12.584901Z",
       "published_cycle": "2026-06-21T19",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simple Data Engineering News For Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud platforms are introducing more serverless options to help new engineers manage data without configuring complex servers.</li>\n<li>AI: Generative artificial intelligence is increasingly used to automate repetitive coding tasks like building data schemas and cleaning messy datasets.</li>\n<li>Tip: Focus on learning the medallion architecture to understand how data moves from raw storage to a polished state.</li>\n</ul>",
       "published": "2026-06-19T19:22:13.835241Z",
       "published_cycle": "2026-06-19T19",
-      "is_new": false
-    },
-    {
-      "headline": "Rising Trends in Data Engineering Focus on Automation and Simplicity",
-      "body": "<ul>\n<li>Cloud: Major platforms are simplifying serverless data warehousing to make scaling easier for beginners.</li>\n<li>AI: New generative tools help engineers write and debug complex SQL queries much faster.</li>\n<li>Tip: Prioritize learning SQL and Python basics as they are the core of most pipelines.</li>\n</ul>",
-      "published": "2026-06-19T10:09:01.411397Z",
-      "published_cycle": "2026-06-19T10",
       "is_new": false
     }
   ]
