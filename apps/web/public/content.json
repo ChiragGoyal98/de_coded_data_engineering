@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-06-25T08:44:42.216360Z",
+  "generated_at": "2026-06-25T13:58:30.060107Z",
   "articles": [
+    {
+      "title": "Azure Data Factory orchestration patterns",
+      "category": "Azure",
+      "summary": "Azure Data Factory is a powerful tool for data integration, but its real strength lies in orchestration. Think of orchestration as the script for a play where various activities must happen in a specific order to tell a complete story. In...",
+      "url": "articles/azure-data-factory-orchestration-patterns.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
+      "published": "2026-06-25T13:57:31.832988Z",
+      "is_new": true
+    },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-06-25T08:44:30.457025Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "PySpark Transformations for Large Datasets",
@@ -53,15 +62,6 @@
       "url": "articles/databricks-delta-lake-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
       "published": "2026-06-22T16:23:01.367225Z",
-      "is_new": false
-    },
-    {
-      "title": "Azure Data Factory orchestration patterns",
-      "category": "Azure",
-      "summary": "Data orchestration is the process of coordinating and managing complex data workflows to ensure tasks happen in the correct order. In Azure Data Factory (ADF), this means moving beyond simple data copies and creating intelligent pipelines...",
-      "url": "articles/azure-data-factory-orchestration-patterns.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
-      "published": "2026-06-21T13:30:27.057190Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simplified Data Engineering Trends for New Professionals",
+      "body": "<ul>\n<li>Cloud: Major providers are introducing serverless features to help beginners manage data without complex server configurations.</li>\n<li>AI: Large language models are increasingly being used to automate the writing of SQL queries and Python code for data pipelines.</li>\n<li>Tip: Focus on mastering SQL first because it remains the foundational language for moving and transforming data in any modern stack.</li>\n</ul>",
+      "published": "2026-06-25T13:58:30.060037Z",
+      "published_cycle": "2026-06-25T13",
+      "is_new": true
+    },
+    {
       "headline": "Essential Data Engineering News and Tips for New Learners",
       "body": "<ul>\n<li>Cloud: Major platforms are expanding serverless options to help beginners build pipelines without managing complex infrastructure.</li>\n<li>AI: New generative tools are now helping data engineers write and debug complex code more efficiently.</li>\n<li>Tip: Focus on mastering SQL first because it is the most used language across all data platforms.</li>\n</ul>",
       "published": "2026-06-25T08:44:42.216271Z",
       "published_cycle": "2026-06-25T08",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Essential Updates and Practical Tips for Aspiring Data Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Leading cloud providers are simplifying infrastructure by offering more automated and serverless database options.</li>\n<li>AI: Artificial intelligence is now being used to automatically clean datasets and suggest improvements to data pipelines.</li>\n<li>Tip: Start your journey by building a strong foundation in SQL and basic data modeling concepts.</li>\n</ul>",
       "published": "2026-06-22T11:29:39.224708Z",
       "published_cycle": "2026-06-22T11",
-      "is_new": false
-    },
-    {
-      "headline": "Simple Data Engineering Updates for Cloud and Artificial Intelligence",
-      "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless scaling to help new engineers manage unpredictable workloads without manual tuning.</li>\n<li>AI: Large language models are now being used to automatically generate SQL queries, making it easier for beginners to transform data.</li>\n<li>Tip: Start by learning Python and SQL basics because they remain the fundamental building blocks for almost every modern data pipeline.</li>\n</ul>",
-      "published": "2026-06-22T02:30:42.391577Z",
-      "published_cycle": "2026-06-22T02",
       "is_new": false
     }
   ]
