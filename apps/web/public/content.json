@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-06-27T18:59:44.270959Z",
+  "generated_at": "2026-06-28T02:07:04.951542Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "In the world of data engineering, PySpark stands out as a powerful tool for processing massive datasets that would otherwise crash a standard laptop. While traditional Python libraries like Pandas work beautifully for data that fits in...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-06-28T02:06:20.298887Z",
+      "is_new": true
+    },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-06-27T18:59:41.102758Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Azure Data Factory orchestration patterns",
@@ -17,15 +26,6 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-06-26T13:55:51.385181Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "Handling massive amounts of data requires more than just a standard Python script. When datasets grow into the terabytes, traditional libraries like pandas struggle because they rely on a single computer's memory. This is where PySpark...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-06-26T02:02:03.354284Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Key Data Engineering Updates and Success Strategies for Beginners",
+      "body": "<ul>\n<li>Cloud: Google and Amazon are expanding serverless database options to help users manage data without needing to configure complex server settings.</li>\n<li>AI: Generative AI is being used to automate the creation of data documentation, making it easier for teams to understand their datasets.</li>\n<li>Tip: Always document your data sources and transformation logic early on to prevent confusion as your projects grow in complexity.</li>\n</ul>",
+      "published": "2026-06-28T02:07:04.951466Z",
+      "published_cycle": "2026-06-28T02",
+      "is_new": true
+    },
+    {
       "headline": "Simplified Data Engineering Trends and Tips for New Learners",
       "body": "<ul>\n<li>Cloud: Major providers are releasing more serverless tools to help beginners manage data pipelines without managing complex servers.</li>\n<li>AI: Generative AI is now being used to automatically write SQL queries and Python code for basic data transformations.</li>\n<li>Tip: Start by learning the basics of relational databases and SQL before moving on to complex big data frameworks.</li>\n</ul>",
       "published": "2026-06-27T18:59:44.270894Z",
       "published_cycle": "2026-06-27T18",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Essential Data Engineering Updates for Aspiring Professionals",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Cloud providers are introducing simplified serverless options to make building data pipelines more accessible for new engineers.</li>\n<li>AI: Generative artificial intelligence is now being used to help developers automate SQL generation and improve data documentation.</li>\n<li>Tip: Focus on learning SQL and Python basics as they remain the core foundation for almost all data engineering work.</li>\n</ul>",
       "published": "2026-06-24T08:49:59.918359Z",
       "published_cycle": "2026-06-24T08",
-      "is_new": false
-    },
-    {
-      "headline": "Simplified Data Engineering Trends In Cloud And AI Technology",
-      "body": "<ul>\n<li>Cloud: Major cloud platforms are releasing more low-code features to help beginners build data pipelines without extensive coding knowledge.</li>\n<li>AI: Modern artificial intelligence tools can now automatically generate and fix SQL scripts to make data transformation easier for newcomers.</li>\n<li>Tip: Focus on mastering SQL fundamentals first because it is the core language used across almost all data engineering platforms.</li>\n</ul>",
-      "published": "2026-06-23T19:47:29.121685Z",
-      "published_cycle": "2026-06-23T19",
       "is_new": false
     }
   ]
