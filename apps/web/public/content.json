@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-06-28T02:07:04.951542Z",
+  "generated_at": "2026-06-28T08:37:25.062689Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "When you start building applications with Large Language Models, the first thing you learn is how to send a prompt and get a response. However, the real world is messy. Internet connections flicker, AI providers experience sudden surges in...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-06-28T08:37:20.038324Z",
+      "is_new": true
+    },
     {
       "title": "PySpark Transformations for Large Datasets",
       "category": "Programming Basics",
@@ -8,15 +17,6 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-06-28T02:06:20.298887Z",
-      "is_new": true
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "Integrating Large Language Model (LLM) APIs into your Python applications is an exciting step toward building intelligent tools. However, unlike traditional local functions, API calls are prone to external failures. You might encounter...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-06-27T18:59:41.102758Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Key Data Engineering Updates For New Learners",
+      "body": "<ul>\n<li>Cloud: Tech giants are releasing more serverless options to help beginners process data without managing hardware.</li>\n<li>AI: New large language models are being integrated into data pipelines to clean messy datasets automatically.</li>\n<li>Tip: Focus on understanding how data moves from source to destination before worrying about complex tools.</li>\n</ul>",
+      "published": "2026-06-28T08:37:25.062621Z",
+      "published_cycle": "2026-06-28T08",
+      "is_new": true
+    },
+    {
       "headline": "Key Data Engineering Updates and Success Strategies for Beginners",
       "body": "<ul>\n<li>Cloud: Google and Amazon are expanding serverless database options to help users manage data without needing to configure complex server settings.</li>\n<li>AI: Generative AI is being used to automate the creation of data documentation, making it easier for teams to understand their datasets.</li>\n<li>Tip: Always document your data sources and transformation logic early on to prevent confusion as your projects grow in complexity.</li>\n</ul>",
       "published": "2026-06-28T02:07:04.951466Z",
       "published_cycle": "2026-06-28T02",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simplified Data Engineering Trends and Tips for New Learners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are expanding serverless options to help beginners manage large databases without configuring complex hardware.</li>\n<li>AI: New generative tools are simplifying the process of writing data pipelines and fixing common coding errors automatically.</li>\n<li>Tip: Start by building a simple project that moves data from a public API into a basic spreadsheet or database.</li>\n</ul>",
       "published": "2026-06-25T02:00:29.777926Z",
       "published_cycle": "2026-06-25T02",
-      "is_new": false
-    },
-    {
-      "headline": "Modern Data Engineering Updates and Essential Tips for Beginners",
-      "body": "<ul>\n<li>Cloud: Cloud providers are introducing simplified serverless options to make building data pipelines more accessible for new engineers.</li>\n<li>AI: Generative artificial intelligence is now being used to help developers automate SQL generation and improve data documentation.</li>\n<li>Tip: Focus on learning SQL and Python basics as they remain the core foundation for almost all data engineering work.</li>\n</ul>",
-      "published": "2026-06-24T08:49:59.918359Z",
-      "published_cycle": "2026-06-24T08",
       "is_new": false
     }
   ]
