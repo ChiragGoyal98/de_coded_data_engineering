@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-01T09:25:58.670889Z",
+  "generated_at": "2026-07-03T08:44:00.513385Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "When you build applications using Large Language Models (LLMs), your code relies on an external server to process data and return a response. This communication happens over the internet via an API. While these services are generally...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-07-03T08:43:53.632289Z",
+      "is_new": true
+    },
     {
       "title": "SDK patterns for production-grade AI integrations",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "published": "2026-07-01T09:25:39.166173Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Azure Data Factory orchestration patterns",
@@ -17,15 +26,6 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-06-28T13:08:47.831997Z",
-      "is_new": false
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "When you start building applications with Large Language Models, the first thing you learn is how to send a prompt and get a response. However, the real world is messy. Internet connections flicker, AI providers experience sudden surges in...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-06-28T08:37:20.038324Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simplified Data Tools Gain Momentum in Modern Engineering Pipelines",
+      "body": "<ul>\n<li>Cloud: Major cloud providers are releasing serverless features that handle complex infrastructure tasks automatically.</li>\n<li>AI: Generative tools now allow engineers to generate and optimize database schemas using natural language.</li>\n<li>Tip: Focus on understanding data modeling principles before learning specific software or tools.</li>\n</ul>",
+      "published": "2026-07-03T08:44:00.513315Z",
+      "published_cycle": "2026-07-03T08",
+      "is_new": true
+    },
+    {
       "headline": "Essential Updates and Career Advice for New Data Engineers",
       "body": "<ul>\n<li>Cloud: Cloud platforms are launching more user-friendly services that allow beginners to build data workflows without coding infrastructure.</li>\n<li>AI: Artificial intelligence is now being used to automatically document data sets and explain complex code to new learners.</li>\n<li>Tip: Focus on understanding the lifecycle of data from collection to storage before specializing in specific software.</li>\n</ul>",
       "published": "2026-07-01T09:25:58.670830Z",
       "published_cycle": "2026-07-01T09",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Major Cloud Updates and AI Tools for New Data Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are simplifying data lake management to help beginners organize storage without complex manual coding.</li>\n<li>AI: Generative tools now allow data engineers to write SQL queries using natural language prompts directly within their dashboards.</li>\n<li>Tip: Always validate your data at the source to prevent errors from breaking downstream pipelines and reporting tools.</li>\n</ul>",
       "published": "2026-06-25T19:42:52.636911Z",
       "published_cycle": "2026-06-25T19",
-      "is_new": false
-    },
-    {
-      "headline": "Simplified Data Engineering Trends for New Professionals",
-      "body": "<ul>\n<li>Cloud: Major providers are introducing serverless features to help beginners manage data without complex server configurations.</li>\n<li>AI: Large language models are increasingly being used to automate the writing of SQL queries and Python code for data pipelines.</li>\n<li>Tip: Focus on mastering SQL first because it remains the foundational language for moving and transforming data in any modern stack.</li>\n</ul>",
-      "published": "2026-06-25T13:58:30.060037Z",
-      "published_cycle": "2026-06-25T13",
       "is_new": false
     }
   ]
