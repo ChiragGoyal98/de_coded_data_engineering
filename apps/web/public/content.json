@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-04T01:30:38.368832Z",
+  "generated_at": "2026-07-04T08:18:06.547437Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "Building production-ready applications with Large Language Models (LLMs) requires moving beyond simple script execution. While it is easy to send a single request to an API like OpenAI or Anthropic, the real world is messy. Network...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-07-04T08:18:00.013653Z",
+      "is_new": true
+    },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
       "category": "Programming Basics",
@@ -8,15 +17,6 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-07-04T01:30:35.505148Z",
-      "is_new": true
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "When you build applications using Large Language Models (LLMs), your code relies on an external server to process data and return a response. This communication happens over the internet via an API. While these services are generally...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-07-03T08:43:53.632289Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Major Cloud Providers Simplify Data Pipelines For New Engineers",
+      "body": "<ul>\n<li>Cloud: Google Cloud recently updated BigQuery with simplified tools for managing large datasets.</li>\n<li>AI: New generative AI assistants are now built into most major data platforms to help write complex SQL queries.</li>\n<li>Tip: Focus on mastering SQL first since it is the foundation for almost all modern data engineering work.</li>\n</ul>",
+      "published": "2026-07-04T08:18:06.547365Z",
+      "published_cycle": "2026-07-04T08",
+      "is_new": true
+    },
+    {
       "headline": "Key Data Engineering Updates For Cloud Systems And Artificial Intelligence",
       "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless tools to help beginners manage pipelines without complex infrastructure.</li>\n<li>AI: Generative tools are now automating the creation of SQL queries and ETL scripts to speed up daily tasks.</li>\n<li>Tip: Focus on mastering Python fundamentals first as it remains the core language for modern data workflows.</li>\n</ul>",
       "published": "2026-07-04T01:30:38.368764Z",
       "published_cycle": "2026-07-04T01",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simplified Data Tools Gain Momentum in Modern Engineering Pipelines",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major platforms are simplifying serverless data warehousing to help newcomers manage large datasets without handling complex hardware.</li>\n<li>AI: New integration tools are using large language models to help engineers write and debug data transformation scripts more efficiently.</li>\n<li>Tip: Always document your data pipeline logic to ensure your code remains understandable for yourself and your teammates.</li>\n</ul>",
       "published": "2026-06-26T13:56:02.370115Z",
       "published_cycle": "2026-06-26T13",
-      "is_new": false
-    },
-    {
-      "headline": "Simplified Data Engineering Trends for New Professionals",
-      "body": "<ul>\n<li>Cloud: Major cloud providers are launching more serverless tools that allow beginners to run data pipelines without managing underlying servers.</li>\n<li>AI: Generative AI tools are now helping junior engineers write complex SQL queries and document data schemas automatically.</li>\n<li>Tip: Start by learning the basics of relational databases and SQL because they are the foundation of most data engineering work.</li>\n</ul>",
-      "published": "2026-06-26T02:02:09.020790Z",
-      "published_cycle": "2026-06-26T02",
       "is_new": false
     }
   ]
