@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-03T08:44:00.513385Z",
+  "generated_at": "2026-07-04T01:30:38.368832Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "SQL window functions are a specialized class of functions that allow you to perform calculations across a set of rows that are related to the current row. While standard aggregate functions like SUM or AVG collapse your data into a single...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-07-04T01:30:35.505148Z",
+      "is_new": true
+    },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-07-03T08:43:53.632289Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SDK patterns for production-grade AI integrations",
@@ -35,15 +44,6 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-06-28T02:06:20.298887Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "In the world of data engineering, SQL remains the primary language for transforming raw data into meaningful insights. One of the most powerful features available to a developer is the window function. These functions allow you to perform...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-06-23T01:58:00.453286Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Key Data Engineering Updates For Cloud Systems And Artificial Intelligence",
+      "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless tools to help beginners manage pipelines without complex infrastructure.</li>\n<li>AI: Generative tools are now automating the creation of SQL queries and ETL scripts to speed up daily tasks.</li>\n<li>Tip: Focus on mastering Python fundamentals first as it remains the core language for modern data workflows.</li>\n</ul>",
+      "published": "2026-07-04T01:30:38.368764Z",
+      "published_cycle": "2026-07-04T01",
+      "is_new": true
+    },
+    {
       "headline": "Simplified Data Tools Gain Momentum in Modern Engineering Pipelines",
       "body": "<ul>\n<li>Cloud: Major cloud providers are releasing serverless features that handle complex infrastructure tasks automatically.</li>\n<li>AI: Generative tools now allow engineers to generate and optimize database schemas using natural language.</li>\n<li>Tip: Focus on understanding data modeling principles before learning specific software or tools.</li>\n</ul>",
       "published": "2026-07-03T08:44:00.513315Z",
       "published_cycle": "2026-07-03T08",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Essential Updates and Career Advice for New Data Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud providers are launching more serverless tools that allow beginners to run data pipelines without managing underlying servers.</li>\n<li>AI: Generative AI tools are now helping junior engineers write complex SQL queries and document data schemas automatically.</li>\n<li>Tip: Start by learning the basics of relational databases and SQL because they are the foundation of most data engineering work.</li>\n</ul>",
       "published": "2026-06-26T02:02:09.020790Z",
       "published_cycle": "2026-06-26T02",
-      "is_new": false
-    },
-    {
-      "headline": "Key Developments in Modern Data Engineering and Cloud Platforms",
-      "body": "<ul>\n<li>Cloud: Major providers are simplifying data lake management to help beginners organize storage without complex manual coding.</li>\n<li>AI: Generative tools now allow data engineers to write SQL queries using natural language prompts directly within their dashboards.</li>\n<li>Tip: Always validate your data at the source to prevent errors from breaking downstream pipelines and reporting tools.</li>\n</ul>",
-      "published": "2026-06-25T19:42:52.636911Z",
-      "published_cycle": "2026-06-25T19",
       "is_new": false
     }
   ]
