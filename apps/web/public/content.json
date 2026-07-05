@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-05T01:46:29.752443Z",
+  "generated_at": "2026-07-05T08:36:16.319653Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "When building applications with Large Language Models (LLMs), we often rely on external APIs like OpenAI, Anthropic, or Google Gemini. While these services are powerful, they are not perfect. Network hiccups, rate limits, and server-side...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-07-05T08:36:11.574051Z",
+      "is_new": true
+    },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
       "category": "Programming Basics",
@@ -8,15 +17,6 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-07-05T01:46:16.964316Z",
-      "is_new": true
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "Working with Large Language Model (LLM) APIs like OpenAI or Anthropic is a core skill for modern developers. However, these services are not always available or consistent. APIs can fail due to temporary network issues, high traffic, or...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-07-04T18:51:23.026092Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "DATA ENGINEERING ESSENTIALS FOR BEGINNERS IN THE CLOUD ERA",
+      "body": "<ul>\n<li>Cloud: Major cloud providers are launching simplified serverless tools that allow beginners to build data pipelines without managing complex servers.</li>\n<li>AI: New generative AI assistants are helping developers write and debug complex SQL queries faster than ever before.</li>\n<li>Tip: Focus on mastering fundamental SQL and Python skills before diving into specific big data tools or frameworks.</li>\n</ul>",
+      "published": "2026-07-05T08:36:16.319554Z",
+      "published_cycle": "2026-07-05T08",
+      "is_new": true
+    },
+    {
       "headline": "Essential Data Engineering News for Beginners and New Professionals",
       "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless data integration to help beginners manage pipelines without complex infrastructure.</li>\n<li>AI: Generative models are being integrated into database query editors to help users write and debug SQL code more efficiently.</li>\n<li>Tip: Focus on mastering fundamental SQL and Python concepts before moving on to specialized big data orchestration tools.</li>\n</ul>",
       "published": "2026-07-05T01:46:29.752379Z",
       "published_cycle": "2026-07-05T01",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simplified Tools Making Data Engineering More Accessible For Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Tech giants are releasing more serverless options to help beginners process data without managing hardware.</li>\n<li>AI: New large language models are being integrated into data pipelines to clean messy datasets automatically.</li>\n<li>Tip: Focus on understanding how data moves from source to destination before worrying about complex tools.</li>\n</ul>",
       "published": "2026-06-28T08:37:25.062621Z",
       "published_cycle": "2026-06-28T08",
-      "is_new": false
-    },
-    {
-      "headline": "Key Data Engineering Updates and Success Strategies for Beginners",
-      "body": "<ul>\n<li>Cloud: Google and Amazon are expanding serverless database options to help users manage data without needing to configure complex server settings.</li>\n<li>AI: Generative AI is being used to automate the creation of data documentation, making it easier for teams to understand their datasets.</li>\n<li>Tip: Always document your data sources and transformation logic early on to prevent confusion as your projects grow in complexity.</li>\n</ul>",
-      "published": "2026-06-28T02:07:04.951466Z",
-      "published_cycle": "2026-06-28T02",
       "is_new": false
     }
   ]
