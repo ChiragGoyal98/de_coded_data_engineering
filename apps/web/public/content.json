@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-05T13:02:11.249046Z",
+  "generated_at": "2026-07-05T18:56:19.053295Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "Building applications with Large Language Models (LLMs) often feels magical until the network drops or the provider hits a rate limit. When working with external APIs, you are at the mercy of their uptime and traffic. A robust application...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-07-05T18:56:12.897389Z",
+      "is_new": true
+    },
     {
       "title": "Azure Data Factory orchestration patterns",
       "category": "Azure",
@@ -8,15 +17,6 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-07-05T13:02:07.389753Z",
-      "is_new": true
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "When building applications with Large Language Models (LLMs), we often rely on external APIs like OpenAI, Anthropic, or Google Gemini. While these services are powerful, they are not perfect. Network hiccups, rate limits, and server-side...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-07-05T08:36:11.574051Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simplified Data Engineering Trends For New Learners In The Field",
+      "body": "<ul>\n<li>Cloud: Major providers are releasing more serverless tools that handle data scaling automatically for beginners.</li>\n<li>AI: Artificial intelligence is now being used to generate schema suggestions and clean messy datasets automatically.</li>\n<li>Tip: Master the basics of SQL before moving on to more complex programming languages like Python or Java.</li>\n</ul>",
+      "published": "2026-07-05T18:56:19.053224Z",
+      "published_cycle": "2026-07-05T18",
+      "is_new": true
+    },
+    {
       "headline": "Data Engineering Essentials: Cloud AI and Growth Tips for Beginners",
       "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless functions to help beginners deploy pipelines without managing complex infrastructure.</li>\n<li>AI: Generative AI tools now assist in writing SQL queries and Python scripts making data transformation easier for newcomers.</li>\n<li>Tip: Focus on mastering fundamental SQL join types before moving into complex big data frameworks.</li>\n</ul>",
       "published": "2026-07-05T13:02:11.248978Z",
       "published_cycle": "2026-07-05T13",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "DATA ENGINEERING ESSENTIALS FOR BEGINNERS IN THE CLOUD ERA",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Cloud platforms are launching more user-friendly services that allow beginners to build data workflows without coding infrastructure.</li>\n<li>AI: Artificial intelligence is now being used to automatically document data sets and explain complex code to new learners.</li>\n<li>Tip: Focus on understanding the lifecycle of data from collection to storage before specializing in specific software.</li>\n</ul>",
       "published": "2026-07-01T09:25:58.670830Z",
       "published_cycle": "2026-07-01T09",
-      "is_new": false
-    },
-    {
-      "headline": "Major Cloud Updates and AI Tools for New Data Engineers",
-      "body": "<ul>\n<li>Cloud: AWS released new serverless options for Redshift to help beginners manage data storage without complex server configuration.</li>\n<li>AI: Integrated vector search in common databases is making it simpler for engineers to build AI-powered search features.</li>\n<li>Tip: Focus on mastering SQL first because it remains the primary language used for data transformation in almost every industry.</li>\n</ul>",
-      "published": "2026-06-28T13:09:01.173911Z",
-      "published_cycle": "2026-06-28T13",
       "is_new": false
     }
   ]
