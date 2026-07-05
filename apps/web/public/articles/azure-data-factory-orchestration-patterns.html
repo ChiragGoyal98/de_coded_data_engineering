@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Azure Data Factory orchestration patterns | DE-Coded Lab</title>
-  <meta name="description" content="Azure Data Factory is a cloud-based data integration service that allows you to create, schedule, and orchestrate data workflows. At its core, orchestration is the process of coordinating complex tasks into a single, automated workflow...." />
+  <meta name="description" content="Orchestration in Azure Data Factory refers to the management and coordination of various activities to ensure data flows smoothly from source to destination. Think of it as a workflow engine that decides when and how tasks like data..." />
   <meta property="og:title" content="Azure Data Factory orchestration patterns" />
-  <meta property="og:description" content="Azure Data Factory is a cloud-based data integration service that allows you to create, schedule, and orchestrate data workflows. At its core, orchestration is the process of coordinating complex tasks into a single, automated workflow...." />
+  <meta property="og:description" content="Orchestration in Azure Data Factory refers to the management and coordination of various activities to ensure data flows smoothly from source to destination. Think of it as a workflow engine that decides when and how tasks like data..." />
   <meta property="og:type" content="article" />
   <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
@@ -27,85 +27,84 @@
       <p class="pill">Azure</p>
       <h1>Azure Data Factory orchestration patterns</h1>
       <div class="article-meta">
-        <span>Published: Jun 28, 2026</span>
+        <span>Published: Jul 05, 2026</span>
         <span aria-hidden="true">&bull;</span>
-        <span>3 min read</span>
+        <span>4 min read</span>
       </div>
-      <p class="article-lead">Azure Data Factory is a cloud-based data integration service that allows you to create, schedule, and orchestrate data workflows. At its core, orchestration is the process of coordinating complex tasks into a single, automated workflow....</p>
+      <p class="article-lead">Orchestration in Azure Data Factory refers to the management and coordination of various activities to ensure data flows smoothly from source to destination. Think of it as a workflow engine that decides when and how tasks like data...</p>
       <div class="article-body">
-      <p>Azure Data Factory is a cloud-based data integration service that allows you to create, schedule, and orchestrate data workflows. At its core, orchestration is the process of coordinating complex tasks into a single, automated workflow. Instead of manually running scripts or managing individual data moves, orchestration ensures that every step happens in the right order, under the right conditions, and at the right time.</p>
-<h2>Why Orchestration Matters</h2>
-<p>In a modern data environment, data rarely moves from point A to point B in a single step. You might need to check if a file exists, copy it, transform it using a SQL script, and then notify a team via email.</p>
-<p>Without proper orchestration patterns, your data pipelines become fragile. Proper patterns offer:</p>
+      <p>Orchestration in Azure Data Factory refers to the management and coordination of various activities to ensure data flows smoothly from source to destination. Think of it as a workflow engine that decides when and how tasks like data copying, transformation, or data clearing should run. Instead of running isolated tasks manually, orchestration allows you to build complex logic that handles dependencies, timing, and error scenarios automatically.</p>
+<h2>Why it matters</h2>
+<p>In a professional data environment, data rarely moves in a single, simple step. Orchestration is critical because it manages the &quot;if-then-else&quot; logic of your data estate. It ensures that a reporting table isn&#x27;t updated until the raw data has been successfully ingested. By using orchestration patterns, you reduce manual intervention, minimize the risk of data corruption from out-of-order execution, and create a system that can recover gracefully from transient network failures. It also allows for parallelism, which significantly speeds up large-scale data movements.</p>
+<h2>Step-by-step walkthrough</h2>
+<p>Building an effective orchestration workflow involves combining specific patterns. Here are the four most common patterns you will use in Azure Data Factory (ADF).</p>
+<h3>1. The Sequential Pattern</h3>
+<p>This is the most basic pattern where activities run one after another. In the ADF UI, you create this by dragging a green connector (on success) from one activity to the next.</p>
 <ul>
-<li><strong>Resilience</strong>: Pipelines can automatically handle failures or retry steps.</li>
-<li><strong>Efficiency</strong>: Running tasks in parallel saves time and reduces costs.</li>
-<li><strong>Scalability</strong>: You can process one file or one thousand files using the same logic.</li>
-<li><strong>Maintainability</strong>: Clear patterns make it easier for other developers to understand your workflow.</li>
+<li>Drag a <strong>Copy Data</strong> activity to the canvas.</li>
+<li>Drag a <strong>Data Flow</strong> activity next to it.</li>
+<li>Connect the green output of the Copy activity to the Data Flow.</li>
+<li>Result: The Data Flow will only start if the Copy Data activity completes successfully.</li>
 </ul>
-<h2>Step-by-Step Walkthrough: Common Patterns</h2>
-<h3>1. The Sequential Chain</h3>
-<p>This is the simplest pattern where activities run one after another. You use this when Activity B depends entirely on the successful completion of Activity A.</p>
+<h3>2. The Parallel Pattern</h3>
+<p>To save time, you often want to run independent tasks simultaneously.</p>
 <ul>
-<li>Drag two activities onto the canvas (e.g., a Copy Data activity and a Stored Procedure activity).</li>
-<li>Click the green box on the right side of the first activity and drag the connector to the second activity.</li>
-<li>This creates a &quot;Success&quot; dependency.</li>
+<li>Place three different <strong>Copy Data</strong> activities on the canvas.</li>
+<li>Do not connect them to each other.</li>
+<li>Trigger the pipeline.</li>
+<li>Result: ADF will attempt to run all three at once, depending on your available Integration Runtime resources.</li>
 </ul>
-<h3>2. The Parallel (Fan-out) Pattern</h3>
-<p>Use this pattern when you have multiple tasks that do not depend on each other. Running them simultaneously significantly reduces the total execution time.</p>
+<h3>3. The ForEach Pattern (Iterative)</h3>
+<p>If you have a list of 50 tables to copy, you don&#x27;t want to create 50 activities. Instead, you use a loop.</p>
 <ul>
-<li>Place three Copy Data activities on the canvas.</li>
-<li>Do not link them to each other.</li>
-<li>Instead, link them all to a single &quot;Trigger&quot; or leave them unlinked if they should start at the exact same time.</li>
+<li>Use a <strong>Lookup</strong> activity to get a list of table names from a SQL database.</li>
+<li>Connect the Lookup activity to a <strong>ForEach</strong> activity.</li>
+<li>Inside the ForEach activity, place a single <strong>Copy Data</strong> activity.</li>
+<li>Use the <code>@item().TableName</code> expression to dynamically change the source for each iteration.</li>
 </ul>
-<h3>3. The Conditional (Branching) Pattern</h3>
-<p>Data workflows often require logic. For example, if a file arrives, process it; if it doesn&#x27;t, send an alert.</p>
+<h3>4. The Parent-Child Pattern</h3>
+<p>For complex projects, putting everything in one pipeline makes it hard to manage. Instead, break them into &quot;Child&quot; pipelines and call them from a &quot;Parent&quot; pipeline.</p>
 <ul>
-<li>Use the <strong>If Condition</strong> activity.</li>
-<li>Inside the activity, define an expression (e.g., checking if a variable is true).</li>
-<li>Build one set of activities in the &quot;True&quot; block and another in the &quot;False&quot; block.</li>
+<li>Use the <strong>Execute Pipeline</strong> activity in your main workflow to trigger a secondary pipeline.</li>
+<li>You can pass parameters from the parent to the child to keep the logic dynamic.</li>
 </ul>
-<h3>4. The Iterative Pattern (ForEach)</h3>
-<p>When you need to perform the same action on a list of items-like processing twenty different Excel files-you use the ForEach activity.</p>
-<ul>
-<li>Use a <strong>Get Metadata</strong> activity to list files in a folder.</li>
-<li>Pass the output list to a <strong>ForEach</strong> activity.</li>
-<li>Inside the ForEach, define the activity (like Copy Data) that should run for every item in the list.</li>
-</ul>
-<h3>Code Example: ForEach Iteration</h3>
-<p>In the JSON definition of an ADF pipeline, a ForEach activity that iterates through a list of table names looks like this:</p>
+<p>Here is an example of how an <code>Execute Pipeline</code> activity is defined in the JSON code of a pipeline:</p>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-json">
 {
-    &quot;name&quot;: &quot;IterateTables&quot;,
-    &quot;type&quot;: &quot;ForEach&quot;,
+    &quot;name&quot;: &quot;TriggerSubProcess&quot;,
+    &quot;type&quot;: &quot;ExecutePipeline&quot;,
+    &quot;dependsOn&quot;: [],
+    &quot;userProperties&quot;: [],
     &quot;typeProperties&quot;: {
-        &quot;items&quot;: {
-            &quot;value&quot;: &quot;@pipeline().parameters.TableList&quot;,
-            &quot;type&quot;: &quot;Expression&quot;
+        &quot;pipeline&quot;: {
+            &quot;referenceName&quot;: &quot;ChildPipelineName&quot;,
+            &quot;type&quot;: &quot;PipelineReference&quot;
         },
-        &quot;activities&quot;: [
-            {
-                &quot;name&quot;: &quot;CopyTableData&quot;,
-                &quot;type&quot;: &quot;Copy&quot;
-            }
-        ]
+        &quot;waitOnCompletion&quot;: true,
+        &quot;parameters&quot;: {
+            &quot;SourceFolder&quot;: &quot;raw-data&quot;,
+            &quot;TargetFolder&quot;: &quot;processed-data&quot;
+        }
     }
 }
 </code></pre></div>
-<h2>Common Mistakes</h2>
+<h2>Common mistakes</h2>
 <ul>
-<li><strong>Hardcoding Values</strong>: Beginners often type folder paths or database names directly into activities. Use <strong>Parameters</strong> and <strong>Variables</strong> instead to make your pipelines reusable.</li>
-<li><strong>Ignoring Failure Paths</strong>: Most developers only connect the green (Success) lines. Remember to handle the red (Failure) paths to send alerts or log errors when something goes wrong.</li>
-<li><strong>Over-nesting</strong>: Putting too many activities inside ForEach or If-Condition blocks makes the pipeline hard to debug. If a logic block gets too complex, move it into a separate &quot;Child Pipeline&quot; and use the <strong>Execute Pipeline</strong> activity.</li>
+<li><strong>Ignoring the &quot;Wait on Completion&quot; setting:</strong> In the Execute Pipeline activity, if you uncheck &quot;Wait on Completion,&quot; the parent pipeline will continue running as soon as the child starts, which often leads to dependency errors.</li>
+<li><strong>Hardcoding values:</strong> Beginners often type table names or file paths directly into activities. Always try to use parameters and variables to make your orchestration patterns reusable.</li>
+<li><strong>Overlooking the &quot;Max Batch Count&quot;:</strong> In a ForEach loop, the default behavior is to run iterations in parallel (up to 50). If your source database cannot handle 50 simultaneous connections, your pipeline will fail. Always check the &quot;Sequential&quot; box if order matters, or set a specific batch count.</li>
+<li><strong>Missing Error Paths:</strong> Only connecting the &quot;Success&quot; (green) paths means your pipeline just stops if something fails. Always consider adding &quot;Failure&quot; (red) paths to send an email alert or log the error to a table.</li>
 </ul>
-<h2>Practice Task: The &quot;Safe Move&quot; Pattern</h2>
-<p>To practice your orchestration skills, try building a pipeline that performs a &quot;Safe Move.&quot;</p>
+<h2>One practice task</h2>
+<p><strong>The &quot;Conditional Archiver&quot; Challenge</strong></p>
+<p>Create a pipeline that performs the following logic:</p>
 <ul>
-<li><strong>Step 1</strong>: Use a <strong>Copy Data</strong> activity to move a file from a &quot;Landing&quot; folder to a &quot;Processed&quot; folder.</li>
-<li><strong>Step 2</strong>: Connect a <strong>Delete</strong> activity to the Copy activity using the green &quot;Success&quot; link.</li>
-<li><strong>Step 3</strong>: Configure the Delete activity to remove the original file from the &quot;Landing&quot; folder.</li>
-<li><strong>Validation</strong>: Run the pipeline. If the copy fails, the delete should not trigger, ensuring you never lose data.</li>
+<li>Use a <strong>Get Metadata</strong> activity to check if a specific file exists in your Azure Blob Storage.</li>
+<li>Use an <strong>If Condition</strong> activity to check the output of the metadata activity.</li>
+<li><strong>If True:</strong> Move the file to an &quot;Archive&quot; folder using a <strong>Copy Data</strong> activity and then delete the original using a <strong>Delete</strong> activity.</li>
+<li><strong>If False:</strong> Use a <strong>Web Activity</strong> to send a &quot;File Not Found&quot; notification to a dummy URL (like a logic app endpoint or a test site).</li>
 </ul>
+<p>This task will help you master sequential logic, conditional branching, and metadata-driven orchestration.</p>
       </div>
       <footer class="article-footer">
         <a class="link-button" href="/de_coded_data_engineering/index.html">Explore more tutorials &rarr;</a>
