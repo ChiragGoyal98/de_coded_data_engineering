@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SDK patterns for production-grade AI integrations | DE-Coded Lab</title>
-  <meta name="description" content="When you first start building with Large Language Models, it is tempting to just copy-paste the basic example from the documentation and call it a day. However, building an application that users rely on every day requires a more..." />
+  <meta name="description" content="When you first start working with Large Language Models (LLMs), it is tempting to just use a simple fetch request or a basic API call to get a response. However, moving from a prototype on your laptop to a live application used by..." />
   <meta property="og:title" content="SDK patterns for production-grade AI integrations" />
-  <meta property="og:description" content="When you first start building with Large Language Models, it is tempting to just copy-paste the basic example from the documentation and call it a day. However, building an application that users rely on every day requires a more..." />
+  <meta property="og:description" content="When you first start working with Large Language Models (LLMs), it is tempting to just use a simple fetch request or a basic API call to get a response. However, moving from a prototype on your laptop to a live application used by..." />
   <meta property="og:type" content="article" />
   <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
@@ -31,59 +31,71 @@
         <span aria-hidden="true">&bull;</span>
         <span>3 min read</span>
       </div>
-      <p class="article-lead">When you first start building with Large Language Models, it is tempting to just copy-paste the basic example from the documentation and call it a day. However, building an application that users rely on every day requires a more...</p>
+      <p class="article-lead">When you first start working with Large Language Models (LLMs), it is tempting to just use a simple fetch request or a basic API call to get a response. However, moving from a prototype on your laptop to a live application used by...</p>
       <div class="article-body">
-      <p>When you first start building with Large Language Models, it is tempting to just copy-paste the basic example from the documentation and call it a day. However, building an application that users rely on every day requires a more disciplined approach to how you handle your API calls. In the world of software development, we use specific blueprints called design patterns to ensure our code is stable, easy to maintain, and capable of handling the unexpected glitches that happen in a cloud-based environment. This tutorial explores the essential patterns you need to move your AI integration from a fragile script to a production-ready system.</p>
+      <p>When you first start working with Large Language Models (LLMs), it is tempting to just use a simple fetch request or a basic API call to get a response. However, moving from a prototype on your laptop to a live application used by thousands of people requires a more robust approach. This is where Software Development Kits (SDKs) and specific design patterns come into play. Using these patterns ensures that your AI integration is resilient, maintainable, and ready for the unpredictable nature of real-world traffic.</p>
 <h2>Why it matters</h2>
-<p>Integrating an LLM API into a production environment is different from building a local prototype. In production, you face challenges like rate limits, network latency, and unexpected API downtime. If your code isn&#x27;t structured correctly, a single slow response from the AI provider could crash your entire application or lead to a poor user experience.</p>
-<p>Using established SDK patterns ensures:</p>
+<p>In a production environment, several things can go wrong. API providers might experience downtime, rate limits can be hit suddenly, or the model might return malformed data that crashes your frontend. Without professional SDK patterns, your application becomes fragile. </p>
+<p>Implementing structured patterns allows you to:</p>
 <ul>
-<li><strong>Reliability:</strong> Your app can recover from temporary network issues automatically.</li>
-<li><strong>Maintainability:</strong> You can switch between different AI models (like moving from GPT-4 to Claude) without rewriting your entire codebase.</li>
-<li><strong>Cost Control:</strong> Proper patterns help you track token usage and prevent accidental infinite loops of API calls.</li>
+<li><strong>Handle network flakiness:</strong> Automatically retry failed requests without crashing the app.</li>
+<li><strong>Enforce Data Integrity:</strong> Ensure the &quot;creative&quot; output of an LLM fits into a strict database schema.</li>
+<li><strong>Manage Costs:</strong> Track token usage and prevent infinite loops that drain your budget.</li>
+<li><strong>Security:</strong> Properly manage environment variables and prevent API key leaks.</li>
 </ul>
 <h2>Step-by-step walkthrough</h2>
-<h3>1. The Singleton Client Pattern</h3>
-<p>Avoid creating a new instance of the AI client (e.g., <code>OpenAI()</code>) inside every function. Instead, initialize the client once and reuse it across your application. This manages connection pooling more efficiently and reduces overhead.</p>
-<h3>2. Implementing an Abstraction Layer</h3>
-<p>Never call the AI SDK directly from your business logic. Create a &quot;Wrapper&quot; or &quot;Service&quot; class. This class acts as a middleman. If the AI provider changes their SDK structure tomorrow, you only have to update your wrapper class, not every file in your project.</p>
-<h3>3. Adding Resilience with Retries</h3>
-<p>AI APIs occasionally fail due to high traffic. A production-grade integration uses &quot;Exponential Backoff.&quot; This means if a call fails, the system waits a short time, then tries again, increasing the wait time with each failure. Most modern SDKs have this built-in, but you must configure it explicitly.</p>
-<h3>4. Response Validation</h3>
-<p>LLMs are probabilistic, meaning they don&#x27;t always return the exact format you expect. Always pipe your SDK response through a validation layer (like Pydantic in Python) to ensure the data matches your application&#x27;s requirements before using it.</p>
-<h3>Code Example: A Resilient Wrapper</h3>
-<p>Here is a simplified pattern using Python that demonstrates a wrapped client with retry logic.</p>
+<h3>1. Centralize the Client Instance</h3>
+<p>Instead of initializing a new API client inside every function, create a single configuration module. This allows you to manage timeouts, base URLs, and headers in one place.</p>
+<h3>2. Implement Exponential Backoff</h3>
+<p>AI APIs are prone to &quot;Rate Limit&quot; errors. If you retry a failed request immediately, you will likely fail again. Exponential backoff increases the waiting time between retries, giving the API provider time to recover.</p>
+<h3>3. Use Structured Output (JSON Mode)</h3>
+<p>In production, you rarely want a raw string of text. You usually need data you can programmatically use. Use the SDK&#x27;s ability to enforce a JSON schema or integrate with validation libraries like Pydantic.</p>
+<h3>4. Set Strict Timeouts</h3>
+<p>LLMs can be slow. If a request takes 60 seconds, it might hang your entire system. Always define a maximum timeout in your SDK configuration to ensure your application remains responsive.</p>
+<h3>Code Example: Production-Grade Implementation</h3>
+<p>Here is a Python example using the OpenAI SDK and Pydantic to ensure we get structured, validated data with built-in error handling.</p>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
 from openai import OpenAI
-from tenacity import retry, stop_after_attempt, wait_exponential
+from pydantic import BaseModel
+import os
 
-class AIService:
-    def __init__(self, api_key):
-        # Initialize the client once (Singleton-style)
-        self.client = OpenAI(api_key=api_key)
+# 1. Define the expected structure
+class UserSummary(BaseModel):
+    name: str
+    age: int
+    interests: list[str]
 
-    @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
-    def get_safe_completion(self, prompt):
-        # A wrapper that handles retries automatically
-        response = self.client.chat.completions.create(
-            model=&quot;gpt-3.5-turbo&quot;,
-            messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: prompt}]
+# 2. Centralized Client with timeout
+client = OpenAI(
+    api_key=os.environ.get(&quot;OPENAI_API_KEY&quot;),
+    timeout=15.0  # Prevents hanging indefinitely
+)
+
+def get_structured_ai_response(user_input):
+    try:
+        response = client.beta.chat.completions.parse(
+            model=&quot;gpt-4o-2024-08-06&quot;,
+            messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: user_input}],
+            response_format=UserSummary,
         )
-        return response.choices[0].message.content
+        return response.choices[0].message.parsed
+    except Exception as e:
+        print(f&quot;Logging error: {e}&quot;)
+        return None
 
 # Usage
-ai = AIService(api_key=&quot;your_key_here&quot;)
-print(ai.get_safe_completion(&quot;Explain SDKs in one sentence.&quot;))
+data = get_structured_ai_response(&quot;My name is Alex, I am 25 and love coding and hiking.&quot;)
+print(data)
 </code></pre></div>
 <h2>Common mistakes</h2>
 <ul>
-<li><strong>Hardcoding API Keys:</strong> Never put your API key directly in the code. Always use environment variables.</li>
-<li><strong>Ignoring Timeouts:</strong> By default, some SDKs might wait forever for a response. Always set a maximum timeout so your app doesn&#x27;t &quot;hang&quot; for the user.</li>
-<li><strong>Lack of Logging:</strong> In production, you need to know why a call failed. Log the prompt metadata (like token count) and error codes, but be careful not to log sensitive user data.</li>
-<li><strong>Over-reliance on &quot;Happy Path&quot;:</strong> Beginners often code for when the API works perfectly. Always write a &quot;fallback&quot; plan (e.g., a default message) for when the AI is completely unavailable.</li>
+<li><strong>Hardcoding API Keys:</strong> Never paste your API key directly into the code. Always use environment variables (<code>.env</code> files) to prevent your keys from being leaked on GitHub.</li>
+<li><strong>Ignoring Token Limits:</strong> Every model has a &quot;context window.&quot; If you send too much text, the API will error out. Production code should always check or truncate input lengths.</li>
+<li><strong>Lack of Logging:</strong> When an AI behaves strangely, you need to know what the exact input and output were. Always log the <code>request_id</code> provided by the SDK to help with debugging.</li>
+<li><strong>Not Handling &quot;Refusals&quot;:</strong> Modern models have safety filters. If the model refuses to answer a prompt, it returns a specific refusal field rather than the expected data. Your code must check for this.</li>
 </ul>
 <h2>One practice task</h2>
-<p>Open your current AI project or a blank script and create a &quot;Provider Agnostic&quot; wrapper. Try to write a single class with a method called <code>generate_text(prompt)</code>. Inside that method, implement a way to switch between two different models (like a &quot;fast&quot; model and a &quot;quality&quot; model) based on a simple input parameter, without the rest of your code needing to know which specific API is being called.</p>
+<p>Create a small script that uses an LLM SDK to translate a sentence. To make it &quot;production-grade,&quot; wrap the call in a <code>try/except</code> block and add a manual check: if the translation comes back as an empty string, the function should return a default &quot;Translation failed&quot; message instead of crashing.</p>
       </div>
       <footer class="article-footer">
         <a class="link-button" href="/de_coded_data_engineering/index.html">Explore more tutorials &rarr;</a>
