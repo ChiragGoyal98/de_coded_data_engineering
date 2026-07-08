@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-07T14:01:18.928815Z",
+  "generated_at": "2026-07-08T01:21:33.922936Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "SQL window functions are a specialized way to perform calculations across a set of table rows that are somehow related to the current row. Unlike regular aggregate functions, which collapse many rows into a single result, these functions...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-07-08T01:21:29.134395Z",
+      "is_new": true
+    },
     {
       "title": "Azure Synapse Analytics fundamentals",
       "category": "Azure",
@@ -8,7 +17,7 @@
       "url": "articles/azure-synapse-analytics-fundamentals.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-synapse-analytics-fundamentals.html",
       "published": "2026-07-07T14:01:11.964483Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SDK patterns for production-grade AI integrations",
@@ -17,15 +26,6 @@
       "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "published": "2026-07-07T09:19:28.027447Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "In the world of data engineering and analysis, SQL is the backbone of most operations. While basic aggregate functions like SUM or AVG collapse multiple rows into a single result, window functions offer a more sophisticated way to look at...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-07-07T01:49:40.877216Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Data Engineering Essentials for Beginners in Cloud and AI",
+      "body": "<ul>\n<li>Cloud: Google and Microsoft are expanding serverless data warehousing to make scaling easier for small teams.</li>\n<li>AI: New large language models are helping engineers write more efficient data cleaning scripts automatically.</li>\n<li>Tip: Focus on mastering data modeling fundamentals to ensure your pipelines remain organized and scalable.</li>\n</ul>",
+      "published": "2026-07-08T01:21:33.922869Z",
+      "published_cycle": "2026-07-08T01",
+      "is_new": true
+    },
+    {
       "headline": "New Cloud and AI Tools Make Data Engineering More Accessible",
       "body": "<ul>\n<li>Cloud: Cloud platforms are making it easier to store and process data by removing the need to manage physical servers.</li>\n<li>AI: Artificial intelligence is now helping data teams write code and fix errors in their data pipelines automatically.</li>\n<li>Tip: Focus on learning SQL first because it is the most important skill for moving and transforming data.</li>\n</ul>",
       "published": "2026-07-07T14:01:18.928734Z",
       "published_cycle": "2026-07-07T14",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Key Updates in Cloud Data Storage and Artificial Intelligence Tools",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud providers are launching simplified serverless tools that allow beginners to build data pipelines without managing complex servers.</li>\n<li>AI: New generative AI assistants are helping developers write and debug complex SQL queries faster than ever before.</li>\n<li>Tip: Focus on mastering fundamental SQL and Python skills before diving into specific big data tools or frameworks.</li>\n</ul>",
       "published": "2026-07-05T08:36:16.319554Z",
       "published_cycle": "2026-07-05T08",
-      "is_new": false
-    },
-    {
-      "headline": "Essential Data Engineering News for Beginners and New Professionals",
-      "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless data integration to help beginners manage pipelines without complex infrastructure.</li>\n<li>AI: Generative models are being integrated into database query editors to help users write and debug SQL code more efficiently.</li>\n<li>Tip: Focus on mastering fundamental SQL and Python concepts before moving on to specialized big data orchestration tools.</li>\n</ul>",
-      "published": "2026-07-05T01:46:29.752379Z",
-      "published_cycle": "2026-07-05T01",
       "is_new": false
     }
   ]
