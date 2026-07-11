@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-11T07:29:10.443947Z",
+  "generated_at": "2026-07-11T12:46:29.653157Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "Processing massive amounts of data requires a shift in how we think about computing. While a standard Python script might work well for a spreadsheet with a few thousand rows, it will struggle or crash when faced with gigabytes or...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-07-11T12:46:23.141726Z",
+      "is_new": true
+    },
     {
       "title": "Databricks notebook collaboration best practices",
       "category": "Databricks",
@@ -8,7 +17,7 @@
       "url": "articles/databricks-notebook-collaboration-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-notebook-collaboration-best-practices.html",
       "published": "2026-07-11T07:29:07.044244Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -53,15 +62,6 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-07-05T13:02:07.389753Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "Processing massive amounts of information requires tools that go beyond standard Python libraries like pandas. PySpark is the Python API for Apache Spark, a powerful engine designed for large-scale data processing across multiple...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-07-04T12:54:26.189673Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simplified Data Engineering Updates for Cloud AI and Better Workflows",
+      "body": "<ul>\n<li>Cloud: Major cloud providers are simplifying serverless scaling to help beginners manage data pipelines without managing complex infrastructure.</li>\n<li>AI: New generative AI tools are automating SQL query generation making it easier for new engineers to extract insights from large datasets.</li>\n<li>Tip: Focus on mastering fundamental SQL and Python before diving into complex orchestration tools to build a strong technical foundation.</li>\n</ul>",
+      "published": "2026-07-11T12:46:29.653090Z",
+      "published_cycle": "2026-07-11T12",
+      "is_new": true
+    },
+    {
       "headline": "Simplified Tools and Vector Databases Shape the Modern Data Landscape",
       "body": "<ul>\n<li>Cloud: Major providers are launching serverless integration tools to help beginners manage data pipelines without managing underlying servers.</li>\n<li>AI: Vector databases are gaining popularity as the primary storage solution for feeding custom data into large language models.</li>\n<li>Tip: New engineers should focus on mastering SQL fundamentals before diving into more complex automation frameworks.</li>\n</ul>",
       "published": "2026-07-11T07:29:10.443881Z",
       "published_cycle": "2026-07-11T07",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Data Engineering Essentials For Beginners Navigating Modern Cloud And AI Trends",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Platforms are introducing more intuitive serverless tools to automate the scaling of data processing tasks.</li>\n<li>AI: Machine learning models are being embedded into databases to provide instant insights and automated data cleaning.</li>\n<li>Tip: Focus on learning the fundamentals of data modeling before jumping into complex big data frameworks.</li>\n</ul>",
       "published": "2026-07-07T01:49:46.730089Z",
       "published_cycle": "2026-07-07T01",
-      "is_new": false
-    },
-    {
-      "headline": "Modern Data Engineering Trends in Cloud Services and AI Integration",
-      "body": "<ul>\n<li>Cloud: Leading platforms are expanding serverless database options to help new engineers deploy pipelines without managing hardware.</li>\n<li>AI: New automated coding assistants are making it easier for beginners to generate and debug complex SQL queries.</li>\n<li>Tip: Focus on mastering data quality checks early to prevent small errors from breaking your entire pipeline.</li>\n</ul>",
-      "published": "2026-07-06T19:28:41.833839Z",
-      "published_cycle": "2026-07-06T19",
       "is_new": false
     }
   ]
