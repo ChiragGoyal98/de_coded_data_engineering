@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-12T07:55:01.543843Z",
+  "generated_at": "2026-07-12T12:48:27.516140Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "Handling massive amounts of data requires a shift in how we think about processing. When a dataset is too large to fit into a single computer's memory, traditional libraries like Pandas often fail. This is where PySpark comes in. At its...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-07-12T12:48:15.703009Z",
+      "is_new": true
+    },
     {
       "title": "Databricks notebook collaboration best practices",
       "category": "Databricks",
@@ -8,7 +17,7 @@
       "url": "articles/databricks-notebook-collaboration-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-notebook-collaboration-best-practices.html",
       "published": "2026-07-12T07:54:48.139930Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -26,15 +35,6 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-07-11T18:41:10.659275Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "Processing massive amounts of data requires a shift in how we think about computing. While a standard Python script might work well for a spreadsheet with a few thousand rows, it will struggle or crash when faced with gigabytes or...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-07-11T12:46:23.141726Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "New Cloud Tools and AI Integration Simplify Data Engineering for Beginners",
+      "body": "<ul>\n<li>Cloud: Major cloud platforms are releasing more serverless options that handle scaling automatically to reduce the technical burden on new developers.</li>\n<li>AI: Large language models are being integrated directly into modern data stacks to automate the generation of complex documentation and schema descriptions.</li>\n<li>Tip: Master SQL and basic Python before moving into complex orchestration tools to build a strong technical foundation.</li>\n</ul>",
+      "published": "2026-07-12T12:48:27.516071Z",
+      "published_cycle": "2026-07-12T12",
+      "is_new": true
+    },
+    {
       "headline": "New Tools Make Entry Level Data Engineering More Accessible Than Ever",
       "body": "<ul>\n<li>Cloud: Cloud platforms are increasingly offering serverless data integration tools that eliminate the need for manual server management.</li>\n<li>AI: Automated coding assistants are now helping entry-level engineers debug complex data transformation scripts more efficiently.</li>\n<li>Tip: Prioritize learning the fundamentals of relational databases before exploring more advanced big data technologies.</li>\n</ul>",
       "published": "2026-07-12T07:55:01.543786Z",
       "published_cycle": "2026-07-12T07",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "New Trends Making Data Engineering More Accessible for Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Leading platforms are expanding serverless options to let beginners build data pipelines without worrying about underlying server maintenance.</li>\n<li>AI: Large language models are becoming standard assistants for writing clean code and debugging complex ETL processes.</li>\n<li>Tip: Focus on understanding data modeling fundamentals before diving into specific high-scale processing frameworks.</li>\n</ul>",
       "published": "2026-07-08T08:03:53.065459Z",
       "published_cycle": "2026-07-08T08",
-      "is_new": false
-    },
-    {
-      "headline": "Data Engineering Essentials for Beginners in Cloud and AI",
-      "body": "<ul>\n<li>Cloud: Google and Microsoft are expanding serverless data warehousing to make scaling easier for small teams.</li>\n<li>AI: New large language models are helping engineers write more efficient data cleaning scripts automatically.</li>\n<li>Tip: Focus on mastering data modeling fundamentals to ensure your pipelines remain organized and scalable.</li>\n</ul>",
-      "published": "2026-07-08T01:21:33.922869Z",
-      "published_cycle": "2026-07-08T01",
       "is_new": false
     }
   ]
