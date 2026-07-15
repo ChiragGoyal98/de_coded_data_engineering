@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-15T07:46:44.389428Z",
+  "generated_at": "2026-07-15T18:51:23.429729Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "Large Language Models are becoming the backbone of modern applications, but they are not perfect. When you connect to an API like OpenAI or Anthropic, you are relying on an external service that can experience hiccups. A simple request...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-07-15T18:50:56.178357Z",
+      "is_new": true
+    },
     {
       "title": "Databricks notebook collaboration best practices",
       "category": "Databricks",
@@ -8,7 +17,7 @@
       "url": "articles/databricks-notebook-collaboration-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-notebook-collaboration-best-practices.html",
       "published": "2026-07-15T07:46:34.043520Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -17,15 +26,6 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-07-15T01:09:47.636120Z",
-      "is_new": false
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "Integrating Large Language Models (LLMs) into your Python applications opens up incredible possibilities for automation and intelligence. However, relying on external APIs means your code is subject to the unpredictability of the internet...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-07-14T18:58:20.273169Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "New Cloud Platforms And AI Tools Simplify Modern Data Engineering Tasks",
+      "body": "<ul>\n<li>Cloud: Major providers are simplifying data warehousing by automating the resource scaling process for new users.</li>\n<li>AI: New coding assistants are making it easier for engineers to write and debug data transformation scripts.</li>\n<li>Tip: Building a small personal project with a public dataset is the best way to learn core concepts.</li>\n</ul>",
+      "published": "2026-07-15T18:51:23.429653Z",
+      "published_cycle": "2026-07-15T18",
+      "is_new": true
+    },
+    {
       "headline": "Essential Updates In Data Engineering For Beginners",
       "body": "<ul>\n<li>Cloud: Major cloud providers are launching more serverless tools to help beginners manage data pipelines without managing physical servers.</li>\n<li>AI: Generative AI tools are now helping data engineers write and debug complex code much faster than before.</li>\n<li>Tip: Focus on learning SQL first because it is the foundational language used across almost every data platform.</li>\n</ul>",
       "published": "2026-07-15T07:46:44.389360Z",
       "published_cycle": "2026-07-15T07",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "New Cloud and AI Tools Make Data Engineering More Accessible",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud platforms are releasing more serverless options that handle scaling automatically to reduce the technical burden on new developers.</li>\n<li>AI: Large language models are being integrated directly into modern data stacks to automate the generation of complex documentation and schema descriptions.</li>\n<li>Tip: Master SQL and basic Python before moving into complex orchestration tools to build a strong technical foundation.</li>\n</ul>",
       "published": "2026-07-12T12:48:27.516071Z",
       "published_cycle": "2026-07-12T12",
-      "is_new": false
-    },
-    {
-      "headline": "New Tools Make Entry Level Data Engineering More Accessible Than Ever",
-      "body": "<ul>\n<li>Cloud: Cloud platforms are increasingly offering serverless data integration tools that eliminate the need for manual server management.</li>\n<li>AI: Automated coding assistants are now helping entry-level engineers debug complex data transformation scripts more efficiently.</li>\n<li>Tip: Prioritize learning the fundamentals of relational databases before exploring more advanced big data technologies.</li>\n</ul>",
-      "published": "2026-07-12T07:55:01.543786Z",
-      "published_cycle": "2026-07-12T07",
       "is_new": false
     }
   ]
