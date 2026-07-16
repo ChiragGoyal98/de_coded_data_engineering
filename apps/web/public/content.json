@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-16T07:51:39.790790Z",
+  "generated_at": "2026-07-16T13:13:26.090840Z",
   "articles": [
+    {
+      "title": "Azure Data Factory orchestration patterns",
+      "category": "Azure",
+      "summary": "Azure Data Factory (ADF) acts as the central nervous system for your data integration projects. While moving data from a SQL database to a Data Lake is a simple task, real-world scenarios often involve complex dependencies, conditional...",
+      "url": "articles/azure-data-factory-orchestration-patterns.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
+      "published": "2026-07-16T13:13:11.627260Z",
+      "is_new": true
+    },
     {
       "title": "Databricks notebook collaboration best practices",
       "category": "Databricks",
@@ -8,7 +17,7 @@
       "url": "articles/databricks-notebook-collaboration-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-notebook-collaboration-best-practices.html",
       "published": "2026-07-16T07:51:24.511357Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -26,15 +35,6 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-07-15T18:50:56.178357Z",
-      "is_new": false
-    },
-    {
-      "title": "Azure Data Factory orchestration patterns",
-      "category": "Azure",
-      "summary": "Azure Data Factory orchestration is the process of coordinating and managing the execution of various data activities to create an end-to-end workflow. Instead of running isolated tasks, orchestration allows you to define dependencies,...",
-      "url": "articles/azure-data-factory-orchestration-patterns.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
-      "published": "2026-07-14T13:00:25.291166Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simplified Data Engineering Trends and Tips for New Learners",
+      "body": "<ul>\n<li>Cloud: Cloud platforms are introducing more low-code tools to help new engineers build data pipelines without managing servers.</li>\n<li>AI: New artificial intelligence assistants are helping developers write and debug complex SQL queries more efficiently than ever.</li>\n<li>Tip: Beginners should focus on learning Python and SQL deeply before trying to master every new tool on the market.</li>\n</ul>",
+      "published": "2026-07-16T13:13:26.090775Z",
+      "published_cycle": "2026-07-16T13",
+      "is_new": true
+    },
+    {
       "headline": "Essential Cloud and AI Updates for New Data Engineers",
       "body": "<ul>\n<li>Cloud: Major providers are expanding serverless database options to help beginners build pipelines without managing complex server infrastructure.</li>\n<li>AI: Integration of large language models into data warehouses now allows users to generate complex SQL queries using simple English commands.</li>\n<li>Tip: Focus on mastering SQL and Python basics first as they are the most important tools for any data engineering career.</li>\n</ul>",
       "published": "2026-07-16T07:51:39.790724Z",
       "published_cycle": "2026-07-16T07",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Data Engineering Basics and Emerging Trends for Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are introducing zero-ETL features to help you move data between services without writing custom integration scripts.</li>\n<li>AI: Generative AI tools are now assisting junior engineers by automatically documenting data schemas and explaining complex pipeline logic.</li>\n<li>Tip: Dedicate time to mastering SQL and Python as they remain the core building blocks for almost every modern data stack.</li>\n</ul>",
       "published": "2026-07-13T19:08:01.839002Z",
       "published_cycle": "2026-07-13T19",
-      "is_new": false
-    },
-    {
-      "headline": "Data Engineering News for New Learners and Aspiring Professionals",
-      "body": "<ul>\n<li>Cloud: Major cloud providers are expanding free credits for serverless functions to lower the cost for students building their first data pipelines.</li>\n<li>AI: New developer tools are using generative AI to help beginners automatically generate and test SQL scripts for data cleaning.</li>\n<li>Tip: Focus on understanding fundamental data modeling concepts before trying to learn complex distributed computing frameworks.</li>\n</ul>",
-      "published": "2026-07-13T08:41:53.811902Z",
-      "published_cycle": "2026-07-13T08",
       "is_new": false
     }
   ]
