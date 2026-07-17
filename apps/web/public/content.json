@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-17T07:48:37.946699Z",
+  "generated_at": "2026-07-17T18:50:05.841958Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "When building applications powered by Large Language Models (LLMs), connecting to an API is just the first step. In a perfect world, every request would return a successful response instantly. However, real-world networks are...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-07-17T18:49:40.626877Z",
+      "is_new": true
+    },
     {
       "title": "Databricks notebook collaboration best practices",
       "category": "Databricks",
@@ -8,7 +17,7 @@
       "url": "articles/databricks-notebook-collaboration-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-notebook-collaboration-best-practices.html",
       "published": "2026-07-17T07:48:30.974192Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -26,15 +35,6 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-07-16T13:13:11.627260Z",
-      "is_new": false
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "Large Language Models are becoming the backbone of modern applications, but they are not perfect. When you connect to an API like OpenAI or Anthropic, you are relying on an external service that can experience hiccups. A simple request...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-07-15T18:50:56.178357Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "New Cloud Tools and AI Assistants Simplify Data Engineering For Beginners",
+      "body": "<ul>\n<li>Cloud: Major cloud platforms are introducing more automated scaling features to help beginners manage large datasets without complex server setups.</li>\n<li>AI: New generative tools are assisting data engineers by automatically writing the boilerplate code needed for data pipelines.</li>\n<li>Tip: Start by learning SQL because it is the fundamental language used for most data transformation tasks.</li>\n</ul>",
+      "published": "2026-07-17T18:50:05.841892Z",
+      "published_cycle": "2026-07-17T18",
+      "is_new": true
+    },
+    {
       "headline": "Beginner Friendly Data Engineering News For Cloud And AI Tools",
       "body": "<ul>\n<li>Cloud: Large providers are expanding serverless options to help beginners build data pipelines without managing complex server hardware.</li>\n<li>AI: Generative AI tools are now capable of suggesting code fixes and documenting data schemas to save engineers time.</li>\n<li>Tip: Build a simple project using a public dataset to practice moving data from one place to another.</li>\n</ul>",
       "published": "2026-07-17T07:48:37.946624Z",
       "published_cycle": "2026-07-17T07",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Essential Cloud and AI Updates for Entry Level Data Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are launching serverless tools that help beginners manage data without worrying about underlying hardware.</li>\n<li>AI: New automated systems are making it easier to clean messy data using simple natural language commands.</li>\n<li>Tip: Focus on mastering SQL first because it is the most universal language for interacting with data.</li>\n</ul>",
       "published": "2026-07-14T18:58:38.809678Z",
       "published_cycle": "2026-07-14T18",
-      "is_new": false
-    },
-    {
-      "headline": "Modern Cloud And AI Tooling Trends For New Data Engineers",
-      "body": "<ul>\n<li>Cloud: Major providers are currently simplifying their interfaces to help new users set up data warehouses with fewer manual steps.</li>\n<li>AI: New integrated assistants are now helping engineers automatically generate documentation and test cases for data pipelines.</li>\n<li>Tip: Prioritize learning SQL and basic data modeling because these core skills apply to every tool in the industry.</li>\n</ul>",
-      "published": "2026-07-14T13:00:48.560729Z",
-      "published_cycle": "2026-07-14T13",
       "is_new": false
     }
   ]
