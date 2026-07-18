@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-18T07:23:36.682450Z",
+  "generated_at": "2026-07-18T12:43:49.407392Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "When working with massive amounts of data, traditional Python libraries like Pandas often run out of memory. This is where PySpark comes in. PySpark is the Python API for Apache Spark, a distributed computing framework designed to process...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-07-18T12:43:40.742801Z",
+      "is_new": true
+    },
     {
       "title": "Databricks notebook collaboration best practices",
       "category": "Databricks",
@@ -8,7 +17,7 @@
       "url": "articles/databricks-notebook-collaboration-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-notebook-collaboration-best-practices.html",
       "published": "2026-07-18T07:23:18.508343Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -44,15 +53,6 @@
       "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "published": "2026-07-13T19:07:54.088833Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "Handling massive amounts of data requires a shift in how we think about processing. When a dataset is too large to fit into a single computer's memory, traditional libraries like Pandas often fail. This is where PySpark comes in. At its...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-07-12T12:48:15.703009Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Essential Weekly Updates for New Data Engineers and Cloud Tech",
+      "body": "<ul>\n<li>Cloud: Major platforms are releasing simpler serverless tools to help beginners automate their first data pipelines.</li>\n<li>AI: Automated machine learning tools are now making it easier to identify and fix errors in large datasets.</li>\n<li>Tip: Learning how to document your code early will make your future data projects much easier to maintain.</li>\n</ul>",
+      "published": "2026-07-18T12:43:49.407323Z",
+      "published_cycle": "2026-07-18T12",
+      "is_new": true
+    },
+    {
       "headline": "Essential Updates and Career Advice for Aspiring Data Engineers",
       "body": "<ul>\n<li>Cloud: Major providers are expanding free tier services to help students learn data warehousing without upfront costs.</li>\n<li>AI: Automated metadata tagging is becoming standard to help teams organize massive datasets with minimal manual effort.</li>\n<li>Tip: Focus on building a small portfolio project that demonstrates your ability to move data from an API to a database.</li>\n</ul>",
       "published": "2026-07-18T07:23:36.682379Z",
       "published_cycle": "2026-07-18T07",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simple Data Engineering News for New Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are simplifying data warehousing by automating the resource scaling process for new users.</li>\n<li>AI: New coding assistants are making it easier for engineers to write and debug data transformation scripts.</li>\n<li>Tip: Building a small personal project with a public dataset is the best way to learn core concepts.</li>\n</ul>",
       "published": "2026-07-15T18:51:23.429653Z",
       "published_cycle": "2026-07-15T18",
-      "is_new": false
-    },
-    {
-      "headline": "Essential Updates In Data Engineering For Beginners",
-      "body": "<ul>\n<li>Cloud: Major cloud providers are launching more serverless tools to help beginners manage data pipelines without managing physical servers.</li>\n<li>AI: Generative AI tools are now helping data engineers write and debug complex code much faster than before.</li>\n<li>Tip: Focus on learning SQL first because it is the foundational language used across almost every data platform.</li>\n</ul>",
-      "published": "2026-07-15T07:46:44.389360Z",
-      "published_cycle": "2026-07-15T07",
       "is_new": false
     }
   ]
