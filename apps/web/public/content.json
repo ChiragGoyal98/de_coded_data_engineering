@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-18T12:43:49.407392Z",
+  "generated_at": "2026-07-18T18:42:12.338405Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "When building applications powered by Large Language Models, the connection between your code and the AI provider is often the weakest link. Unlike local functions that execute predictably, LLM APIs rely on network stability and the...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-07-18T18:41:59.419047Z",
+      "is_new": true
+    },
     {
       "title": "PySpark Transformations for Large Datasets",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-07-18T12:43:40.742801Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Databricks notebook collaboration best practices",
@@ -26,15 +35,6 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-07-18T01:14:56.944297Z",
-      "is_new": false
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "When building applications powered by Large Language Models (LLMs), connecting to an API is just the first step. In a perfect world, every request would return a successful response instantly. However, real-world networks are...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-07-17T18:49:40.626877Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Emerging Trends in Cloud Data Warehousing and AI Assisted Engineering",
+      "body": "<ul>\n<li>Cloud: Major providers are introducing managed services that allow beginners to process large datasets without managing complex server clusters.</li>\n<li>AI: Generative tools are now integrated into data warehouses to help users write and debug SQL queries automatically.</li>\n<li>Tip: Focus on understanding data modeling concepts before trying to learn every new tool in the market.</li>\n</ul>",
+      "published": "2026-07-18T18:42:12.338328Z",
+      "published_cycle": "2026-07-18T18",
+      "is_new": true
+    },
+    {
       "headline": "Essential Weekly Updates for New Data Engineers and Cloud Tech",
       "body": "<ul>\n<li>Cloud: Major platforms are releasing simpler serverless tools to help beginners automate their first data pipelines.</li>\n<li>AI: Automated machine learning tools are now making it easier to identify and fix errors in large datasets.</li>\n<li>Tip: Learning how to document your code early will make your future data projects much easier to maintain.</li>\n</ul>",
       "published": "2026-07-18T12:43:49.407323Z",
       "published_cycle": "2026-07-18T12",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Essential Updates and Career Advice for Aspiring Data Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major platforms are releasing new serverless features that allow beginners to scale data ingestion tasks without configuring underlying infrastructure.</li>\n<li>AI: New generative tools are making it easier for entry-level engineers to write and optimize complex data transformation code.</li>\n<li>Tip: Start by building a small project that moves data from a public API into a simple database to practice fundamental pipeline concepts.</li>\n</ul>",
       "published": "2026-07-16T01:19:32.692471Z",
       "published_cycle": "2026-07-16T01",
-      "is_new": false
-    },
-    {
-      "headline": "New Cloud Platforms And AI Tools Simplify Modern Data Engineering Tasks",
-      "body": "<ul>\n<li>Cloud: Major providers are simplifying data warehousing by automating the resource scaling process for new users.</li>\n<li>AI: New coding assistants are making it easier for engineers to write and debug data transformation scripts.</li>\n<li>Tip: Building a small personal project with a public dataset is the best way to learn core concepts.</li>\n</ul>",
-      "published": "2026-07-15T18:51:23.429653Z",
-      "published_cycle": "2026-07-15T18",
       "is_new": false
     }
   ]

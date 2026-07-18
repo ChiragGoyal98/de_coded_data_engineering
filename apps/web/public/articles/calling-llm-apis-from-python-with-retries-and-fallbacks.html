@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calling LLM APIs from Python with retries and fallbacks | DE-Coded Lab</title>
-  <meta name="description" content="When building applications powered by Large Language Models (LLMs), connecting to an API is just the first step. In a perfect world, every request would return a successful response instantly. However, real-world networks are..." />
+  <meta name="description" content="When building applications powered by Large Language Models, the connection between your code and the AI provider is often the weakest link. Unlike local functions that execute predictably, LLM APIs rely on network stability and the..." />
   <meta property="og:title" content="Calling LLM APIs from Python with retries and fallbacks" />
-  <meta property="og:description" content="When building applications powered by Large Language Models (LLMs), connecting to an API is just the first step. In a perfect world, every request would return a successful response instantly. However, real-world networks are..." />
+  <meta property="og:description" content="When building applications powered by Large Language Models, the connection between your code and the AI provider is often the weakest link. Unlike local functions that execute predictably, LLM APIs rely on network stability and the..." />
   <meta property="og:type" content="article" />
   <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
@@ -27,61 +27,65 @@
       <p class="pill">LLM APIs</p>
       <h1>Calling LLM APIs from Python with retries and fallbacks</h1>
       <div class="article-meta">
-        <span>Published: Jul 17, 2026</span>
+        <span>Published: Jul 18, 2026</span>
         <span aria-hidden="true">&bull;</span>
         <span>3 min read</span>
       </div>
-      <p class="article-lead">When building applications powered by Large Language Models (LLMs), connecting to an API is just the first step. In a perfect world, every request would return a successful response instantly. However, real-world networks are...</p>
+      <p class="article-lead">When building applications powered by Large Language Models, the connection between your code and the AI provider is often the weakest link. Unlike local functions that execute predictably, LLM APIs rely on network stability and the...</p>
       <div class="article-body">
-      <p>When building applications powered by Large Language Models (LLMs), connecting to an API is just the first step. In a perfect world, every request would return a successful response instantly. However, real-world networks are unpredictable, and API providers often impose rate limits or experience brief outages. To build a production-ready application, you need to handle these interruptions gracefully using two key strategies: retries and fallbacks.</p>
+      <p>When building applications powered by Large Language Models, the connection between your code and the AI provider is often the weakest link. Unlike local functions that execute predictably, LLM APIs rely on network stability and the provider&#x27;s server health. If you send too many requests at once or if the provider experiences a temporary hiccup, your application might crash. Learning to handle these interruptions gracefully is a fundamental skill for any AI developer.</p>
 <h2>Why it matters</h2>
-<p>API calls can fail for many reasons that have nothing to do with your code. You might hit a Rate Limit (HTTP 429) because you sent too many requests at once, or the provider might experience a &quot;500 Internal Server Error&quot; due to high traffic. </p>
-<p>If your code simply crashes when this happens, the user experience suffers. Implementing retries allows your code to automatically try again after a short pause, which often fixes issues caused by temporary glitches. Fallbacks go a step further; if your primary model (like GPT-4) is completely unavailable, your code can automatically switch to a secondary model (like Claude or a smaller local model) to ensure the application keeps running.</p>
+<p>In a production environment, reliability is just as important as the quality of the AI&#x27;s response. Without a strategy for retries and fallbacks, your user might see an error message simply because a server was busy for a fraction of a second. Implementing these patterns ensures:</p>
+<ul>
+<li><strong>Resilience:</strong> Your app stays online even during minor API outages.</li>
+<li><strong>Cost Management:</strong> You can start with a premium model and fall back to a cheaper one if needed.</li>
+<li><strong>Rate Limit Handling:</strong> You can automatically wait and try again when you hit &quot;429 Too Many Requests&quot; errors.</li>
+<li><strong>User Experience:</strong> Smooth transitions between models prevent broken interfaces.</li>
+</ul>
 <h2>Step-by-step walkthrough</h2>
-<h3>1. Handling Retries with Tenacity</h3>
-<p>The most efficient way to handle retries in Python is using a library called <code>tenacity</code>. It allows you to define rules for when and how many times a function should be retried.</p>
-<p>A common pattern is &quot;Exponential Backoff.&quot; This means the script waits a little longer after each failure (e.g., 1s, 2s, 4s) to avoid overwhelming the API server further.</p>
+<h3>1. Setting up Retries with Tenacity</h3>
+<p>The most efficient way to handle retries in Python is using a library called <code>tenacity</code>. It allows you to wrap your API calls in a &quot;retry&quot; decorator that handles the logic of waiting and trying again.</p>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
 import openai
-from tenacity import retry, stop_after_attempt, wait_exponential
+from tenacity import retry, stop_after_attempt, wait_random_exponential
 
-client = openai.OpenAI(api_key=&quot;your_key&quot;)
-
-@retry(wait=wait_exponential(multiplier=1, min=2, max=10), stop=stop_after_attempt(3))
+@retry(wait=wait_random_exponential(min=1, max=60), stop=stop_after_attempt(3))
 def call_llm_with_retry(prompt):
+    client = openai.OpenAI()
     return client.chat.completions.create(
-        model=&quot;gpt-3.5-turbo&quot;,
+        model=&quot;gpt-4o&quot;,
         messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: prompt}]
     )
 </code></pre></div>
-<h3>2. Implementing Fallbacks</h3>
-<p>A fallback is your &quot;Plan B.&quot; You wrap your primary logic in a <code>try-except</code> block. If the primary API fails after all retry attempts, the code moves to the <code>except</code> block to call a different model.</p>
+<p>In this example, the code will try the request up to three times. It uses &quot;exponential backoff,&quot; meaning it waits longer between each attempt to give the API provider time to recover.</p>
+<h3>2. Implementing a Fallback Mechanism</h3>
+<p>A fallback occurs when your primary model fails completely (even after retries), and your code automatically switches to a secondary model. This is useful if a specific model tier is experiencing downtime.</p>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
 def robust_llm_call(prompt):
     try:
-        # Attempt primary model with retries
+        # Try the primary, more expensive model first
         return call_llm_with_retry(prompt)
     except Exception as e:
         print(f&quot;Primary model failed: {e}. Switching to fallback...&quot;)
-        # Attempt fallback model (e.g., a faster/cheaper model)
+        # Fallback to a faster, more available model
+        client = openai.OpenAI()
         return client.chat.completions.create(
-            model=&quot;gpt-3.5-turbo-0125&quot;,
+            model=&quot;gpt-3.5-turbo&quot;,
             messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: prompt}]
         )
 </code></pre></div>
+<h3>3. Combining Both Strategies</h3>
+<p>The most robust approach is to nest these functions. You attempt the primary model with retries; if it still fails after multiple attempts, you move to the <code>except</code> block and trigger the fallback model.</p>
 <h2>Common mistakes</h2>
 <ul>
-<li><strong>Infinite Retries:</strong> Never set your code to retry indefinitely. If the API is down for an hour, your program will hang and potentially rack up high compute costs. Always set a <code>stop_after_attempt</code> limit.</li>
-<li><strong>Ignoring Error Types:</strong> Not all errors should trigger a retry. If you have an &quot;Authentication Error&quot; (invalid API key), retrying 10 times won&#x27;t fix it. Only retry on network timeouts or rate limits.</li>
-<li><strong>Missing Timeouts:</strong> By default, some requests might wait forever for a response. Always set a <code>timeout</code> parameter in your API call so the code knows when to give up and try again.</li>
-<li><strong>Hard-coding Keys:</strong> Never put your API keys directly in the script. Use environment variables or a <code>.env</code> file to keep your credentials secure.</li>
+<li><strong>Retrying on 400 errors:</strong> Do not retry if the error is a &quot;400 Bad Request.&quot; This usually means your prompt is too long or your API key is invalid. Retrying will not fix a logic error in your code.</li>
+<li><strong>Ignoring timeouts:</strong> Sometimes an API doesn&#x27;t return an error; it just hangs. Always set a <code>timeout</code> parameter in your request so your code doesn&#x27;t wait forever.</li>
+<li><strong>Hardcoding API Keys:</strong> Beginner developers often leave their keys in the code. Always use a <code>.env</code> file and the <code>os.getenv</code> library to keep your credentials safe while testing retries.</li>
+<li><strong>Infinite Loops:</strong> If you don&#x27;t set a <code>stop_after_attempt</code> limit, your code could get stuck in a loop, consuming resources and potentially costing you money.</li>
 </ul>
 <h2>One practice task</h2>
-<p>Create a Python script that attempts to summarize a short paragraph using a &quot;Primary&quot; function. </p>
-<ul>
-<li>Use the <code>tenacity</code> library to retry the call 3 times if it fails. </li>
-<li>If it still fails after 3 attempts, write a fallback block that returns a pre-written string: &quot;Error: Service currently unavailable. Please try again later.&quot; instead of letting the program crash.</li>
-</ul>
+<p><strong>The Challenge:</strong> Create a Python script that attempts to summarize a short paragraph using a &quot;Premium&quot; model. If the API returns a rate limit error, it should retry twice. If it still fails, the script should automatically switch to a &quot;Basic&quot; model and print a message saying &quot;Using backup model.&quot; </p>
+<p>To simulate a failure for testing, you can temporarily change the model name to something that doesn&#x27;t exist (like <code>gpt-fake-model</code>) to see if your fallback logic triggers correctly.</p>
       </div>
       <footer class="article-footer">
         <a class="link-button" href="/de_coded_data_engineering/index.html">Explore more tutorials &rarr;</a>
