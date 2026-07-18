@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-17T18:50:05.841958Z",
+  "generated_at": "2026-07-18T01:15:01.191738Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "In the world of data processing, you often need to perform calculations that involve multiple rows without losing the detail of individual records. Imagine you have a list of sales and you want to see each transaction's value alongside the...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-07-18T01:14:56.944297Z",
+      "is_new": true
+    },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-07-17T18:49:40.626877Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Databricks notebook collaboration best practices",
@@ -17,15 +26,6 @@
       "url": "articles/databricks-notebook-collaboration-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-notebook-collaboration-best-practices.html",
       "published": "2026-07-17T07:48:30.974192Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "In the world of data engineering and analysis, SQL window functions act like a superpower for your queries. While standard aggregate functions like SUM or AVG group multiple rows into a single result, window functions allow you to perform...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-07-17T01:22:23.434616Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simple Data Engineering News for New Engineers",
+      "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless scaling to help beginners manage data pipelines without managing infrastructure.</li>\n<li>AI: Generative AI is making it easier for new engineers to write SQL queries and automate basic data transformations.</li>\n<li>Tip: Start your journey by mastering SQL fundamentals before moving to complex data orchestration tools.</li>\n</ul>",
+      "published": "2026-07-18T01:15:01.191677Z",
+      "published_cycle": "2026-07-18T01",
+      "is_new": true
+    },
+    {
       "headline": "New Cloud Tools and AI Assistants Simplify Data Engineering For Beginners",
       "body": "<ul>\n<li>Cloud: Major cloud platforms are introducing more automated scaling features to help beginners manage large datasets without complex server setups.</li>\n<li>AI: New generative tools are assisting data engineers by automatically writing the boilerplate code needed for data pipelines.</li>\n<li>Tip: Start by learning SQL because it is the fundamental language used for most data transformation tasks.</li>\n</ul>",
       "published": "2026-07-17T18:50:05.841892Z",
       "published_cycle": "2026-07-17T18",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Beginner Friendly Data Engineering News For Cloud And AI Tools",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are introducing serverless options that handle infrastructure management so beginners can focus on writing code.</li>\n<li>AI: Large language models are now being integrated into data warehouses to help users generate SQL queries using natural language.</li>\n<li>Tip: Start by learning SQL and basic Python as they remain the fundamental building blocks for most data engineering roles.</li>\n</ul>",
       "published": "2026-07-15T01:09:58.165774Z",
       "published_cycle": "2026-07-15T01",
-      "is_new": false
-    },
-    {
-      "headline": "Modern Data Stack Trends and Simple Tips for Beginners",
-      "body": "<ul>\n<li>Cloud: Major providers are launching serverless tools that help beginners manage data without worrying about underlying hardware.</li>\n<li>AI: New automated systems are making it easier to clean messy data using simple natural language commands.</li>\n<li>Tip: Focus on mastering SQL first because it is the most universal language for interacting with data.</li>\n</ul>",
-      "published": "2026-07-14T18:58:38.809678Z",
-      "published_cycle": "2026-07-14T18",
       "is_new": false
     }
   ]
