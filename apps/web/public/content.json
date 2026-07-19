@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-18T18:42:12.338405Z",
+  "generated_at": "2026-07-19T01:20:37.672361Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "In the world of data engineering and analysis, SQL window functions are often described as a superpower. Unlike standard aggregate functions that group rows into a single output, window functions allow you to perform calculations while...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-07-19T01:20:23.639622Z",
+      "is_new": true
+    },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-07-18T18:41:59.419047Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "PySpark Transformations for Large Datasets",
@@ -26,15 +35,6 @@
       "url": "articles/databricks-notebook-collaboration-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-notebook-collaboration-best-practices.html",
       "published": "2026-07-18T07:23:18.508343Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "In the world of data processing, you often need to perform calculations that involve multiple rows without losing the detail of individual records. Imagine you have a list of sales and you want to see each transaction's value alongside the...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-07-18T01:14:56.944297Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simplified Data Storage and AI Automation Tools for New Engineers",
+      "body": "<ul>\n<li>Cloud: Major providers are launching more serverless features to help beginners manage databases without complex infrastructure knowledge.</li>\n<li>AI: Integrated AI assistants are now helping developers write and optimize SQL queries in real time.</li>\n<li>Tip: Focus on understanding data modeling basics before diving into specific high-level programming frameworks.</li>\n</ul>",
+      "published": "2026-07-19T01:20:37.672299Z",
+      "published_cycle": "2026-07-19T01",
+      "is_new": true
+    },
+    {
       "headline": "Emerging Trends in Cloud Data Warehousing and AI Assisted Engineering",
       "body": "<ul>\n<li>Cloud: Major providers are introducing managed services that allow beginners to process large datasets without managing complex server clusters.</li>\n<li>AI: Generative tools are now integrated into data warehouses to help users write and debug SQL queries automatically.</li>\n<li>Tip: Focus on understanding data modeling concepts before trying to learn every new tool in the market.</li>\n</ul>",
       "published": "2026-07-18T18:42:12.338328Z",
       "published_cycle": "2026-07-18T18",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Essential Weekly Updates for New Data Engineers and Cloud Tech",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are expanding serverless database options to help beginners build pipelines without managing complex server infrastructure.</li>\n<li>AI: Integration of large language models into data warehouses now allows users to generate complex SQL queries using simple English commands.</li>\n<li>Tip: Focus on mastering SQL and Python basics first as they are the most important tools for any data engineering career.</li>\n</ul>",
       "published": "2026-07-16T07:51:39.790724Z",
       "published_cycle": "2026-07-16T07",
-      "is_new": false
-    },
-    {
-      "headline": "Data Engineering Basics and Emerging Trends for Beginners",
-      "body": "<ul>\n<li>Cloud: Major platforms are releasing new serverless features that allow beginners to scale data ingestion tasks without configuring underlying infrastructure.</li>\n<li>AI: New generative tools are making it easier for entry-level engineers to write and optimize complex data transformation code.</li>\n<li>Tip: Start by building a small project that moves data from a public API into a simple database to practice fundamental pipeline concepts.</li>\n</ul>",
-      "published": "2026-07-16T01:19:32.692471Z",
-      "published_cycle": "2026-07-16T01",
       "is_new": false
     }
   ]
