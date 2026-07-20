@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-20T01:23:50.015674Z",
+  "generated_at": "2026-07-20T08:33:49.767072Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "Building applications with Large Language Models (LLMs) requires a shift in how we think about stability. Unlike traditional databases or internal services, LLMs are hosted behind external APIs that can be unpredictable. When you send a...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-07-20T08:33:43.771578Z",
+      "is_new": true
+    },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
       "category": "Programming Basics",
@@ -8,15 +17,6 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-07-20T01:23:38.134465Z",
-      "is_new": true
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "Building applications with Large Language Models often involves connecting to external servers via an API. While these services are powerful, they are not always reliable. Network hiccups, temporary server overloads, or hitting rate limits...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-07-19T18:44:53.947655Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simple Updates In Cloud Storage And AI Tools For Data Beginners",
+      "body": "<ul>\n<li>Cloud: Major providers are making serverless tools easier to use so beginners can build data pipelines without managing servers.</li>\n<li>AI: Automated coding assistants are helping new engineers write better transformation scripts by providing real-time suggestions and fixes.</li>\n<li>Tip: Practice building small projects with public datasets to understand how data moves from storage to analysis.</li>\n</ul>",
+      "published": "2026-07-20T08:33:49.767011Z",
+      "published_cycle": "2026-07-20T08",
+      "is_new": true
+    },
+    {
       "headline": "Essential Data Engineering Updates and Tips for Beginners",
       "body": "<ul>\n<li>Cloud: Leading cloud platforms are launching automated services that handle complex data storage tasks so you can focus on analysis.</li>\n<li>AI: Integrated artificial intelligence assistants are now helping engineers write cleaner code and find errors in data pipelines faster.</li>\n<li>Tip: Master the basics of SQL first because it is the most common language used for interacting with databases everywhere.</li>\n</ul>",
       "published": "2026-07-20T01:23:50.015579Z",
       "published_cycle": "2026-07-20T01",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Data Engineering Trends in Cloud Services and AI Integration",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud platforms are introducing more automated scaling features to help beginners manage large datasets without complex server setups.</li>\n<li>AI: New generative tools are assisting data engineers by automatically writing the boilerplate code needed for data pipelines.</li>\n<li>Tip: Start by learning SQL because it is the fundamental language used for most data transformation tasks.</li>\n</ul>",
       "published": "2026-07-17T18:50:05.841892Z",
       "published_cycle": "2026-07-17T18",
-      "is_new": false
-    },
-    {
-      "headline": "Beginner Friendly Data Engineering News For Cloud And AI Tools",
-      "body": "<ul>\n<li>Cloud: Large providers are expanding serverless options to help beginners build data pipelines without managing complex server hardware.</li>\n<li>AI: Generative AI tools are now capable of suggesting code fixes and documenting data schemas to save engineers time.</li>\n<li>Tip: Build a simple project using a public dataset to practice moving data from one place to another.</li>\n</ul>",
-      "published": "2026-07-17T07:48:37.946624Z",
-      "published_cycle": "2026-07-17T07",
       "is_new": false
     }
   ]
