@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-20T19:21:20.697499Z",
+  "generated_at": "2026-07-21T01:20:13.233975Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "SQL window functions are one of the most powerful tools in a data engineer's toolkit, yet they often feel intimidating to beginners. Unlike standard aggregate functions like SUM or AVG that collapse multiple rows into a single result,...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-07-21T01:20:03.365725Z",
+      "is_new": true
+    },
     {
       "title": "SDK patterns for production-grade AI integrations",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "published": "2026-07-20T19:20:50.962871Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
@@ -17,15 +26,6 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-07-20T08:33:43.771578Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "SQL window functions are a powerful feature that allow you to perform calculations across a set of rows while still retaining access to individual row details. Unlike traditional aggregate functions like SUM or AVG, which collapse multiple...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-07-20T01:23:38.134465Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Essential Updates and Practical Advice for New Data Engineering Professionals",
+      "body": "<ul>\n<li>Cloud: Major providers are launching automated scaling features that handle infrastructure management so beginners can focus entirely on their data pipelines.</li>\n<li>AI: New generative tools are being embedded into data platforms to assist users in documenting complex code and explaining table relationships.</li>\n<li>Tip: Focus on mastering data modeling fundamentals before moving on to complex orchestration tools to build a strong technical foundation.</li>\n</ul>",
+      "published": "2026-07-21T01:20:13.233897Z",
+      "published_cycle": "2026-07-21T01",
+      "is_new": true
+    },
+    {
       "headline": "New Cloud Tools and AI Assistants Simplify Learning Data Engineering",
       "body": "<ul>\n<li>Cloud: Major platforms are launching serverless features that let you process data without worrying about managing complex server hardware.</li>\n<li>AI: New generative tools help engineers write database queries by translating simple English instructions into functional computer code.</li>\n<li>Tip: Focus on learning SQL first as it is the most essential language for organizing and moving data in any environment.</li>\n</ul>",
       "published": "2026-07-20T19:21:20.697423Z",
       "published_cycle": "2026-07-20T19",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simple Updates In Cloud Storage And AI Tools For Data Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are expanding free tier services to help students learn data warehousing without upfront costs.</li>\n<li>AI: Automated metadata tagging is becoming standard to help teams organize massive datasets with minimal manual effort.</li>\n<li>Tip: Focus on building a small portfolio project that demonstrates your ability to move data from an API to a database.</li>\n</ul>",
       "published": "2026-07-18T07:23:36.682379Z",
       "published_cycle": "2026-07-18T07",
-      "is_new": false
-    },
-    {
-      "headline": "Simple Data Engineering News for New Engineers",
-      "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless scaling to help beginners manage data pipelines without managing infrastructure.</li>\n<li>AI: Generative AI is making it easier for new engineers to write SQL queries and automate basic data transformations.</li>\n<li>Tip: Start your journey by mastering SQL fundamentals before moving to complex data orchestration tools.</li>\n</ul>",
-      "published": "2026-07-18T01:15:01.191677Z",
-      "published_cycle": "2026-07-18T01",
       "is_new": false
     }
   ]
