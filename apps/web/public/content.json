@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-21T13:10:19.852216Z",
+  "generated_at": "2026-07-21T19:01:06.130754Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "When you build applications using Large Language Model (LLM) APIs like OpenAI, Anthropic, or Google Gemini, you are relying on external servers that you do not control. Sometimes these servers get overwhelmed, leading to rate limit errors,...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-07-21T19:00:19.319737Z",
+      "is_new": true
+    },
     {
       "title": "Azure Data Factory orchestration patterns",
       "category": "Azure",
@@ -8,15 +17,6 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-07-21T13:10:14.415454Z",
-      "is_new": true
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "When building applications powered by Large Language Models (LLMs), developers often rely on cloud-based APIs like OpenAI, Anthropic, or Google. While these services are powerful, they are not perfect. Network glitches, rate limits, or...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-07-21T08:03:15.495702Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Latest Updates in Data Engineering Simplified for Beginners",
+      "body": "<ul>\n<li>Cloud: Leading platforms are launching low-code environments to build data integration workflows.</li>\n<li>AI: Artificial intelligence assistants are increasingly helping engineers automate documentation for data catalogs.</li>\n<li>Tip: Practice building a simple pipeline using a local database to understand fundamentals.</li>\n</ul>",
+      "published": "2026-07-21T19:01:06.130674Z",
+      "published_cycle": "2026-07-21T19",
+      "is_new": true
+    },
+    {
       "headline": "Simple Data Engineering News Covering Cloud Progress and AI Tools",
       "body": "<ul>\n<li>Cloud: Major cloud providers are simplifying serverless scaling to help new engineers manage data pipelines without managing physical infrastructure.</li>\n<li>AI: Generative AI models are now being integrated directly into SQL editors to help beginners write more efficient database queries automatically.</li>\n<li>Tip: Always document your data schema early in a project to ensure your pipeline remains organized as it grows more complex.</li>\n</ul>",
       "published": "2026-07-21T13:10:19.852128Z",
       "published_cycle": "2026-07-21T13",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simplified Cloud and AI Updates for New Data Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are launching more serverless features to help beginners manage databases without complex infrastructure knowledge.</li>\n<li>AI: Integrated AI assistants are now helping developers write and optimize SQL queries in real time.</li>\n<li>Tip: Focus on understanding data modeling basics before diving into specific high-level programming frameworks.</li>\n</ul>",
       "published": "2026-07-19T01:20:37.672299Z",
       "published_cycle": "2026-07-19T01",
-      "is_new": false
-    },
-    {
-      "headline": "Emerging Trends in Cloud Data Warehousing and AI Assisted Engineering",
-      "body": "<ul>\n<li>Cloud: Major providers are introducing managed services that allow beginners to process large datasets without managing complex server clusters.</li>\n<li>AI: Generative tools are now integrated into data warehouses to help users write and debug SQL queries automatically.</li>\n<li>Tip: Focus on understanding data modeling concepts before trying to learn every new tool in the market.</li>\n</ul>",
-      "published": "2026-07-18T18:42:12.338328Z",
-      "published_cycle": "2026-07-18T18",
       "is_new": false
     }
   ]
