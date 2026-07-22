@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-21T19:01:06.130754Z",
+  "generated_at": "2026-07-22T01:18:50.129719Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "In the world of data engineering and ETL (Extract, Transform, Load) processes, we often need to perform calculations that span multiple rows without losing the granularity of our data. While standard aggregate functions like SUM or COUNT...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-07-22T01:18:36.608494Z",
+      "is_new": true
+    },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-07-21T19:00:19.319737Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Azure Data Factory orchestration patterns",
@@ -17,15 +26,6 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-07-21T13:10:14.415454Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "SQL window functions are one of the most powerful tools in a data engineer's toolkit, yet they often feel intimidating to beginners. Unlike standard aggregate functions like SUM or AVG that collapse multiple rows into a single result,...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-07-21T01:20:03.365725Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Recent Trends in Data Pipeline Automation and Cloud Storage",
+      "body": "<ul>\n<li>Cloud: Major providers are launching serverless systems that automatically scale compute power based on your data volume.</li>\n<li>AI: New tools are helping data engineers use natural language to generate SQL queries and find errors in their pipelines.</li>\n<li>Tip: Start by learning SQL and Python since they are the most important languages for building data pipelines.</li>\n</ul>",
+      "published": "2026-07-22T01:18:50.129647Z",
+      "published_cycle": "2026-07-22T01",
+      "is_new": true
+    },
+    {
       "headline": "Latest Updates in Data Engineering Simplified for Beginners",
       "body": "<ul>\n<li>Cloud: Leading platforms are launching low-code environments to build data integration workflows.</li>\n<li>AI: Artificial intelligence assistants are increasingly helping engineers automate documentation for data catalogs.</li>\n<li>Tip: Practice building a simple pipeline using a local database to understand fundamentals.</li>\n</ul>",
       "published": "2026-07-21T19:01:06.130674Z",
       "published_cycle": "2026-07-21T19",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simple Data Engineering News Covering Cloud Progress and AI Tools",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Leading cloud providers are launching serverless platforms that allow users to build data pipelines without managing complex backend servers.</li>\n<li>AI: Artificial intelligence tools now help beginners generate complex database queries and clean messy data sets automatically using natural language.</li>\n<li>Tip: Start your journey by mastering SQL since it is the foundational language used for almost all data engineering tasks.</li>\n</ul>",
       "published": "2026-07-19T12:45:05.490248Z",
       "published_cycle": "2026-07-19T12",
-      "is_new": false
-    },
-    {
-      "headline": "Simplified Data Storage and AI Automation Tools for New Engineers",
-      "body": "<ul>\n<li>Cloud: Major providers are launching more serverless features to help beginners manage databases without complex infrastructure knowledge.</li>\n<li>AI: Integrated AI assistants are now helping developers write and optimize SQL queries in real time.</li>\n<li>Tip: Focus on understanding data modeling basics before diving into specific high-level programming frameworks.</li>\n</ul>",
-      "published": "2026-07-19T01:20:37.672299Z",
-      "published_cycle": "2026-07-19T01",
       "is_new": false
     }
   ]
