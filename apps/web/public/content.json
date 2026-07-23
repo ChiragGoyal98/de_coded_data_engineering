@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-22T18:53:42.078719Z",
+  "generated_at": "2026-07-23T01:26:52.415466Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "SQL window functions are a powerful feature in modern database management systems that allow you to perform calculations across a set of table rows that are somehow related to the current row. Unlike standard aggregate functions-like SUM...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-07-23T01:26:22.631537Z",
+      "is_new": true
+    },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
       "category": "LLM APIs",
@@ -8,15 +17,6 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-07-22T18:53:21.190507Z",
-      "is_new": true
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "In the world of data engineering and ETL (Extract, Transform, Load) processes, we often need to perform calculations that span multiple rows without losing the granularity of our data. While standard aggregate functions like SUM or COUNT...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-07-22T01:18:36.608494Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Data Engineering News Brief For Beginners",
+      "body": "<ul>\n<li>Cloud: Large providers are introducing zero-ETL features to automate data movement between different cloud services.</li>\n<li>AI: New tools are using generative artificial intelligence to help engineers write SQL and fix data pipeline errors.</li>\n<li>Tip: You should prioritize learning SQL because it is the most common language used for managing data.</li>\n</ul>",
+      "published": "2026-07-23T01:26:52.415401Z",
+      "published_cycle": "2026-07-23T01",
+      "is_new": true
+    },
+    {
       "headline": "Cloud Platforms and AI Tools Help New Data Engineers",
       "body": "<ul>\n<li>Cloud: Major providers are launching serverless data integration tools that automatically scale resources to match your workload without manual setup.</li>\n<li>AI: Leading database systems now feature smart assistants that can automatically generate and debug complex data transformation scripts for you.</li>\n<li>Tip: Focus on understanding data modeling principles first as they provide the foundation for building any reliable data architecture.</li>\n</ul>",
       "published": "2026-07-22T18:53:42.078639Z",
       "published_cycle": "2026-07-22T18",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Recent Trends in Data Pipeline Automation and Cloud Storage",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Leading cloud platforms are launching automated services that handle complex data storage tasks so you can focus on analysis.</li>\n<li>AI: Integrated artificial intelligence assistants are now helping engineers write cleaner code and find errors in data pipelines faster.</li>\n<li>Tip: Master the basics of SQL first because it is the most common language used for interacting with databases everywhere.</li>\n</ul>",
       "published": "2026-07-20T01:23:50.015579Z",
       "published_cycle": "2026-07-20T01",
-      "is_new": false
-    },
-    {
-      "headline": "Data Engineering Trends in Cloud Services and AI Integration",
-      "body": "<ul>\n<li>Cloud: Large cloud providers are launching more user-friendly interfaces to help new engineers deploy automated data warehouses quickly.</li>\n<li>AI: Machine learning models are becoming easier to integrate directly into data pipelines through new pre-built connectors.</li>\n<li>Tip: Practice building small projects with open-source tools to understand how data flows from source to storage.</li>\n</ul>",
-      "published": "2026-07-19T18:44:59.977263Z",
-      "published_cycle": "2026-07-19T18",
       "is_new": false
     }
   ]
