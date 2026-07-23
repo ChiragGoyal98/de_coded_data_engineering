@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-23T08:06:38.719385Z",
+  "generated_at": "2026-07-23T13:19:05.085080Z",
   "articles": [
+    {
+      "title": "Azure Data Factory orchestration patterns",
+      "category": "Azure",
+      "summary": "Orchestration in Azure Data Factory (ADF) is the process of coordinating various data tasks to ensure they run in the correct order, at the right time, and under specific conditions. Think of ADF as a conductor in an orchestra; while...",
+      "url": "articles/azure-data-factory-orchestration-patterns.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
+      "published": "2026-07-23T13:18:47.566277Z",
+      "is_new": true
+    },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-07-23T08:06:28.726017Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -17,15 +26,6 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-07-23T01:26:22.631537Z",
-      "is_new": false
-    },
-    {
-      "title": "Azure Data Factory orchestration patterns",
-      "category": "Azure",
-      "summary": "Azure Data Factory (ADF) is a cloud-based data integration service that allows you to create data-driven workflows for orchestrating and automating data movement and data transformation. Orchestration is the process of coordinating these...",
-      "url": "articles/azure-data-factory-orchestration-patterns.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
-      "published": "2026-07-21T13:10:14.415454Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Modern Cloud and AI Tools Simplify Data Engineering for Beginners",
+      "body": "<ul>\n<li>Cloud: Major platforms are introducing easier ways to build data pipelines using basic Python rather than complex infrastructure code.</li>\n<li>AI: New artificial intelligence features can now automatically generate SQL queries and documentation to help junior engineers work faster.</li>\n<li>Tip: Focus on understanding how data flows from source to destination before worrying about specific high-level tools.</li>\n</ul>",
+      "published": "2026-07-23T13:19:05.085007Z",
+      "published_cycle": "2026-07-23T13",
+      "is_new": true
+    },
+    {
       "headline": "Data Engineering Essentials: Cloud Storage Trends and AI Coding Tools",
       "body": "<ul>\n<li>Cloud: Major providers are releasing high-speed storage options to reduce the time it takes to process large datasets.</li>\n<li>AI: Integrated assistants now help developers write and debug data transformation scripts using natural language prompts.</li>\n<li>Tip: Focus on learning SQL deeply as it remains the most critical language for managing modern data systems.</li>\n</ul>",
       "published": "2026-07-23T08:06:38.719322Z",
       "published_cycle": "2026-07-23T08",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Data Engineering News Brief For Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major platforms are launching serverless features that let you process data without worrying about managing complex server hardware.</li>\n<li>AI: New generative tools help engineers write database queries by translating simple English instructions into functional computer code.</li>\n<li>Tip: Focus on learning SQL first as it is the most essential language for organizing and moving data in any environment.</li>\n</ul>",
       "published": "2026-07-20T19:21:20.697423Z",
       "published_cycle": "2026-07-20T19",
-      "is_new": false
-    },
-    {
-      "headline": "Simple Updates In Cloud Storage And AI Tools For Data Beginners",
-      "body": "<ul>\n<li>Cloud: Major providers are making serverless tools easier to use so beginners can build data pipelines without managing servers.</li>\n<li>AI: Automated coding assistants are helping new engineers write better transformation scripts by providing real-time suggestions and fixes.</li>\n<li>Tip: Practice building small projects with public datasets to understand how data moves from storage to analysis.</li>\n</ul>",
-      "published": "2026-07-20T08:33:49.767011Z",
-      "published_cycle": "2026-07-20T08",
       "is_new": false
     }
   ]
