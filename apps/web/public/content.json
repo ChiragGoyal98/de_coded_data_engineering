@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-23T18:56:41.657499Z",
+  "generated_at": "2026-07-24T01:22:06.624449Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "SQL window functions are a powerful feature that allows developers to perform complex calculations over a specific range of rows related to the current row. Unlike aggregate functions that group multiple rows into a single output row,...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-07-24T01:21:55.820989Z",
+      "is_new": true
+    },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-07-23T18:56:19.902198Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Azure Data Factory orchestration patterns",
@@ -17,15 +26,6 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-07-23T13:18:47.566277Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "SQL window functions are a powerful feature in modern database management systems that allow you to perform calculations across a set of table rows that are somehow related to the current row. Unlike standard aggregate functions-like SUM...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-07-23T01:26:22.631537Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simplified Cloud Tools Make Data Engineering Easier for Beginners",
+      "body": "<ul>\n<li>Cloud: Major providers are launching serverless data warehouses that automatically manage scaling and storage for new users.</li>\n<li>AI: New generative tools are helping engineers automate the creation of data documentation and metadata management.</li>\n<li>Tip: Focus on mastering SQL first because it remains the most universal language for data manipulation across all platforms.</li>\n</ul>",
+      "published": "2026-07-24T01:22:06.624381Z",
+      "published_cycle": "2026-07-24T01",
+      "is_new": true
+    },
+    {
       "headline": "Essential Data Engineering News for Cloud AI and Beginner Tips",
       "body": "<p>Cloud: Major providers are expanding serverless options to help users process large datasets without managing physical server infrastructure.</p>\n<p>AI: New generative tools are being integrated into data platforms to assist engineers with writing and optimizing database queries.</p>\n<p>Tip: Focus on mastering SQL before learning other tools because it is the primary language used for data transformation.</p>",
       "published": "2026-07-23T18:56:41.657395Z",
       "published_cycle": "2026-07-23T18",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Modern Cloud and AI Tools Simplify Data Engineering for Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are simplifying their data warehousing tools to allow beginners to start analyzing data with minimal configuration.</li>\n<li>AI: Generative AI is now being used to automatically document data schemas and explain complex table relationships to new engineers.</li>\n<li>Tip: Prioritize learning the fundamentals of relational database design before exploring more advanced NoSQL or graph technologies.</li>\n</ul>",
       "published": "2026-07-21T08:03:28.168135Z",
       "published_cycle": "2026-07-21T08",
-      "is_new": false
-    },
-    {
-      "headline": "Essential Updates and Practical Advice for New Data Engineering Professionals",
-      "body": "<ul>\n<li>Cloud: Major providers are launching automated scaling features that handle infrastructure management so beginners can focus entirely on their data pipelines.</li>\n<li>AI: New generative tools are being embedded into data platforms to assist users in documenting complex code and explaining table relationships.</li>\n<li>Tip: Focus on mastering data modeling fundamentals before moving on to complex orchestration tools to build a strong technical foundation.</li>\n</ul>",
-      "published": "2026-07-21T01:20:13.233897Z",
-      "published_cycle": "2026-07-21T01",
       "is_new": false
     }
   ]
