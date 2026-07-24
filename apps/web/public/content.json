@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-24T01:22:06.624449Z",
+  "generated_at": "2026-07-24T08:03:59.949057Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "Working with LLM APIs is a foundational skill for modern developers, but relying on a single connection can be risky. When you send a request to a provider like OpenAI or Anthropic, things can go wrong: the server might be busy, your...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-07-24T08:03:38.133792Z",
+      "is_new": true
+    },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
       "category": "Programming Basics",
@@ -8,15 +17,6 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-07-24T01:21:55.820989Z",
-      "is_new": true
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "Interacting with Large Language Models (LLMs) through APIs is the foundation of modern AI applications. However, these services are not always available or consistent. Network glitches, rate limits, and server overloads can cause your...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-07-23T18:56:19.902198Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Major Cloud Providers Simplify Data Pipelines for New Engineers",
+      "body": "<ul>\n<li>Cloud: Major cloud platforms are launching more serverless options that allow beginners to build data pipelines without managing complex server infrastructure.</li>\n<li>AI: New artificial intelligence tools now help data engineers by automatically generating SQL code and documenting data lineage to improve workflow speed.</li>\n<li>Tip: Start your journey by mastering SQL as it remains the most essential language for moving and transforming data in any modern stack.</li>\n</ul>",
+      "published": "2026-07-24T08:03:59.948980Z",
+      "published_cycle": "2026-07-24T08",
+      "is_new": true
+    },
+    {
       "headline": "Simplified Cloud Tools Make Data Engineering Easier for Beginners",
       "body": "<ul>\n<li>Cloud: Major providers are launching serverless data warehouses that automatically manage scaling and storage for new users.</li>\n<li>AI: New generative tools are helping engineers automate the creation of data documentation and metadata management.</li>\n<li>Tip: Focus on mastering SQL first because it remains the most universal language for data manipulation across all platforms.</li>\n</ul>",
       "published": "2026-07-24T01:22:06.624381Z",
       "published_cycle": "2026-07-24T01",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Essential Data Engineering News for Cloud AI and Beginner Tips",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud providers are simplifying serverless scaling to help new engineers manage data pipelines without managing physical infrastructure.</li>\n<li>AI: Generative AI models are now being integrated directly into SQL editors to help beginners write more efficient database queries automatically.</li>\n<li>Tip: Always document your data schema early in a project to ensure your pipeline remains organized as it grows more complex.</li>\n</ul>",
       "published": "2026-07-21T13:10:19.852128Z",
       "published_cycle": "2026-07-21T13",
-      "is_new": false
-    },
-    {
-      "headline": "Simplified Cloud and AI Updates for New Data Engineers",
-      "body": "<ul>\n<li>Cloud: Major providers are simplifying their data warehousing tools to allow beginners to start analyzing data with minimal configuration.</li>\n<li>AI: Generative AI is now being used to automatically document data schemas and explain complex table relationships to new engineers.</li>\n<li>Tip: Prioritize learning the fundamentals of relational database design before exploring more advanced NoSQL or graph technologies.</li>\n</ul>",
-      "published": "2026-07-21T08:03:28.168135Z",
-      "published_cycle": "2026-07-21T08",
       "is_new": false
     }
   ]
