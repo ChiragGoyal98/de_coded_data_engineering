@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-25T12:54:49.203893Z",
+  "generated_at": "2026-07-25T18:46:20.902706Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "When you start building with Large Language Models, the first thing you learn is how to send a prompt and get a response. However, moving from a script that works once to an application that works every time requires handling the...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-07-25T18:46:14.689556Z",
+      "is_new": true
+    },
     {
       "title": "PySpark Transformations for Large Datasets",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-07-25T12:54:42.887016Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Databricks notebook collaboration best practices",
@@ -35,15 +44,6 @@
       "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "published": "2026-07-24T19:07:59.483207Z",
-      "is_new": false
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "Working with LLM APIs is a foundational skill for modern developers, but relying on a single connection can be risky. When you send a request to a provider like OpenAI or Anthropic, things can go wrong: the server might be busy, your...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-07-24T08:03:38.133792Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Modern Tools and Simple Strategies for New Data Engineers",
+      "body": "<ul>\n<li>Cloud: Major cloud providers are launching more intuitive interfaces to help users manage data warehouses without deep technical expertise.</li>\n<li>AI: Generative AI tools are simplifying the process of cleaning messy datasets by suggesting automated transformation rules.</li>\n<li>Tip: Start your journey by learning how to build a basic pipeline that moves data from a simple spreadsheet into a database.</li>\n</ul>",
+      "published": "2026-07-25T18:46:20.902637Z",
+      "published_cycle": "2026-07-25T18",
+      "is_new": true
+    },
+    {
       "headline": "Essential Modern Data Engineering Trends for Beginners",
       "body": "<ul>\n<li>Cloud: Major providers are expanding serverless features to help new engineers build pipelines without managing infrastructure.</li>\n<li>AI: Generative AI tools are becoming standard for assisting beginners with writing and troubleshooting data transformation code.</li>\n<li>Tip: Focus on understanding how data is structured before trying to learn every new tool.</li>\n</ul>",
       "published": "2026-07-25T12:54:49.203828Z",
       "published_cycle": "2026-07-25T12",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Essential Data Engineering Updates For New Professionals",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are releasing high-speed storage options to reduce the time it takes to process large datasets.</li>\n<li>AI: Integrated assistants now help developers write and debug data transformation scripts using natural language prompts.</li>\n<li>Tip: Focus on learning SQL deeply as it remains the most critical language for managing modern data systems.</li>\n</ul>",
       "published": "2026-07-23T08:06:38.719322Z",
       "published_cycle": "2026-07-23T08",
-      "is_new": false
-    },
-    {
-      "headline": "Data Engineering News Brief For Beginners",
-      "body": "<ul>\n<li>Cloud: Large providers are introducing zero-ETL features to automate data movement between different cloud services.</li>\n<li>AI: New tools are using generative artificial intelligence to help engineers write SQL and fix data pipeline errors.</li>\n<li>Tip: You should prioritize learning SQL because it is the most common language used for managing data.</li>\n</ul>",
-      "published": "2026-07-23T01:26:52.415401Z",
-      "published_cycle": "2026-07-23T01",
       "is_new": false
     }
   ]
