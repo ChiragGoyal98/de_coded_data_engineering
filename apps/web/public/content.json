@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-24T19:08:11.277578Z",
+  "generated_at": "2026-07-25T01:23:01.550124Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "SQL is often thought of as a tool for simple data retrieval or basic grouping. However, as data engineering requirements become more complex, especially in ETL pipelines, you often need to perform calculations that depend on other rows...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-07-25T01:22:51.213508Z",
+      "is_new": true
+    },
     {
       "title": "SDK patterns for production-grade AI integrations",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "published": "2026-07-24T19:07:59.483207Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
@@ -17,15 +26,6 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-07-24T08:03:38.133792Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "SQL window functions are a powerful feature that allows developers to perform complex calculations over a specific range of rows related to the current row. Unlike aggregate functions that group multiple rows into a single output row,...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-07-24T01:21:55.820989Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simple Data Engineering Trends and Essential Beginner Tips",
+      "body": "<ul>\n<li>Cloud: Major providers are releasing automated services that handle data storage and processing without requiring complex infrastructure management.</li>\n<li>AI: New machine learning integrations allow data engineers to automate the cleaning and labeling of large datasets more efficiently.</li>\n<li>Tip: Prioritize learning how to design clean and scalable database schemas before exploring advanced big data tools.</li>\n</ul>",
+      "published": "2026-07-25T01:23:01.550060Z",
+      "published_cycle": "2026-07-25T01",
+      "is_new": true
+    },
+    {
       "headline": "Data Engineering Simplified New Tools And Artificial Intelligence Trends",
       "body": "<ul>\n<li>Cloud: Major providers are launching serverless options that help new engineers manage infrastructure without manual scaling.</li>\n<li>AI: New large language models are being integrated directly into databases to enable natural language data querying.</li>\n<li>Tip: Focus on learning SQL and basic Python as they remain the fundamental building blocks for most data pipelines.</li>\n</ul>",
       "published": "2026-07-24T19:08:11.277509Z",
       "published_cycle": "2026-07-24T19",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Major Cloud Providers Simplify Data Pipelines for New Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are launching serverless systems that automatically scale compute power based on your data volume.</li>\n<li>AI: New tools are helping data engineers use natural language to generate SQL queries and find errors in their pipelines.</li>\n<li>Tip: Start by learning SQL and Python since they are the most important languages for building data pipelines.</li>\n</ul>",
       "published": "2026-07-22T01:18:50.129647Z",
       "published_cycle": "2026-07-22T01",
-      "is_new": false
-    },
-    {
-      "headline": "Latest Updates in Data Engineering Simplified for Beginners",
-      "body": "<ul>\n<li>Cloud: Leading platforms are launching low-code environments to build data integration workflows.</li>\n<li>AI: Artificial intelligence assistants are increasingly helping engineers automate documentation for data catalogs.</li>\n<li>Tip: Practice building a simple pipeline using a local database to understand fundamentals.</li>\n</ul>",
-      "published": "2026-07-21T19:01:06.130674Z",
-      "published_cycle": "2026-07-21T19",
       "is_new": false
     }
   ]
