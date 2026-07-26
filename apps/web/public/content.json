@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-26T12:52:04.005778Z",
+  "generated_at": "2026-07-26T18:51:12.933943Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "When building applications with Large Language Models, you quickly realize that the internet and remote servers can be unpredictable. You might write perfect Python code, but the API you are calling might be busy, or your internet...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-07-26T18:51:07.811192Z",
+      "is_new": true
+    },
     {
       "title": "PySpark Transformations for Large Datasets",
       "category": "Programming Basics",
@@ -8,15 +17,6 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-07-26T12:52:01.330140Z",
-      "is_new": true
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "When you build applications using Large Language Models (LLMs), you quickly discover that the internet is a messy place. Unlike a local function that runs on your computer, an API call travels across servers, through firewalls, and into...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-07-26T08:02:54.006424Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Data Engineering Trends In Cloud Computing And Artificial Intelligence",
+      "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless scaling to help beginners manage data without worrying about underlying hardware.</li>\n<li>AI: New tools are using large language models to help automate data cleaning and write complex SQL queries faster.</li>\n<li>Tip: Focus on mastering SQL basics as it remains the most important language for managing any modern data pipeline.</li>\n</ul>",
+      "published": "2026-07-26T18:51:12.933881Z",
+      "published_cycle": "2026-07-26T18",
+      "is_new": true
+    },
+    {
       "headline": "Essential Modern Data Engineering Updates and Success Strategies for Beginners",
       "body": "<ul>\n<li>Cloud: Major providers are launching simplified serverless tools that automatically manage infrastructure for new users.</li>\n<li>AI: Generative models are now capable of drafting complex pipeline scripts to accelerate development.</li>\n<li>Tip: Focus on mastering SQL first because it remains the primary language for data transformation.</li>\n</ul>",
       "published": "2026-07-26T12:52:04.005689Z",
       "published_cycle": "2026-07-26T12",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Modern Tools and Trends for New Data Engineering Professionals",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud platforms are launching more serverless options that allow beginners to build data pipelines without managing complex server infrastructure.</li>\n<li>AI: New artificial intelligence tools now help data engineers by automatically generating SQL code and documenting data lineage to improve workflow speed.</li>\n<li>Tip: Start your journey by mastering SQL as it remains the most essential language for moving and transforming data in any modern stack.</li>\n</ul>",
       "published": "2026-07-24T08:03:59.948980Z",
       "published_cycle": "2026-07-24T08",
-      "is_new": false
-    },
-    {
-      "headline": "Simplified Cloud Tools Make Data Engineering Easier for Beginners",
-      "body": "<ul>\n<li>Cloud: Major providers are launching serverless data warehouses that automatically manage scaling and storage for new users.</li>\n<li>AI: New generative tools are helping engineers automate the creation of data documentation and metadata management.</li>\n<li>Tip: Focus on mastering SQL first because it remains the most universal language for data manipulation across all platforms.</li>\n</ul>",
-      "published": "2026-07-24T01:22:06.624381Z",
-      "published_cycle": "2026-07-24T01",
       "is_new": false
     }
   ]
