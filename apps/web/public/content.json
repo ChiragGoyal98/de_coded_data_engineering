@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-27T01:30:09.066358Z",
+  "generated_at": "2026-07-27T09:22:14.887413Z",
   "articles": [
+    {
+      "title": "SDK patterns for production-grade AI integrations",
+      "category": "LLM APIs",
+      "summary": "Most developers start their AI journey by making a simple HTTP request to an endpoint. However, as an application moves from a prototype to a production environment, managing these interactions through raw API calls becomes messy and prone...",
+      "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
+      "published": "2026-07-27T09:22:05.437041Z",
+      "is_new": true
+    },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-07-27T01:30:04.834936Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
@@ -35,15 +44,6 @@
       "url": "articles/databricks-notebook-collaboration-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-notebook-collaboration-best-practices.html",
       "published": "2026-07-25T07:46:56.664939Z",
-      "is_new": false
-    },
-    {
-      "title": "SDK patterns for production-grade AI integrations",
-      "category": "LLM APIs",
-      "summary": "Moving from a simple script that calls an API to a production-ready application requires a shift in how you handle code. In the experimental phase, a \"quick and dirty\" function to send a prompt might work fine. However, in a live...",
-      "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
-      "published": "2026-07-24T19:07:59.483207Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Modern Data Engineering Trends in Cloud and AI Integration",
+      "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless data warehousing to help beginners manage workloads without manual server configuration.</li>\n<li>AI: Generative AI tools are now assisting engineers by automatically documenting data schemas and suggesting optimization strategies.</li>\n<li>Tip: Start by learning SQL and basic Python as these remain the fundamental building blocks for most data pipelines.</li>\n</ul>",
+      "published": "2026-07-27T09:22:14.887344Z",
+      "published_cycle": "2026-07-27T09",
+      "is_new": true
+    },
+    {
       "headline": "Modern Tools Simplify Cloud Scaling and AI Driven Data Pipelines",
       "body": "<ul>\n<li>Cloud: Major platforms are launching automated scaling features that handle infrastructure management for new data engineers.</li>\n<li>AI: New large language models can now generate and debug complex data transformation code to speed up development.</li>\n<li>Tip: Start by learning SQL deeply because it remains the primary language used for data manipulation across most platforms.</li>\n</ul>",
       "published": "2026-07-27T01:30:09.066289Z",
       "published_cycle": "2026-07-27T01",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Data Engineering Trends In Cloud Computing And Artificial Intelligence",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are releasing automated services that handle data storage and processing without requiring complex infrastructure management.</li>\n<li>AI: New machine learning integrations allow data engineers to automate the cleaning and labeling of large datasets more efficiently.</li>\n<li>Tip: Prioritize learning how to design clean and scalable database schemas before exploring advanced big data tools.</li>\n</ul>",
       "published": "2026-07-25T01:23:01.550060Z",
       "published_cycle": "2026-07-25T01",
-      "is_new": false
-    },
-    {
-      "headline": "Data Engineering Simplified New Tools And Artificial Intelligence Trends",
-      "body": "<ul>\n<li>Cloud: Major providers are launching serverless options that help new engineers manage infrastructure without manual scaling.</li>\n<li>AI: New large language models are being integrated directly into databases to enable natural language data querying.</li>\n<li>Tip: Focus on learning SQL and basic Python as they remain the fundamental building blocks for most data pipelines.</li>\n</ul>",
-      "published": "2026-07-24T19:08:11.277509Z",
-      "published_cycle": "2026-07-24T19",
       "is_new": false
     }
   ]
