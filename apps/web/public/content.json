@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-27T19:07:00.822502Z",
+  "generated_at": "2026-07-28T01:18:14.140411Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "Window functions are a powerful feature in SQL that allow you to perform calculations across a set of table rows that are somehow related to the current row. Unlike regular aggregate functions, which collapse your rows into a single...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-07-28T01:18:07.819502Z",
+      "is_new": true
+    },
     {
       "title": "SDK patterns for production-grade AI integrations",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "published": "2026-07-27T19:06:56.994707Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Azure Synapse Analytics fundamentals",
@@ -17,15 +26,6 @@
       "url": "articles/azure-synapse-analytics-fundamentals.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-synapse-analytics-fundamentals.html",
       "published": "2026-07-27T14:06:09.724195Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "In the world of data engineering and analysis, SQL is often the bridge between raw data and actionable insights. Among its most powerful features are window functions, which allow you to perform complex calculations over a specific group...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-07-27T01:30:04.834936Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Essential Data Engineering Updates and Learning Tips for Beginners",
+      "body": "<ul>\n<li>Cloud: Major providers are launching zero-ETL features to help users move data without writing manual code.</li>\n<li>AI: Data engineers are increasingly using vector databases to help large language models access private information.</li>\n<li>Tip: Focus on mastering SQL fundamentals before trying to learn complex big data frameworks like Spark.</li>\n</ul>",
+      "published": "2026-07-28T01:18:14.140351Z",
+      "published_cycle": "2026-07-28T01",
+      "is_new": true
+    },
+    {
       "headline": "Key Updates and Essential Tips for Aspiring Data Engineers",
       "body": "<ul>\n<li>Cloud: Major providers are launching simplified serverless tools to help beginners deploy data pipelines without managing servers.</li>\n<li>AI: New generative AI features in data warehouses now allow users to write complex queries using natural language.</li>\n<li>Tip: Focus on learning SQL and basic Python as these remain the core building blocks for most engineering roles.</li>\n</ul>",
       "published": "2026-07-27T19:07:00.822404Z",
       "published_cycle": "2026-07-27T19",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Major Cloud and AI Updates Simplify Data Engineering for Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud providers are launching more intuitive interfaces to help users manage data warehouses without deep technical expertise.</li>\n<li>AI: Generative AI tools are simplifying the process of cleaning messy datasets by suggesting automated transformation rules.</li>\n<li>Tip: Start your journey by learning how to build a basic pipeline that moves data from a simple spreadsheet into a database.</li>\n</ul>",
       "published": "2026-07-25T18:46:20.902637Z",
       "published_cycle": "2026-07-25T18",
-      "is_new": false
-    },
-    {
-      "headline": "Essential Modern Data Engineering Trends for Beginners",
-      "body": "<ul>\n<li>Cloud: Major providers are expanding serverless features to help new engineers build pipelines without managing infrastructure.</li>\n<li>AI: Generative AI tools are becoming standard for assisting beginners with writing and troubleshooting data transformation code.</li>\n<li>Tip: Focus on understanding how data is structured before trying to learn every new tool.</li>\n</ul>",
-      "published": "2026-07-25T12:54:49.203828Z",
-      "published_cycle": "2026-07-25T12",
       "is_new": false
     }
   ]
