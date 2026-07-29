@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-28T19:02:23.800768Z",
+  "generated_at": "2026-07-29T08:14:29.282147Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "Building applications with Large Language Models (LLMs) requires moving beyond simple script execution to robust system design. When you connect to services like OpenAI, Anthropic, or Google Gemini via their Python SDKs, you are relying on...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-07-29T08:14:18.548206Z",
+      "is_new": true
+    },
     {
       "title": "SDK patterns for production-grade AI integrations",
       "category": "LLM APIs",
@@ -8,15 +17,6 @@
       "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "published": "2026-07-28T19:02:12.354925Z",
-      "is_new": true
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "When building applications powered by Large Language Models (LLMs), the connection between your code and the AI provider is often the weakest link. APIs can fail for many reasons: temporary network glitches, rate limiting, or server-side...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-07-28T08:10:05.845851Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "New Cloud Tools and AI Assistants Streamline Data Pipeline Development",
+      "body": "<ul>\n<li>Cloud: Major providers are expanding serverless options to let new engineers process data without worrying about underlying server infrastructure.</li>\n<li>AI: Automated coding assistants are becoming standard tools for generating reliable SQL transformations and debugging complex data workflows.</li>\n<li>Tip: Building a small end-to-end project is the fastest way to understand how data moves from a source to a dashboard.</li>\n</ul>",
+      "published": "2026-07-29T08:14:29.282080Z",
+      "published_cycle": "2026-07-29T08",
+      "is_new": true
+    },
+    {
       "headline": "New Trends in Cloud AI and Essential Tips for Data Engineers",
       "body": "<ul>\n<li>Cloud: Snowflake and Databricks continue to expand their serverless capabilities to reduce the management burden for new data engineers.</li>\n<li>AI: Vector databases are becoming a core part of the modern data stack to support large language model integration.</li>\n<li>Tip: Focus on building small, modular pipelines that are easy to test and debug before scaling to larger datasets.</li>\n</ul>",
       "published": "2026-07-28T19:02:23.800686Z",
       "published_cycle": "2026-07-28T19",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Data Engineering Simplified Through Serverless Tech And AI Automation",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are launching simplified serverless tools that automatically manage infrastructure for new users.</li>\n<li>AI: Generative models are now capable of drafting complex pipeline scripts to accelerate development.</li>\n<li>Tip: Focus on mastering SQL first because it remains the primary language for data transformation.</li>\n</ul>",
       "published": "2026-07-26T12:52:04.005689Z",
       "published_cycle": "2026-07-26T12",
-      "is_new": false
-    },
-    {
-      "headline": "Modern Tools and Trends for New Data Engineering Professionals",
-      "body": "<ul>\n<li>Cloud: Major platforms are launching serverless features that help beginners build pipelines without manual infrastructure setup.</li>\n<li>AI: Integration of large language models is making it easier to automate data documentation and query generation.</li>\n<li>Tip: Prioritize learning SQL and relational database concepts as they are the foundations of most engineering roles.</li>\n</ul>",
-      "published": "2026-07-26T08:03:21.445983Z",
-      "published_cycle": "2026-07-26T08",
       "is_new": false
     }
   ]
