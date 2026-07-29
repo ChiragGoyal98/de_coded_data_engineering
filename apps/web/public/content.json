@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-29T08:14:29.282147Z",
+  "generated_at": "2026-07-29T13:31:08.148968Z",
   "articles": [
+    {
+      "title": "Azure Data Factory orchestration patterns",
+      "category": "Azure",
+      "summary": "Azure Data Factory is a powerful cloud-based integration service, but its true potential lies in orchestration. Orchestration refers to the coordination and management of complex data workflows. Instead of just running single tasks, it...",
+      "url": "articles/azure-data-factory-orchestration-patterns.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
+      "published": "2026-07-29T13:31:03.214773Z",
+      "is_new": true
+    },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-07-29T08:14:18.548206Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SDK patterns for production-grade AI integrations",
@@ -53,15 +62,6 @@
       "url": "articles/databricks-notebook-collaboration-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-notebook-collaboration-best-practices.html",
       "published": "2026-07-25T07:46:56.664939Z",
-      "is_new": false
-    },
-    {
-      "title": "Azure Data Factory orchestration patterns",
-      "category": "Azure",
-      "summary": "Orchestration in Azure Data Factory (ADF) is the process of coordinating various data tasks to ensure they run in the correct order, at the right time, and under specific conditions. Think of ADF as a conductor in an orchestra; while...",
-      "url": "articles/azure-data-factory-orchestration-patterns.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
-      "published": "2026-07-23T13:18:47.566277Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simple Data Engineering Trends and Tips for New Learners",
+      "body": "<ul>\n<li>Cloud: Major cloud providers are simplifying serverless data integration tools to help beginners build pipelines without managing infrastructure.</li>\n<li>AI: Large language models are now automating the generation of SQL queries and Python transformation scripts for faster data processing.</li>\n<li>Tip: Focus on mastering SQL basics before moving to complex orchestration tools because it remains the fundamental language of data.</li>\n</ul>",
+      "published": "2026-07-29T13:31:08.148894Z",
+      "published_cycle": "2026-07-29T13",
+      "is_new": true
+    },
+    {
       "headline": "New Cloud Tools and AI Assistants Streamline Data Pipeline Development",
       "body": "<ul>\n<li>Cloud: Major providers are expanding serverless options to let new engineers process data without worrying about underlying server infrastructure.</li>\n<li>AI: Automated coding assistants are becoming standard tools for generating reliable SQL transformations and debugging complex data workflows.</li>\n<li>Tip: Building a small end-to-end project is the fastest way to understand how data moves from a source to a dashboard.</li>\n</ul>",
       "published": "2026-07-29T08:14:29.282080Z",
       "published_cycle": "2026-07-29T08",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "New Trends in Cloud AI and Essential Tips for Data Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless scaling to help beginners manage data without worrying about underlying hardware.</li>\n<li>AI: New tools are using large language models to help automate data cleaning and write complex SQL queries faster.</li>\n<li>Tip: Focus on mastering SQL basics as it remains the most important language for managing any modern data pipeline.</li>\n</ul>",
       "published": "2026-07-26T18:51:12.933881Z",
       "published_cycle": "2026-07-26T18",
-      "is_new": false
-    },
-    {
-      "headline": "Essential Modern Data Engineering Updates and Success Strategies for Beginners",
-      "body": "<ul>\n<li>Cloud: Major providers are launching simplified serverless tools that automatically manage infrastructure for new users.</li>\n<li>AI: Generative models are now capable of drafting complex pipeline scripts to accelerate development.</li>\n<li>Tip: Focus on mastering SQL first because it remains the primary language for data transformation.</li>\n</ul>",
-      "published": "2026-07-26T12:52:04.005689Z",
-      "published_cycle": "2026-07-26T12",
       "is_new": false
     }
   ]
