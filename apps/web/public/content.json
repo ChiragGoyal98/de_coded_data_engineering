@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-29T13:31:08.148968Z",
+  "generated_at": "2026-07-29T18:49:34.318442Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "When building applications powered by Large Language Models, developers often rely on external APIs like those provided by OpenAI, Anthropic, or Google. While these services are powerful, they are not perfect. Network glitches, rate...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-07-29T18:49:29.915279Z",
+      "is_new": true
+    },
     {
       "title": "Azure Data Factory orchestration patterns",
       "category": "Azure",
@@ -8,15 +17,6 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-07-29T13:31:03.214773Z",
-      "is_new": true
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "Building applications with Large Language Models (LLMs) requires moving beyond simple script execution to robust system design. When you connect to services like OpenAI, Anthropic, or Google Gemini via their Python SDKs, you are relying on...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-07-29T08:14:18.548206Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Major Cloud Updates and Generative AI Tools Simplify Data Pipeline Development",
+      "body": "<ul>\n<li>Cloud: Cloud providers are expanding serverless data warehousing options to help new engineers manage scaling without manual server configuration.</li>\n<li>AI: New generative AI tools now assist in writing complex SQL queries and Python scripts for faster data transformation tasks.</li>\n<li>Tip: Beginners should master SQL fundamentals as it remains the most essential language for querying and managing data across all platforms.</li>\n</ul>",
+      "published": "2026-07-29T18:49:34.318366Z",
+      "published_cycle": "2026-07-29T18",
+      "is_new": true
+    },
+    {
       "headline": "Simple Data Engineering Trends and Tips for New Learners",
       "body": "<ul>\n<li>Cloud: Major cloud providers are simplifying serverless data integration tools to help beginners build pipelines without managing infrastructure.</li>\n<li>AI: Large language models are now automating the generation of SQL queries and Python transformation scripts for faster data processing.</li>\n<li>Tip: Focus on mastering SQL basics before moving to complex orchestration tools because it remains the fundamental language of data.</li>\n</ul>",
       "published": "2026-07-29T13:31:08.148894Z",
       "published_cycle": "2026-07-29T13",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "New Cloud Tools and AI Assistants Streamline Data Pipeline Development",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major platforms are launching automated scaling features that handle infrastructure management for new data engineers.</li>\n<li>AI: New large language models can now generate and debug complex data transformation code to speed up development.</li>\n<li>Tip: Start by learning SQL deeply because it remains the primary language used for data manipulation across most platforms.</li>\n</ul>",
       "published": "2026-07-27T01:30:09.066289Z",
       "published_cycle": "2026-07-27T01",
-      "is_new": false
-    },
-    {
-      "headline": "Data Engineering Trends In Cloud Computing And Artificial Intelligence",
-      "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless scaling to help beginners manage data without worrying about underlying hardware.</li>\n<li>AI: New tools are using large language models to help automate data cleaning and write complex SQL queries faster.</li>\n<li>Tip: Focus on mastering SQL basics as it remains the most important language for managing any modern data pipeline.</li>\n</ul>",
-      "published": "2026-07-26T18:51:12.933881Z",
-      "published_cycle": "2026-07-26T18",
       "is_new": false
     }
   ]
