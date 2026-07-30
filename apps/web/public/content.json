@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-30T08:03:11.951697Z",
+  "generated_at": "2026-07-30T13:22:03.017840Z",
   "articles": [
+    {
+      "title": "Azure Data Factory orchestration patterns",
+      "category": "Azure",
+      "summary": "Azure Data Factory (ADF) acts as the central command center for data movement and transformation in the cloud. Orchestration is the process of coordinating these individual tasks into a cohesive, automated workflow. Instead of manually...",
+      "url": "articles/azure-data-factory-orchestration-patterns.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
+      "published": "2026-07-30T13:21:45.685805Z",
+      "is_new": true
+    },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-07-30T08:02:58.644557Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -17,15 +26,6 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-07-30T01:13:10.818694Z",
-      "is_new": false
-    },
-    {
-      "title": "Azure Data Factory orchestration patterns",
-      "category": "Azure",
-      "summary": "Azure Data Factory is a powerful cloud-based integration service, but its true potential lies in orchestration. Orchestration refers to the coordination and management of complex data workflows. Instead of just running single tasks, it...",
-      "url": "articles/azure-data-factory-orchestration-patterns.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
-      "published": "2026-07-29T13:31:03.214773Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Essential Data Engineering Updates for Beginners",
+      "body": "<ul>\n<li>Cloud: Google and Amazon are expanding serverless database options to help new engineers scale projects without managing infrastructure.</li>\n<li>AI: Automated coding tools are now integrating directly into data pipelines to help beginners fix errors in their scripts instantly.</li>\n<li>Tip: Start by mastering SQL before moving to complex programming languages to build a strong foundation in data manipulation.</li>\n</ul>",
+      "published": "2026-07-30T13:22:03.017772Z",
+      "published_cycle": "2026-07-30T13",
+      "is_new": true
+    },
+    {
       "headline": "Simplified Data Pipeline Trends for New Engineers",
       "body": "<ul>\n<li>Cloud: Providers are making it easier to connect different storage services with minimal configuration through serverless technology.</li>\n<li>AI: Large language models can now generate entire data transformation scripts based on simple English descriptions.</li>\n<li>Tip: Focus on mastering SQL first because it remains the most universal language for handling data across all platforms.</li>\n</ul>",
       "published": "2026-07-30T08:03:11.951606Z",
       "published_cycle": "2026-07-30T08",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simplified Tools and New AI Trends for Future Data Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are launching simplified serverless tools to help beginners deploy data pipelines without managing servers.</li>\n<li>AI: New generative AI features in data warehouses now allow users to write complex queries using natural language.</li>\n<li>Tip: Focus on learning SQL and basic Python as these remain the core building blocks for most engineering roles.</li>\n</ul>",
       "published": "2026-07-27T19:07:00.822404Z",
       "published_cycle": "2026-07-27T19",
-      "is_new": false
-    },
-    {
-      "headline": "Major Cloud and AI Updates Simplify Data Engineering for Beginners",
-      "body": "<ul>\n<li>Cloud: Leading providers are launching serverless data integration tools that allow newcomers to build pipelines without managing underlying servers.</li>\n<li>AI: New coding assistants are helping junior engineers write better SQL queries and understand complex data schemas more quickly.</li>\n<li>Tip: Prioritize learning the fundamentals of relational databases because they remain the backbone of most data engineering workflows.</li>\n</ul>",
-      "published": "2026-07-27T14:06:27.931808Z",
-      "published_cycle": "2026-07-27T14",
       "is_new": false
     }
   ]
