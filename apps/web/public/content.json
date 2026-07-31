@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-30T13:22:03.017840Z",
+  "generated_at": "2026-07-31T08:28:09.192885Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "When building applications that rely on Large Language Models (LLMs), developers often encounter a frustrating reality: APIs are not 100% reliable. Whether you are using OpenAI, Anthropic, or Google Gemini, you will eventually face rate...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-07-31T08:28:02.641565Z",
+      "is_new": true
+    },
     {
       "title": "Azure Data Factory orchestration patterns",
       "category": "Azure",
@@ -8,15 +17,6 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-07-30T13:21:45.685805Z",
-      "is_new": true
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "When building applications with Large Language Models (LLMs), the initial focus is often on crafting the perfect prompt. However, once you move from a local script to a real-world application, you quickly realize that the connection...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-07-30T08:02:58.644557Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Data Engineering Trends In Cloud Storage AI Tools And Practical Tips",
+      "body": "<ul>\n<li>Cloud: Major providers are increasing support for open table formats like Apache Iceberg to make data sharing between different tools much easier.</li>\n<li>AI: New automated pipelines are helping engineers integrate large language models into their workflows by managing complex unstructured data automatically.</li>\n<li>Tip: Start by learning SQL and basic Python as they are the most important foundational tools for any successful data engineering career.</li>\n</ul>",
+      "published": "2026-07-31T08:28:09.192819Z",
+      "published_cycle": "2026-07-31T08",
+      "is_new": true
+    },
+    {
       "headline": "Essential Data Engineering Updates for Beginners",
       "body": "<ul>\n<li>Cloud: Google and Amazon are expanding serverless database options to help new engineers scale projects without managing infrastructure.</li>\n<li>AI: Automated coding tools are now integrating directly into data pipelines to help beginners fix errors in their scripts instantly.</li>\n<li>Tip: Start by mastering SQL before moving to complex programming languages to build a strong foundation in data manipulation.</li>\n</ul>",
       "published": "2026-07-30T13:22:03.017772Z",
       "published_cycle": "2026-07-30T13",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simplified Data Pipeline Trends for New Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are launching zero-ETL features to help users move data without writing manual code.</li>\n<li>AI: Data engineers are increasingly using vector databases to help large language models access private information.</li>\n<li>Tip: Focus on mastering SQL fundamentals before trying to learn complex big data frameworks like Spark.</li>\n</ul>",
       "published": "2026-07-28T01:18:14.140351Z",
       "published_cycle": "2026-07-28T01",
-      "is_new": false
-    },
-    {
-      "headline": "Key Updates and Essential Tips for Aspiring Data Engineers",
-      "body": "<ul>\n<li>Cloud: Major providers are launching simplified serverless tools to help beginners deploy data pipelines without managing servers.</li>\n<li>AI: New generative AI features in data warehouses now allow users to write complex queries using natural language.</li>\n<li>Tip: Focus on learning SQL and basic Python as these remain the core building blocks for most engineering roles.</li>\n</ul>",
-      "published": "2026-07-27T19:07:00.822404Z",
-      "published_cycle": "2026-07-27T19",
       "is_new": false
     }
   ]
