@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-07-31T13:25:48.563493Z",
+  "generated_at": "2026-08-01T01:27:41.192964Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "SQL window functions are often seen as an advanced topic, but they are essential tools for anyone working with data. Imagine you want to calculate a running total of sales or find the previous day's temperature for every row in your...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-08-01T01:27:23.145483Z",
+      "is_new": true
+    },
     {
       "title": "Azure Data Factory orchestration patterns",
       "category": "Azure",
@@ -8,7 +17,7 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-07-31T13:25:25.076146Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
@@ -17,15 +26,6 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-07-31T08:28:02.641565Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "If you have spent any time writing SQL, you are likely familiar with aggregate functions like SUM and AVG. While these tools are great for summarizing data, they have one major limitation: they collapse your rows into a single result. In...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-07-30T01:13:10.818694Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simplified Cloud Services and AI Tools Benefit New Data Engineers",
+      "body": "<ul>\n<li>Cloud: Platforms are offering more serverless options to help beginners build data pipelines without managing servers.</li>\n<li>AI: Integration with large language models is making it easier to automate data cleaning and classification tasks.</li>\n<li>Tip: Focus on learning SQL early because it is the primary language used for querying and transforming data.</li>\n</ul>",
+      "published": "2026-08-01T01:27:41.192893Z",
+      "published_cycle": "2026-08-01T01",
+      "is_new": true
+    },
+    {
       "headline": "Weekly Beginner Data Engineering News for Cloud and AI",
       "body": "<ul>\n<li>Cloud: Major providers are launching serverless platforms that help beginners build data pipelines without needing to manage complex servers.</li>\n<li>AI: New artificial intelligence tools are now capable of automatically cleaning and organizing messy datasets to save time.</li>\n<li>Tip: You should master SQL fundamentals first because it is the primary language used for data manipulation across most platforms.</li>\n</ul>",
       "published": "2026-07-31T13:25:48.563429Z",
       "published_cycle": "2026-07-31T13",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Data Engineering Trends In Cloud Storage AI Tools And Practical Tips",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Snowflake and Databricks continue to expand their serverless capabilities to reduce the management burden for new data engineers.</li>\n<li>AI: Vector databases are becoming a core part of the modern data stack to support large language model integration.</li>\n<li>Tip: Focus on building small, modular pipelines that are easy to test and debug before scaling to larger datasets.</li>\n</ul>",
       "published": "2026-07-28T19:02:23.800686Z",
       "published_cycle": "2026-07-28T19",
-      "is_new": false
-    },
-    {
-      "headline": "Data Engineering Simplified Through Serverless Tech And AI Automation",
-      "body": "<ul>\n<li>Cloud: Major cloud platforms are expanding serverless options to reduce the need for manual infrastructure management.</li>\n<li>AI: Artificial intelligence tools are now being integrated into data warehouses to automate complex query writing and optimization.</li>\n<li>Tip: Focus on learning SQL basics first since it is the core language used across nearly all data platforms.</li>\n</ul>",
-      "published": "2026-07-28T08:10:23.607381Z",
-      "published_cycle": "2026-07-28T08",
       "is_new": false
     }
   ]
