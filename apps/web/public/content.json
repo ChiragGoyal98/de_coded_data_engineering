@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-01T07:58:11.156043Z",
+  "generated_at": "2026-08-01T12:49:32.616277Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "PySpark is the Python API for Apache Spark, a powerful engine designed to process massive amounts of data across multiple computers. When working with datasets too large for a single laptop's memory, standard tools like Pandas often crash....",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-08-01T12:49:26.152126Z",
+      "is_new": true
+    },
     {
       "title": "Databricks notebook collaboration best practices",
       "category": "Databricks",
@@ -8,7 +17,7 @@
       "url": "articles/databricks-notebook-collaboration-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-notebook-collaboration-best-practices.html",
       "published": "2026-08-01T07:57:47.234994Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -53,15 +62,6 @@
       "url": "articles/azure-synapse-analytics-fundamentals.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-synapse-analytics-fundamentals.html",
       "published": "2026-07-27T14:06:09.724195Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "PySpark is the Python API for Apache Spark, a powerful engine designed for processing massive amounts of data across a cluster of computers. When you work with millions or billions of rows, traditional libraries like pandas often run out...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-07-26T12:52:01.330140Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Modern Data Engineering Updates for Aspiring Professionals",
+      "body": "<ul>\n<li>Cloud: Major providers are expanding serverless options to let beginners run data pipelines without managing complex backend servers.</li>\n<li>AI: New automated tools now help junior engineers write and debug SQL code using natural language prompts.</li>\n<li>Tip: Master the basics of data modeling and clean coding practices before specializing in specific vendor technologies.</li>\n</ul>",
+      "published": "2026-08-01T12:49:32.616211Z",
+      "published_cycle": "2026-08-01T12",
+      "is_new": true
+    },
+    {
       "headline": "Essential Data Engineering News and Beginner Strategies",
       "body": "<p>Cloud: Recent updates to major cloud platforms focus on making serverless data integration more accessible for entry-level developers.</p>\n<p>AI: Machine learning is being increasingly embedded into data quality tools to automatically detect and fix pipeline errors.</p>\n<p>Tip: Start your journey by building a simple pipeline that moves data from a public API into a cloud database.</p>",
       "published": "2026-08-01T07:58:11.155965Z",
       "published_cycle": "2026-08-01T07",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simplified Cloud Services and AI Tools Benefit New Data Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud providers are simplifying serverless data integration tools to help beginners build pipelines without managing infrastructure.</li>\n<li>AI: Large language models are now automating the generation of SQL queries and Python transformation scripts for faster data processing.</li>\n<li>Tip: Focus on mastering SQL basics before moving to complex orchestration tools because it remains the fundamental language of data.</li>\n</ul>",
       "published": "2026-07-29T13:31:08.148894Z",
       "published_cycle": "2026-07-29T13",
-      "is_new": false
-    },
-    {
-      "headline": "New Cloud Tools and AI Assistants Streamline Data Pipeline Development",
-      "body": "<ul>\n<li>Cloud: Major providers are expanding serverless options to let new engineers process data without worrying about underlying server infrastructure.</li>\n<li>AI: Automated coding assistants are becoming standard tools for generating reliable SQL transformations and debugging complex data workflows.</li>\n<li>Tip: Building a small end-to-end project is the fastest way to understand how data moves from a source to a dashboard.</li>\n</ul>",
-      "published": "2026-07-29T08:14:29.282080Z",
-      "published_cycle": "2026-07-29T08",
       "is_new": false
     }
   ]
