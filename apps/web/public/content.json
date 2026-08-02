@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-02T07:59:48.645383Z",
+  "generated_at": "2026-08-02T12:51:59.299534Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "Processing massive amounts of data requires more than just a standard laptop's memory. This is where PySpark comes in, offering a Python API for Spark that allows you to distribute data processing across many computers. Transformations are...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-08-02T12:51:37.647524Z",
+      "is_new": true
+    },
     {
       "title": "Databricks notebook collaboration best practices",
       "category": "Databricks",
@@ -8,7 +17,7 @@
       "url": "articles/databricks-notebook-collaboration-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-notebook-collaboration-best-practices.html",
       "published": "2026-08-02T07:59:43.728044Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -26,15 +35,6 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-08-01T18:48:29.639027Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "PySpark is the Python API for Apache Spark, a powerful engine designed to process massive amounts of data across multiple computers. When working with datasets too large for a single laptop's memory, standard tools like Pandas often crash....",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-08-01T12:49:26.152126Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Modern Data Tools and Cloud Trends for Beginning Engineers",
+      "body": "<ul>\n<li>Cloud: Leading platforms are expanding free tiers for storage and compute to allow learners to practice building pipelines at no cost.</li>\n<li>AI: Automated coding assistants are becoming standard features in integrated development environments to help beginners write cleaner pipeline code.</li>\n<li>Tip: Consistency in naming conventions across your databases will save you significant time when troubleshooting complex data joins later.</li>\n</ul>",
+      "published": "2026-08-02T12:51:59.299470Z",
+      "published_cycle": "2026-08-02T12",
+      "is_new": true
+    },
+    {
       "headline": "Modern Data Tools Simplify Cloud Integration And AI Development",
       "body": "<ul>\n<li>Cloud: Google Cloud is making it easier for new engineers to sync data across different platforms using automated pipelines.</li>\n<li>AI: New generative AI assistants now help developers write complex SQL queries by simply describing their goals in plain English.</li>\n<li>Tip: Focus on learning data modeling fundamentals before mastering specific tools to ensure your pipelines stay organized and scalable.</li>\n</ul>",
       "published": "2026-08-02T07:59:48.645315Z",
       "published_cycle": "2026-08-02T07",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Key Data Engineering Updates for Aspiring Data Professionals",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Google and Amazon are expanding serverless database options to help new engineers scale projects without managing infrastructure.</li>\n<li>AI: Automated coding tools are now integrating directly into data pipelines to help beginners fix errors in their scripts instantly.</li>\n<li>Tip: Start by mastering SQL before moving to complex programming languages to build a strong foundation in data manipulation.</li>\n</ul>",
       "published": "2026-07-30T13:22:03.017772Z",
       "published_cycle": "2026-07-30T13",
-      "is_new": false
-    },
-    {
-      "headline": "Simplified Data Pipeline Trends for New Engineers",
-      "body": "<ul>\n<li>Cloud: Providers are making it easier to connect different storage services with minimal configuration through serverless technology.</li>\n<li>AI: Large language models can now generate entire data transformation scripts based on simple English descriptions.</li>\n<li>Tip: Focus on mastering SQL first because it remains the most universal language for handling data across all platforms.</li>\n</ul>",
-      "published": "2026-07-30T08:03:11.951606Z",
-      "published_cycle": "2026-07-30T08",
       "is_new": false
     }
   ]
