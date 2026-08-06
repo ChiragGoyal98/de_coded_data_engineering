@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-06T01:16:22.435657Z",
+  "generated_at": "2026-08-06T08:10:53.768182Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "When building applications with Large Language Models (LLMs), you quickly realize that the internet and remote servers are not always reliable. Sometimes an API server is busy, your internet connection hiccups, or you hit a rate limit. If...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-08-06T08:10:48.684422Z",
+      "is_new": true
+    },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-08-06T01:16:14.009965Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SDK patterns for production-grade AI integrations",
@@ -26,15 +35,6 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-08-05T13:30:17.861330Z",
-      "is_new": false
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "Interacting with Large Language Models (LLMs) through APIs like OpenAI, Anthropic, or Google Gemini is a core skill for modern developers. However, unlike traditional internal functions, API calls are prone to external failures. A server...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-08-05T08:12:02.426407Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Emerging Trends and Essential Tools for New Data Engineers",
+      "body": "<ul>\n<li>Cloud: Major platforms are expanding serverless options to make scaling data pipelines easier for beginners without managing servers.</li>\n<li>AI: New automated coding assistants are helping teams write and debug complex data transformation scripts more efficiently.</li>\n<li>Tip: Start by learning Python and SQL as they are the most common languages used across all data engineering roles.</li>\n</ul>",
+      "published": "2026-08-06T08:10:53.768119Z",
+      "published_cycle": "2026-08-06T08",
+      "is_new": true
+    },
+    {
       "headline": "Simple Data Engineering Trends and Cloud Tools for Beginners",
       "body": "<ul>\n<li>Cloud: Major providers are launching simplified serverless tools to help new engineers manage databases without manual server configuration.</li>\n<li>AI: New tools now use large language models to help engineers automatically write and debug complex data transformation scripts.</li>\n<li>Tip: Focus on mastering SQL first because it is the essential language used to communicate with almost every modern data system.</li>\n</ul>",
       "published": "2026-08-06T01:16:22.435578Z",
       "published_cycle": "2026-08-06T01",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Modern Data Tools Simplify Cloud Pipelines and Artificial Intelligence Workflows",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are launching easier serverless tools to help beginners move data without managing physical servers.</li>\n<li>AI: Automated coding assistants are now helping engineers write more efficient data transformation scripts using natural language.</li>\n<li>Tip: Start by learning SQL and basic Python as they form the core foundation for almost every modern data engineering task.</li>\n</ul>",
       "published": "2026-08-03T14:10:02.022485Z",
       "published_cycle": "2026-08-03T14",
-      "is_new": false
-    },
-    {
-      "headline": "Essential Data Engineering Updates and Tips for Beginners",
-      "body": "<ul>\n<li>Cloud: Major providers are simplifying data migration with automated tools that reduce the need for manual coding during the ETL process.</li>\n<li>AI: Automated machine learning platforms are now integrating directly with data warehouses to let engineers build models using standard SQL commands.</li>\n<li>Tip: Start your journey by building a small project with a free tier cloud account to understand how different components connect.</li>\n</ul>",
-      "published": "2026-08-03T08:56:34.163318Z",
-      "published_cycle": "2026-08-03T08",
       "is_new": false
     }
   ]
