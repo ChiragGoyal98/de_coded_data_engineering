@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-05T19:09:30.064209Z",
+  "generated_at": "2026-08-06T01:16:22.435657Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "SQL window functions are a powerful feature in SQL that allow you to perform calculations across a specific set of table rows that are related to the current row. Unlike regular aggregate functions, which group multiple rows into a single...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-08-06T01:16:14.009965Z",
+      "is_new": true
+    },
     {
       "title": "SDK patterns for production-grade AI integrations",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "published": "2026-08-05T19:09:14.275324Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Azure Data Factory orchestration patterns",
@@ -26,15 +35,6 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-08-05T08:12:02.426407Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "SQL window functions are powerful tools that perform calculations across a set of table rows related to the current row. Unlike regular aggregate functions, which group multiple rows into a single output row, window functions allow each...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-08-05T01:19:11.237538Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simple Data Engineering Trends and Cloud Tools for Beginners",
+      "body": "<ul>\n<li>Cloud: Major providers are launching simplified serverless tools to help new engineers manage databases without manual server configuration.</li>\n<li>AI: New tools now use large language models to help engineers automatically write and debug complex data transformation scripts.</li>\n<li>Tip: Focus on mastering SQL first because it is the essential language used to communicate with almost every modern data system.</li>\n</ul>",
+      "published": "2026-08-06T01:16:22.435578Z",
+      "published_cycle": "2026-08-06T01",
+      "is_new": true
+    },
+    {
       "headline": "Modern Data Tools Simplify Cloud Pipelines and Artificial Intelligence Workflows",
       "body": "<ul>\n<li>Cloud: Major providers are releasing new automated tools to help beginners manage data storage costs more effectively.</li>\n<li>AI: Integration of large language models into data pipelines is making it easier to clean messy datasets automatically.</li>\n<li>Tip: Start your journey by mastering SQL because it remains the universal language for querying most modern data platforms.</li>\n</ul>",
       "published": "2026-08-05T19:09:30.064110Z",
       "published_cycle": "2026-08-05T19",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Modern Platforms and AI Tools Simplify Data Engineering for Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are simplifying data migration with automated tools that reduce the need for manual coding during the ETL process.</li>\n<li>AI: Automated machine learning platforms are now integrating directly with data warehouses to let engineers build models using standard SQL commands.</li>\n<li>Tip: Start your journey by building a small project with a free tier cloud account to understand how different components connect.</li>\n</ul>",
       "published": "2026-08-03T08:56:34.163318Z",
       "published_cycle": "2026-08-03T08",
-      "is_new": false
-    },
-    {
-      "headline": "Latest Data Engineering Trends In Cloud Platforms And Artificial Intelligence",
-      "body": "<ul>\n<li>Cloud: Major providers are releasing serverless scaling features that automatically manage infrastructure costs based on actual data usage.</li>\n<li>AI: New integration tools are making it easier for engineers to feed real time data streams directly into large language models.</li>\n<li>Tip: Start by learning the fundamentals of SQL since it remains the essential language for nearly all data transformation tasks.</li>\n</ul>",
-      "published": "2026-08-03T01:25:51.048397Z",
-      "published_cycle": "2026-08-03T01",
       "is_new": false
     }
   ]
