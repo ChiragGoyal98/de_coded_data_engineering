@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-06T08:10:53.768182Z",
+  "generated_at": "2026-08-06T13:29:02.331673Z",
   "articles": [
+    {
+      "title": "Azure Data Factory orchestration patterns",
+      "category": "Azure",
+      "summary": "In the world of cloud data engineering, Azure Data Factory serves as the central hub for moving and transforming data. At its core, ADF is an orchestration tool, meaning it manages the timing, sequence, and logic of how various data...",
+      "url": "articles/azure-data-factory-orchestration-patterns.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
+      "published": "2026-08-06T13:28:31.371131Z",
+      "is_new": true
+    },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-08-06T08:10:48.684422Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -26,15 +35,6 @@
       "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "published": "2026-08-05T19:09:14.275324Z",
-      "is_new": false
-    },
-    {
-      "title": "Azure Data Factory orchestration patterns",
-      "category": "Azure",
-      "summary": "Azure Data Factory acts as the central hub for data integration in the cloud. While copying data is its primary job, the real power lies in orchestration. This refers to the way we organize, schedule, and manage dependencies between...",
-      "url": "articles/azure-data-factory-orchestration-patterns.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
-      "published": "2026-08-05T13:30:17.861330Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "New Accessible Tools Simplify Data Infrastructure for Modern Engineering Teams",
+      "body": "<ul>\n<li>Cloud: Major providers are expanding serverless database options to reduce the need for beginners to manage physical servers.</li>\n<li>AI: Generative artificial intelligence is now helping new engineers convert natural language into efficient database queries and pipeline code.</li>\n<li>Tip: Focus on learning data modeling fundamentals because they remain constant regardless of which new software tools emerge.</li>\n</ul>",
+      "published": "2026-08-06T13:29:02.331605Z",
+      "published_cycle": "2026-08-06T13",
+      "is_new": true
+    },
+    {
       "headline": "Emerging Trends and Essential Tools for New Data Engineers",
       "body": "<ul>\n<li>Cloud: Major platforms are expanding serverless options to make scaling data pipelines easier for beginners without managing servers.</li>\n<li>AI: New automated coding assistants are helping teams write and debug complex data transformation scripts more efficiently.</li>\n<li>Tip: Start by learning Python and SQL as they are the most common languages used across all data engineering roles.</li>\n</ul>",
       "published": "2026-08-06T08:10:53.768119Z",
       "published_cycle": "2026-08-06T08",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simple Data Engineering Trends and Cloud Tools for Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are expanding serverless options to make pipeline management easier for beginners.</li>\n<li>AI: New automated tools are assisting developers by generating schema suggestions and optimizing data transformations.</li>\n<li>Tip: Master the fundamentals of SQL because it remains the primary language for data manipulation.</li>\n</ul>",
       "published": "2026-08-03T19:15:54.381557Z",
       "published_cycle": "2026-08-03T19",
-      "is_new": false
-    },
-    {
-      "headline": "Data Engineering Essentials for Cloud Integration and AI Driven Pipelines",
-      "body": "<ul>\n<li>Cloud: Major providers are launching easier serverless tools to help beginners move data without managing physical servers.</li>\n<li>AI: Automated coding assistants are now helping engineers write more efficient data transformation scripts using natural language.</li>\n<li>Tip: Start by learning SQL and basic Python as they form the core foundation for almost every modern data engineering task.</li>\n</ul>",
-      "published": "2026-08-03T14:10:02.022485Z",
-      "published_cycle": "2026-08-03T14",
       "is_new": false
     }
   ]
