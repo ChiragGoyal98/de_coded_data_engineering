@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-07T12:35:01.516265Z",
+  "generated_at": "2026-08-08T00:41:18.291029Z",
   "articles": [
+    {
+      "title": "Python OOP for Data Engineers",
+      "category": "Programming Basics",
+      "summary": "Object-Oriented Programming (OOP) is a paradigm that organizes code into reusable structures called objects. While data engineers often start with functional scripts for quick transformations, moving toward OOP allows for more robust and...",
+      "url": "articles/python-oop-for-data-engineers.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
+      "published": "2026-08-08T00:41:12.511613Z",
+      "is_new": true
+    },
     {
       "title": "PySpark Transformations for Large Datasets",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-08-07T12:34:54.892606Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Azure Data Factory orchestration patterns",
@@ -65,15 +74,6 @@
       "is_new": false
     },
     {
-      "title": "Python OOP for Data Engineers",
-      "category": "Programming Basics",
-      "summary": "While many data engineers begin their careers writing linear, procedural scripts to move data from point A to point B, they eventually hit a wall of complexity. As pipelines scale and the number of data sources grows, managing hundreds of...",
-      "url": "articles/python-oop-for-data-engineers.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
-      "published": "2026-06-22T20:29:58.585364Z",
-      "is_new": false
-    },
-    {
       "title": "Databricks Delta Lake best practices",
       "category": "Databricks",
       "summary": "Delta Lake is the optimized storage layer that provides the foundation for the Databricks Lakehouse Platform. It brings reliability and performance to big data lakes by adding a structured layer on top of your cloud storage, such as AWS S3...",
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Modern Data Engineering Trends for Beginners and New Developers",
+      "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless platforms to help new engineers deploy data pipelines without needing to manage complex server infrastructure.</li>\n<li>AI: New artificial intelligence tools now assist in writing and debugging data transformation code to speed up the development process for learners.</li>\n<li>Tip: Focus on learning SQL and Python basics first as they remain the essential foundations for nearly every data engineering role.</li>\n</ul>",
+      "published": "2026-08-08T00:41:18.290963Z",
+      "published_cycle": "2026-08-08T00",
+      "is_new": true
+    },
+    {
       "headline": "Essential Weekly Update for Aspiring Data Engineers and Cloud Practitioners",
       "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless tools to help beginners build data pipelines without managing complex backend servers.</li>\n<li>AI: Generative artificial intelligence is now being used to automatically generate documentation and SQL code for complex data transformations.</li>\n<li>Tip: Focus on mastering SQL basics early as it is the most critical language for moving and cleaning data.</li>\n</ul>",
       "published": "2026-08-07T12:35:01.516198Z",
       "published_cycle": "2026-08-07T12",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "New Accessible Tools Simplify Data Infrastructure for Modern Engineering Teams",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major platforms are launching simplified serverless tools that allow beginners to build data pipelines without managing underlying infrastructure.</li>\n<li>AI: New coding assistants are helping data engineers automate the creation of complex SQL transformations and documentation.</li>\n<li>Tip: Practice building a small end-to-end project to understand how data moves from a source to a dashboard.</li>\n</ul>",
       "published": "2026-08-04T13:40:31.890625Z",
       "published_cycle": "2026-08-04T13",
-      "is_new": false
-    },
-    {
-      "headline": "Simplified Data Tools And Smarter Cloud Integration For New Engineers",
-      "body": "<ul>\n<li>Cloud: Major cloud providers are launching serverless data warehouses that automatically scale storage to save beginners money and time.</li>\n<li>AI: New generative AI assistants now help data engineers write complex SQL queries and Python scripts by using simple natural language.</li>\n<li>Tip: Start your journey by learning how to clean messy datasets before trying to build complex automated pipelines.</li>\n</ul>",
-      "published": "2026-08-04T01:16:07.671402Z",
-      "published_cycle": "2026-08-04T01",
       "is_new": false
     }
   ]
