@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-09T12:22:25.827569Z",
+  "generated_at": "2026-08-09T18:21:09.076544Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "Building applications with Large Language Models (LLMs) often feels like magic when things work, but the reality of cloud-based APIs is that they are not always 100% reliable. When you send a request to a provider like OpenAI, Anthropic,...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-08-09T18:20:59.927801Z",
+      "is_new": true
+    },
     {
       "title": "PySpark Transformations for Large Datasets",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-08-09T12:22:19.423706Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Databricks Delta Lake best practices",
@@ -26,15 +35,6 @@
       "url": "articles/python-oop-for-data-engineers.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
       "published": "2026-08-09T00:43:31.349785Z",
-      "is_new": false
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "When building applications powered by Large Language Models (LLMs), developers quickly realize that API calls are not always reliable. Whether it is a temporary network glitch, a sudden rate limit, or the provider being overwhelmed by...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-08-08T18:19:15.900126Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Data Engineering Trends for Cloud and AI Beginners",
+      "body": "<ul>\n<li>Cloud: Leading providers are expanding serverless options to help beginners deploy data workflows without worrying about underlying infrastructure.</li>\n<li>AI: Automated coding assistants are now capable of generating complex data transformation scripts to speed up development for new engineers.</li>\n<li>Tip: Focus on understanding how data flows through a system before trying to learn every specific tool on the market.</li>\n</ul>",
+      "published": "2026-08-09T18:21:09.076462Z",
+      "published_cycle": "2026-08-09T18",
+      "is_new": true
+    },
+    {
       "headline": "Unified Data Catalogs and AI Automation Drive Current Data Engineering Trends",
       "body": "<ul>\n<li>Cloud: Leading platforms are launching unified catalogs that allow users to manage data across different storage locations from a single interface.</li>\n<li>AI: Engineering teams are increasingly using large language models to automate the documentation and cleanup of messy legacy data pipelines.</li>\n<li>Tip: Beginners should prioritize learning data modeling concepts like star schemas to ensure their pipelines produce organized and usable information.</li>\n</ul>",
       "published": "2026-08-09T12:22:25.827504Z",
       "published_cycle": "2026-08-09T12",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Essential Data Engineering News and Tips for Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are expanding serverless database options to reduce the need for beginners to manage physical servers.</li>\n<li>AI: Generative artificial intelligence is now helping new engineers convert natural language into efficient database queries and pipeline code.</li>\n<li>Tip: Focus on learning data modeling fundamentals because they remain constant regardless of which new software tools emerge.</li>\n</ul>",
       "published": "2026-08-06T13:29:02.331605Z",
       "published_cycle": "2026-08-06T13",
-      "is_new": false
-    },
-    {
-      "headline": "Emerging Trends and Essential Tools for New Data Engineers",
-      "body": "<ul>\n<li>Cloud: Major platforms are expanding serverless options to make scaling data pipelines easier for beginners without managing servers.</li>\n<li>AI: New automated coding assistants are helping teams write and debug complex data transformation scripts more efficiently.</li>\n<li>Tip: Start by learning Python and SQL as they are the most common languages used across all data engineering roles.</li>\n</ul>",
-      "published": "2026-08-06T08:10:53.768119Z",
-      "published_cycle": "2026-08-06T08",
       "is_new": false
     }
   ]
