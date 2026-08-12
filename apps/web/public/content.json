@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-12T07:03:50.098322Z",
+  "generated_at": "2026-08-12T18:43:38.121548Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "When building applications with Large Language Models (LLMs), your code spends a lot of time waiting for data to travel across the internet. Unlike local functions that execute instantly, API calls are subject to external factors like...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-08-12T18:43:33.131939Z",
+      "is_new": true
+    },
     {
       "title": "Databricks notebook collaboration best practices",
       "category": "Databricks",
@@ -8,7 +17,7 @@
       "url": "articles/databricks-notebook-collaboration-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-notebook-collaboration-best-practices.html",
       "published": "2026-08-12T07:02:54.794543Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Python OOP for Data Engineers",
@@ -17,15 +26,6 @@
       "url": "articles/python-oop-for-data-engineers.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
       "published": "2026-08-12T00:52:55.834349Z",
-      "is_new": false
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "When you start building applications with Large Language Models, the first thing you learn is how to send a prompt and get a response. However, moving from a script that works once to an application that works every time requires handling...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-08-11T18:42:35.294176Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simplified Tools and Smarter Clouds Shape Modern Data Engineering Workflows",
+      "body": "<ul>\n<li>Cloud: Major providers are releasing serverless storage options to help beginners manage data without configuring complex servers.</li>\n<li>AI: Generative tools now help engineers automate the creation of complex data pipelines using natural language commands.</li>\n<li>Tip: Master the fundamentals of SQL before moving to complex programming languages to build a strong technical foundation.</li>\n</ul>",
+      "published": "2026-08-12T18:43:38.121470Z",
+      "published_cycle": "2026-08-12T18",
+      "is_new": true
+    },
+    {
       "headline": "New Cloud Tools and AI are Simplifying Modern Data Engineering",
       "body": "<p>Cloud: Major cloud companies are expanding automated services to help users process data without managing complex servers.</p>\n<p>AI: New generative AI tools are helping data engineers write and debug code much faster than before.</p>\n<p>Tip: Focus on learning SQL first because it is the foundational language for most data engineering work.</p>",
       "published": "2026-08-12T07:03:50.098255Z",
       "published_cycle": "2026-08-12T07",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Beginner Friendly Data Engineering News In Cloud And AI",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Cloud providers are expanding free tier options for serverless databases to help students practice building pipelines without high costs.</li>\n<li>AI: Leading platforms are integrating natural language assistants that help beginners write and debug their data transformation scripts.</li>\n<li>Tip: Always document your code as you go so that you and your teammates can easily understand your pipeline logic later.</li>\n</ul>",
       "published": "2026-08-10T07:04:12.592146Z",
       "published_cycle": "2026-08-10T07",
-      "is_new": false
-    },
-    {
-      "headline": "Modern Data Engineering Updates for Beginners and Professionals",
-      "body": "<ul>\n<li>Cloud: Major cloud providers are launching simplified serverless tools that make it easier for new engineers to deploy data pipelines.</li>\n<li>AI: New artificial intelligence assistants can now automatically generate and debug complex SQL code to help streamline data transformations.</li>\n<li>Tip: Master the fundamentals of SQL and Python before moving on to complex specialized tools or proprietary software.</li>\n</ul>",
-      "published": "2026-08-10T00:45:36.703942Z",
-      "published_cycle": "2026-08-10T00",
       "is_new": false
     }
   ]
