@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Databricks notebook collaboration best practices | DE-Coded Lab</title>
-  <meta name="description" content="Working in a shared Databricks environment allows data teams to build complex pipelines quickly. However, because these notebooks are live and interactive, collaborating without a plan often leads to overwritten code, broken dependencies,..." />
+  <meta name="description" content="Working in Databricks often means moving from a solo developer mindset to a team-oriented environment. Because Databricks notebooks are cloud-based and live-synced, multiple engineers can edit the same file simultaneously. However, without..." />
   <meta property="og:title" content="Databricks notebook collaboration best practices" />
-  <meta property="og:description" content="Working in a shared Databricks environment allows data teams to build complex pipelines quickly. However, because these notebooks are live and interactive, collaborating without a plan often leads to overwritten code, broken dependencies,..." />
+  <meta property="og:description" content="Working in Databricks often means moving from a solo developer mindset to a team-oriented environment. Because Databricks notebooks are cloud-based and live-synced, multiple engineers can edit the same file simultaneously. However, without..." />
   <meta property="og:type" content="article" />
   <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
@@ -27,61 +27,69 @@
       <p class="pill">Databricks</p>
       <h1>Databricks notebook collaboration best practices</h1>
       <div class="article-meta">
-        <span>Published: Aug 12, 2026</span>
+        <span>Published: Aug 13, 2026</span>
         <span aria-hidden="true">&bull;</span>
         <span>3 min read</span>
       </div>
-      <p class="article-lead">Working in a shared Databricks environment allows data teams to build complex pipelines quickly. However, because these notebooks are live and interactive, collaborating without a plan often leads to overwritten code, broken dependencies,...</p>
+      <p class="article-lead">Working in Databricks often means moving from a solo developer mindset to a team-oriented environment. Because Databricks notebooks are cloud-based and live-synced, multiple engineers can edit the same file simultaneously. However, without...</p>
       <div class="article-body">
-      <p>Working in a shared Databricks environment allows data teams to build complex pipelines quickly. However, because these notebooks are live and interactive, collaborating without a plan often leads to overwritten code, broken dependencies, or security leaks. Mastering collaboration is about balancing the speed of real-time editing with the safety of professional software development workflows.</p>
+      <p>Working in Databricks often means moving from a solo developer mindset to a team-oriented environment. Because Databricks notebooks are cloud-based and live-synced, multiple engineers can edit the same file simultaneously. However, without a clear strategy, this real-time collaboration can lead to confusion, broken code, and lost progress. Establishing clear protocols ensures that every team member can contribute effectively while maintaining a clean and functional codebase.</p>
 <h2>Why it matters</h2>
-<p>Collaboration in Databricks is unique because it combines the live environment of a Google Doc with the execution power of a cluster. If your team does not follow best practices, you risk deleting hours of work with a single accidental cell execution. Good collaboration habits ensure that code is peer-reviewed, historical versions are preserved, and sensitive data remains protected. By standardizing how you share and edit, you turn a chaotic workspace into a reliable production engine.</p>
+<p>Collaboration is the backbone of modern data engineering. In Databricks, poor collaboration habits result in &quot;notebook sprawl,&quot; where dozens of versions of the same file exist with names like <code>clean_data_v1_final_v2</code>. </p>
+<ul>
+<li><strong>Reliability:</strong> Proper versioning ensures you can always roll back to a working state if a colleague&#x27;s changes break the pipeline.</li>
+<li><strong>Security:</strong> Best practices prevent sensitive information, like API keys or database passwords, from being accidentally shared or committed to a repository.</li>
+<li><strong>Efficiency:</strong> Shared standards mean any team member can open a notebook and understand the logic immediately, reducing time spent on hand-offs and troubleshooting.</li>
+</ul>
 <h2>Step-by-step walkthrough</h2>
-<h3>1. Configure Workspace Permissions</h3>
-<p>The first step is controlling who can do what. Click the &quot;Share&quot; button at the top right of any notebook. Instead of giving everyone &quot;Can Manage&quot; access, follow the principle of least privilege:</p>
+<h3>1. Set up Workspace Permissions</h3>
+<p>Before sharing a notebook, define who needs what level of access. Databricks provides several permission levels:</p>
 <ul>
-<li><strong>Can View:</strong> Best for stakeholders who only need to see results.</li>
-<li><strong>Can Run:</strong> For users who need to execute the logic but shouldn&#x27;t change it.</li>
-<li><strong>Can Edit:</strong> For active contributors.</li>
-<li><strong>Can Manage:</strong> Reserved for lead engineers who need to change permissions.</li>
+<li><strong>Can View:</strong> Good for stakeholders who only need to see results.</li>
+<li><strong>Can Run:</strong> For teammates who need to execute the logic but shouldn&#x27;t change the code.</li>
+<li><strong>Can Edit:</strong> For active collaborators.</li>
+<li><strong>Can Manage:</strong> For leads who need to control permissions for others.</li>
 </ul>
-<h3>2. Set Up Databricks Git Folders</h3>
-<p>Relying on the &quot;Revision History&quot; is not enough for professional teams. Use Databricks Git Folders (formerly Repos) to connect your workspace to GitHub, GitLab, or Azure DevOps.</p>
+<h3>2. Use Databricks Repos for Git Integration</h3>
+<p>While Databricks has a built-in &quot;Revision History,&quot; it is not a substitute for formal version control. Connect your Databricks Workspace to a Git provider (like GitHub, GitLab, or Azure DevOps).</p>
 <ul>
-<li>Create a new Git Folder in your user workspace.</li>
-<li>Create a separate branch for every feature or bug fix.</li>
-<li>Push your changes and use Pull Requests for peer review before merging into the main branch.</li>
+<li>Create a branch for your specific feature or bug fix.</li>
+<li>Commit and push changes regularly.</li>
+<li>Use Pull Requests (PRs) for code reviews before merging into the main branch.</li>
 </ul>
-<h3>3. Use Widgets for Parameterization</h3>
-<p>When multiple people use the same notebook, they often need to point to different data paths or dates. Instead of hardcoding these values (which forces others to change your code), use Databricks Widgets. This allows users to input their own variables through a UI at the top of the notebook without modifying the logic.</p>
+<h3>3. Leverage Built-in Commenting</h3>
+<p>Instead of sending screenshots over Slack or Teams, use the built-in commenting feature in the notebook.</p>
+<ul>
+<li>Highlight a specific line of code.</li>
+<li>Click the comment icon on the right sidebar.</li>
+<li>Use @mentions to notify a specific teammate. This keeps the conversation linked directly to the logic being discussed.</li>
+</ul>
+<h3>4. Manage Secrets Securely</h3>
+<p>Never hardcode passwords or access keys in a shared notebook. If a colleague clones your notebook, they shouldn&#x27;t see your credentials. Use the Databricks Secret Utility.</p>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
-# Create a text widget for a database name
-dbutils.widgets.text(&quot;database_name&quot;, &quot;default_db&quot;, &quot;Enter Database Name&quot;)
+# Best practice: Fetch credentials from a secret scope
+# instead of typing them as plain text strings
+database_password = dbutils.secrets.get(scope=&quot;finance_project&quot;, key=&quot;db_password&quot;)
 
-# Access the value in your code
-current_db = dbutils.widgets.get(&quot;database_name&quot;)
-print(f&quot;Querying data from: {current_db}&quot;)
+# Use the variable in your connection string
+connection_url = f&quot;jdbc:mysql://server.address:3306/db?password={database_password}&quot;
 </code></pre></div>
-<h3>4. Leverage Real-time Co-authoring and Comments</h3>
-<p>Databricks allows multiple users to be in the same notebook simultaneously. To collaborate effectively:</p>
-<ul>
-<li>Look for the user icons in the top right to see who else is active.</li>
-<li>Use the <strong>Comments</strong> feature (the speech bubble icon on the right sidebar) to leave feedback on specific lines of code rather than writing notes in Markdown cells that might be accidentally deleted.</li>
-</ul>
+<h3>5. Modularize with %run or Python Files</h3>
+<p>To keep notebooks from becoming thousands of lines long, split logic into smaller, functional notebooks. You can call one notebook from another using the <code>%run</code> magic command. Even better, for complex logic, use shared Python files (.py) in your Repos that can be imported like standard libraries.</p>
 <h2>Common mistakes</h2>
 <ul>
-<li><strong>Editing the &#x27;Main&#x27; Branch Directly:</strong> Always work in a personal branch. Making direct changes to the production branch in a Git Folder can lead to broken pipelines for the entire team.</li>
-<li><strong>Hardcoding Credentials:</strong> Never type passwords or API keys in a shared notebook. Use Databricks Secrets and <code>dbutils.secrets.get()</code> to keep your credentials hidden from collaborators.</li>
-<li><strong>Simultaneous Cell Editing:</strong> While Databricks supports co-authoring, having two people edit the <em>exact same cell</em> at the same time can cause sync issues. Communicate with your team about which section you are working on.</li>
-<li><strong>Ignoring Cluster Impact:</strong> Running a heavy notebook on a shared cluster can slow down your colleagues. Always check the cluster load before executing large data transformations.</li>
+<li><strong>Leaving &quot;Dirty&quot; Workspaces:</strong> Forgetting to delete temporary testing notebooks or leaving &quot;Clone of Clone&quot; files in shared folders.</li>
+<li><strong>Manual Versioning:</strong> Saving files as <code>notebook_july_12.py</code> instead of using Git branches.</li>
+<li><strong>Hardcoding Paths:</strong> Using absolute paths like <code>/Users/your.name@company.com/data</code> instead of shared mount points or Unity Catalog paths that everyone can access.</li>
+<li><strong>Ignoring Cluster Specs:</strong> Sharing a notebook that requires a high-memory cluster without notifying colleagues, leading to high costs or execution errors on smaller clusters.</li>
 </ul>
-<h2>Practice task</h2>
+<h2>One practice task</h2>
+<p>To practice these habits, perform the following sequence with a teammate:</p>
 <ul>
-<li>Create a new notebook in your personal folder.</li>
-<li>Add a &quot;Dropdown&quot; widget that lets a user choose between &#x27;Development&#x27; and &#x27;Production&#x27;.</li>
-<li>Use the <code>dbutils.widgets.get()</code> command to print a message based on the selection.</li>
-<li>Share the notebook with a teammate and grant them &quot;Can Run&quot; permissions only.</li>
-<li>Ask them to change the widget selection and run the notebook to verify they can interact with it without editing the code cells.</li>
+<li>Create a new notebook in a shared folder and connect it to a Git repository.</li>
+<li>Write a simple PySpark transformation but leave one intentional logic error.</li>
+<li>Use the <strong>Comments</strong> button to tag your teammate and ask them to fix the error.</li>
+<li>Have your teammate fix the error, commit the change to a new branch, and show you the &quot;Version History&quot; to see how the changes were tracked.</li>
 </ul>
       </div>
       <footer class="article-footer">
