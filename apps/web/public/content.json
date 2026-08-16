@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-16T06:18:29.943842Z",
+  "generated_at": "2026-08-16T12:13:39.651673Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "When you are dealing with millions or billions of rows of data, traditional Python libraries like Pandas often run out of memory. This is where PySpark comes in. PySpark is the Python API for Apache Spark, a distributed computing framework...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-08-16T12:13:34.650039Z",
+      "is_new": true
+    },
     {
       "title": "Databricks Delta Lake best practices",
       "category": "Databricks",
@@ -8,7 +17,7 @@
       "url": "articles/databricks-delta-lake-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
       "published": "2026-08-16T06:18:24.553358Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Python OOP for Data Engineers",
@@ -26,15 +35,6 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-08-15T18:10:47.555812Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "When dealing with massive amounts of information, traditional Python libraries like Pandas often run out of memory. PySpark solves this by distributing data across a cluster of computers. The core of working with PySpark involves...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-08-15T12:13:22.381632Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simple Data Engineering Updates for Cloud AI and Better Coding Practices",
+      "body": "<ul>\n<li>Cloud: Major cloud platforms are releasing easier migration tools that help beginners move local databases to the cloud with minimal manual configuration.</li>\n<li>AI: New automated coding assistants are helping data engineers generate pipeline documentation and clean messy datasets more accurately.</li>\n<li>Tip: Start by building a small project that extracts data from a public API to understand the full data lifecycle.</li>\n</ul>",
+      "published": "2026-08-16T12:13:39.651609Z",
+      "published_cycle": "2026-08-16T12",
+      "is_new": true
+    },
+    {
       "headline": "Simple Guide to Current Trends in the Data Engineering Landscape",
       "body": "<ul>\n<li>Cloud: Platforms like AWS and Azure are simplifying data storage by automating most of the hardware management for new users.</li>\n<li>AI: Automated coding assistants are becoming standard for helping developers write and debug data transformation scripts more efficiently.</li>\n<li>Tip: Start by learning how to clean small datasets in a local environment before attempting to build large scale pipelines.</li>\n</ul>",
       "published": "2026-08-16T06:18:29.943779Z",
       "published_cycle": "2026-08-16T06",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "New Trends Making Data Engineering More Accessible For Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Modern cloud platforms are introducing low-code tools to help beginners build data pipelines faster.</li>\n<li>AI: Artificial intelligence is now being used to automatically generate documentation for complex data schemas.</li>\n<li>Tip: Master SQL basics first because it is the most used language for querying data across all platforms.</li>\n</ul>",
       "published": "2026-08-14T07:03:31.921549Z",
       "published_cycle": "2026-08-14T07",
-      "is_new": false
-    },
-    {
-      "headline": "Simple Data Engineering Updates for Aspiring Professionals",
-      "body": "<ul>\n<li>Cloud: Cloud platforms are introducing more free-tier options for data warehousing to help students practice at no cost.</li>\n<li>AI: Generative AI is now being used to automatically generate documentation and schemas for messy datasets.</li>\n<li>Tip: Start your journey by building a small project that moves data from a public API into a spreadsheet or simple database.</li>\n</ul>",
-      "published": "2026-08-14T00:53:53.127813Z",
-      "published_cycle": "2026-08-14T00",
       "is_new": false
     }
   ]
