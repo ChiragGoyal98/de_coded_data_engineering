@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-18T12:19:12.095173Z",
+  "generated_at": "2026-08-18T18:18:17.423463Z",
   "articles": [
+    {
+      "title": "Calling LLM APIs from Python with retries and fallbacks",
+      "category": "LLM APIs",
+      "summary": "When building applications powered by Large Language Models (LLMs), the connection between your code and the AI provider is the most fragile link. Unlike traditional local functions, API calls travel over the internet to servers that may...",
+      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
+      "published": "2026-08-18T18:18:09.866731Z",
+      "is_new": true
+    },
     {
       "title": "PySpark Transformations for Large Datasets",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-08-18T12:19:06.787287Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Databricks Delta Lake best practices",
@@ -26,15 +35,6 @@
       "url": "articles/python-oop-for-data-engineers.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
       "published": "2026-08-18T00:29:34.758422Z",
-      "is_new": false
-    },
-    {
-      "title": "Calling LLM APIs from Python with retries and fallbacks",
-      "category": "LLM APIs",
-      "summary": "Interacting with Large Language Model (LLM) APIs is a core skill for modern developers. However, unlike local functions, API calls are prone to external issues like network timeouts, temporary server outages, or rate limiting. If your code...",
-      "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
-      "published": "2026-08-17T18:18:59.864062Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Modern Data Engineering Trends For Beginners And Career Starters",
+      "body": "<ul>\n<li>Cloud: Major cloud providers are releasing more serverless tools that allow beginners to process data without managing physical servers.</li>\n<li>AI: New artificial intelligence assistants are helping engineers write and debug complex data transformation scripts more efficiently.</li>\n<li>Tip: Prioritize learning SQL fundamentals because it is the most used language across all modern data platforms.</li>\n</ul>",
+      "published": "2026-08-18T18:18:17.423391Z",
+      "published_cycle": "2026-08-18T18",
+      "is_new": true
+    },
+    {
       "headline": "Modern Data Engineering Updates for Cloud AI and Better Pipeline Workflows",
       "body": "<ul>\n<li>Cloud: Major platforms are releasing serverless options that allow beginners to build data pipelines without managing underlying servers.</li>\n<li>AI: New automated tools use large language models to help engineers convert raw data into structured formats more efficiently.</li>\n<li>Tip: Start by learning SQL because it remains the most essential language for transforming and querying data across all platforms.</li>\n</ul>",
       "published": "2026-08-18T12:19:12.095107Z",
       "published_cycle": "2026-08-18T12",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Modern Cloud Shifts and Artificial Intelligence Tools for New Data Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud platforms are releasing easier migration tools that help beginners move local databases to the cloud with minimal manual configuration.</li>\n<li>AI: New automated coding assistants are helping data engineers generate pipeline documentation and clean messy datasets more accurately.</li>\n<li>Tip: Start by building a small project that extracts data from a public API to understand the full data lifecycle.</li>\n</ul>",
       "published": "2026-08-16T12:13:39.651609Z",
       "published_cycle": "2026-08-16T12",
-      "is_new": false
-    },
-    {
-      "headline": "Simple Guide to Current Trends in the Data Engineering Landscape",
-      "body": "<ul>\n<li>Cloud: Platforms like AWS and Azure are simplifying data storage by automating most of the hardware management for new users.</li>\n<li>AI: Automated coding assistants are becoming standard for helping developers write and debug data transformation scripts more efficiently.</li>\n<li>Tip: Start by learning how to clean small datasets in a local environment before attempting to build large scale pipelines.</li>\n</ul>",
-      "published": "2026-08-16T06:18:29.943779Z",
-      "published_cycle": "2026-08-16T06",
       "is_new": false
     }
   ]
