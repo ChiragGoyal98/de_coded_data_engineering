@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-18T00:30:08.000633Z",
+  "generated_at": "2026-08-18T06:21:24.784992Z",
   "articles": [
+    {
+      "title": "Databricks Delta Lake best practices",
+      "category": "Databricks",
+      "summary": "Delta Lake has become the standard for building reliable data lakes on Databricks. It essentially acts as a management layer on top of your Parquet files, offering features like ACID transactions and time travel. However, simply using...",
+      "url": "articles/databricks-delta-lake-best-practices.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
+      "published": "2026-08-18T06:21:16.631089Z",
+      "is_new": true
+    },
     {
       "title": "Python OOP for Data Engineers",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/python-oop-for-data-engineers.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
       "published": "2026-08-18T00:29:34.758422Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
@@ -26,15 +35,6 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-08-17T12:17:22.667764Z",
-      "is_new": false
-    },
-    {
-      "title": "Databricks Delta Lake best practices",
-      "category": "Databricks",
-      "summary": "Delta Lake has become the standard storage layer for modern data engineering, providing a bridge between the cheap storage of data lakes and the high performance of data warehouses. By adding a transaction log to your Parquet files, Delta...",
-      "url": "articles/databricks-delta-lake-best-practices.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
-      "published": "2026-08-17T06:27:13.350165Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Modern Cloud Shifts and Artificial Intelligence Tools for New Data Engineers",
+      "body": "<ul>\n<li>Cloud: Leading platforms are launching managed services that automate the setup of scalable data lakes for beginners.</li>\n<li>AI: Automated coding assistants are becoming standard for generating efficient data transformation scripts in real time.</li>\n<li>Tip: Start by mastering data modeling concepts to ensure your pipelines are organized and easy to maintain.</li>\n</ul>",
+      "published": "2026-08-18T06:21:24.784919Z",
+      "published_cycle": "2026-08-18T06",
+      "is_new": true
+    },
+    {
       "headline": "Beginner Friendly Data Engineering News Brief",
       "body": "<ul>\n<li>Cloud: Major cloud providers are launching serverless tools that help beginners build data pipelines without managing complex servers.</li>\n<li>AI: New generative AI assistants are helping data engineers write SQL queries and troubleshoot pipeline errors more efficiently.</li>\n<li>Tip: Focus on mastering SQL first because it remains the foundational language for almost all data transformation tasks.</li>\n</ul>",
       "published": "2026-08-18T00:30:08.000560Z",
       "published_cycle": "2026-08-18T00",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Data Engineering Simplified Cloud Progress and AI Trends for Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud providers are launching more serverless options to reduce infrastructure management for new developers.</li>\n<li>AI: Automated coding assistants are now helping engineers write more efficient data transformation scripts in Python.</li>\n<li>Tip: Begin your journey by practicing basic SQL queries before moving on to complex orchestration tools.</li>\n</ul>",
       "published": "2026-08-16T00:31:33.355987Z",
       "published_cycle": "2026-08-16T00",
-      "is_new": false
-    },
-    {
-      "headline": "Emerging Trends in Cloud Platforms and AI Automation for Data Professionals",
-      "body": "<ul>\n<li>Cloud: Major providers are introducing more serverless tools that allow beginners to process large datasets without managing complex server configurations.</li>\n<li>AI: New developments in generative models are making it easier for engineers to automate the generation of SQL code and data documentation.</li>\n<li>Tip: Focus on building a strong foundation in SQL before moving on to more complex specialized tools in the data stack.</li>\n</ul>",
-      "published": "2026-08-15T18:10:57.846850Z",
-      "published_cycle": "2026-08-15T18",
       "is_new": false
     }
   ]
