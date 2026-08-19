@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-19T06:21:36.063376Z",
+  "generated_at": "2026-08-19T12:18:47.176320Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "PySpark is the Python API for Apache Spark, a powerful engine designed for processing massive amounts of data across multiple computers. When working with large datasets that cannot fit into a single machine's memory, PySpark uses...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-08-19T12:18:41.699536Z",
+      "is_new": true
+    },
     {
       "title": "Databricks Delta Lake best practices",
       "category": "Databricks",
@@ -8,7 +17,7 @@
       "url": "articles/databricks-delta-lake-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
       "published": "2026-08-19T06:21:30.839166Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Python OOP for Data Engineers",
@@ -26,15 +35,6 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-08-18T18:18:09.866731Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "Processing massive amounts of data requires more than just a powerful computer; it requires a way to distribute tasks across many machines. PySpark is the Python API for Apache Spark, a distributed computing framework designed for exactly...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-08-18T12:19:06.787287Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Essential Data Engineering News and Tips for Beginners",
+      "body": "<ul>\n<li>Cloud: Major providers are simplifying data lake management with automated scaling features to reduce manual configuration.</li>\n<li>AI: Generative AI tools are becoming standard for writing and debugging complex data pipeline code more efficiently.</li>\n<li>Tip: Focus on understanding data modeling concepts before diving into specific tools to build a strong engineering foundation.</li>\n</ul>",
+      "published": "2026-08-19T12:18:47.176252Z",
+      "published_cycle": "2026-08-19T12",
+      "is_new": true
+    },
+    {
       "headline": "Essential Updates on Cloud Scaling AI Tools and Data Career Tips",
       "body": "<ul>\n<li>Cloud: Major cloud providers are simplifying serverless scaling to help new engineers manage unpredictable workloads without manual intervention.</li>\n<li>AI: Generative AI tools are now automating the creation of complex SQL queries to speed up data transformation tasks.</li>\n<li>Tip: Focus on learning SQL and Python first as they remain the foundational languages for most modern data engineering roles.</li>\n</ul>",
       "published": "2026-08-19T06:21:36.063293Z",
       "published_cycle": "2026-08-19T06",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simplified Data Engineering News on Cloud Growth and AI Integration",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Google Cloud and AWS are expanding free tiers for data warehousing to help newcomers practice at no cost.</li>\n<li>AI: Generative AI is now being used to suggest data cleaning steps which simplifies the workflow for junior engineers.</li>\n<li>Tip: Document your data lineage early to save time when troubleshooting issues in your data pipelines.</li>\n</ul>",
       "published": "2026-08-17T06:27:21.454708Z",
       "published_cycle": "2026-08-17T06",
-      "is_new": false
-    },
-    {
-      "headline": "Essential Data Engineering News on Cloud Growth and AI Automation",
-      "body": "<ul>\n<li>Cloud: Major providers are expanding serverless features to simplify how new engineers scale their data processing tasks.</li>\n<li>AI: New AI assistants are helping data teams automate repetitive tasks like schema mapping and data cleaning.</li>\n<li>Tip: Practice building small projects with open source tools like dbt to understand how modern data transformation works.</li>\n</ul>",
-      "published": "2026-08-17T00:30:05.280739Z",
-      "published_cycle": "2026-08-17T00",
       "is_new": false
     }
   ]
