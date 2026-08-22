@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-22T06:17:56.928604Z",
+  "generated_at": "2026-08-22T12:13:43.654602Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "PySpark is a powerful tool for processing massive amounts of data that a single computer cannot handle. At the heart of its power lies the concept of transformations. These are operations that take one Resilient Distributed Dataset (RDD)...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-08-22T12:13:40.863446Z",
+      "is_new": true
+    },
     {
       "title": "Databricks Delta Lake best practices",
       "category": "Databricks",
@@ -8,7 +17,7 @@
       "url": "articles/databricks-delta-lake-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
       "published": "2026-08-22T06:17:52.194339Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Python OOP for Data Engineers",
@@ -26,15 +35,6 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-08-21T18:18:47.207620Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "PySpark is a Python API for Apache Spark, a powerful engine designed to process massive amounts of data across multiple computers. At the heart of PySpark are transformations, which are instructions that tell the system how to modify or...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-08-21T12:20:30.650596Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Essential Updates and Advice for Aspiring Data Engineers",
+      "body": "<ul>\n<li>Cloud: Modern platforms are making data storage easier by offering serverless options that require less manual setup.</li>\n<li>AI: New automated tools are helping teams organize messy data faster using artificial intelligence.</li>\n<li>Tip: Focus on mastering SQL first because it is the fundamental language used to communicate with most databases.</li>\n</ul>",
+      "published": "2026-08-22T12:13:43.654519Z",
+      "published_cycle": "2026-08-22T12",
+      "is_new": true
+    },
+    {
       "headline": "Simplified Pipelines and AI Tools Shape Modern Data Engineering",
       "body": "<ul>\n<li>Cloud: Major providers are launching easier serverless options that allow beginners to process data without configuring virtual servers.</li>\n<li>AI: New generative tools are helping engineers automate documentation and code generation for complex data transformation workflows.</li>\n<li>Tip: Start by mastering SQL because it is the most universal language used across almost every data platform today.</li>\n</ul>",
       "published": "2026-08-22T06:17:56.928528Z",
       "published_cycle": "2026-08-22T06",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "New Cloud Tools and AI Integration Simplify Data Pipeline Management",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Amazon Web Services and Google Cloud are launching new serverless tools that automatically scale data processing tasks for beginners.</li>\n<li>AI: Generative AI is being used to automatically write and debug complex data transformation scripts to save development time.</li>\n<li>Tip: Focus on learning data modeling basics first so that your pipelines remain organized and easy to scale.</li>\n</ul>",
       "published": "2026-08-20T06:22:35.806934Z",
       "published_cycle": "2026-08-20T06",
-      "is_new": false
-    },
-    {
-      "headline": "Major Cloud Providers Simplify Data Pipelines And AI Integration Tools",
-      "body": "<ul>\n<li>Cloud: Amazon Web Services expanded its serverless data warehousing options to help new engineers manage large datasets without configuring complex physical servers.</li>\n<li>AI: New generative coding assistants are helping data teams automatically write and debug complex SQL scripts for faster pipeline development.</li>\n<li>Tip: Focus on mastering SQL fundamentals first because it remains the most essential language for moving and transforming data across all modern platforms.</li>\n</ul>",
-      "published": "2026-08-20T00:30:26.060008Z",
-      "published_cycle": "2026-08-20T00",
       "is_new": false
     }
   ]
