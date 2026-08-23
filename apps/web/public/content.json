@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-23T06:19:24.165518Z",
+  "generated_at": "2026-08-23T12:14:05.069099Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "When working with massive amounts of data, standard Python libraries like Pandas often run out of memory. This is where PySpark comes into play. PySpark is the Python API for Apache Spark, a distributed computing framework designed to...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-08-23T12:13:58.271629Z",
+      "is_new": true
+    },
     {
       "title": "Databricks Delta Lake best practices",
       "category": "Databricks",
@@ -8,7 +17,7 @@
       "url": "articles/databricks-delta-lake-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
       "published": "2026-08-23T06:19:19.718981Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Python OOP for Data Engineers",
@@ -26,15 +35,6 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-08-22T18:10:59.544321Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "PySpark is a powerful tool for processing massive amounts of data that a single computer cannot handle. At the heart of its power lies the concept of transformations. These are operations that take one Resilient Distributed Dataset (RDD)...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-08-22T12:13:40.863446Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Essential Data Engineering Updates for Beginners",
+      "body": "<ul>\n<li>Cloud: Major platforms are simplifying data storage by offering serverless options that handle all infrastructure management automatically.</li>\n<li>AI: New generative tools are helping engineers write and debug complex data transformation code using simple natural language prompts.</li>\n<li>Tip: Start by building a small project with a public dataset to understand how data flows from a source to a final report.</li>\n</ul>",
+      "published": "2026-08-23T12:14:05.069020Z",
+      "published_cycle": "2026-08-23T12",
+      "is_new": true
+    },
+    {
       "headline": "Data Engineering Essentials and Recent Trends for New Learners",
       "body": "<ul>\n<li>Cloud: Google Cloud recently simplified their data warehousing pricing to make it easier for small teams to start.</li>\n<li>AI: Large language models are becoming common tools for automating documentation and generating initial pipeline code.</li>\n<li>Tip: Always validate your data at every step of the transformation process to ensure high quality.</li>\n</ul>",
       "published": "2026-08-23T06:19:24.165427Z",
       "published_cycle": "2026-08-23T06",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Essential Cloud Updates and AI Tools for New Data Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Google Cloud introduced new serverless options for BigQuery to help beginners process data without managing complex infrastructure.</li>\n<li>AI: Many modern data platforms are integrating artificial intelligence to help users automatically generate SQL and fix pipeline errors.</li>\n<li>Tip: Focus on mastering SQL fundamentals first because it is the universal language used across almost every data tool.</li>\n</ul>",
       "published": "2026-08-21T06:22:42.167853Z",
       "published_cycle": "2026-08-21T06",
-      "is_new": false
-    },
-    {
-      "headline": "Data Engineering News for Cloud AI and Beginners",
-      "body": "<ul>\n<li>Cloud: Major cloud platforms are expanding serverless integration to help beginners build data pipelines without managing complex server infrastructure.</li>\n<li>AI: New generative AI tools are assisting junior engineers by automatically generating SQL queries and documenting complicated data workflows.</li>\n<li>Tip: Prioritize learning SQL and database design fundamentals because they are the most critical skills for any entry-level data role.</li>\n</ul>",
-      "published": "2026-08-21T00:32:38.628714Z",
-      "published_cycle": "2026-08-21T00",
       "is_new": false
     }
   ]
