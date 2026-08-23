@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-23T00:32:40.092683Z",
+  "generated_at": "2026-08-23T06:19:24.165518Z",
   "articles": [
+    {
+      "title": "Databricks Delta Lake best practices",
+      "category": "Databricks",
+      "summary": "Delta Lake has become the standard storage format for modern lakehouse architectures. It provides a layer of reliability over traditional data lakes by introducing features like ACID transactions and scalable metadata handling. For...",
+      "url": "articles/databricks-delta-lake-best-practices.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
+      "published": "2026-08-23T06:19:19.718981Z",
+      "is_new": true
+    },
     {
       "title": "Python OOP for Data Engineers",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/python-oop-for-data-engineers.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
       "published": "2026-08-23T00:32:33.427509Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
@@ -26,15 +35,6 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-08-22T12:13:40.863446Z",
-      "is_new": false
-    },
-    {
-      "title": "Databricks Delta Lake best practices",
-      "category": "Databricks",
-      "summary": "Delta Lake has become the standard for building modern data lakehouses because it bridges the gap between raw data storage and structured databases. By adding a transaction log to your cloud storage, it ensures that your data remains...",
-      "url": "articles/databricks-delta-lake-best-practices.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
-      "published": "2026-08-22T06:17:52.194339Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Data Engineering Essentials and Recent Trends for New Learners",
+      "body": "<ul>\n<li>Cloud: Google Cloud recently simplified their data warehousing pricing to make it easier for small teams to start.</li>\n<li>AI: Large language models are becoming common tools for automating documentation and generating initial pipeline code.</li>\n<li>Tip: Always validate your data at every step of the transformation process to ensure high quality.</li>\n</ul>",
+      "published": "2026-08-23T06:19:24.165427Z",
+      "published_cycle": "2026-08-23T06",
+      "is_new": true
+    },
+    {
       "headline": "Essential Cloud Updates and AI Tools for New Data Engineers",
       "body": "<ul>\n<li>Cloud: Major providers are launching serverless features that automatically scale resources to simplify infrastructure management for beginners.</li>\n<li>AI: New integration tools now use natural language processing to help engineers debug SQL queries and data transformations faster.</li>\n<li>Tip: Prioritize learning data modeling concepts like star schemas to build a solid foundation for any engineering project.</li>\n</ul>",
       "published": "2026-08-23T00:32:40.092611Z",
       "published_cycle": "2026-08-23T00",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "New Simplified Tools Help Beginners Master Modern Data Engineering Pipelines",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud platforms are expanding serverless integration to help beginners build data pipelines without managing complex server infrastructure.</li>\n<li>AI: New generative AI tools are assisting junior engineers by automatically generating SQL queries and documenting complicated data workflows.</li>\n<li>Tip: Prioritize learning SQL and database design fundamentals because they are the most critical skills for any entry-level data role.</li>\n</ul>",
       "published": "2026-08-21T00:32:38.628714Z",
       "published_cycle": "2026-08-21T00",
-      "is_new": false
-    },
-    {
-      "headline": "Essential Industry News and Practical Tips for Emerging Data Engineers",
-      "body": "<ul>\n<li>Cloud: Google Cloud is simplifying data integration by offering more pre-built connectors for popular software applications.</li>\n<li>AI: Modern platforms are now incorporating automated machine learning to help engineers identify anomalies in their data streams.</li>\n<li>Tip: Focus on mastering SQL first because it remains the most fundamental language for manipulating and querying data across all platforms.</li>\n</ul>",
-      "published": "2026-08-20T18:20:15.993362Z",
-      "published_cycle": "2026-08-20T18",
       "is_new": false
     }
   ]
