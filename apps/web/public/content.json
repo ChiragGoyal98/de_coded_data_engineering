@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-29T11:51:56.515047Z",
+  "generated_at": "2026-08-29T15:50:00.582738Z",
   "articles": [
+    {
+      "title": "Azure Data Lake design for analytics teams",
+      "category": "Azure",
+      "summary": "Azure Data Lake Storage (ADLS) Gen2 is the backbone of modern data engineering on the Microsoft cloud. At its simplest level, a data lake is a centralized repository that allows you to store all your structured and unstructured data at any...",
+      "url": "articles/azure-data-lake-design-for-analytics-teams.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-lake-design-for-analytics-teams.html",
+      "published": "2026-08-29T15:49:52.163739Z",
+      "is_new": true
+    },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-08-29T11:51:36.100233Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Databricks notebook collaboration best practices",
@@ -26,15 +35,6 @@
       "url": "articles/databricks-delta-lake-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
       "published": "2026-08-27T16:57:09.393619Z",
-      "is_new": false
-    },
-    {
-      "title": "Azure Data Lake design for analytics teams",
-      "category": "Azure",
-      "summary": "Azure Data Lake Storage (ADLS) Gen2 serves as the foundation for modern data engineering on the Microsoft cloud. At its core, it is a highly scalable, secure, and cost-effective repository for all types of data-whether structured,...",
-      "url": "articles/azure-data-lake-design-for-analytics-teams.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-lake-design-for-analytics-teams.html",
-      "published": "2026-08-27T05:21:55.273609Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Beginner Trends in Data Engineering and New Automation Tools",
+      "body": "<ul>\n<li>Cloud: Amazon Web Services recently simplified their data integration tools to help users move information between databases with less code.</li>\n<li>AI: Large language models are now being integrated into data platforms to help users generate SQL queries using natural language.</li>\n<li>Tip: Learn the difference between ETL and ELT processes to better understand how modern data stacks function.</li>\n</ul>",
+      "published": "2026-08-29T15:50:00.582652Z",
+      "published_cycle": "2026-08-29T15",
+      "is_new": true
+    },
+    {
       "headline": "Essential Data Engineering News and Tips for New Professionals",
       "body": "<ul>\n<li>Cloud: Major platforms are expanding serverless tools to help beginners build data pipelines without managing physical servers.</li>\n<li>AI: New automated tools are making it easier for engineers to clean and organize messy datasets using machine learning.</li>\n<li>Tip: Focus on understanding data modeling basics because a well-structured database saves hours of troubleshooting later.</li>\n</ul>",
       "published": "2026-08-29T11:51:56.514973Z",
       "published_cycle": "2026-08-29T11",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simplified Data Tools for Beginners Make Scaling Easier Than Ever",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are launching serverless tools that allow beginners to move data without managing any underlying hardware.</li>\n<li>AI: Generative artificial intelligence is now being used to help engineers write and debug data processing code more quickly.</li>\n<li>Tip: Focus on learning how to clean and organize data first as this is the foundation of all engineering work.</li>\n</ul>",
       "published": "2026-08-26T00:32:46.324031Z",
       "published_cycle": "2026-08-26T00",
-      "is_new": false
-    },
-    {
-      "headline": "Cloud Scaling Updates and AI SQL Tools For New Data Engineers",
-      "body": "<ul>\n<li>Cloud: Google Cloud and AWS are simplifying data lake management by introducing more automated partitioning and scaling features.</li>\n<li>AI: Specialized artificial intelligence models are now being integrated directly into data warehouses to allow for real-time sentiment analysis on raw text.</li>\n<li>Tip: Focus on learning the fundamentals of data modeling before trying to master every new framework that enters the market.</li>\n</ul>",
-      "published": "2026-08-25T18:21:38.026099Z",
-      "published_cycle": "2026-08-25T18",
       "is_new": false
     }
   ]
