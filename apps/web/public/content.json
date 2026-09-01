@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-31T18:37:49.402617Z",
+  "generated_at": "2026-09-01T02:17:26.663690Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "When working with massive amounts of data that exceed the memory capacity of a single computer, standard Python libraries like pandas often struggle or crash. This is where PySpark enters the picture. PySpark is the Python API for Apache...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-09-01T02:17:01.623007Z",
+      "is_new": true
+    },
     {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-08-31T18:37:37.863364Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -65,15 +74,6 @@
       "is_new": false
     },
     {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "When working with massive amounts of information, traditional tools like Excel or standard Python libraries often run out of memory. This is where PySpark, the Python API for Apache Spark, becomes essential. At the heart of PySpark's power...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-08-26T12:23:14.845268Z",
-      "is_new": false
-    },
-    {
       "title": "Azure Data Factory orchestration patterns",
       "category": "Azure",
       "summary": "In the world of cloud data engineering, Azure Data Factory serves as the central hub for moving and transforming data. At its core, ADF is an orchestration tool, meaning it manages the timing, sequence, and logic of how various data...",
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Essential Cloud and AI Updates for New Data Engineers",
+      "body": "<ul>\n<li>Cloud: AWS Glue now offers new features that make serverless data integration faster and more affordable for small teams.</li>\n<li>AI: Major data platforms are integrating large language models to help beginners write SQL queries using natural language commands.</li>\n<li>Tip: Always document your data lineage so you can easily track how information moves from source to final report.</li>\n</ul>",
+      "published": "2026-09-01T02:17:26.663622Z",
+      "published_cycle": "2026-09-01T02",
+      "is_new": true
+    },
+    {
       "headline": "Essential Trends in Cloud Data Infrastructure and Artificial Intelligence Tools",
       "body": "<ul>\n<li>Cloud: Google Cloud and AWS are simplifying data migration tools to make moving local databases to the cloud easier for new engineers.</li>\n<li>AI: New generative AI tools are automating the creation of data documentation which helps teams understand complex table relationships instantly.</li>\n<li>Tip: Focus on learning how to build clean data schemas before worrying about high-speed streaming technologies.</li>\n</ul>",
       "published": "2026-08-31T18:37:49.402539Z",
       "published_cycle": "2026-08-31T18",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Recent Cloud Updates and AI Tools for Beginner Data Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Amazon Web Services recently simplified their data integration tools to help users move information between databases with less code.</li>\n<li>AI: Large language models are now being integrated into data platforms to help users generate SQL queries using natural language.</li>\n<li>Tip: Learn the difference between ETL and ELT processes to better understand how modern data stacks function.</li>\n</ul>",
       "published": "2026-08-29T15:50:00.582652Z",
       "published_cycle": "2026-08-29T15",
-      "is_new": false
-    },
-    {
-      "headline": "Essential Data Engineering News and Tips for New Professionals",
-      "body": "<ul>\n<li>Cloud: Major platforms are expanding serverless tools to help beginners build data pipelines without managing physical servers.</li>\n<li>AI: New automated tools are making it easier for engineers to clean and organize messy datasets using machine learning.</li>\n<li>Tip: Focus on understanding data modeling basics because a well-structured database saves hours of troubleshooting later.</li>\n</ul>",
-      "published": "2026-08-29T11:51:56.514973Z",
-      "published_cycle": "2026-08-29T11",
       "is_new": false
     }
   ]
