@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-09-01T15:39:38.151305Z",
+  "generated_at": "2026-09-02T01:39:13.781422Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "SQL window functions are a powerful feature that allows you to perform calculations across rows related to the current one. Unlike standard aggregate functions, which collapse multiple rows into a single result, window functions keep the...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-09-02T01:38:58.036598Z",
+      "is_new": true
+    },
     {
       "title": "Azure Data Lake design for analytics teams",
       "category": "Azure",
@@ -8,7 +17,7 @@
       "url": "articles/azure-data-lake-design-for-analytics-teams.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-lake-design-for-analytics-teams.html",
       "published": "2026-09-01T15:39:25.580585Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Python OOP for Data Engineers",
@@ -35,15 +44,6 @@
       "url": "articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/calling-llm-apis-from-python-with-retries-and-fallbacks.html",
       "published": "2026-08-31T18:37:37.863364Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "In the world of data engineering and Extract, Transform, Load (ETL) processes, manipulating data efficiently is a core skill. While basic SQL commands like GROUP BY allow us to aggregate data into single rows, they often strip away the...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-08-31T11:57:53.059825Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Essential Cloud Updates and AI Advancements for New Data Engineers",
+      "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless architectures to help beginners automate data workflows without handling physical infrastructure.</li>\n<li>AI: Large language models are now being used to automate data cleaning and generate schema definitions from raw files.</li>\n<li>Tip: Start by mastering SQL because it is the fundamental language used to interact with almost every data tool.</li>\n</ul>",
+      "published": "2026-09-02T01:39:13.781352Z",
+      "published_cycle": "2026-09-02T01",
+      "is_new": true
+    },
+    {
       "headline": "Simplified Data Pipelines and Smarter AI Tools Shape Modern Data Engineering",
       "body": "<ul>\n<li>Cloud: Major platforms are expanding serverless data warehousing options to reduce the need for manual server management.</li>\n<li>AI: Automated coding assistants are becoming essential for beginners to generate and optimize complex SQL transformation scripts.</li>\n<li>Tip: Focus on learning core data modeling concepts before exploring specific vendor tools to build a strong foundation.</li>\n</ul>",
       "published": "2026-09-01T15:39:38.151240Z",
       "published_cycle": "2026-09-01T15",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Essential Trends and Tools for New Data Engineers Today",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Leading platforms are expanding serverless storage options to help beginners manage large datasets without configuring complex hardware.</li>\n<li>AI: Automated coding assistants are now capable of writing and optimizing data transformation scripts to save development time.</li>\n<li>Tip: Focus on learning data modeling basics to ensure your pipelines remain organized and scalable as your projects grow.</li>\n</ul>",
       "published": "2026-08-30T10:48:42.156502Z",
       "published_cycle": "2026-08-30T10",
-      "is_new": false
-    },
-    {
-      "headline": "Essential Data Engineering Updates for Beginners in Cloud and AI",
-      "body": "<ul>\n<li>Cloud: Major providers are expanding serverless options to let new engineers build pipelines without managing underlying infrastructure.</li>\n<li>AI: New automated tools are helping beginners translate natural language into optimized SQL queries for data transformation.</li>\n<li>Tip: Focus on mastering SQL and Python basics before diving into specialized vendor tools or complex architectures.</li>\n</ul>",
-      "published": "2026-08-30T01:59:08.643160Z",
-      "published_cycle": "2026-08-30T01",
       "is_new": false
     }
   ]
