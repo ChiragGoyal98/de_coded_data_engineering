@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-09-04T15:16:06.589376Z",
+  "generated_at": "2026-09-04T19:58:06.241079Z",
   "articles": [
+    {
+      "title": "SDK patterns for production-grade AI integrations",
+      "category": "LLM APIs",
+      "summary": "Integrating a Large Language Model (LLM) into a real-world application is more complex than sending a single prompt and receiving a response. While simple HTTP requests work for local experiments, production environments demand...",
+      "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
+      "published": "2026-09-04T19:57:57.207225Z",
+      "is_new": true
+    },
     {
       "title": "Azure Data Lake design for analytics teams",
       "category": "Azure",
@@ -8,7 +17,7 @@
       "url": "articles/azure-data-lake-design-for-analytics-teams.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-lake-design-for-analytics-teams.html",
       "published": "2026-09-04T15:16:01.348053Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Python OOP for Data Engineers",
@@ -65,15 +74,6 @@
       "is_new": false
     },
     {
-      "title": "SDK patterns for production-grade AI integrations",
-      "category": "LLM APIs",
-      "summary": "Building an application that uses Large Language Models (LLMs) often begins with a simple API call. However, moving from a prototype to a production environment requires more than just sending a prompt and receiving a string. A...",
-      "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
-      "published": "2026-08-26T19:29:40.369809Z",
-      "is_new": false
-    },
-    {
       "title": "Azure Data Factory orchestration patterns",
       "category": "Azure",
       "summary": "In the world of cloud data engineering, Azure Data Factory serves as the central hub for moving and transforming data. At its core, ADF is an orchestration tool, meaning it manages the timing, sequence, and logic of how various data...",
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Essential Beginner News for Cloud Platforms AI Tools and Data Management",
+      "body": "<ul>\n<li>Cloud: Major service providers are introducing simplified serverless features to help new engineers deploy data pipelines with minimal configuration.</li>\n<li>AI: New automated systems are making it easier to clean and prepare massive datasets for use in large language models.</li>\n<li>Tip: Always validate your data at the entry point of your pipeline to prevent errors from crashing downstream applications.</li>\n</ul>",
+      "published": "2026-09-04T19:58:06.241015Z",
+      "published_cycle": "2026-09-04T19",
+      "is_new": true
+    },
+    {
       "headline": "Simplified Cloud Scaling and AI Driven Automation for New Data Engineers",
       "body": "<ul>\n<li>Cloud: Major platforms are expanding serverless options to let beginners run data workflows without managing backend servers.</li>\n<li>AI: New tools are using generative models to help engineers automatically document code and optimize database performance.</li>\n<li>Tip: Focus on learning core SQL concepts first because they remain the primary way to interact with most modern data systems.</li>\n</ul>",
       "published": "2026-09-04T15:16:06.589305Z",
       "published_cycle": "2026-09-04T15",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Beginner Friendly Data Engineering News and Essential Starting Tips",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Google Cloud and AWS are simplifying data migration tools to make moving local databases to the cloud easier for new engineers.</li>\n<li>AI: New generative AI tools are automating the creation of data documentation which helps teams understand complex table relationships instantly.</li>\n<li>Tip: Focus on learning how to build clean data schemas before worrying about high-speed streaming technologies.</li>\n</ul>",
       "published": "2026-08-31T18:37:49.402539Z",
       "published_cycle": "2026-08-31T18",
-      "is_new": false
-    },
-    {
-      "headline": "Recent Cloud Updates and AI Tools for Beginner Data Engineers",
-      "body": "<ul>\n<li>Cloud: Leading providers are simplifying data lake management to help beginners store and organize information more efficiently.</li>\n<li>AI: New AI powered coding assistants are now capable of generating entire data pipelines from simple text descriptions.</li>\n<li>Tip: Start by learning SQL fundamentals since it remains the primary language used for data manipulation across most platforms.</li>\n</ul>",
-      "published": "2026-08-31T11:58:35.576015Z",
-      "published_cycle": "2026-08-31T11",
       "is_new": false
     }
   ]
