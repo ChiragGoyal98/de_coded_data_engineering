@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-09-04T19:58:06.241079Z",
+  "generated_at": "2026-09-05T01:38:49.244364Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "SQL window functions are a specialized tool that allow you to perform calculations across a set of table rows that are related to the current row. Unlike a traditional GROUP BY clause, which collapses your data into summary rows, window...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-09-05T01:38:43.550838Z",
+      "is_new": true
+    },
     {
       "title": "SDK patterns for production-grade AI integrations",
       "category": "LLM APIs",
@@ -8,7 +17,7 @@
       "url": "articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sdk-patterns-for-production-grade-ai-integrations.html",
       "published": "2026-09-04T19:57:57.207225Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Azure Data Lake design for analytics teams",
@@ -26,15 +35,6 @@
       "url": "articles/python-oop-for-data-engineers.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
       "published": "2026-09-04T10:03:18.596189Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "Data transformation is a core part of any data engineering pipeline, and SQL window functions are often the most efficient way to handle complex calculations. Unlike standard aggregate functions like SUM or MEAN, which collapse multiple...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-09-03T01:43:34.715795Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Essential Modern Data Engineering Trends for New Professionals",
+      "body": "<ul>\n<li>Cloud: Platforms are expanding serverless options to make scaling data storage easier for developers.</li>\n<li>AI: Automated coding assistants are helping engineers build more efficient data pipelines with less manual work.</li>\n<li>Tip: Start by learning Python and SQL as they are the core languages used across the entire industry.</li>\n</ul>",
+      "published": "2026-09-05T01:38:49.244305Z",
+      "published_cycle": "2026-09-05T01",
+      "is_new": true
+    },
+    {
       "headline": "Essential Beginner News for Cloud Platforms AI Tools and Data Management",
       "body": "<ul>\n<li>Cloud: Major service providers are introducing simplified serverless features to help new engineers deploy data pipelines with minimal configuration.</li>\n<li>AI: New automated systems are making it easier to clean and prepare massive datasets for use in large language models.</li>\n<li>Tip: Always validate your data at the entry point of your pipeline to prevent errors from crashing downstream applications.</li>\n</ul>",
       "published": "2026-09-04T19:58:06.241015Z",
       "published_cycle": "2026-09-04T19",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simplified Cloud Scaling and AI Driven Automation for New Data Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: AWS Glue now offers new features that make serverless data integration faster and more affordable for small teams.</li>\n<li>AI: Major data platforms are integrating large language models to help beginners write SQL queries using natural language commands.</li>\n<li>Tip: Always document your data lineage so you can easily track how information moves from source to final report.</li>\n</ul>",
       "published": "2026-09-01T02:17:26.663622Z",
       "published_cycle": "2026-09-01T02",
-      "is_new": false
-    },
-    {
-      "headline": "Essential Trends in Cloud Data Infrastructure and Artificial Intelligence Tools",
-      "body": "<ul>\n<li>Cloud: Google Cloud and AWS are simplifying data migration tools to make moving local databases to the cloud easier for new engineers.</li>\n<li>AI: New generative AI tools are automating the creation of data documentation which helps teams understand complex table relationships instantly.</li>\n<li>Tip: Focus on learning how to build clean data schemas before worrying about high-speed streaming technologies.</li>\n</ul>",
-      "published": "2026-08-31T18:37:49.402539Z",
-      "published_cycle": "2026-08-31T18",
       "is_new": false
     }
   ]
