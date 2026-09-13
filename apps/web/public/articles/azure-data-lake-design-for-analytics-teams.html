@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Azure Data Lake design for analytics teams | DE-Coded Lab</title>
-  <meta name="description" content="Azure Data Lake Storage (ADLS) Gen2 is the foundational storage layer for building an analytics platform on Microsoft Azure. It combines the scalability of object storage with the organizational capabilities of a hierarchical file system,..." />
+  <meta name="description" content="Building a modern data platform on Azure starts with a solid foundation: Azure Data Lake Storage (ADLS) Gen2. At its core, a data lake is a centralized repository that allows you to store all your structured and unstructured data at any..." />
   <meta property="og:title" content="Azure Data Lake design for analytics teams" />
-  <meta property="og:description" content="Azure Data Lake Storage (ADLS) Gen2 is the foundational storage layer for building an analytics platform on Microsoft Azure. It combines the scalability of object storage with the organizational capabilities of a hierarchical file system,..." />
+  <meta property="og:description" content="Building a modern data platform on Azure starts with a solid foundation: Azure Data Lake Storage (ADLS) Gen2. At its core, a data lake is a centralized repository that allows you to store all your structured and unstructured data at any..." />
   <meta property="og:type" content="article" />
   <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
@@ -27,65 +27,64 @@
       <p class="pill">Azure</p>
       <h1>Azure Data Lake design for analytics teams</h1>
       <div class="article-meta">
-        <span>Published: Sep 11, 2026</span>
+        <span>Published: Sep 13, 2026</span>
         <span aria-hidden="true">&bull;</span>
         <span>4 min read</span>
       </div>
-      <p class="article-lead">Azure Data Lake Storage (ADLS) Gen2 is the foundational storage layer for building an analytics platform on Microsoft Azure. It combines the scalability of object storage with the organizational capabilities of a hierarchical file system,...</p>
+      <p class="article-lead">Building a modern data platform on Azure starts with a solid foundation: Azure Data Lake Storage (ADLS) Gen2. At its core, a data lake is a centralized repository that allows you to store all your structured and unstructured data at any...</p>
       <div class="article-body">
-      <p>Azure Data Lake Storage (ADLS) Gen2 is the foundational storage layer for building an analytics platform on Microsoft Azure. It combines the scalability of object storage with the organizational capabilities of a hierarchical file system, allowing teams to store massive amounts of structured, semi-structured, and unstructured data. For an analytics team, the data lake is more than just a repository; it is a structured environment where raw information is transformed into actionable insights through a series of logical stages.</p>
+      <p>Building a modern data platform on Azure starts with a solid foundation: Azure Data Lake Storage (ADLS) Gen2. At its core, a data lake is a centralized repository that allows you to store all your structured and unstructured data at any scale. For analytics teams, the design of this lake determines how easily data scientists can build models and how quickly analysts can generate insights. Think of it as organizing a massive library; if books are thrown randomly onto the floor, no one can find what they need, but with a clear shelving system, the entire organization thrives.</p>
 <h2>Why it matters</h2>
-<p>A well-designed data lake prevents the common pitfall of creating a &quot;data swamp,&quot; where files are uploaded without organization and eventually become impossible to find or use. By following a structured design, teams can achieve:</p>
+<p>A well-designed data lake is the difference between a &quot;data swamp&quot; and a high-performance analytics engine. For teams working in Azure, the design matters for several reasons:</p>
 <ul>
-<li>Cost Efficiency: Storing data in a lake is significantly cheaper than storing it in a relational database.</li>
-<li>Decoupled Compute: Multiple tools like Power BI, Azure Databricks, and Synapse Analytics can all read from the same data source simultaneously.</li>
-<li>Scalability: You can start with gigabytes of data and grow to petabytes without needing to re-architect your storage.</li>
-<li>Standardized Governance: A consistent folder structure makes it easier to apply security policies and lifecycle management rules.</li>
+<li><strong>Performance:</strong> Correct partitioning allows tools like Azure Synapse or Databricks to skip unnecessary data, making queries much faster.</li>
+<li><strong>Cost Control:</strong> ADLS Gen2 allows you to move older, unused data to &quot;Cool&quot; or &quot;Archive&quot; storage tiers automatically, saving significant money.</li>
+<li><strong>Security:</strong> Granular access control ensures that sensitive HR or financial data is only visible to authorized personnel while keeping public datasets accessible.</li>
+<li><strong>Scalability:</strong> A logical structure allows the lake to grow from gigabytes to petabytes without needing a complete redesign.</li>
 </ul>
 <h2>Step-by-step walkthrough</h2>
 <h3>1. Enable Hierarchical Namespace</h3>
-<p>When creating your Storage Account in Azure, you must enable the Hierarchical Namespace (HNS) feature. This is what turns a basic blob store into a true data lake. HNS allows you to create folders and subfolders, which makes data access and security much faster and more intuitive for analytics engines.</p>
-<h3>2. Implement the Medallion Architecture</h3>
-<p>The most common design pattern for data lakes is the Medallion Architecture. This divides your data into three distinct containers:</p>
+<p>When creating your Storage Account in the Azure Portal, you must enable the &quot;Hierarchical Namespace&quot; setting. This is what transforms a standard Blob storage into ADLS Gen2. It allows the storage to handle folders and directories efficiently, which is vital for organizing large datasets.</p>
+<h3>2. Adopt the Medallion Architecture</h3>
+<p>The most common industry standard for organizing a data lake is the Medallion (Bronze, Silver, Gold) architecture. This approach organizes data based on its quality and readiness for use.</p>
 <ul>
-<li>Bronze (Raw): This layer stores data exactly as it comes from the source. No transformations are allowed here. If a data pipeline fails, you can always restart from this layer.</li>
-<li>Silver (Cleansed/Enriched): Data is filtered, cleaned, and joined. This is where you remove duplicates and fix formatting issues.</li>
-<li>Gold (Curated): Data is aggregated and organized into a business-friendly format, often optimized for reporting tools like Power BI.</li>
+<li><strong>Bronze (Raw):</strong> This is the landing zone. Data is stored exactly as it comes from the source (APIs, databases, or logs). It is usually stored in its original format (JSON, CSV, etc.).</li>
+<li><strong>Silver (Cleansed):</strong> In this layer, data is cleaned, filtered, and standardized. Null values are handled, and data types are corrected. Data is typically stored in Parquet format here for better performance.</li>
+<li><strong>Gold (Curated):</strong> This layer contains &quot;business-ready&quot; data. It is often organized into star schemas or aggregated tables, ready to be consumed by Power BI or reporting tools.</li>
 </ul>
-<h3>3. Organize Folders by Subject and Date</h3>
-<p>Inside your containers, you should follow a predictable naming convention. A common pattern is:</p>
-<p><code>SubjectArea/Entity/Year/Month/Day/File</code></p>
-<p>For example, a sales file would live at:</p>
-<p><code>/silver/sales/orders/2023/10/24/orders_transformed.parquet</code></p>
-<h3>4. Choose the Right File Format</h3>
-<p>While CSVs are easy to read, they are inefficient for big data. For the Silver and Gold layers, use Parquet or Delta formats. These are columnar formats that compress data heavily and allow analytics tools to read only the columns they need, saving time and money.</p>
-<p>Below is an example of how you might save a cleaned dataset into your Silver layer using PySpark:</p>
-<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
-# Saving a Spark DataFrame to the Silver layer in Parquet format
-storage_path = &quot;abfss://silver@yourdatalake.dfs.core.windows.net/sales/orders/2023/10/&quot;
+<h3>3. Implement a Partitioning Strategy</h3>
+<p>Partitioning involves breaking down data into smaller, manageable chunks based on specific columns-usually time. A common structure looks like this:</p>
+<p><code>/year=2023/month=10/day=27/</code></p>
+<p>This allows the analytics engine to &quot;prune&quot; partitions, meaning it only reads the files for the specific date requested rather than scanning the entire lake.</p>
+<h3>4. Manage Security with Groups</h3>
+<p>Never assign permissions to individual users. Instead, create Microsoft Entra (formerly Azure AD) groups for different roles (e.g., <code>Data-Engineers-Group</code>, <code>Data-Analysts-Group</code>). Assign these groups Access Control List (ACL) permissions at the folder level. For example, Analysts may have &quot;Read&quot; access to the Gold layer but no access to the Bronze layer.</p>
+<h3>5. Automation with Azure CLI</h3>
+<p>You can automate the creation of your folder structure using the Azure CLI. This ensures consistency across different environments like Development, Testing, and Production.</p>
+<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-bash">
+# Create the main containers for the Medallion architecture
+az storage container create --name bronze --account-name mydatalake01
+az storage container create --name silver --account-name mydatalake01
+az storage container create --name gold --account-name mydatalake01
 
-df_cleaned.write \
-    .mode(&quot;overwrite&quot;) \
-    .partitionBy(&quot;day&quot;) \
-    .parquet(storage_path)
+# Create a sub-directory for a specific data source in Bronze
+az storage fs directory create --name sales_data --file-system bronze --account-name mydatalake01
 </code></pre></div>
-<h3>5. Manage Security with ACLs</h3>
-<p>Instead of giving every user the &quot;Account Key,&quot; use Azure Active Directory (Microsoft Entra ID). You can apply Access Control Lists (ACLs) to specific folders. For instance, the Finance team can have access to the <code>/gold/finance</code> folder but remain restricted from the <code>/bronze</code> raw data.</p>
 <h2>Common mistakes</h2>
 <ul>
-<li>Using the &quot;Flat&quot; Namespace: If you don&#x27;t enable Hierarchical Namespace during setup, you cannot change it later without migrating all your data.</li>
-<li>Poor Naming Conventions: Using spaces or special characters in folder names can break some analytics tools. Stick to lowercase and underscores.</li>
-<li>Over-partitioning: Creating too many small folders (e.g., partitioning by hour and minute) can slow down performance because the system has to open too many small files.</li>
-<li>Ignoring Lifecycle Management: Forgetting to set up rules to move old data to &quot;Cool&quot; or &quot;Archive&quot; storage tiers leads to unnecessarily high monthly bills.</li>
+<li><strong>Flat File Structures:</strong> Placing thousands of files in a single root folder. This causes &quot;list operations&quot; to slow down and makes management a nightmare.</li>
+<li><strong>Using Shared Keys:</strong> Avoid using the Storage Account Access Keys for team access. Use Managed Identities or Service Principals to ensure more secure, auditable connections.</li>
+<li><strong>Ignoring File Sizes:</strong> Having millions of tiny files (the &quot;small file problem&quot;) can degrade performance. Aim for file sizes between 256MB and 1GB when storing data in Silver or Gold layers.</li>
+<li><strong>No Lifecycle Management:</strong> Forgetting to set up policies that delete temporary files or move old logs to cheaper storage tiers.</li>
 </ul>
-<h2>One practice task</h2>
-<p>Imagine you are designing a data lake for a retail company that tracks website clicks. Your task is to sketch out the folder structure for the Bronze and Silver layers. </p>
+<h2>Practice task</h2>
+<p>Imagine you are designing a data lake for a global retail company called &quot;GlobalMart.&quot; They have two main data sources: <strong>In-store Sales</strong> (from SQL databases) and <strong>Website Clicks</strong> (from web logs).</p>
+<p><strong>Your Task:</strong></p>
 <ul>
-<li>Create a container named <code>bronze</code>.</li>
-<li>Inside <code>bronze</code>, create a folder path for website clicks originating from a &quot;Marketing&quot; source for the date December 12, 2023.</li>
-<li>Decide which file format you would use to save the processed version of this data in the <code>silver</code> container.</li>
+<li>Sketch out a folder hierarchy for the <strong>Bronze</strong> container.</li>
+<li>Decide which column you would use for partitioning the <strong>Website Clicks</strong> data.</li>
+<li>Determine which user group should have access to the <strong>Gold</strong> container for building Power BI dashboards.</li>
 </ul>
-<p><strong>Answer Hint:</strong> Your path should look like <code>/bronze/marketing/web_clicks/year=2023/month=12/day=12/</code> and the Silver format should ideally be Parquet or Delta.</p>
+<p><em>Hint: For the folder hierarchy, consider a structure like <code>SourceSystem/EntityName/Year/Month/Day</code>.</em></p>
       </div>
       <footer class="article-footer">
         <a class="link-button" href="/de_coded_data_engineering/index.html">Explore more tutorials &rarr;</a>
