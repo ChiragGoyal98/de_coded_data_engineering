@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-09-14T21:06:17.963217Z",
+  "generated_at": "2026-09-15T02:06:59.147889Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "When working with massive amounts of data that exceed the memory capacity of a single computer, traditional libraries like Pandas often fall short. Apache Spark provides a solution through its Python API, PySpark, which allows for...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-09-15T02:06:33.574922Z",
+      "is_new": true
+    },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-09-14T21:06:11.931191Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Databricks notebook collaboration best practices",
@@ -65,15 +74,6 @@
       "is_new": false
     },
     {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "When working with massive amounts of data that exceed the memory capacity of a single computer, standard Python libraries like pandas often struggle or crash. This is where PySpark enters the picture. PySpark is the Python API for Apache...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-09-01T02:17:01.623007Z",
-      "is_new": false
-    },
-    {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
       "category": "LLM APIs",
       "summary": "Interacting with Large Language Models (LLMs) through APIs is a core skill for modern developers. However, these external services are not always reliable. You might encounter temporary network hiccups, rate limits, or even complete...",
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simplified Data Engineering Trends for Cloud and AI Beginners",
+      "body": "<p>Cloud: Major cloud platforms are releasing simplified tools that automate the setup of data warehouses.</p>\n<p>AI: New generative tools help beginners create complex data transformations using simple text instructions.</p>\n<p>Tip: Learn how to document your data source and destination to prevent future confusion.</p>",
+      "published": "2026-09-15T02:06:59.147810Z",
+      "published_cycle": "2026-09-15T02",
+      "is_new": true
+    },
+    {
       "headline": "Essential Updates in Cloud Computing and AI for New Data Engineers",
       "body": "<ul>\n<li>Cloud: Google Cloud recently introduced new BigQuery features that simplify data sharing and integration across different organizations.</li>\n<li>AI: Engineers are increasingly using vector databases to store and retrieve data for large language model applications.</li>\n<li>Tip: Start your journey by learning SQL because it remains the most fundamental language for managing and querying data.</li>\n</ul>",
       "published": "2026-09-14T21:06:17.963150Z",
       "published_cycle": "2026-09-14T21",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Modern Data Tools and Artificial Intelligence News for Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud providers are launching more serverless options that allow new engineers to build data pipelines without needing to manage complex server infrastructure.</li>\n<li>AI: New artificial intelligence features in database tools now help users write complex SQL queries and fix coding errors automatically through simple chat interfaces.</li>\n<li>Tip: Focus on mastering SQL fundamentals first because it remains the most essential language for moving and transforming data across any modern platform.</li>\n</ul>",
       "published": "2026-09-12T09:41:43.873873Z",
       "published_cycle": "2026-09-12T09",
-      "is_new": false
-    },
-    {
-      "headline": "Data Engineering Essentials for Beginners and Emerging Professionals",
-      "body": "<ul>\n<li>Cloud: Major providers like AWS are simplifying data integration by offering zero-ETL features that reduce the need for custom coding.</li>\n<li>AI: Generative tools are helping new data engineers write more efficient transformation code and document their pipelines automatically.</li>\n<li>Tip: Practice building a simple end-to-end pipeline using a small public dataset to understand how data flows from source to storage.</li>\n</ul>",
-      "published": "2026-09-11T20:08:52.945501Z",
-      "published_cycle": "2026-09-11T20",
       "is_new": false
     }
   ]
