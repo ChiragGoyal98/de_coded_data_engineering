@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python OOP for Data Engineers | DE-Coded Lab</title>
-  <meta name="description" content="Many data engineers begin their careers writing linear scripts that execute tasks from top to bottom. While this procedural approach is excellent for simple ETL (Extract, Transform, Load) tasks, it often becomes difficult to manage as data..." />
+  <meta name="description" content="As a data engineer, you likely spend much of your time writing scripts to move data from point A to point B. While functional programming-writing a sequence of functions-is common, Object-Oriented Programming (OOP) allows you to build more..." />
   <meta property="og:title" content="Python OOP for Data Engineers" />
-  <meta property="og:description" content="Many data engineers begin their careers writing linear scripts that execute tasks from top to bottom. While this procedural approach is excellent for simple ETL (Extract, Transform, Load) tasks, it often becomes difficult to manage as data..." />
+  <meta property="og:description" content="As a data engineer, you likely spend much of your time writing scripts to move data from point A to point B. While functional programming-writing a sequence of functions-is common, Object-Oriented Programming (OOP) allows you to build more..." />
   <meta property="og:type" content="article" />
   <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
@@ -31,60 +31,59 @@
         <span aria-hidden="true">&bull;</span>
         <span>3 min read</span>
       </div>
-      <p class="article-lead">Many data engineers begin their careers writing linear scripts that execute tasks from top to bottom. While this procedural approach is excellent for simple ETL (Extract, Transform, Load) tasks, it often becomes difficult to manage as data...</p>
+      <p class="article-lead">As a data engineer, you likely spend much of your time writing scripts to move data from point A to point B. While functional programming-writing a sequence of functions-is common, Object-Oriented Programming (OOP) allows you to build more...</p>
       <div class="article-body">
-      <p>Many data engineers begin their careers writing linear scripts that execute tasks from top to bottom. While this procedural approach is excellent for simple ETL (Extract, Transform, Load) tasks, it often becomes difficult to manage as data ecosystems grow. Object-Oriented Programming, or OOP, provides a way to structure your code by grouping related data and behaviors into &quot;objects.&quot; In the world of data engineering, this means moving away from one-off scripts and toward building robust, reusable components like database connectors, API clients, and data validators.</p>
-<h2>Why OOP Matters for Data Engineers</h2>
-<p>In a production environment, data pipelines are rarely static. You might start by pulling data from a single PostgreSQL database, but soon you are asked to integrate S3 buckets, Snowflake, and external REST APIs. Without OOP, you end up with &quot;spaghetti code&quot;-hundreds of lines of disconnected functions that are hard to test and even harder to debug.</p>
+      <p>As a data engineer, you likely spend much of your time writing scripts to move data from point A to point B. While functional programming-writing a sequence of functions-is common, Object-Oriented Programming (OOP) allows you to build more robust, reusable, and scalable data pipelines. Instead of viewing your code as a list of instructions, OOP encourages you to think of your code as a collection of &quot;objects&quot; that represent real-world entities, such as a database connection, an API client, or a file processor.</p>
+<h2>Why OOP Matters for Data Engineering</h2>
+<p>In the early stages of a project, a simple script works fine. However, as your infrastructure grows, you might find yourself managing dozens of different data sources. OOP helps in three specific ways:</p>
 <ul>
-<li><strong>Reusability</strong>: You can write a base &quot;Connector&quot; class once and reuse it across multiple pipelines.</li>
-<li><strong>Maintainability</strong>: If an API authentication method changes, you only need to update the logic in one class rather than hunting through ten different scripts.</li>
-<li><strong>Abstraction</strong>: Complex logic, such as handling retry attempts or logging, can be hidden inside a method, making your main pipeline logic clean and readable.</li>
+<li><strong>Modularity</strong>: You can create a blueprint for a &quot;Data Loader&quot; and reuse it for AWS S3, Google Cloud Storage, or a local disk without rewriting the core logic.</li>
+<li><strong>Abstraction</strong>: You can hide complex implementation details (like the specifics of a library&#x27;s authentication) inside a class, exposing only simple methods like <code>extract()</code> or <code>load()</code>.</li>
+<li><strong>Maintainability</strong>: If a database schema changes, you only need to update the code in one class rather than hunting through 20 different scripts.</li>
 </ul>
 <h2>Step-by-Step Walkthrough</h2>
-<h3>1. Defining the Class and Constructor</h3>
-<p>A class is a blueprint. In data engineering, think of a class as a template for a specific tool, like a &quot;DatabaseLoader.&quot; The <code>__init__</code> method (the constructor) is where you define the initial state, such as credentials or table names.</p>
-<h3>2. Creating Methods</h3>
-<p>Methods are functions defined inside a class that describe what the object can do. For a data engineer, methods usually involve connecting, fetching, or writing data.</p>
-<h3>3. Implementing Inheritance</h3>
-<p>Inheritance allows one class to take on the properties of another. This is powerful when you have a general &quot;DataConnector&quot; but need specific versions for &quot;S3&quot; and &quot;SQL.&quot;</p>
-<h3>Code Example: A Simple Data Pipeline Component</h3>
-<p>Here is how you might structure a basic class to handle different data sources:</p>
+<h3>1. Defining a Class and Object</h3>
+<p>A <strong>Class</strong> is the blueprint, while an <strong>Object</strong> is the actual instance of that blueprint. In data engineering, a class might be a <code>DatabaseConnector</code>.</p>
+<h3>2. The <strong>init</strong> Method</h3>
+<p>This is the &quot;constructor.&quot; It runs automatically when you create a new object. It is usually where you define your configuration, like hostnames or API keys.</p>
+<h3>3. Methods</h3>
+<p>Methods are functions that belong to the class. For a data engineer, these are the &quot;actions&quot; your object takes, such as <code>connect()</code>, <code>fetch_data()</code>, or <code>close_connection()</code>.</p>
+<h3>4. Putting it Together</h3>
+<p>Here is a simple example of a class designed to handle a generic API connection:</p>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
-class DataIngestor:
-    def __init__(self, source_name):
-        self.source_name = source_name
+import requests
 
-    def connect(self):
-        print(f&quot;Connecting to {self.source_name}...&quot;)
+class APIConsumer:
+    def __init__(self, base_url, token):
+        self.base_url = base_url
+        self.headers = {&quot;Authorization&quot;: f&quot;Bearer {token}&quot;}
 
-class PostgresIngestor(DataIngestor):
-    def __init__(self, source_name, db_url):
-        super().__init__(source_name)
-        self.db_url = db_url
+    def fetch_endpoint(self, endpoint):
+        response = requests.get(f&quot;{self.base_url}/{endpoint}&quot;, headers=self.headers)
+        if response.status_code == 200:
+            return response.json()
+        return None
 
-    def fetch_data(self, query):
-        self.connect()
-        return f&quot;Results from {self.db_url} using query: {query}&quot;
-
-# Usage
-pg_loader = PostgresIngestor(&quot;Production_DB&quot;, &quot;postgres://user:pass@localhost:5432&quot;)
-print(pg_loader.fetch_data(&quot;SELECT * FROM orders LIMIT 5&quot;))
+# Creating an instance (Object)
+weather_api = APIConsumer(&quot;https://api.weather.com&quot;, &quot;my_secret_token&quot;)
+data = weather_api.fetch_endpoint(&quot;forecast&quot;)
 </code></pre></div>
+<h3>5. Inheritance</h3>
+<p>Inheritance allows one class to take on the properties of another. For example, you could have a parent class called <code>FileProcessor</code> and child classes called <code>CSVProcessor</code> and <code>JSONProcessor</code>. The children inherit the basic file-opening logic from the parent but implement their own specific parsing logic.</p>
 <h2>Common Mistakes</h2>
 <ul>
-<li><strong>Over-Engineering</strong>: Not every script needs to be a class. If you are just moving one file once, a simple function is usually better. Only use OOP when you need to manage state or reuse logic.</li>
-<li><strong>Hardcoding Credentials</strong>: Beginners often hardcode passwords inside the <code>__init__</code> method. Always use environment variables or a secret manager.</li>
-<li><strong>Large Monolithic Classes</strong>: Avoid creating a single &quot;DataPipeline&quot; class that does everything from extraction to machine learning. Break it down into smaller, specialized classes (e.g., <code>Extractor</code>, <code>Transformer</code>, <code>Loader</code>).</li>
+<li><strong>Forgetting &#x27;self&#x27;</strong>: In Python, the first argument of any method inside a class must be <code>self</code>. This refers to the specific instance of the object. Forgetting this is the most common cause of <code>TypeError</code> for beginners.</li>
+<li><strong>Over-Engineering</strong>: Don&#x27;t use OOP for every tiny task. If a simple five-line function does the job, a class might be overkill. Use OOP when you need to manage state or reuse logic across different contexts.</li>
+<li><strong>Hardcoding Values</strong>: Avoid putting credentials directly inside the class. Always pass them as arguments to the <code>__init__</code> method so your code remains portable and secure.</li>
 </ul>
 <h2>Practice Task</h2>
-<p><strong>The Challenge</strong>: Create a class called <code>FileProcessor</code>. </p>
+<p><strong>The Challenge:</strong> Create a class named <code>DataValidator</code>. </p>
 <ul>
-<li>The constructor should take a <code>file_path</code>.</li>
-<li>Add a method called <code>get_extension</code> that returns the file extension (e.g., .csv, .json).</li>
-<li>Create a subclass called <code>CSVProcessor</code> that inherits from <code>FileProcessor</code> and adds a method called <code>read_header</code> which simply prints &quot;Reading CSV header...&quot;.</li>
+<li>The <code>__init__</code> method should take a list of data (a list of dictionaries).</li>
+<li>Create a method called <code>check_nulls</code> that returns a list of records that have missing values.</li>
+<li>Create a method called <code>get_count</code> that returns the total number of records.</li>
 </ul>
-<p>This exercise will help you understand how to pass information through a class hierarchy, a foundational skill for building modular data pipelines.</p>
+<p>This task will help you practice encapsulating data and logic within a single unit, which is the core of OOP in data engineering.</p>
       </div>
       <footer class="article-footer">
         <a class="link-button" href="/de_coded_data_engineering/index.html">Explore more tutorials &rarr;</a>
