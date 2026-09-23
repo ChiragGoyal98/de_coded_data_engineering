@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python OOP for Data Engineers | DE-Coded Lab</title>
-  <meta name="description" content="In the world of data engineering, we often start with linear scripts-sequences of commands that pull data from an API, transform it, and load it into a database. However, as pipelines grow in complexity, these scripts become difficult to..." />
+  <meta name="description" content="Python is a multi-paradigm language, but its object-oriented capabilities are what allow data engineers to build robust and scalable systems. Instead of writing long scripts that run from top to bottom, Object-Oriented Programming (OOP)..." />
   <meta property="og:title" content="Python OOP for Data Engineers" />
-  <meta property="og:description" content="In the world of data engineering, we often start with linear scripts-sequences of commands that pull data from an API, transform it, and load it into a database. However, as pipelines grow in complexity, these scripts become difficult to..." />
+  <meta property="og:description" content="Python is a multi-paradigm language, but its object-oriented capabilities are what allow data engineers to build robust and scalable systems. Instead of writing long scripts that run from top to bottom, Object-Oriented Programming (OOP)..." />
   <meta property="og:type" content="article" />
   <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
@@ -31,65 +31,75 @@
         <span aria-hidden="true">&bull;</span>
         <span>3 min read</span>
       </div>
-      <p class="article-lead">In the world of data engineering, we often start with linear scripts-sequences of commands that pull data from an API, transform it, and load it into a database. However, as pipelines grow in complexity, these scripts become difficult to...</p>
+      <p class="article-lead">Python is a multi-paradigm language, but its object-oriented capabilities are what allow data engineers to build robust and scalable systems. Instead of writing long scripts that run from top to bottom, Object-Oriented Programming (OOP)...</p>
       <div class="article-body">
-      <p>In the world of data engineering, we often start with linear scripts-sequences of commands that pull data from an API, transform it, and load it into a database. However, as pipelines grow in complexity, these scripts become difficult to maintain. This is where Object-Oriented Programming (OOP) becomes a vital tool. OOP is a paradigm centered around &quot;objects&quot; rather than just &quot;functions.&quot; It allows you to wrap data and the operations that act on that data into single, reusable units. For a data engineer, this means moving away from messy global variables and toward structured, scalable codebases.</p>
-<h2>Why OOP Matters for Data Engineers</h2>
-<p>Data engineering is rarely about a single task; it is about building systems. Using OOP provides several advantages:</p>
+      <p>Python is a multi-paradigm language, but its object-oriented capabilities are what allow data engineers to build robust and scalable systems. Instead of writing long scripts that run from top to bottom, Object-Oriented Programming (OOP) lets you organize code into reusable blueprints called classes. This transition from functional scripting to structural programming is a major milestone for any aspiring data engineer looking to build professional ETL pipelines.</p>
+<h2>Why it Matters for Data Engineers</h2>
+<p>In data engineering, we often perform repetitive tasks: connecting to databases, fetching data from APIs, and cleaning logs. Writing a new function for every single database table is inefficient and prone to errors. </p>
+<p>OOP provides three main benefits for data infrastructure:</p>
 <ul>
-<li>Code Reusability: Instead of writing a new connection script for every AWS S3 bucket, you can create a single S3Connector class and reuse it across multiple projects.</li>
-<li>Maintenance: If a database driver updates and breaks your connection logic, you only need to fix the code in one class rather than hunting through dozens of standalone scripts.</li>
-<li>Abstraction: You can hide the complex logic of how a data source is parsed. Other team members can simply call a method like <code>.extract()</code> without needing to understand the 200 lines of regex happening under the hood.</li>
+<li><strong>Reusability:</strong> You can write a base &quot;Connector&quot; class and reuse it for MySQL, PostgreSQL, or Snowflake.</li>
+<li><strong>Maintainability:</strong> If a connection logic changes, you only update it in one class rather than fifty different scripts.</li>
+<li><strong>Abstraction:</strong> Your main pipeline script doesn&#x27;t need to know <em>how</em> the data is fetched; it only needs to call a simple method like <code>.extract()</code>.</li>
 </ul>
 <h2>Step-by-Step Walkthrough</h2>
-<h3>1. The Blueprint (The Class)</h3>
-<p>A class is like a blueprint for a house. It defines what the house should have (windows, doors) and what can happen in it (opening a door). In DE, a class often represents a resource like a database, a file, or an API.</p>
-<h3>2. Initializing State with <code>__init__</code></h3>
-<p>When you &quot;build&quot; a house from the blueprint, you are creating an instance. The <code>__init__</code> method allows you to pass specific information to that instance, such as a connection string or a file path.</p>
-<h3>3. Adding Behavior (Methods)</h3>
-<p>Methods are functions defined inside a class. They represent the actions your data object can take.</p>
-<h3>4. Putting it into Practice</h3>
-<p>Here is a simple example of a class designed to handle a basic data extraction task:</p>
+<h3>1. Defining a Class and the <code>__init__</code> Method</h3>
+<p>A class is a blueprint. To create a specific &quot;instance&quot; of that blueprint, we use the <code>__init__</code> method (the constructor) to set up the initial data.</p>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
-class LocalExtractor:
-    def __init__(self, file_path):
-        self.file_path = file_path
-        self.data = None
+class DataPipeline:
+    def __init__(self, source_name):
+        self.source = source_name
+        print(f&quot;Pipeline for {self.source} initialized.&quot;)
 
-    def read_file(self):
-        try:
-            with open(self.file_path, &#x27;r&#x27;) as f:
-                self.data = f.read()
-            print(f&quot;Successfully read {self.file_path}&quot;)
-        except FileNotFoundError:
-            print(&quot;File not found.&quot;)
-
-    def get_preview(self):
-        if self.data:
-            return self.data[:50]
-        return &quot;No data loaded.&quot;
-
-# Usage
-extractor = LocalExtractor(&quot;logs.txt&quot;)
-extractor.read_file()
-print(extractor.get_preview())
+# Creating an instance
+my_pipeline = DataPipeline(&quot;S3_Bucket&quot;)
 </code></pre></div>
-<h3>5. Inheritance</h3>
-<p>Inheritance allows one class to take on the attributes and methods of another. You might have a base <code>DatabaseConnector</code> class and then specific child classes like <code>PostgresConnector</code> or <code>MySQLConnector</code> that inherit the basic connection logic but implement their own specific drivers.</p>
+<h3>2. Adding Methods (Actions)</h3>
+<p>Methods are functions defined inside a class that describe what the object can do. For a data engineer, these are typically actions like <code>extract</code>, <code>transform</code>, or <code>load</code>.</p>
+<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
+class DataPipeline:
+    def __init__(self, source_name):
+        self.source = source_name
+
+    def extract_data(self):
+        return f&quot;Extracting raw data from {self.source}...&quot;
+
+pipeline = DataPipeline(&quot;API_Endpoint&quot;)
+print(pipeline.extract_data())
+</code></pre></div>
+<h3>3. Using Inheritance</h3>
+<p>Inheritance allows one class to take on the properties of another. This is perfect for creating a general &quot;Database&quot; class and then specialized classes for &quot;Postgres&quot; or &quot;BigQuery.&quot;</p>
+<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
+class DatabaseConnector:
+    def connect(self):
+        print(&quot;Connecting to the server...&quot;)
+
+class PostgresConnector(DatabaseConnector):
+    def connect(self):
+        super().connect()  # Runs the parent&#x27;s connect logic
+        print(&quot;Specific connection logic for Postgres applied.&quot;)
+
+pg = PostgresConnector()
+pg.connect()
+</code></pre></div>
 <h2>Common Mistakes</h2>
 <ul>
-<li>Forgetting &#x27;self&#x27;: In Python, every method inside a class must take <code>self</code> as its first argument. This is how the method knows which specific object it is working with.</li>
-<li>Over-engineering: Beginners often try to make everything a class. If a simple function can perform a transformation in three lines, you probably don&#x27;t need a class for it.</li>
-<li>Hardcoding credentials: Never hardcode API keys or passwords inside your class definitions. Pass them as arguments during initialization or use environment variables.</li>
+<li><strong>Forgetting <code>self</code>:</strong> In Python, the first argument of any method in a class must be <code>self</code>. It represents the specific instance of the object. Forgetting it will result in a <code>TypeError</code>.</li>
+<li><strong>Using Class Variables instead of Instance Variables:</strong> If you define a variable outside <code>__init__</code>, it is shared by all instances. This can lead to data leaks between different pipelines.</li>
+<li><strong>Over-Engineering:</strong> Don&#x27;t create a complex class hierarchy for a simple five-line script. Use OOP when you need to manage state or reuse logic across multiple files.</li>
 </ul>
-<h2>Practice Task: The Schema Validator</h2>
-<p>To practice, create a class called <code>SchemaValidator</code>. </p>
+<h2>Practice Task</h2>
+<p><strong>The Challenge:</strong> Create a class named <code>DataTransformer</code>. </p>
 <ul>
-<li>It should be initialized with a list of <code>expected_columns</code>.</li>
-<li>It should have a method called <code>validate(current_columns)</code> that compares a list of columns from a new dataset against the expected ones.</li>
-<li>If a column is missing, the method should return <code>False</code> and print the missing columns. If everything matches, it should return <code>True</code>.</li>
+<li>The <code>__init__</code> method should take a list of numbers.</li>
+<li>Add a method named <code>multiply_by_two</code> that returns a new list with every number doubled.</li>
+<li>Add a method named <code>filter_above_ten</code> that returns only the numbers greater than 10.</li>
 </ul>
-<p>This is a common real-world task for ensuring data quality before loading into a warehouse.</p>
+<p><strong>Sample Input:</strong></p>
+<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
+transformer = DataTransformer([2, 5, 8, 12])
+print(transformer.multiply_by_two()) # Expected: [4, 10, 16, 24]
+</code></pre></div>
       </div>
       <footer class="article-footer">
         <a class="link-button" href="/de_coded_data_engineering/index.html">Explore more tutorials &rarr;</a>
