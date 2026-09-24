@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-09-24T10:37:30.413616Z",
+  "generated_at": "2026-09-24T16:00:25.739579Z",
   "articles": [
+    {
+      "title": "Azure Data Lake design for analytics teams",
+      "category": "Azure",
+      "summary": "When building a data platform in the cloud, the data lake serves as the central nervous system. In the context of Microsoft Azure, this is typically Azure Data Lake Storage Gen2 (ADLS Gen2). For analytics teams, a data lake is not just a...",
+      "url": "articles/azure-data-lake-design-for-analytics-teams.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-lake-design-for-analytics-teams.html",
+      "published": "2026-09-24T16:00:07.258264Z",
+      "is_new": true
+    },
     {
       "title": "Python OOP for Data Engineers",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/python-oop-for-data-engineers.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
       "published": "2026-09-24T10:37:22.064360Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -17,15 +26,6 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-09-24T01:51:52.268053Z",
-      "is_new": false
-    },
-    {
-      "title": "Azure Data Lake design for analytics teams",
-      "category": "Azure",
-      "summary": "Setting up a data lake is often the first major hurdle for a team building a modern analytics platform. In the Azure ecosystem, this usually means working with Azure Data Lake Storage (ADLS) Gen2. Unlike a traditional database that...",
-      "url": "articles/azure-data-lake-design-for-analytics-teams.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-lake-design-for-analytics-teams.html",
-      "published": "2026-09-23T15:39:38.657366Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Essential Cloud Updates and Success Tips for New Data Engineers",
+      "body": "<ul>\n<li>Cloud: Major providers are expanding serverless options to make it easier for beginners to build pipelines without infrastructure overhead.</li>\n<li>AI: Large language models are increasingly used to generate documentation and unit tests for data transformation scripts automatically.</li>\n<li>Tip: Focus on learning the fundamentals of data modeling before jumping into specific big data tools or frameworks.</li>\n</ul>",
+      "published": "2026-09-24T16:00:25.739475Z",
+      "published_cycle": "2026-09-24T16",
+      "is_new": true
+    },
+    {
       "headline": "Data Engineering Essentials Platform Updates And Career Tips",
       "body": "<ul>\n<li>Cloud: Major cloud providers are launching simplified serverless tools to help beginners build data pipelines without managing complex servers.</li>\n<li>AI: New generative tools can now automatically write and fix data transformation scripts to assist engineers in learning code.</li>\n<li>Tip: Focus on mastering SQL first as it remains the most critical language for moving and analyzing data in any system.</li>\n</ul>",
       "published": "2026-09-24T10:37:30.413550Z",
       "published_cycle": "2026-09-24T10",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simplified Cloud Storage and AI Tools Help New Data Engineers Excel",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Leading platforms are expanding serverless options to help you build data workflows without worrying about underlying hardware maintenance.</li>\n<li>AI: Integration of large language models into data warehouses is making it easier for new engineers to write and debug code.</li>\n<li>Tip: Prioritize understanding data modeling concepts early on to ensure your pipelines produce high-quality and reliable information.</li>\n</ul>",
       "published": "2026-09-22T10:26:38.106766Z",
       "published_cycle": "2026-09-22T10",
-      "is_new": false
-    },
-    {
-      "headline": "Simplified Data Engineering Trends for Cloud and Artificial Intelligence",
-      "body": "<ul>\n<li>Cloud: Cloud providers are simplifying data movement by offering new serverless options that require minimal coding and configuration.</li>\n<li>AI: Generative AI tools are now assisting beginners by automatically writing and debugging complex data transformation scripts.</li>\n<li>Tip: Start your journey by mastering SQL as it remains the most essential language for querying and managing data.</li>\n</ul>",
-      "published": "2026-09-22T02:05:00.111941Z",
-      "published_cycle": "2026-09-22T02",
       "is_new": false
     }
   ]
