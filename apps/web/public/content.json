@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-09-26T10:24:25.082575Z",
+  "generated_at": "2026-09-26T15:13:02.964178Z",
   "articles": [
+    {
+      "title": "Azure Data Lake design for analytics teams",
+      "category": "Azure",
+      "summary": "Azure Data Lake Storage (ADLS) Gen2 is the backbone of modern data engineering on the Microsoft cloud. At its simplest level, it is a highly scalable storage solution that combines the power of a file system with the scale of object...",
+      "url": "articles/azure-data-lake-design-for-analytics-teams.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-lake-design-for-analytics-teams.html",
+      "published": "2026-09-26T15:12:48.690494Z",
+      "is_new": true
+    },
     {
       "title": "Python OOP for Data Engineers",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/python-oop-for-data-engineers.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
       "published": "2026-09-26T10:24:16.497988Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "PySpark Transformations for Large Datasets",
@@ -26,15 +35,6 @@
       "url": "articles/databricks-delta-lake-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
       "published": "2026-09-25T16:00:50.584154Z",
-      "is_new": false
-    },
-    {
-      "title": "Azure Data Lake design for analytics teams",
-      "category": "Azure",
-      "summary": "When building a data platform in the cloud, the data lake serves as the central nervous system. In the context of Microsoft Azure, this is typically Azure Data Lake Storage Gen2 (ADLS Gen2). For analytics teams, a data lake is not just a...",
-      "url": "articles/azure-data-lake-design-for-analytics-teams.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-lake-design-for-analytics-teams.html",
-      "published": "2026-09-24T16:00:07.258264Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "New Cloud Tools And AI Assistants Simplifying Data Engineering For Beginners",
+      "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless functions to help beginners manage data pipelines without managing infrastructure.</li>\n<li>AI: New large language models are being integrated into SQL editors to help users write and debug data queries more efficiently.</li>\n<li>Tip: Focus on mastering basic Python and SQL before exploring more advanced data orchestration platforms.</li>\n</ul>",
+      "published": "2026-09-26T15:13:02.964110Z",
+      "published_cycle": "2026-09-26T15",
+      "is_new": true
+    },
+    {
       "headline": "Essential Data Engineering Updates for Cloud and AI Beginners",
       "body": "<ul>\n<li>Cloud: Leading providers are simplifying serverless infrastructure to allow beginners to build scalable pipelines without managing complex servers.</li>\n<li>AI: Modern tools now use generative artificial intelligence to help engineers write and optimize SQL queries more efficiently.</li>\n<li>Tip: Always prioritize data quality checks at the beginning of your pipeline to prevent errors from spreading to your reports.</li>\n</ul>",
       "published": "2026-09-26T10:24:25.082511Z",
       "published_cycle": "2026-09-26T10",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Data Engineering News and Career Tips for Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud providers are launching simplified serverless tools to help beginners build data pipelines without managing complex servers.</li>\n<li>AI: New generative tools can now automatically write and fix data transformation scripts to assist engineers in learning code.</li>\n<li>Tip: Focus on mastering SQL first as it remains the most critical language for moving and analyzing data in any system.</li>\n</ul>",
       "published": "2026-09-24T10:37:30.413550Z",
       "published_cycle": "2026-09-24T10",
-      "is_new": false
-    },
-    {
-      "headline": "Simplified Cloud Storage and AI Tools Help New Data Engineers Excel",
-      "body": "<ul>\n<li>Cloud: Platforms like Snowflake and Databricks are expanding support for Apache Iceberg to make cross-cloud data sharing more accessible.</li>\n<li>AI: Developers are now using large language models to automatically generate Python scripts for moving data between systems.</li>\n<li>Tip: Always validate your data at the start of a pipeline to prevent small errors from becoming large problems later.</li>\n</ul>",
-      "published": "2026-09-24T01:51:58.893975Z",
-      "published_cycle": "2026-09-24T01",
       "is_new": false
     }
   ]
