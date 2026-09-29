@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Databricks notebook collaboration best practices | DE-Coded Lab</title>
-  <meta name="description" content="Databricks notebooks are more than just a place to write code; they are a collaborative environment where data engineers, scientists, and analysts work together in real-time. Much like a shared document, these notebooks allow multiple..." />
+  <meta name="description" content="Databricks notebooks are more than just a place to write code; they are a shared workspace where data engineers and scientists build solutions together. While the platform allows multiple people to type in the same notebook at once,..." />
   <meta property="og:title" content="Databricks notebook collaboration best practices" />
-  <meta property="og:description" content="Databricks notebooks are more than just a place to write code; they are a collaborative environment where data engineers, scientists, and analysts work together in real-time. Much like a shared document, these notebooks allow multiple..." />
+  <meta property="og:description" content="Databricks notebooks are more than just a place to write code; they are a shared workspace where data engineers and scientists build solutions together. While the platform allows multiple people to type in the same notebook at once,..." />
   <meta property="og:type" content="article" />
   <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
@@ -27,57 +27,67 @@
       <p class="pill">Databricks</p>
       <h1>Databricks notebook collaboration best practices</h1>
       <div class="article-meta">
-        <span>Published: Sep 14, 2026</span>
+        <span>Published: Sep 29, 2026</span>
         <span aria-hidden="true">&bull;</span>
-        <span>4 min read</span>
+        <span>3 min read</span>
       </div>
-      <p class="article-lead">Databricks notebooks are more than just a place to write code; they are a collaborative environment where data engineers, scientists, and analysts work together in real-time. Much like a shared document, these notebooks allow multiple...</p>
+      <p class="article-lead">Databricks notebooks are more than just a place to write code; they are a shared workspace where data engineers and scientists build solutions together. While the platform allows multiple people to type in the same notebook at once,...</p>
       <div class="article-body">
-      <p>Databricks notebooks are more than just a place to write code; they are a collaborative environment where data engineers, scientists, and analysts work together in real-time. Much like a shared document, these notebooks allow multiple users to edit, comment, and run cells simultaneously. However, without a set of established rules, this shared space can quickly become chaotic. Managing shared code effectively ensures that team members do not overwrite each other&#x27;s work and that the final pipeline remains readable and maintainable.</p>
+      <p>Databricks notebooks are more than just a place to write code; they are a shared workspace where data engineers and scientists build solutions together. While the platform allows multiple people to type in the same notebook at once, working effectively as a team requires more than just shared access. Without a clear strategy, you might find yourself overwriting a colleague&#x27;s work or struggling to understand why a certain block of code was changed. Learning how to collaborate properly ensures that your data pipelines remain stable and your team stays productive.</p>
 <h2>Why it matters</h2>
-<p>In a professional data engineering environment, code is rarely a solo project. Effective collaboration practices prevent &quot;code drifting,&quot; where different versions of the same logic exist in multiple places. It also speeds up the peer review process, makes onboarding new team members easier, and ensures that sensitive information-like API keys or database passwords-remains protected even when multiple people have access to the workspace. Without these practices, teams often struggle with broken dependencies and &quot;works on my machine&quot; syndromes.</p>
+<p>When working in a professional environment, &quot;moving fast&quot; should not come at the expense of &quot;breaking things.&quot; Collaboration best practices matter because they:</p>
+<ul>
+<li><strong>Prevent Code Conflicts:</strong> They stop two people from accidentally deleting each other&#x27;s progress.</li>
+<li><strong>Improve Code Quality:</strong> Peer reviews and comments help catch bugs before they reach production.</li>
+<li><strong>Maintain Security:</strong> Proper permission settings ensure that sensitive data and configurations are only accessible to the right people.</li>
+<li><strong>Ensure Reproducibility:</strong> By using version control, you can always jump back to a previous version if a new change breaks the workflow.</li>
+</ul>
 <h2>Step-by-step walkthrough</h2>
-<h3>1. Leverage Databricks Git Folders (formerly Repos)</h3>
-<p>The most important rule for collaboration is to avoid working directly in the &quot;Workspace&quot; folder for production code. Instead, use Databricks Git Folders to connect your notebook to a version control system like GitHub or Azure DevOps.</p>
+<h3>1. Set up Databricks Repos</h3>
+<p>The most important step for collaboration is moving away from standalone workspace notebooks and using Databricks Repos. This allows you to link your notebooks to a Git provider like GitHub, GitLab, or Azure DevOps.</p>
 <ul>
-<li>Create a new Git Folder in your user space.</li>
-<li>Create a feature branch for your changes.</li>
-<li>Push your changes and use Pull Requests (PRs) for code reviews.</li>
+<li>Open the &quot;Repos&quot; tab in the sidebar.</li>
+<li>Click &quot;Add Repo&quot; and clone your team&#x27;s repository.</li>
+<li>Create a new branch for your specific task. This prevents you from making changes directly to the &quot;main&quot; branch that everyone else is using.</li>
 </ul>
-<h3>2. Use Markdown for Inline Documentation</h3>
-<p>Notebooks are unique because they allow you to mix code with rich text. Use Markdown cells (<code>%md</code>) to explain the &quot;why&quot; behind your logic.</p>
+<h3>2. Use the Built-in Commenting System</h3>
+<p>Instead of sending screenshots in Slack or Teams, use the built-in commenting tool. </p>
 <ul>
-<li>Start every notebook with a header and a brief description.</li>
-<li>Use headers (##) to break long notebooks into logical sections.</li>
-<li>Document any specific cluster requirements or data dependencies at the top.</li>
+<li>Highlight a specific line of code or a markdown cell.</li>
+<li>Click the speech bubble icon on the right side of the cell.</li>
+<li>Tag your teammate using the @ symbol to notify them. This keeps the conversation right next to the logic it refers to.</li>
 </ul>
-<h3>3. Manage Credentials with Secret Scopes</h3>
-<p>When collaborating, never hardcode passwords or access keys in a cell. If you do, anyone with access to the notebook can see them. Instead, use the Databricks Secret utility. This allows your teammates to run the code using their own permissions without ever seeing the actual secret values.</p>
+<h3>3. Manage Permissions Carefully</h3>
+<p>Not everyone needs full control over every notebook. Use the &quot;Share&quot; button at the top right to assign specific roles:</p>
+<ul>
+<li><strong>Can Run:</strong> Best for stakeholders who only need to execute the notebook to see results.</li>
+<li><strong>Can Edit:</strong> For active contributors.</li>
+<li><strong>Can Manage:</strong> For team leads who need to control sharing settings.</li>
+</ul>
+<h3>4. Modularize Code with Widgets</h3>
+<p>To avoid hardcoding values (like file paths or dates) that your teammates might need to change, use Databricks Widgets. This allows others to interact with your notebook without touching the core code.</p>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
-# Best practice: Retrieve credentials from a secret scope
-database_password = dbutils.secrets.get(scope=&quot;adls_credentials&quot;, key=&quot;storage_key&quot;)
+# Create a text widget for a database name
+dbutils.widgets.text(&quot;database_name&quot;, &quot;default_db&quot;, &quot;Target Database&quot;)
 
-# Use the variable in your connection logic
-spark.conf.set(&quot;fs.azure.account.key.mystorage.dfs.core.windows.net&quot;, database_password)
+# Access the value in your code
+target_db = dbutils.widgets.get(&quot;database_name&quot;)
+print(f&quot;Loading data into: {target_db}&quot;)
 </code></pre></div>
-<h3>4. Utilize the Built-in Commenting Feature</h3>
-<p>Instead of leaving &quot;TODO&quot; notes inside code cells, use the built-in Databricks commenting tool. Highlight a piece of code, click the comment icon on the right sidebar, and tag your teammate using @their-email. This keeps the code clean while facilitating active discussion.</p>
-<h3>5. Modularize Code with %run or Python Files</h3>
-<p>To keep notebooks from becoming 2,000-line monsters, move helper functions to a separate notebook or a shared Python file. You can call them into your main notebook using the <code>%run</code> command. This makes the code reusable for everyone on the team.</p>
 <h2>Common mistakes</h2>
 <ul>
-<li><strong>Ignoring the Revision History:</strong> Databricks automatically saves versions. If a teammate accidentally deletes a cell, don&#x27;t panic. Check the &quot;Revision History&quot; in the top right corner to restore previous versions.</li>
-<li><strong>Overwriting Variables:</strong> Using generic variable names like <code>df</code> throughout a shared notebook leads to confusion. If multiple people are running cells out of order, one person&#x27;s <code>df</code> might overwrite another&#x27;s. Use descriptive names like <code>df_silver_sales_cleaned</code>.</li>
-<li><strong>Leaving &quot;Print&quot; and &quot;Display&quot; Statements:</strong> While helpful for debugging, leaving dozens of <code>display(df)</code> commands makes the notebook slow to load and messy for others. Clean up your exploratory code before merging.</li>
-<li><strong>Hardcoding Paths:</strong> Avoid using absolute paths to your personal user folder. Use parameters or configuration files so the notebook works for everyone.</li>
+<li><strong>Hardcoding Secrets:</strong> Never type passwords or API keys directly into a notebook. Use Databricks Secrets so your teammates can run the code without seeing the actual credentials.</li>
+<li><strong>Ignoring the Revision History:</strong> If someone makes a mistake, don&#x27;t panic. Use the &quot;Revision History&quot; clock icon at the top right to compare versions and restore previous work.</li>
+<li><strong>Gigantic Notebooks:</strong> Collaboration becomes difficult when a notebook is thousands of lines long. If a notebook gets too big, break it into smaller, specialized notebooks and call them using <code>%run</code>.</li>
+<li><strong>Working on &#x27;Main&#x27; Simultaneously:</strong> If two people edit the same cell on the same branch at the exact same time, Git conflicts will occur. Always communicate which section you are working on.</li>
 </ul>
-<h2>Practice task</h2>
-<p>To get comfortable with these practices, perform the following exercise with a colleague or using a secondary test account:</p>
+<h2>One practice task</h2>
+<p>To get comfortable with collaboration, try this exercise with a teammate:</p>
 <ul>
-<li><strong>Create a Git Folder:</strong> Connect a repository to your Databricks environment and create a branch named <code>collaboration-test</code>.</li>
-<li><strong>Add a Parameter:</strong> Add a widget at the top of the notebook that allows a user to input their name.</li>
-<li><strong>Document and Comment:</strong> Write a function that calculates a simple value, add a Markdown cell explaining it, and then have a teammate leave a comment on a specific line of that function.</li>
-<li><strong>Merge:</strong> Commit your changes to Git, create a Pull Request, and merge it into the main branch.</li>
+<li>Create a new notebook in a shared folder.</li>
+<li>Create a &quot;Text Widget&quot; at the top of the notebook.</li>
+<li>Have your teammate add a comment to a specific line of code asking for a change.</li>
+<li>Reply to the comment, make the change, and then use the <strong>Revision History</strong> to see exactly what changed between your version and theirs.</li>
 </ul>
       </div>
       <footer class="article-footer">
