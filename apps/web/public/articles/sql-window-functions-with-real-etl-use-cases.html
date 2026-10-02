@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SQL Window Functions with Real ETL Use Cases | DE-Coded Lab</title>
-  <meta name="description" content="In the world of data engineering and analysis, SQL window functions often feel like a magic trick. While standard aggregate functions like SUM or AVG collapse your data into a single row, window functions allow you to perform complex..." />
+  <meta name="description" content="In the world of data engineering and analysis, window functions represent a significant leap from basic queries to advanced data transformation. Unlike standard aggregate functions that condense multiple rows into a single result, window..." />
   <meta property="og:title" content="SQL Window Functions with Real ETL Use Cases" />
-  <meta property="og:description" content="In the world of data engineering and analysis, SQL window functions often feel like a magic trick. While standard aggregate functions like SUM or AVG collapse your data into a single row, window functions allow you to perform complex..." />
+  <meta property="og:description" content="In the world of data engineering and analysis, window functions represent a significant leap from basic queries to advanced data transformation. Unlike standard aggregate functions that condense multiple rows into a single result, window..." />
   <meta property="og:type" content="article" />
   <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
@@ -27,51 +27,51 @@
       <p class="pill">Programming Basics</p>
       <h1>SQL Window Functions with Real ETL Use Cases</h1>
       <div class="article-meta">
-        <span>Published: Oct 01, 2026</span>
+        <span>Published: Oct 02, 2026</span>
         <span aria-hidden="true">&bull;</span>
         <span>3 min read</span>
       </div>
-      <p class="article-lead">In the world of data engineering and analysis, SQL window functions often feel like a magic trick. While standard aggregate functions like SUM or AVG collapse your data into a single row, window functions allow you to perform complex...</p>
+      <p class="article-lead">In the world of data engineering and analysis, window functions represent a significant leap from basic queries to advanced data transformation. Unlike standard aggregate functions that condense multiple rows into a single result, window...</p>
       <div class="article-body">
-      <p>In the world of data engineering and analysis, SQL window functions often feel like a magic trick. While standard aggregate functions like SUM or AVG collapse your data into a single row, window functions allow you to perform complex calculations while keeping your original row-level detail intact. Think of it as looking through a sliding window that moves across your dataset, allowing you to see specific subsets of data without losing sight of the individual records.</p>
+      <p>In the world of data engineering and analysis, window functions represent a significant leap from basic queries to advanced data transformation. Unlike standard aggregate functions that condense multiple rows into a single result, window functions allow you to perform calculations across a set of rows while still returning each individual row in the final output. This makes them indispensable for building ETL (Extract, Transform, Load) pipelines where maintaining the granularity of the data is just as important as the calculation itself.</p>
 <h2>Why Window Functions Matter in ETL</h2>
-<p>In ETL (Extract, Transform, Load) pipelines, window functions are essential for cleaning and transforming data before it hits a data warehouse. Without them, tasks like identifying the most recent record in a set of duplicates or calculating a running total would require messy self-joins and subqueries that slow down performance.</p>
-<p>Window functions provide a cleaner, more readable way to:</p>
+<p>In a typical ETL process, data is rarely clean or perfectly structured. You often encounter duplicate records, out-of-order timestamps, or the need to calculate trends over time. Standard SQL tools like <code>GROUP BY</code> are useful, but they force you to lose the detail of individual rows. </p>
+<p>Window functions solve this by creating a &quot;window&quot; around the current row to look at its neighbors. This is critical for:</p>
 <ul>
-<li>Deduplicate data by ranking records by a timestamp.</li>
-<li>Calculate growth metrics, such as month-over-month revenue.</li>
-<li>Assign unique IDs to groups of related data.</li>
-<li>Compare a specific row&#x27;s value against an average of its category.</li>
+<li><strong>Deduplication:</strong> Identifying the most recent version of a record among duplicates.</li>
+<li><strong>Trend Analysis:</strong> Calculating running totals or moving averages for financial reporting.</li>
+<li><strong>Delta Calculation:</strong> Comparing the current row to a previous row to find changes in status or value.</li>
 </ul>
 <h2>Step-by-Step Walkthrough</h2>
-<p>To understand how these functions work, you need to master the <code>OVER()</code> clause, which defines the &quot;window&quot; of rows the function will operate on.</p>
-<h3>1. The Basic Syntax</h3>
-<p>Every window function follows this structure: <code>FUNCTION() OVER (PARTITION BY column ORDER BY column)</code>. The <code>PARTITION BY</code> part tells SQL how to group the data, and <code>ORDER BY</code> tells it how to sort the data within those groups.</p>
-<h3>2. Ranking Data for Deduplication</h3>
-<p>A common ETL task is keeping only the &quot;latest&quot; record for a user. We use <code>ROW_NUMBER()</code> to assign a unique integer to rows within a partition.</p>
+<p>To master window functions, you need to understand the syntax structure, which primarily revolves around the <code>OVER()</code> clause.</p>
+<h3>1. The OVER() Clause</h3>
+<p>The <code>OVER()</code> clause defines the window of rows that the function will operate on. If you leave it empty, the window is the entire dataset.</p>
+<h3>2. Partitioning Data</h3>
+<p>Using <code>PARTITION BY</code> inside the <code>OVER()</code> clause is similar to a <code>GROUP BY</code>. it breaks the data into logical groups. For example, if you are processing sales data, you might partition by <code>store_id</code> to ensure calculations restart for every unique store.</p>
+<h3>3. Ordering the Window</h3>
+<p>The <code>ORDER BY</code> clause inside <code>OVER()</code> determines the sequence in which the function processes the rows. This is essential for functions that rely on chronology, like ranking or running totals.</p>
+<h3>4. Real ETL Use Case: Deduplication</h3>
+<p>One of the most common ETL tasks is keeping only the latest record for a specific ID. We use <code>ROW_NUMBER()</code> to assign a unique incrementing integer to rows within a partition, ordered by a timestamp.</p>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-sql">
 SELECT 
     user_id, 
-    order_date, 
+    transaction_date, 
     amount,
-    ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY order_date DESC) as rank_order
-FROM sales_data;
+    ROW_NUMBER() OVER(PARTITION BY user_id ORDER BY transaction_date DESC) as row_num
+FROM transactions;
 </code></pre></div>
-<p>In this example, the data is grouped by <code>user_id</code>. Within each user group, the rows are sorted by <code>order_date</code> from newest to oldest. The most recent order gets a <code>rank_order</code> of 1.</p>
-<h3>3. Calculating Running Totals</h3>
-<p>If you need to see how revenue accumulates over time, you use <code>SUM()</code> as a window function. By omitting <code>PARTITION BY</code> but including <code>ORDER BY</code>, the &quot;window&quot; grows row by row, adding the current value to all previous values.</p>
-<h3>4. Navigating Rows with LAG and LEAD</h3>
-<p>In ETL, you often need to compare the current row to the previous one (e.g., &quot;How much did this price change since the last update?&quot;). <code>LAG()</code> looks at the previous row, while <code>LEAD()</code> looks at the next one. This prevents the need for complex joins.</p>
+<p>In a staging environment, you would wrap this in a subquery or a Common Table Expression (CTE) and filter for <code>row_num = 1</code> to load only the most recent transactions into your production table.</p>
 <h2>Common Mistakes</h2>
+<p>Even experienced developers encounter friction when first using window functions. Here are the most common pitfalls to avoid:</p>
 <ul>
-<li><strong>Confusing GROUP BY with PARTITION BY:</strong> Remember that <code>GROUP BY</code> reduces the number of rows in your output. <code>PARTITION BY</code> does not; it simply defines the scope for the calculation while keeping all original rows.</li>
-<li><strong>Forgetting ORDER BY in Ranking Functions:</strong> Functions like <code>ROW_NUMBER()</code> or <code>RANK()</code> require an <code>ORDER BY</code> clause. If you leave it out, the database won&#x27;t know which row should be &quot;first,&quot; leading to unpredictable results.</li>
-<li><strong>Performance Overload:</strong> While powerful, applying window functions over millions of rows with complex partitions can be resource-intensive. Always ensure your &quot;Partition By&quot; columns are indexed if performance starts to lag.</li>
+<li><strong>Filtering in the WHERE clause:</strong> You cannot use window functions directly in a <code>WHERE</code> clause. Because of the SQL order of operations, window functions are calculated after filtering. To filter based on a window result, you must use a subquery or CTE.</li>
+<li><strong>Confusing RANK() and DENSE_RANK():</strong> If two rows have the same value, <code>RANK()</code> will skip the next number (e.g., 1, 1, 3), while <code>DENSE_RANK()</code> will not (e.g., 1, 1, 2). Choosing the wrong one can lead to inaccurate reporting.</li>
+<li><strong>Forgetting the ORDER BY:</strong> For functions like <code>LAG()</code> (which looks at the previous row) or <code>LEAD()</code>, forgetting to define the order will result in unpredictable data shifts.</li>
 </ul>
 <h2>Practice Task</h2>
-<p>Imagine you have a table called <code>web_traffic</code> with columns <code>session_id</code>, <code>page_url</code>, and <code>timestamp</code>. </p>
-<p><strong>Task:</strong> Write a query to find the first page visited in every session.</p>
-<p><strong>Hint:</strong> Use <code>ROW_NUMBER()</code>, partition by the session, and order by the timestamp. Filter the results where the row number equals 1.</p>
+<p>To solidify your understanding, try solving this scenario: You have a table called <code>daily_revenue</code> with columns <code>sale_date</code> and <code>revenue_amount</code>. </p>
+<p><strong>Task:</strong> Write a query that returns each day&#x27;s revenue along with a &quot;Running Total&quot; column that sums the revenue from the first day up to the current day.</p>
+<p><em>Hint: Use the <code>SUM()</code> function combined with an <code>OVER()</code> clause that orders by the date.</em></p>
       </div>
       <footer class="article-footer">
         <a class="link-button" href="/de_coded_data_engineering/index.html">Explore more tutorials &rarr;</a>
