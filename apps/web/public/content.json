@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-10-02T16:55:03.558120Z",
+  "generated_at": "2026-10-03T02:34:15.702759Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "Processing data at scale requires a shift in how we think about programming logic. When working with millions or billions of rows, a standard Python library like Pandas might run out of memory because it tries to load everything onto a...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-10-03T02:34:09.287653Z",
+      "is_new": true
+    },
     {
       "title": "Databricks Delta Lake best practices",
       "category": "Databricks",
@@ -8,7 +17,7 @@
       "url": "articles/databricks-delta-lake-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
       "published": "2026-10-02T16:54:54.413213Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -17,15 +26,6 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-10-02T11:27:23.626796Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "When dealing with massive amounts of data that exceed the memory capacity of a single computer, standard Python libraries like Pandas often struggle or crash. PySpark solves this by distributing data across a cluster of machines....",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-10-02T02:47:41.888092Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simplified Data Platforms Lower The Barrier For New Data Engineers",
+      "body": "<ul>\n<li>Cloud: Leading vendors are expanding serverless options to help users manage large datasets without configuring complex servers.</li>\n<li>AI: Automated coding assistants are becoming standard tools for generating extract transform and load scripts efficiently.</li>\n<li>Tip: Focus on understanding data modeling basics before moving on to complex orchestration tools.</li>\n</ul>",
+      "published": "2026-10-03T02:34:15.702666Z",
+      "published_cycle": "2026-10-03T02",
+      "is_new": true
+    },
+    {
       "headline": "Simple Data Engineering News for Aspiring Professionals",
       "body": "<ul>\n<li>Cloud: Cloud providers are introducing more serverless features that allow users to process data without managing underlying servers.</li>\n<li>AI: Large language models are increasingly being used to automate the generation of documentation for complex data pipelines.</li>\n<li>Tip: Start your journey by building a simple project that extracts data from a public API and saves it to a spreadsheet.</li>\n</ul>",
       "published": "2026-10-02T16:55:03.558043Z",
       "published_cycle": "2026-10-02T16",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Data Engineering Simplified with New Cloud Tools and AI Assistants",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud providers are expanding serverless options to make scaling data pipelines easier for beginners.</li>\n<li>AI: Large language models are increasingly used to automate the creation of complex SQL queries and data documentation.</li>\n<li>Tip: Start by mastering core SQL and Python basics before exploring advanced distributed computing tools.</li>\n</ul>",
       "published": "2026-09-30T02:39:35.230549Z",
       "published_cycle": "2026-09-30T02",
-      "is_new": false
-    },
-    {
-      "headline": "Modern Data Engineering Updates for Cloud AI and Better Workflows",
-      "body": "<ul>\n<li>Cloud: Google Cloud recently introduced simplified data migration tools that make moving information from local servers to the cloud much easier.</li>\n<li>AI: Automation features in modern platforms now use machine learning to suggest optimal indexing strategies for faster query performance.</li>\n<li>Tip: Start by building small projects with public datasets to practice cleaning and transforming data in a real-world scenario.</li>\n</ul>",
-      "published": "2026-09-29T21:34:47.978933Z",
-      "published_cycle": "2026-09-29T21",
       "is_new": false
     }
   ]
