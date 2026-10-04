@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-10-04T03:05:17.618296Z",
+  "generated_at": "2026-10-04T11:25:08.927255Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "SQL window functions are a powerful tool in SQL that allow you to perform calculations across a set of rows related to the current row. Unlike standard aggregate functions like SUM or AVG which collapse rows into a single result, window...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-10-04T11:25:02.079263Z",
+      "is_new": true
+    },
     {
       "title": "Azure Data Factory orchestration patterns",
       "category": "Azure",
@@ -8,7 +17,7 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-10-04T03:05:09.757757Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Python OOP for Data Engineers",
@@ -44,15 +53,6 @@
       "url": "articles/databricks-delta-lake-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
       "published": "2026-10-02T16:54:54.413213Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "In the world of data engineering and analysis, window functions represent a significant leap from basic queries to advanced data transformation. Unlike standard aggregate functions that condense multiple rows into a single result, window...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-10-02T11:27:23.626796Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Beginner Guide To Recent Trends In Cloud AI And Data Engineering",
+      "body": "<ul>\n<li>Cloud: Major platforms are expanding serverless options to make scaling data pipelines easier for those just starting out.</li>\n<li>AI: Tools that automate the cleaning of training data are becoming more accessible to help developers improve model performance.</li>\n<li>Tip: Focus on learning SQL first as it remains the most critical language for querying and managing data across most platforms.</li>\n</ul>",
+      "published": "2026-10-04T11:25:08.927186Z",
+      "published_cycle": "2026-10-04T11",
+      "is_new": true
+    },
+    {
       "headline": "Data Engineering Fundamentals and New Trends for Early Career Professionals",
       "body": "<ul>\n<li>Cloud: Major platforms like AWS and Azure are simplifying data integration with new drag-and-drop pipeline builders for beginners.</li>\n<li>AI: Large language models are increasingly used to automate the generation of SQL queries and documentation for data schemas.</li>\n<li>Tip: Prioritize learning SQL and Python fundamentals as they are the core languages used across almost all data platforms.</li>\n</ul>",
       "published": "2026-10-04T03:05:17.618219Z",
       "published_cycle": "2026-10-04T03",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Modern Data Tools Simplify Cloud Integration and Artificial Intelligence Workflows",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Snowflake recently enhanced its Horizon feature to help teams manage and govern data across multiple cloud platforms more easily.</li>\n<li>AI: Microsoft Fabric now integrates Copilot to assist engineers in writing complex SQL queries and building automated data pipelines.</li>\n<li>Tip: Beginners should focus on mastering SQL fundamentals before moving to complex automation tools because it remains the core language of data manipulation.</li>\n</ul>",
       "published": "2026-10-01T17:38:49.930250Z",
       "published_cycle": "2026-10-01T17",
-      "is_new": false
-    },
-    {
-      "headline": "Modern Data Engineering Trends For Beginners In Cloud And AI",
-      "body": "<ul>\n<li>Cloud: Major providers are launching more serverless features to help beginners manage data without complex infrastructure setup.</li>\n<li>AI: Generative tools are now being used to automatically write and optimize SQL queries within modern data warehouses.</li>\n<li>Tip: Focus on learning data modeling basics to ensure your pipelines remain organized and scalable as they grow.</li>\n</ul>",
-      "published": "2026-10-01T11:55:54.571460Z",
-      "published_cycle": "2026-10-01T11",
       "is_new": false
     }
   ]
