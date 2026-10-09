@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-10-08T22:33:44.694993Z",
+  "generated_at": "2026-10-09T03:19:59.191196Z",
   "articles": [
+    {
+      "title": "Azure Data Factory orchestration patterns",
+      "category": "Azure",
+      "summary": "Azure Data Factory serves as the central conductor for data workflows. Orchestration refers to the coordination of various tasks-like moving data, transforming it, and sending notifications-into a logical sequence. Instead of running...",
+      "url": "articles/azure-data-factory-orchestration-patterns.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
+      "published": "2026-10-09T03:19:52.711272Z",
+      "is_new": true
+    },
     {
       "title": "PySpark Transformations for Large Datasets",
       "category": "Programming Basics",
@@ -8,15 +17,6 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-10-08T22:33:17.982586Z",
-      "is_new": true
-    },
-    {
-      "title": "Azure Data Factory orchestration patterns",
-      "category": "Azure",
-      "summary": "Orchestration in Azure Data Factory (ADF) is the process of coordinating various activities to ensure data flows correctly from source to destination. While a simple copy activity might suffice for basic tasks, real-world data engineering...",
-      "url": "articles/azure-data-factory-orchestration-patterns.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
-      "published": "2026-10-08T03:13:53.671316Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Recent Developments in Cloud Infrastructure and AI for Data Engineering",
+      "body": "<ul>\n<li>Cloud: Major providers are releasing more intuitive serverless features to help beginners scale their data storage without manual server management.</li>\n<li>AI: New coding assistants are integrating directly into data editors to help engineers generate complex transformation scripts using natural language prompts.</li>\n<li>Tip: Prioritize learning SQL and basic Python as these two languages form the core foundation for most modern data engineering roles.</li>\n</ul>",
+      "published": "2026-10-09T03:19:59.191138Z",
+      "published_cycle": "2026-10-09T03",
+      "is_new": true
+    },
+    {
       "headline": "Key Data Engineering News For Beginners",
       "body": "<ul>\n<li>Cloud: Major cloud providers are launching more intuitive drag and drop tools to help beginners build data pipelines.</li>\n<li>AI: Generative AI tools are becoming more effective at automatically documenting complex code for data transformations.</li>\n<li>Tip: Focus on learning how to write clean SQL queries before moving on to complex big data tools.</li>\n</ul>",
       "published": "2026-10-08T22:33:44.694928Z",
       "published_cycle": "2026-10-08T22",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simplified Data Engineering News for Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Google Cloud and AWS are simplifying data lake management by offering more automated features for cleaning and organizing raw information.</li>\n<li>AI: New machine learning models are being integrated directly into database systems to allow for faster data analysis and prediction.</li>\n<li>Tip: Focus on understanding how data flows from a source to a destination before worrying about complex automation tools.</li>\n</ul>",
       "published": "2026-10-04T20:33:08.444589Z",
       "published_cycle": "2026-10-04T20",
-      "is_new": false
-    },
-    {
-      "headline": "Recent Trends in Cloud Data Platforms and AI for Beginners",
-      "body": "<ul>\n<li>Cloud: Leading providers are expanding serverless options to make it easier for new engineers to deploy data pipelines without server maintenance.</li>\n<li>AI: Automated coding assistants are now helping developers write and debug complex data transformation scripts using simple English prompts.</li>\n<li>Tip: Building a strong foundation in SQL is the most important first step for anyone entering the data engineering field.</li>\n</ul>",
-      "published": "2026-10-04T16:03:19.656641Z",
-      "published_cycle": "2026-10-04T16",
       "is_new": false
     }
   ]
