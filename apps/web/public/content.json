@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-10-09T12:10:54.152365Z",
+  "generated_at": "2026-10-09T21:56:29.913715Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "Window functions are one of the most powerful tools in a data engineer's SQL toolkit. While traditional aggregate functions like SUM or AVG group multiple rows into a single output row, window functions allow you to perform calculations...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-10-09T21:56:14.269072Z",
+      "is_new": true
+    },
     {
       "title": "PySpark Transformations for Large Datasets",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-10-09T12:10:43.425971Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Azure Data Factory orchestration patterns",
@@ -35,15 +44,6 @@
       "url": "articles/databricks-delta-lake-best-practices.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
       "published": "2026-10-04T16:03:12.641490Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "SQL window functions are a powerful tool in SQL that allow you to perform calculations across a set of rows related to the current row. Unlike standard aggregate functions like SUM or AVG which collapse rows into a single result, window...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-10-04T11:25:02.079263Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "New Tools Make Cloud Data Management Easier For Beginners",
+      "body": "<ul>\n<li>Cloud: Major providers are simplifying how users move massive datasets between global regions to reduce storage costs.</li>\n<li>AI: Automated coding assistants are now helping engineers write more efficient database queries and data transformation scripts.</li>\n<li>Tip: Focus on learning SQL first because it remains the most essential language for managing and analyzing data.</li>\n</ul>",
+      "published": "2026-10-09T21:56:29.913649Z",
+      "published_cycle": "2026-10-09T21",
+      "is_new": true
+    },
+    {
       "headline": "Modern Trends in Cloud Services and AI Assisted Data Engineering",
       "body": "<ul>\n<li>Cloud: Major cloud providers are launching simplified serverless tools that allow beginners to run data workflows without manual server configuration.</li>\n<li>AI: New artificial intelligence integrations now help novice engineers automate the process of cleaning and formatting messy datasets.</li>\n<li>Tip: Start your learning journey by building a simple data pipeline that moves data from a spreadsheet to a database.</li>\n</ul>",
       "published": "2026-10-09T12:10:54.152294Z",
       "published_cycle": "2026-10-09T12",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Recent Developments in Cloud Infrastructure and AI for Data Engineering",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless integration to help beginners deploy pipelines without managing complex infrastructure.</li>\n<li>AI: Automated metadata tagging is now helping teams organize massive datasets for training large language models more efficiently.</li>\n<li>Tip: Start by building a small project using a public dataset to understand the end to end flow of data.</li>\n</ul>",
       "published": "2026-10-05T23:25:19.641912Z",
       "published_cycle": "2026-10-05T23",
-      "is_new": false
-    },
-    {
-      "headline": "New Automation Tools and Serverless Cloud Updates Simplify Data Engineering",
-      "body": "<ul>\n<li>Cloud: Major platforms are expanding serverless options to help beginners manage data storage without configuring backend servers.</li>\n<li>AI: Integration of large language models into databases now allows users to query complex datasets using simple English commands.</li>\n<li>Tip: Beginners should prioritize learning fundamental data modeling concepts before trying to master every new tool on the market.</li>\n</ul>",
-      "published": "2026-10-05T02:38:44.486082Z",
-      "published_cycle": "2026-10-05T02",
       "is_new": false
     }
   ]
