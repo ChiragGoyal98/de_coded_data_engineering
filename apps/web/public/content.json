@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-10-14T10:44:10.344842Z",
+  "generated_at": "2026-10-14T16:03:40.114460Z",
   "articles": [
+    {
+      "title": "Databricks Delta Lake best practices",
+      "category": "Databricks",
+      "summary": "In the world of data engineering, managing massive datasets often feels like a balancing act between speed and reliability. Delta Lake, an open-source storage layer, was designed to solve the common issues of data lakes by providing ACID...",
+      "url": "articles/databricks-delta-lake-best-practices.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
+      "published": "2026-10-14T16:03:06.778810Z",
+      "is_new": true
+    },
     {
       "title": "Python OOP for Data Engineers",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/python-oop-for-data-engineers.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
       "published": "2026-10-14T10:44:05.335793Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "PySpark Transformations for Large Datasets",
@@ -35,15 +44,6 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-10-11T21:08:09.837849Z",
-      "is_new": false
-    },
-    {
-      "title": "Databricks Delta Lake best practices",
-      "category": "Databricks",
-      "summary": "Delta Lake is an open-source storage layer that brings ACID transactions to Apache Spark and big data workloads. It effectively turns a standard data lake into a reliable Lakehouse by adding a transaction log that tracks every change made...",
-      "url": "articles/databricks-delta-lake-best-practices.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-delta-lake-best-practices.html",
-      "published": "2026-10-10T16:27:51.196397Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Essential News for Beginner Data Engineers",
+      "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless integration to help beginners manage data pipelines without complex infrastructure.</li>\n<li>AI: New automated tools use natural language processing to help engineers write and debug complex SQL queries more effectively.</li>\n<li>Tip: Focus on mastering SQL and basic data modeling before moving on to more advanced big data frameworks.</li>\n</ul>",
+      "published": "2026-10-14T16:03:40.114389Z",
+      "published_cycle": "2026-10-14T16",
+      "is_new": true
+    },
+    {
       "headline": "Modern Data Engineering Updates for Beginners and Cloud Users",
       "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless integration to help beginners manage data pipelines without managing complex infrastructure.</li>\n<li>AI: New automated tools are making it easier for data engineers to clean and prep datasets for machine learning models.</li>\n<li>Tip: Start by mastering SQL because it remains the most fundamental language for querying and transforming data in any modern stack.</li>\n</ul>",
       "published": "2026-10-14T10:44:10.344779Z",
       "published_cycle": "2026-10-14T10",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simple Data Engineering Updates For Cloud Computing And Artificial Intelligence",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud platforms are simplifying serverless integration to help new engineers process data without managing complex infrastructure.</li>\n<li>AI: New AI assistants are being integrated into data warehouses to help users generate complex transformation scripts using natural language.</li>\n<li>Tip: Focus on learning SQL first because it remains the foundational language for most data engineering tasks regardless of the platform.</li>\n</ul>",
       "published": "2026-10-10T02:59:39.350642Z",
       "published_cycle": "2026-10-10T02",
-      "is_new": false
-    },
-    {
-      "headline": "New Tools Make Cloud Data Management Easier For Beginners",
-      "body": "<ul>\n<li>Cloud: Major providers are simplifying how users move massive datasets between global regions to reduce storage costs.</li>\n<li>AI: Automated coding assistants are now helping engineers write more efficient database queries and data transformation scripts.</li>\n<li>Tip: Focus on learning SQL first because it remains the most essential language for managing and analyzing data.</li>\n</ul>",
-      "published": "2026-10-09T21:56:29.913649Z",
-      "published_cycle": "2026-10-09T21",
       "is_new": false
     }
   ]
