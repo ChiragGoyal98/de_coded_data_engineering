@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python OOP for Data Engineers | DE-Coded Lab</title>
-  <meta name="description" content="Object-Oriented Programming (OOP) is a paradigm that organizes code into &quot;objects&quot;-self-contained units that bundle both data and the functions that operate on that data. While many beginners start their data engineering journey writing..." />
+  <meta name="description" content="Object-Oriented Programming (OOP) is a programming paradigm based on the concept of objects, which can contain data and code. In the world of data engineering, we often deal with repetitive tasks like connecting to databases, cleaning..." />
   <meta property="og:title" content="Python OOP for Data Engineers" />
-  <meta property="og:description" content="Object-Oriented Programming (OOP) is a paradigm that organizes code into &quot;objects&quot;-self-contained units that bundle both data and the functions that operate on that data. While many beginners start their data engineering journey writing..." />
+  <meta property="og:description" content="Object-Oriented Programming (OOP) is a programming paradigm based on the concept of objects, which can contain data and code. In the world of data engineering, we often deal with repetitive tasks like connecting to databases, cleaning..." />
   <meta property="og:type" content="article" />
   <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
@@ -27,79 +27,69 @@
       <p class="pill">Programming Basics</p>
       <h1>Python OOP for Data Engineers</h1>
       <div class="article-meta">
-        <span>Published: Oct 14, 2026</span>
+        <span>Published: Oct 15, 2026</span>
         <span aria-hidden="true">&bull;</span>
         <span>3 min read</span>
       </div>
-      <p class="article-lead">Object-Oriented Programming (OOP) is a paradigm that organizes code into &quot;objects&quot;-self-contained units that bundle both data and the functions that operate on that data. While many beginners start their data engineering journey writing...</p>
+      <p class="article-lead">Object-Oriented Programming (OOP) is a programming paradigm based on the concept of objects, which can contain data and code. In the world of data engineering, we often deal with repetitive tasks like connecting to databases, cleaning...</p>
       <div class="article-body">
-      <p>Object-Oriented Programming (OOP) is a paradigm that organizes code into &quot;objects&quot;-self-contained units that bundle both data and the functions that operate on that data. While many beginners start their data engineering journey writing procedural scripts (a linear sequence of commands), moving toward OOP allows you to build more robust and modular systems. Instead of writing a new script for every data source, OOP helps you create templates that can be reused across multiple pipelines.</p>
-<h2>Why it matters</h2>
-<p>Data engineering often involves repetitive tasks: connecting to databases, validating schemas, and logging process statuses. Without OOP, your codebase can quickly become a &quot;spaghetti&quot; of duplicated functions. </p>
+      <p>Object-Oriented Programming (OOP) is a programming paradigm based on the concept of objects, which can contain data and code. In the world of data engineering, we often deal with repetitive tasks like connecting to databases, cleaning datasets, or interacting with APIs. Instead of writing long, procedural scripts that are hard to debug, OOP allows us to wrap these functionalities into reusable modules. By understanding how to organize code into classes and objects, you can build data pipelines that are more scalable and easier to share with your team.</p>
+<h2>Why OOP Matters for Data Engineers</h2>
+<p>Data engineering is largely about building and maintaining infrastructure. As your codebase grows, keeping everything in single scripts leads to &quot;spaghetti code.&quot; OOP solves this through:</p>
 <ul>
-<li><strong>Reusability:</strong> You can create a generic &quot;DatabaseConnector&quot; class and reuse it for Postgres, MySQL, and Oracle with minimal changes.</li>
-<li><strong>Maintainability:</strong> If a connection logic changes, you only update it in one place (the class) rather than in twenty different scripts.</li>
-<li><strong>Abstraction:</strong> It allows team members to use your code without needing to understand the complex internal logic. They just need to know which methods to call.</li>
+<li><strong>Reusability</strong>: Once you write a class to handle a specific database connection, you can reuse it across multiple pipelines without rewriting the logic.</li>
+<li><strong>Abstraction</strong>: You can hide the complex details of how a data transformation works and only expose simple methods to the user.</li>
+<li><strong>Maintainability</strong>: If a schema changes or an API version updates, you only need to update the logic in one class rather than hunting through dozens of script files.</li>
+<li><strong>Standardization</strong>: It allows a team to agree on a structure. For example, every &quot;Loader&quot; class must have a <code>.load()</code> method, making the pipeline predictable.</li>
 </ul>
-<h2>Step-by-step walkthrough</h2>
-<h3>1. Defining a Class and Object</h3>
-<p>A class is a blueprint, while an object is the actual instance of that blueprint. In data engineering, a class might represent a &quot;DataStore.&quot;</p>
+<h2>Step-by-Step Walkthrough</h2>
+<h3>1. Defining a Class</h3>
+<p>A class is a blueprint. Think of it as the schematic for a &quot;Data Connector.&quot; It defines what data the connector needs (like a host and port) and what it can do (like connect or query).</p>
+<h3>2. The <strong>init</strong> Method and &#x27;self&#x27;</h3>
+<p>The <code>__init__</code> method is the constructor. It runs automatically when you create an object from a class. The <code>self</code> keyword represents the specific instance of the object, allowing it to access its own attributes.</p>
+<h3>3. Methods (Actions)</h3>
+<p>Methods are functions defined inside a class. For a data engineer, these might be <code>.extract()</code>, <code>.transform()</code>, or <code>.load()</code>.</p>
+<h3>4. Inheritance</h3>
+<p>Inheritance allows one class to take on the attributes and methods of another. You might have a general <code>FileHandler</code> class and specific <code>CSVHandler</code> or <code>JSONHandler</code> classes that inherit from it.</p>
+<h3>Code Example: A Simple Database Connector</h3>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
-class DataStore:
-    def __init__(self, name, storage_type):
-        self.name = name  # Attribute
-        self.storage_type = storage_type # Attribute
+class DatabaseConnector:
+    def __init__(self, db_name, user):
+        self.db_name = db_name
+        self.user = user
+        self.is_connected = False
 
-# Creating an instance (Object)
-s3_bucket = DataStore(&quot;raw-zone&quot;, &quot;S3&quot;)
+    def connect(self):
+        # In a real scenario, this would involve connection logic
+        self.is_connected = True
+        print(f&quot;Connected to {self.db_name} as {self.user}&quot;)
+
+    def execute_query(self, query):
+        if self.is_connected:
+            print(f&quot;Executing: {query}&quot;)
+        else:
+            print(&quot;Error: Not connected to the database.&quot;)
+
+# Usage
+postgres_db = DatabaseConnector(&quot;sales_db&quot;, &quot;admin&quot;)
+postgres_db.connect()
+postgres_db.execute_query(&quot;SELECT * FROM revenue&quot;)
 </code></pre></div>
-<p>The <code>__init__</code> method is the constructor. It initializes the object&#x27;s attributes as soon as the object is created.</p>
-<h3>2. Adding Methods (Behavior)</h3>
-<p>Methods are functions defined inside a class. They define what the object can <em>do</em>. For a data engineer, this might be a method to &quot;connect&quot; or &quot;upload.&quot;</p>
-<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
-class DataStore:
-    def __init__(self, name, storage_type):
-        self.name = name
-        self.storage_type = storage_type
-
-    def describe(self):
-        return f&quot;Store {self.name} is a {self.storage_type} type.&quot;
-
-s3_bucket = DataStore(&quot;raw-zone&quot;, &quot;S3&quot;)
-print(s3_bucket.describe())
-</code></pre></div>
-<h3>3. Inheritance</h3>
-<p>Inheritance allows one class to take on the attributes and methods of another. This is powerful for creating specialized connectors. You can have a base <code>FileLoader</code> class and then create a specific <code>CSVLoader</code> that inherits from it.</p>
-<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
-class FileLoader:
-    def __init__(self, file_path):
-        self.file_path = file_path
-
-    def open_file(self):
-        print(f&quot;Opening {self.file_path}&quot;)
-
-class CSVLoader(FileLoader):
-    def load_data(self):
-        self.open_file()
-        print(&quot;Parsing CSV rows...&quot;)
-
-loader = CSVLoader(&quot;data.csv&quot;)
-loader.load_data()
-</code></pre></div>
-<h2>Common mistakes</h2>
+<h2>Common Mistakes</h2>
 <ul>
-<li><strong>Forgetting &#x27;self&#x27;:</strong> The first argument of every instance method must be <code>self</code>. It represents the specific instance of the class. If you omit it, Python will throw a <code>TypeError</code>.</li>
-<li><strong>Using Mutable Default Arguments:</strong> Avoid using lists or dictionaries as default arguments in <code>__init__</code>. Since these are created once at definition time, all instances will share the same list, leading to weird data leaks between objects.</li>
-<li><strong>Over-Engineering:</strong> Don&#x27;t turn every simple script into a complex hierarchy of classes. Use OOP when you have shared state or when you need to create multiple similar entities.</li>
+<li><strong>Forgetting &#x27;self&#x27;</strong>: Beginners often forget to include <code>self</code> as the first argument in method definitions or forget to use <code>self.attribute</code> when accessing data inside the class.</li>
+<li><strong>Class vs Instance Variables</strong>: Defining a variable outside the <code>__init__</code> method makes it a Class Variable, shared by all instances. This can lead to unexpected bugs if you accidentally share state between two different database connections.</li>
+<li><strong>Over-Engineering</strong>: Not every script needs to be a class. If you are writing a simple five-line transformation, a standard function is often better than a complex class hierarchy.</li>
+<li><strong>Hardcoding Credentials</strong>: Never hardcode passwords or API keys inside your class attributes; use environment variables or a secret manager.</li>
 </ul>
-<h2>One practice task</h2>
-<p>Create a class called <code>DataPipeline</code>. </p>
+<h2>Practice Task</h2>
+<p><strong>The Goal</strong>: Create a class called <code>DataTransformer</code>.</p>
 <ul>
-<li>The <code>__init__</code> method should accept a <code>pipeline_name</code> and a <code>status</code> (defaulting to &quot;Idle&quot;).</li>
-<li>Create a method called <code>run()</code> that changes the status to &quot;Running&quot; and prints &quot;[pipeline_name] is now processing data.&quot;</li>
-<li>Create a method called <code>complete()</code> that changes the status to &quot;Finished.&quot;</li>
+<li>The <code>__init__</code> method should take a list of numbers as input.</li>
+<li>Create a method called <code>multiply_by_factor(factor)</code> that returns a new list with every number multiplied by that factor.</li>
+<li>Create a method called <code>get_sum()</code> that returns the total sum of the current list.</li>
+<li>Test your class by creating an instance with the list <code>[10, 20, 30]</code>, multiplying it by 2, and printing the sum.</li>
 </ul>
-<p>Test your class by creating an instance named <code>etl_job</code>, running it, and then completing it.</p>
       </div>
       <footer class="article-footer">
         <a class="link-button" href="/de_coded_data_engineering/index.html">Explore more tutorials &rarr;</a>
