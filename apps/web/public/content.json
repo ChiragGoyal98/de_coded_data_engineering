@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-10-15T20:37:32.105509Z",
+  "generated_at": "2026-10-16T01:54:08.581658Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "In the world of data engineering, SQL is the primary language for transforming raw data into meaningful insights. While basic queries help you filter and aggregate data, window functions allow you to perform advanced calculations across...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-10-16T01:54:03.081998Z",
+      "is_new": true
+    },
     {
       "title": "Python OOP for Data Engineers",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/python-oop-for-data-engineers.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
       "published": "2026-10-15T20:36:50.571282Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "PySpark Transformations for Large Datasets",
@@ -35,15 +44,6 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-10-13T13:02:53.559835Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "In the world of data manipulation, standard aggregate functions like SUM or AVG are great for summarizing data, but they have a limitation: they collapse your rows into a single output. When you are building data pipelines or performing...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-10-11T21:08:09.837849Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Data Engineering Essentials Major Updates in Cloud and AI Tools",
+      "body": "<ul>\n<li>Cloud: Major cloud providers are introducing simpler drag-and-drop tools to help new engineers move data more efficiently.</li>\n<li>AI: Artificial intelligence is now being used to automatically document code and explain complex data transformations to beginners.</li>\n<li>Tip: Always validate your data at every step of the pipeline to ensure accuracy and prevent errors later on.</li>\n</ul>",
+      "published": "2026-10-16T01:54:08.581587Z",
+      "published_cycle": "2026-10-16T01",
+      "is_new": true
+    },
+    {
       "headline": "Easy Data Engineering Updates for Beginners",
       "body": "<p>Cloud: Major cloud platforms are introducing simplified tools that help you build data pipelines without managing any hardware.</p>\n<p>AI: New AI assistants can now generate the code needed to move data between different databases automatically.</p>\n<p>Tip: Focus on understanding how data flows from a source to a storage system before learning advanced transformation tools.</p>",
       "published": "2026-10-15T20:37:32.105441Z",
       "published_cycle": "2026-10-15T20",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Modern Data Engineering Trends and Tips for New Professionals",
@@ -171,13 +178,6 @@
       "body": "<p>Cloud: Microsoft recently integrated its data tools into a single platform called Fabric to simplify workflow management for new engineers.</p>\n<p>AI: New generative AI features in Snowflake and Databricks now allow users to build data pipelines using natural language prompts.</p>\n<p>Tip: Mastering SQL is the most critical skill for beginners because it is used across almost every data engineering platform.</p>",
       "published": "2026-10-11T21:08:21.588565Z",
       "published_cycle": "2026-10-11T21",
-      "is_new": false
-    },
-    {
-      "headline": "New Cloud Tools and AI Trends for Beginner Data Engineers",
-      "body": "<ul>\n<li>Cloud: Cloud providers are launching more serverless services that let you process data without worrying about managing physical servers.</li>\n<li>AI: Generative AI is now helping engineers automate the creation of data pipelines and clean messy datasets more efficiently.</li>\n<li>Tip: Focus on learning SQL first because it is the fundamental language used for managing data in almost every modern platform.</li>\n</ul>",
-      "published": "2026-10-11T11:41:45.765612Z",
-      "published_cycle": "2026-10-11T11",
       "is_new": false
     }
   ]
