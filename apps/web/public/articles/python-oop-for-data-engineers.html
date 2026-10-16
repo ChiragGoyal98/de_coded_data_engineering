@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python OOP for Data Engineers | DE-Coded Lab</title>
-  <meta name="description" content="Object-Oriented Programming (OOP) is a paradigm that organizes software design around data, or objects, rather than functions and logic. In the context of data engineering, an object can be thought of as a self-contained unit that bundles..." />
+  <meta name="description" content="In the world of data engineering, projects often start with simple scripts designed to move data from point A to point B. However, as your pipelines grow to handle dozens of sources and complex transformations, those scripts can become..." />
   <meta property="og:title" content="Python OOP for Data Engineers" />
-  <meta property="og:description" content="Object-Oriented Programming (OOP) is a paradigm that organizes software design around data, or objects, rather than functions and logic. In the context of data engineering, an object can be thought of as a self-contained unit that bundles..." />
+  <meta property="og:description" content="In the world of data engineering, projects often start with simple scripts designed to move data from point A to point B. However, as your pipelines grow to handle dozens of sources and complex transformations, those scripts can become..." />
   <meta property="og:type" content="article" />
   <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
@@ -27,72 +27,53 @@
       <p class="pill">Programming Basics</p>
       <h1>Python OOP for Data Engineers</h1>
       <div class="article-meta">
-        <span>Published: Oct 15, 2026</span>
+        <span>Published: Oct 16, 2026</span>
         <span aria-hidden="true">&bull;</span>
         <span>3 min read</span>
       </div>
-      <p class="article-lead">Object-Oriented Programming (OOP) is a paradigm that organizes software design around data, or objects, rather than functions and logic. In the context of data engineering, an object can be thought of as a self-contained unit that bundles...</p>
+      <p class="article-lead">In the world of data engineering, projects often start with simple scripts designed to move data from point A to point B. However, as your pipelines grow to handle dozens of sources and complex transformations, those scripts can become...</p>
       <div class="article-body">
-      <p>Object-Oriented Programming (OOP) is a paradigm that organizes software design around data, or objects, rather than functions and logic. In the context of data engineering, an object can be thought of as a self-contained unit that bundles together data and the specific operations that can be performed on that data. Instead of writing long, linear scripts that execute line-by-line, OOP allows you to build reusable components that make your data pipelines more modular and easier to maintain.</p>
-<h2>Why OOP Matters for Data Engineers</h2>
-<p>Data engineers often find themselves writing code to interact with databases, APIs, and cloud storage. Without OOP, you might end up with dozens of disconnected functions for connecting to a database, running a query, and closing the connection. </p>
-<p>By using OOP, you can create a single DatabaseConnector class. This class holds the configuration (like host and port) and the methods (like connect and query). This approach provides several benefits:</p>
+      <p>In the world of data engineering, projects often start with simple scripts designed to move data from point A to point B. However, as your pipelines grow to handle dozens of sources and complex transformations, those scripts can become tangled and difficult to maintain. This is where Object-Oriented Programming, or OOP, becomes an essential tool. Instead of writing a long, linear sequence of instructions, OOP allows you to group related data and functions into reusable structures called objects. This approach shifts the focus from &quot;what is happening&quot; to &quot;what entity is performing the action,&quot; making your code more modular and easier to debug.</p>
+<h2>Why It Matters</h2>
+<p>Data engineers spend a significant amount of time building connectors, parsers, and pipeline managers. Without OOP, you might find yourself copying and pasting the same logic to connect to five different databases. With OOP, you can create a single &quot;DatabaseConnector&quot; template and reuse it.</p>
 <ul>
-<li>Reusability: You can use the same connector across multiple pipelines.</li>
-<li>Maintainability: If the database logic changes, you only update it in one place.</li>
-<li>Abstraction: Team members can use your connector without needing to understand the complex underlying connection logic.</li>
+<li><strong>Reusability</strong>: You can define the logic for a data quality check once and apply it to multiple datasets.</li>
+<li><strong>Scalability</strong>: It is much easier to add a new data source to an existing framework than to write a new script from scratch.</li>
+<li><strong>Maintainability</strong>: If a database password logic changes, you only need to update it in one class rather than hunting through ten different script files.</li>
 </ul>
 <h2>Step-by-Step Walkthrough</h2>
-<h3>1. Defining a Class and Object</h3>
-<p>A class is a blueprint, while an object is an instance of that blueprint. Think of a &quot;Schema&quot; as a class and a specific &quot;User Table&quot; as the object.</p>
-<h3>2. The <strong>init</strong> Method</h3>
-<p>In Python, <code>__init__</code> is a special method called a constructor. It initializes the object&#x27;s attributes when the class is instantiated. In data engineering, this is usually where you set up your credentials or file paths.</p>
-<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
-class DataPipeline:
-    def __init__(self, source_name):
-        self.source_name = source_name
-        self.is_active = True
-
-# Creating an instance
-my_pipeline = DataPipeline(&quot;S3_Bucket_Logs&quot;)
-print(my_pipeline.source_name)
-</code></pre></div>
-<h3>3. Methods (The &quot;Doing&quot; Part)</h3>
-<p>Methods are functions defined inside a class. They define the behaviors of your object. For a data engineer, a method might involve cleaning a string or uploading a dataframe.</p>
-<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
-class DataCleaner:
-    def __init__(self, data):
-        self.data = data
-
-    def remove_nulls(self):
-        self.data = [row for row in self.data if row is not None]
-        return self.data
-</code></pre></div>
+<h3>1. Defining the Class (The Blueprint)</h3>
+<p>A class is a blueprint for an object. For a data engineer, a class might represent a &quot;DataPipeline&quot; or a &quot;FileProcessor.&quot; We use the <code>class</code> keyword to define it.</p>
+<h3>2. The <code>__init__</code> Method</h3>
+<p>This is a special method called a constructor. It initializes the object&#x27;s attributes when you create an instance. For example, if you are building a S3 Uploader, the <code>__init__</code> method would store the bucket name and access keys.</p>
+<h3>3. Adding Methods (Actions)</h3>
+<p>Methods are functions defined inside a class. They represent the actions the object can perform, such as <code>extract()</code>, <code>transform()</code>, or <code>load()</code>.</p>
 <h3>4. Inheritance</h3>
-<p>Inheritance allows one class to take on the attributes and methods of another. This is perfect for creating a generic &quot;FileLoader&quot; class and then creating specific &quot;CSVLoader&quot; and &quot;JSONLoader&quot; classes that inherit from it.</p>
+<p>Inheritance allows one class to take on the properties of another. You might have a base class called <code>CloudStorage</code> and &quot;child&quot; classes called <code>S3Storage</code> and <code>AzureBlobStorage</code> that inherit the basic logic but implement their own specific connection details.</p>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
-class BaseLoader:
-    def log_status(self):
-        print(&quot;Starting load process...&quot;)
+class DataUploader:
+    def __init__(self, storage_type):
+        self.storage_type = storage_type
 
-class CSVLoader(BaseLoader):
-    def load_file(self, path):
-        self.log_status()
-        print(f&quot;Loading CSV from {path}&quot;)
+    def upload(self, file_name):
+        print(f&quot;Uploading {file_name} to {self.storage_type}...&quot;)
+
+# Creating an instance (object) of the class
+s3_client = DataUploader(&quot;AWS S3&quot;)
+s3_client.upload(&quot;sales_data.csv&quot;)
 </code></pre></div>
 <h2>Common Mistakes</h2>
-<h3>Forgetting &#x27;self&#x27;</h3>
-<p>The most common error for beginners is forgetting to include <code>self</code> as the first argument in class methods. <code>self</code> represents the specific instance of the object. Without it, Python won&#x27;t know which object&#x27;s data to access.</p>
-<h3>Hardcoding Sensitive Data</h3>
-<p>Beginners often hardcode API keys or passwords directly into the <code>__init__</code> method. Always pass these as variables or load them from environment variables during instantiation to keep your code secure.</p>
-<h3>Over-Engineering</h3>
-<p>It is tempting to create a complex hierarchy of classes for every small task. If a simple function will do the job, use a function. OOP is best reserved for components that have an internal state (data that needs to be remembered) or need to be reused frequently.</p>
-<h2>Practice Task</h2>
-<p>Create a class named <code>DataTransformer</code>. </p>
 <ul>
-<li>The <code>__init__</code> method should accept a list of integers and store it in an attribute called <code>data</code>.</li>
-<li>Add a method called <code>multiply_by_factor</code> that takes a number (factor) as an argument and returns a new list where every number in the original list is multiplied by that factor.</li>
-<li>Test your class by creating an instance with the list <code>[1, 2, 3]</code> and multiplying it by <code>10</code>.</li>
+<li><strong>Forgetting &#x27;self&#x27;</strong>: In Python, the first argument of any method inside a class must be <code>self</code>. This refers to the specific instance of the object. If you omit it, your code will throw a <code>TypeError</code>.</li>
+<li><strong>Over-Engineering</strong>: Don&#x27;t use a class for everything. If you are just writing a five-line script to rename a file, a simple function is better. OOP is for managing complexity, not for creating it.</li>
+<li><strong>Mutable Default Arguments</strong>: Never use mutable objects like lists or dictionaries as default arguments in your <code>__init__</code> method. This can lead to unexpected behavior where data is shared across different instances of the class.</li>
+</ul>
+<h2>Practice Task</h2>
+<p>Create a class named <code>DataFilter</code>. </p>
+<ul>
+<li>The <code>__init__</code> method should take a list of numbers. </li>
+<li>Add a method called <code>filter_above</code> that takes a threshold value and returns a new list containing only the numbers greater than that threshold.</li>
+<li>Instantiate the class with the list <code>[10, 50, 100, 20]</code> and call your method to filter out numbers below 30.</li>
 </ul>
       </div>
       <footer class="article-footer">
