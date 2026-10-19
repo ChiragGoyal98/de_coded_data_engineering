@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-10-19T11:23:39.787088Z",
+  "generated_at": "2026-10-19T17:51:02.773628Z",
   "articles": [
+    {
+      "title": "Databricks notebook collaboration best practices",
+      "category": "Databricks",
+      "summary": "Databricks notebooks are more than just a place to write code; they are dynamic, multi-user environments designed for real-time teamwork. When multiple data engineers or analysts work within the same workspace, the ability to see live...",
+      "url": "articles/databricks-notebook-collaboration-best-practices.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-notebook-collaboration-best-practices.html",
+      "published": "2026-10-19T17:50:55.620730Z",
+      "is_new": true
+    },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-10-19T11:23:31.981325Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "PySpark Transformations for Large Datasets",
@@ -74,15 +83,6 @@
       "is_new": false
     },
     {
-      "title": "Databricks notebook collaboration best practices",
-      "category": "Databricks",
-      "summary": "Databricks notebooks are more than just a place to write code; they are a collaborative space where data engineers, scientists, and analysts work together in real-time. When multiple people work on the same logic, things can get messy...",
-      "url": "articles/databricks-notebook-collaboration-best-practices.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/databricks-notebook-collaboration-best-practices.html",
-      "published": "2026-10-01T17:38:44.412928Z",
-      "is_new": false
-    },
-    {
       "title": "Calling LLM APIs from Python with retries and fallbacks",
       "category": "LLM APIs",
       "summary": "Interacting with Large Language Models (LLMs) through APIs is a core skill for modern developers. However, these external services are not always reliable. You might encounter temporary network hiccups, rate limits, or even complete...",
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simplified Cloud Tools And AI Assistants Empower New Data Engineers",
+      "body": "<ul>\n<li>Cloud: Major platforms are expanding serverless data warehousing options to reduce the need for manual cluster configuration.</li>\n<li>AI: New integrations of large language models allow beginners to generate complex data transformation logic using natural language prompts.</li>\n<li>Tip: Focus on mastering SQL fundamentals first as it remains the most essential language for any data engineering role.</li>\n</ul>",
+      "published": "2026-10-19T17:51:02.773551Z",
+      "published_cycle": "2026-10-19T17",
+      "is_new": true
+    },
+    {
       "headline": "Modern Cloud Platforms Simplify Data Integration for New Engineers",
       "body": "<ul>\n<li>Cloud: Major providers are releasing serverless tools that allow beginners to build data pipelines without managing underlying infrastructure.</li>\n<li>AI: New large language models can now translate natural language descriptions into complex data transformation scripts automatically.</li>\n<li>Tip: Focus on learning the fundamentals of relational databases before moving on to specialized big data tools.</li>\n</ul>",
       "published": "2026-10-19T11:23:39.786990Z",
       "published_cycle": "2026-10-19T11",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Essential Updates For New Data Engineers This Week",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are releasing serverless tools that automatically handle infrastructure so beginners can focus on writing code.</li>\n<li>AI: New integrations make it easier to connect your data pipelines directly to large language models using simplified vector storage.</li>\n<li>Tip: Focus on mastering SQL first because it remains the most essential language for transforming data across all modern platforms.</li>\n</ul>",
       "published": "2026-10-17T01:48:43.933153Z",
       "published_cycle": "2026-10-17T01",
-      "is_new": false
-    },
-    {
-      "headline": "Latest Data Engineering Trends and Practical Advice for Beginners",
-      "body": "<ul>\n<li>Cloud: Google Cloud and Amazon Web Services are simplifying how users move data between different storage services to reduce technical complexity.</li>\n<li>AI: Generative AI tools are now helping data engineers write and debug complex pipeline code more quickly than ever before.</li>\n<li>Tip: Always double-check your data types when creating new tables to prevent errors during the data loading process.</li>\n</ul>",
-      "published": "2026-10-16T20:09:53.215161Z",
-      "published_cycle": "2026-10-16T20",
       "is_new": false
     }
   ]
