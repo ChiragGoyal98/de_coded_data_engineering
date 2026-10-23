@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python OOP for Data Engineers | DE-Coded Lab</title>
-  <meta name="description" content="In the world of data engineering, scripts often start as simple, linear sequences of commands. You read a file, filter some rows, and write the output to a database. However, as pipelines grow in complexity, managing these scripts becomes..." />
+  <meta name="description" content="Data engineering often involves writing scripts to move data from point A to point B. While functional programming is common in this field, Object-Oriented Programming (OOP) allows engineers to organize code into reusable components called..." />
   <meta property="og:title" content="Python OOP for Data Engineers" />
-  <meta property="og:description" content="In the world of data engineering, scripts often start as simple, linear sequences of commands. You read a file, filter some rows, and write the output to a database. However, as pipelines grow in complexity, managing these scripts becomes..." />
+  <meta property="og:description" content="Data engineering often involves writing scripts to move data from point A to point B. While functional programming is common in this field, Object-Oriented Programming (OOP) allows engineers to organize code into reusable components called..." />
   <meta property="og:type" content="article" />
   <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
@@ -31,79 +31,54 @@
         <span aria-hidden="true">&bull;</span>
         <span>3 min read</span>
       </div>
-      <p class="article-lead">In the world of data engineering, scripts often start as simple, linear sequences of commands. You read a file, filter some rows, and write the output to a database. However, as pipelines grow in complexity, managing these scripts becomes...</p>
+      <p class="article-lead">Data engineering often involves writing scripts to move data from point A to point B. While functional programming is common in this field, Object-Oriented Programming (OOP) allows engineers to organize code into reusable components called...</p>
       <div class="article-body">
-      <p>In the world of data engineering, scripts often start as simple, linear sequences of commands. You read a file, filter some rows, and write the output to a database. However, as pipelines grow in complexity, managing these scripts becomes a challenge. Object-Oriented Programming (OOP) offers a way to organize code by grouping data and behavior into reusable structures called classes. Instead of writing isolated functions, you create blueprints that represent the entities in your data ecosystem.</p>
-<h2>Why it matters</h2>
-<p>Data engineering is fundamentally about building and maintaining systems. OOP is essential for this for several reasons:</p>
+      <p>Data engineering often involves writing scripts to move data from point A to point B. While functional programming is common in this field, Object-Oriented Programming (OOP) allows engineers to organize code into reusable components called objects. These objects bundle data and the methods that operate on that data together, creating a blueprint for various tasks like connecting to databases, managing API credentials, or processing specific file formats. By shifting from a script-based approach to an object-oriented one, you can build data pipelines that are more modular and easier to scale.</p>
+<h2>Why OOP Matters in Data Engineering</h2>
+<p>In a professional data environment, you rarely write a script that is used only once. You deal with multiple data sources, various storage formats, and evolving business logic. OOP provides three major advantages:</p>
 <ul>
-<li>Maintainability: When the logic for connecting to a database changes, you only need to update it in one class rather than in twenty different scripts.</li>
-<li>Code Reusability: You can build a base &quot;DataExtractor&quot; class and extend it to handle CSVs, APIs, or SQL databases without rewriting core logic.</li>
-<li>Readability: OOP allows you to model real-world concepts. Seeing <code>s3_bucket.upload(file)</code> is much more intuitive than seeing a 50-line function with multiple global variables.</li>
-<li>Scalability: Large-scale frameworks like Apache Spark are built on OOP principles. Understanding how objects interact helps you write better transformations and troubleshoot framework errors.</li>
+<li><strong>Reusability:</strong> Instead of rewriting connection logic for every script that hits a Postgres database, you can create a single <code>DatabaseConnector</code> class and reuse it across your entire project.</li>
+<li><strong>Maintainability:</strong> If the credentials or the connection logic change, you only need to update the code in one place (the class) rather than in dozens of individual scripts.</li>
+<li><strong>Abstraction:</strong> You can hide complex logic-like handling API retries or pagination-inside a class method. A teammate using your class only needs to know which method to call, not how the underlying logic works.</li>
 </ul>
-<h2>Step-by-step walkthrough</h2>
-<h3>1. Defining a Class and the Constructor</h3>
-<p>A class is a blueprint. To create one, use the <code>class</code> keyword. The <code>__init__</code> method (the constructor) is where you define the attributes that every object created from this class will have.</p>
+<h2>Step-by-Step Walkthrough</h2>
+<p>To understand OOP, think of a <strong>Class</strong> as a blueprint and an <strong>Object</strong> as the house built from that blueprint.</p>
+<h3>1. Defining a Class</h3>
+<p>A class starts with the <code>class</code> keyword. In data engineering, a common use case is a class that represents a data source.</p>
+<h3>2. The <code>__init__</code> Method</h3>
+<p>This is a special method called a constructor. It initializes the object&#x27;s attributes when you create it. In a data context, this is where you would pass connection strings or file paths.</p>
+<h3>3. Methods</h3>
+<p>Methods are functions defined inside a class that describe the behaviors of the object. For a data engineer, these might be actions like <code>connect()</code>, <code>extract_data()</code>, or <code>load_to_s3()</code>.</p>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
 class DatabaseConnector:
-    def __init__(self, host, port):
-        self.host = host
-        self.port = port
-        self.is_connected = False
+    def __init__(self, db_name, user):
+        self.db_name = db_name
+        self.user = user
 
-# Creating an instance (object)
-pg_db = DatabaseConnector(&quot;localhost&quot;, 5432)
+    def get_connection_string(self):
+        return f&quot;postgresql://{self.user}@localhost/{self.db_name}&quot;
+
+# Creating an instance (Object)
+prod_db = DatabaseConnector(&quot;sales_db&quot;, &quot;admin&quot;)
+print(prod_db.get_connection_string())
 </code></pre></div>
-<h3>2. Adding Methods</h3>
-<p>Methods are functions defined inside a class that define what the object can do. In data engineering, these are often actions like <code>connect()</code>, <code>load_data()</code>, or <code>transform()</code>.</p>
-<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
-class DatabaseConnector:
-    def __init__(self, host, port):
-        self.host = host
-        self.port = port
-        self.is_connected = False
-
-    def connect(self):
-        self.is_connected = True
-        print(f&quot;Connected to {self.host}&quot;)
-
-db = DatabaseConnector(&quot;localhost&quot;, 5432)
-db.connect()
-</code></pre></div>
-<h3>3. Inheritance</h3>
-<p>Inheritance allows a class to take on the properties of another class. This is perfect for creating specialized versions of a tool. For example, a <code>S3Connector</code> might inherit from a general <code>CloudConnector</code>.</p>
-<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
-class FileProcessor:
-    def __init__(self, file_path):
-        self.file_path = file_path
-
-    def read(self):
-        print(f&quot;Reading {self.file_path}&quot;)
-
-class CSVProcessor(FileProcessor):
-    def process(self):
-        print(f&quot;Parsing CSV logic for {self.file_path}&quot;)
-
-processor = CSVProcessor(&quot;data.csv&quot;)
-processor.read()  # Inherited from FileProcessor
-processor.process() # Specific to CSVProcessor
-</code></pre></div>
-<h2>Common mistakes</h2>
+<h3>4. Inheritance</h3>
+<p>Inheritance allows one class to take on the attributes and methods of another. You might have a base <code>FileProcessor</code> class, and then specific subclasses like <code>JSONProcessor</code> and <code>CSVProcessor</code> that inherit from it but handle their respective formats differently.</p>
+<h2>Common Mistakes</h2>
 <ul>
-<li>Forgetting the &#x27;self&#x27; argument: In Python, every method in a class must take <code>self</code> as its first argument. If you omit it, Python won&#x27;t know which specific object the method is acting upon.</li>
-<li>Over-engineering: Beginner data engineers often try to make everything a class. If you only need to perform a simple calculation once, a standard function is usually better.</li>
-<li>Mutable default arguments: Never use lists or dictionaries as default arguments in <code>__init__</code>. Because defaults are evaluated only once at definition time, all instances of the class will share the same list, leading to strange data leaks between objects.</li>
-<li>Using Class variables instead of Instance variables: Variables defined directly under the class name (outside <code>__init__</code>) are shared by all instances. Usually, you want instance variables (using <code>self.variable_name</code>) so each object holds its own data.</li>
+<li><strong>Forgetting <code>self</code>:</strong> In Python, the first argument of every method inside a class must be <code>self</code>. This refers to the specific instance of the object. Forgetting it will result in a <code>TypeError</code>.</li>
+<li><strong>Hardcoding values:</strong> Beginners often hardcode credentials or file paths inside the class. It is better to pass these as arguments during initialization to keep the class flexible.</li>
+<li><strong>Over-engineering:</strong> Don&#x27;t use OOP for every simple task. If you only need to transform a single list of strings, a simple function is often better than a complex class structure.</li>
+<li><strong>Mutable Default Arguments:</strong> Never use lists or dictionaries as default arguments in a class method. Because they are mutable, they can retain data across different objects, leading to unexpected bugs.</li>
 </ul>
-<h2>Practice task</h2>
-<p>Create a class called <code>DataTransformer</code>. </p>
+<h2>Practice Task</h2>
+<p>Build a class called <code>DataTransformer</code>. The class should:</p>
 <ul>
-<li>The constructor should accept a list of strings called <code>data</code>.</li>
-<li>Add a method called <code>to_uppercase()</code> that converts all strings in the list to uppercase.</li>
-<li>Add a method called <code>get_data()</code> that returns the current list.</li>
+<li>Accept a list of numbers during initialization.</li>
+<li>Have a method called <code>multiply_by_factor(factor)</code> that returns a new list where each number is multiplied by the given factor.</li>
+<li>Have a method called <code>get_sum()</code> that returns the total sum of the numbers in the list.</li>
 </ul>
-<p><strong>Bonus:</strong> Create a subclass called <code>PrefixTransformer</code> that adds a specific string (like &quot;DE-&quot;) to the beginning of every item in the list.</p>
+<p>Once you have built the class, create an instance with the list <code>[10, 20, 30]</code>, multiply it by 2, and print the resulting sum.</p>
       </div>
       <footer class="article-footer">
         <a class="link-button" href="/de_coded_data_engineering/index.html">Explore more tutorials &rarr;</a>
