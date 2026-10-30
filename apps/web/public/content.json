@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-10-29T22:06:17.906478Z",
+  "generated_at": "2026-10-30T03:11:12.127678Z",
   "articles": [
+    {
+      "title": "Azure Data Factory orchestration patterns",
+      "category": "Azure",
+      "summary": "In the world of cloud data engineering, moving data from point A to point B is only half the battle. The real challenge lies in managing the dependencies, timing, and logic that govern those movements. This is where orchestration comes in....",
+      "url": "articles/azure-data-factory-orchestration-patterns.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
+      "published": "2026-10-30T03:11:03.058335Z",
+      "is_new": true
+    },
     {
       "title": "PySpark Transformations for Large Datasets",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-10-29T22:06:06.568857Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "SQL Window Functions with Real ETL Use Cases",
@@ -17,15 +26,6 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-10-29T11:52:12.115380Z",
-      "is_new": false
-    },
-    {
-      "title": "Azure Data Factory orchestration patterns",
-      "category": "Azure",
-      "summary": "Orchestration is the process of coordinating various tasks to ensure data flows correctly from source to destination. In Azure Data Factory (ADF), this means managing the dependencies between different activities, such as copying data from...",
-      "url": "articles/azure-data-factory-orchestration-patterns.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
-      "published": "2026-10-29T03:07:09.819116Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Key Updates In Cloud Infrastructure And Artificial Intelligence For New Engineers",
+      "body": "<ul>\n<li>Cloud: Major providers are simplifying data lake management by adopting open-source formats like Apache Iceberg to prevent vendor lock-in.</li>\n<li>AI: Generative AI tools are now being integrated directly into data warehouses to help engineers write and debug code faster.</li>\n<li>Tip: Always document your data sources and transformations early to prevent confusion as your pipeline grows in complexity.</li>\n</ul>",
+      "published": "2026-10-30T03:11:12.127611Z",
+      "published_cycle": "2026-10-30T03",
+      "is_new": true
+    },
+    {
       "headline": "Cloud Platforms and AI Tools Help Beginners Build Better Data Pipelines",
       "body": "<ul>\n<li>Cloud: Major providers are launching serverless platforms that handle infrastructure so beginners can focus on writing data logic.</li>\n<li>AI: Large language models are increasingly being used to automate the generation of documentation and SQL code for data pipelines.</li>\n<li>Tip: Focus on learning SQL basics first because it remains the core language for most data engineering work.</li>\n</ul>",
       "published": "2026-10-29T22:06:17.906411Z",
       "published_cycle": "2026-10-29T22",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Essential Updates in Cloud Storage and Artificial Intelligence for Data Teams",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Leading platforms are expanding serverless options to help beginners deploy data warehouses without managing complex backend servers.</li>\n<li>AI: Large language models are being integrated directly into transformation tools to assist with writing SQL and Python code.</li>\n<li>Tip: Prioritize learning the fundamentals of relational databases before moving on to complex big data frameworks.</li>\n</ul>",
       "published": "2026-10-27T16:56:29.821499Z",
       "published_cycle": "2026-10-27T16",
-      "is_new": false
-    },
-    {
-      "headline": "Major Cloud and AI Tools Simplify Data Engineering for New Learners",
-      "body": "<ul>\n<li>Cloud: Leading providers are introducing automated integration tools that connect different data sources with just a few clicks.</li>\n<li>AI: Developers are increasingly using generative models to automate the creation of complex data transformation scripts.</li>\n<li>Tip: Focus on understanding data quality principles before worrying about the latest high-scale processing frameworks.</li>\n</ul>",
-      "published": "2026-10-27T11:09:35.590775Z",
-      "published_cycle": "2026-10-27T11",
       "is_new": false
     }
   ]
