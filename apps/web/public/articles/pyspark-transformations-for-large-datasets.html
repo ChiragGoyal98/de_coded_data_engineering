@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PySpark Transformations for Large Datasets | DE-Coded Lab</title>
-  <meta name="description" content="Processing millions of rows of data often breaks standard libraries like Pandas because they rely on a single computer&#x27;s memory. PySpark solves this by distributing the workload across a cluster of machines. At the heart of this power are..." />
+  <meta name="description" content="When working with massive amounts of data, traditional tools like Excel or even Python&#x27;s popular Pandas library can struggle. This is where PySpark comes in. PySpark is the Python API for Apache Spark, a distributed computing framework..." />
   <meta property="og:title" content="PySpark Transformations for Large Datasets" />
-  <meta property="og:description" content="Processing millions of rows of data often breaks standard libraries like Pandas because they rely on a single computer&#x27;s memory. PySpark solves this by distributing the workload across a cluster of machines. At the heart of this power are..." />
+  <meta property="og:description" content="When working with massive amounts of data, traditional tools like Excel or even Python&#x27;s popular Pandas library can struggle. This is where PySpark comes in. PySpark is the Python API for Apache Spark, a distributed computing framework..." />
   <meta property="og:type" content="article" />
   <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
@@ -27,66 +27,60 @@
       <p class="pill">Programming Basics</p>
       <h1>PySpark Transformations for Large Datasets</h1>
       <div class="article-meta">
-        <span>Published: Nov 01, 2026</span>
+        <span>Published: Nov 02, 2026</span>
         <span aria-hidden="true">&bull;</span>
         <span>3 min read</span>
       </div>
-      <p class="article-lead">Processing millions of rows of data often breaks standard libraries like Pandas because they rely on a single computer&#x27;s memory. PySpark solves this by distributing the workload across a cluster of machines. At the heart of this power are...</p>
+      <p class="article-lead">When working with massive amounts of data, traditional tools like Excel or even Python&#x27;s popular Pandas library can struggle. This is where PySpark comes in. PySpark is the Python API for Apache Spark, a distributed computing framework...</p>
       <div class="article-body">
-      <p>Processing millions of rows of data often breaks standard libraries like Pandas because they rely on a single computer&#x27;s memory. PySpark solves this by distributing the workload across a cluster of machines. At the heart of this power are transformations, which are instructions that tell Spark how to modify or reshape data without immediately executing the command. This approach allows for massive scalability and efficiency when dealing with enterprise-level datasets.</p>
-<h2>Why it Matters</h2>
-<p>In traditional programming, when you tell a computer to &quot;filter this list,&quot; it does it immediately. In PySpark, this is different because of a concept called Lazy Evaluation. When you apply a transformation, Spark simply adds that instruction to a &quot;to-do list&quot; (called a Directed Acyclic Graph or DAG).</p>
-<p>This matters because:</p>
-<ul>
-<li>Efficiency: Spark looks at the entire list of instructions and optimizes them before doing any work.</li>
-<li>Scalability: It allows Spark to handle datasets much larger than the memory of a single computer by processing chunks of data across multiple &quot;worker&quot; nodes.</li>
-<li>Resilience: If one machine in a cluster fails, Spark uses the transformation history to rebuild the missing pieces of data.</li>
-</ul>
-<h2>Step-by-Step Walkthrough</h2>
-<p>To master PySpark transformations, you need to understand the two main types: Narrow and Wide.</p>
+      <p>When working with massive amounts of data, traditional tools like Excel or even Python&#x27;s popular Pandas library can struggle. This is where PySpark comes in. PySpark is the Python API for Apache Spark, a distributed computing framework designed to process terabytes of data by spreading the workload across a cluster of computers. At the heart of this process are transformations, which are instructions that tell Spark how to modify or restructure your data to get the results you need.</p>
+<h2>Why it matters</h2>
+<p>Understanding transformations is essential because they are &quot;lazy.&quot; In standard programming, when you tell a computer to add two numbers, it does it immediately. In PySpark, transformations are simply recorded as a plan of action. Spark won&#x27;t actually move a single byte of data until you call an &quot;Action&quot; (like saving a file or showing a result). This lazy evaluation allows Spark to optimize the entire workflow, reducing unnecessary computations and making it possible to handle datasets that are far larger than your computer&#x27;s memory.</p>
+<h2>Step-by-step walkthrough</h2>
+<p>Transformations are generally categorized into two types: Narrow and Wide. Understanding the difference helps you write more efficient code.</p>
 <h3>1. Narrow Transformations</h3>
-<p>These are operations where each input partition contributes to exactly one output partition. Think of these as &quot;local&quot; changes that don&#x27;t require the computer to talk to other computers in the cluster.</p>
+<p>These are operations where each input partition contributes to exactly one output partition. Because there is no need to move data between different computers in the cluster, these are very fast.</p>
 <ul>
-<li>filter(): Keeps rows that meet a specific condition.</li>
-<li>select(): Picks specific columns to keep.</li>
-<li>withColumn(): Creates a new column or modifies an existing one.</li>
+<li><code>filter()</code>: Keeps only the rows that meet a certain condition.</li>
+<li><code>select()</code>: Chooses specific columns to keep.</li>
+<li><code>withColumn()</code>: Creates a new column or updates an existing one.</li>
 </ul>
 <h3>2. Wide Transformations</h3>
-<p>These operations require data to be &quot;shuffled&quot; across different machines in the cluster. This happens when you need to group data that might be spread out.</p>
+<p>These operations require data to be &quot;shuffled&quot; across the cluster. If you want to group data by a specific category, Spark must move all records with the same category ID to the same computer. These are more resource-intensive.</p>
 <ul>
-<li>groupBy(): Collects data based on a common key.</li>
-<li>orderBy(): Sorts the entire dataset.</li>
-<li>distinct(): Removes duplicate rows.</li>
+<li><code>groupBy()</code>: Aggregates data based on a column.</li>
+<li><code>orderBy()</code>: Sorts the entire dataset.</li>
+<li><code>distinct()</code>: Removes duplicate rows.</li>
 </ul>
-<h3>3. Turning Transformations into Results</h3>
-<p>Remember that transformations do nothing until you call an Action. Common actions include .show() to view data, .count() to see the number of rows, or .write() to save the file.</p>
+<h3>3. Seeing it in action</h3>
+<p>To use these, you first create a Spark Session and load your data into a DataFrame. Here is a short example of how to chain these transformations together:</p>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-python">
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col
+from pyspark.sql import functions as F
 
-# Initialize the Spark Session
-spark = SparkSession.builder.appName(&quot;TransformationBasics&quot;).getOrCreate()
+spark = SparkSession.builder.appName(&quot;DE-CodedExample&quot;).getOrCreate()
 
-# Create a dummy dataset
-data = [(&quot;Laptop&quot;, &quot;Electronics&quot;, 1200), (&quot;Bread&quot;, &quot;Grocery&quot;, 3), (&quot;Phone&quot;, &quot;Electronics&quot;, 800)]
-df = spark.createDataFrame(data, [&quot;Item&quot;, &quot;Category&quot;, &quot;Price&quot;])
+# Sample data
+data = [(&quot;Laptop&quot;, &quot;Electronics&quot;, 1200), (&quot;Phone&quot;, &quot;Electronics&quot;, 800), (&quot;Desk&quot;, &quot;Furniture&quot;, 150)]
+df = spark.createDataFrame(data, [&quot;Product&quot;, &quot;Category&quot;, &quot;Price&quot;])
 
-# Chain transformations: Filter for high price and select specific columns
-# Note: Nothing is calculated yet!
-refined_df = df.filter(col(&quot;Price&quot;) &gt; 500).select(&quot;Item&quot;, &quot;Price&quot;)
+# Chain transformations
+# 1. Filter for items over 500
+# 2. Group by category and find average price
+result_df = df.filter(df.Price &gt; 500) \
+              .groupBy(&quot;Category&quot;) \
+              .agg(F.avg(&quot;Price&quot;))
 
-# The Action: This triggers the actual calculation
-refined_df.show()
+result_df.show()
 </code></pre></div>
-<h2>Common Mistakes</h2>
+<h2>Common mistakes</h2>
 <ul>
-<li>Forgetting Actions: Beginners often write ten lines of transformations and wonder why the computer isn&#x27;t &quot;doing anything.&quot; You must use an action like .show() or .collect() to trigger the execution.</li>
-<li>Over-shuffling: Using too many wide transformations (like groupBy) can slow down your program significantly because moving data between computers is expensive.</li>
-<li>Using Pandas Logic: Trying to loop through rows using a &quot;for loop&quot; in PySpark is a common mistake. Always use built-in PySpark functions to ensure the work stays distributed.</li>
+<li><strong>Using collect() on large datasets:</strong> The <code>collect()</code> function brings all the data from the cluster back to your single computer&#x27;s memory. If the dataset is too big, your program will crash. Use <code>show()</code> or write the results to a file instead.</li>
+<li><strong>Overusing Wide Transformations:</strong> Every time you use <code>groupBy</code> or <code>orderBy</code>, you trigger a shuffle. Too many shuffles can significantly slow down your pipeline.</li>
+<li><strong>Ignoring Schema:</strong> PySpark tries to guess the data types, but it is not always right. Always verify your column types using <code>df.printSchema()</code> to avoid calculation errors.</li>
 </ul>
-<h2>Practice Task</h2>
-<p>Imagine you have a dataset of &quot;Store Sales&quot; with columns: <code>Store_ID</code>, <code>Product</code>, <code>Amount</code>, and <code>Date</code>. </p>
-<p>Your task: Write a PySpark script (or pseudocode) that filters the data to show only sales where the <code>Amount</code> is greater than 100, then groups the data by <code>Store_ID</code> to find the total sum of sales per store. Remember to use an action at the end to display your results.</p>
+<h2>One practice task</h2>
+<p>Create a small script that loads a list of names and ages. Use transformations to filter out anyone under the age of 18, and then create a new column called &quot;is_adult&quot; that defaults to the boolean value True. Finally, use an action to display the count of how many adults are in your list.</p>
       </div>
       <footer class="article-footer">
         <a class="link-button" href="/de_coded_data_engineering/index.html">Explore more tutorials &rarr;</a>
