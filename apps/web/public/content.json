@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-11-04T13:22:43.656330Z",
+  "generated_at": "2026-11-04T22:57:13.679764Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "When working with massive amounts of data, standard Python libraries like Pandas often run out of memory because they process data on a single machine. PySpark changes this by distributing the data across a cluster of computers. At the...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-11-04T22:56:58.708035Z",
+      "is_new": true
+    },
     {
       "title": "Azure Data Factory orchestration patterns",
       "category": "Azure",
@@ -8,15 +17,6 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-11-04T13:22:38.843005Z",
-      "is_new": true
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "PySpark is a powerful tool designed to handle massive amounts of data that a single computer cannot process on its own. When working with these large datasets, we use specific operations called transformations to modify and shape our data....",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-11-03T22:38:06.309190Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Essential New Developments For Entry Level Data Engineering Professionals",
+      "body": "<ul>\n<li>Cloud: Leading cloud platforms are simplifying their services so that new engineers can store and organize data without deep technical expertise.</li>\n<li>AI: New artificial intelligence tools can now automatically write the code needed to move data from one system to another.</li>\n<li>Tip: Build a small project using a public dataset to practice your skills instead of just watching video tutorials.</li>\n</ul>",
+      "published": "2026-11-04T22:57:13.679695Z",
+      "published_cycle": "2026-11-04T22",
+      "is_new": true
+    },
+    {
       "headline": "Simplified Cloud Tools and AI Assistants Support New Data Engineers",
       "body": "<ul>\n<li>Cloud: Major cloud providers are launching more serverless options that allow beginners to process data without managing complex server hardware.</li>\n<li>AI: Generative AI tools are now helping engineers automatically document their code and generate complex SQL queries for faster development.</li>\n<li>Tip: Always prioritize data quality checks early in your pipeline to prevent errors from spreading to your final reports.</li>\n</ul>",
       "published": "2026-11-04T13:22:43.656262Z",
       "published_cycle": "2026-11-04T13",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Recent Shifts in Modern Cloud Infrastructure and Artificial Intelligence Tools",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are launching more user friendly serverless features to help beginners deploy pipelines without managing infrastructure.</li>\n<li>AI: Companies are integrating vector databases into standard workflows to help engineers build more efficient artificial intelligence applications.</li>\n<li>Tip: Start by learning SQL and Python fundamentals because they are the core languages used across almost every data platform.</li>\n</ul>",
       "published": "2026-11-01T02:50:55.735244Z",
       "published_cycle": "2026-11-01T02",
-      "is_new": false
-    },
-    {
-      "headline": "Modern Data Tools Simplify Workflows For New Data Engineers",
-      "body": "<ul>\n<li>Cloud: Top cloud platforms are expanding serverless databases to let beginners store data without managing any physical or virtual hardware.</li>\n<li>AI: Generative AI tools now help engineers write and debug complex data transformation code by translating natural language into technical scripts.</li>\n<li>Tip: Beginners should prioritize learning how to build a basic data pipeline using Python to understand how information moves between systems.</li>\n</ul>",
-      "published": "2026-10-31T20:44:05.998614Z",
-      "published_cycle": "2026-10-31T20",
       "is_new": false
     }
   ]
