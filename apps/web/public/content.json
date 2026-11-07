@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-11-07T03:28:09.407985Z",
+  "generated_at": "2026-11-07T11:59:16.842592Z",
   "articles": [
+    {
+      "title": "SQL Window Functions with Real ETL Use Cases",
+      "category": "Programming Basics",
+      "summary": "In the world of data engineering and analysis, SQL window functions act as a bridge between simple row-level processing and complex aggregation. Unlike standard aggregate functions that collapse multiple rows into a single result, window...",
+      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
+      "published": "2026-11-07T11:59:11.418450Z",
+      "is_new": true
+    },
     {
       "title": "Azure Data Factory orchestration patterns",
       "category": "Azure",
@@ -8,7 +17,7 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-11-07T03:27:55.851656Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "PySpark Transformations for Large Datasets",
@@ -26,15 +35,6 @@
       "url": "articles/python-oop-for-data-engineers.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/python-oop-for-data-engineers.html",
       "published": "2026-11-03T00:06:44.392906Z",
-      "is_new": false
-    },
-    {
-      "title": "SQL Window Functions with Real ETL Use Cases",
-      "category": "Programming Basics",
-      "summary": "In the world of data transformation, you often need to perform calculations that involve multiple rows without actually collapsing those rows into a single summary. This is where SQL window functions come into play. Unlike a GROUP BY...",
-      "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
-      "published": "2026-11-01T21:25:14.534760Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Essential Modern Data Engineering Updates for Beginners",
+      "body": "<ul>\n<li>Cloud: Major providers are releasing serverless storage solutions that make managing large datasets easier for small teams.</li>\n<li>AI: New automated coding assistants are helping engineers build more efficient data pipelines using natural language commands.</li>\n<li>Tip: Start by mastering data modeling basics to ensure your pipelines remain organized and scalable as you grow.</li>\n</ul>",
+      "published": "2026-11-07T11:59:16.842559Z",
+      "published_cycle": "2026-11-07T11",
+      "is_new": true
+    },
+    {
       "headline": "Essential Data Engineering Updates for New Professionals",
       "body": "<ul>\n<li>Cloud: Major providers are launching simplified serverless tools to help beginners deploy data pipelines without managing complex servers.</li>\n<li>AI: New generative models are helping engineers automate documentation and SQL generation for faster data transformation workflows.</li>\n<li>Tip: Prioritize learning clean coding practices and version control early to ensure your data pipelines remain maintainable and scalable.</li>\n</ul>",
       "published": "2026-11-07T03:28:09.407918Z",
       "published_cycle": "2026-11-07T03",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simplifying Modern Data Pipelines for the Next Generation of Engineers",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major cloud providers are launching more serverless options that allow beginners to process data without managing complex server hardware.</li>\n<li>AI: Generative AI tools are now helping engineers automatically document their code and generate complex SQL queries for faster development.</li>\n<li>Tip: Always prioritize data quality checks early in your pipeline to prevent errors from spreading to your final reports.</li>\n</ul>",
       "published": "2026-11-04T13:22:43.656262Z",
       "published_cycle": "2026-11-04T13",
-      "is_new": false
-    },
-    {
-      "headline": "Recent Shifts in Modern Cloud Infrastructure and Artificial Intelligence Tools",
-      "body": "<ul>\n<li>Cloud: Major providers are simplifying serverless scaling to help developers manage large datasets without manual server configuration.</li>\n<li>AI: New vector database integrations are making it easier for engineers to feed proprietary data into large language models.</li>\n<li>Tip: Focus on learning SQL and basic Python as they remain the fundamental building blocks for any successful data pipeline.</li>\n</ul>",
-      "published": "2026-11-04T03:34:53.140367Z",
-      "published_cycle": "2026-11-04T03",
       "is_new": false
     }
   ]
