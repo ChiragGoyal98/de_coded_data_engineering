@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-11-10T13:52:08.937964Z",
+  "generated_at": "2026-11-10T22:36:47.462711Z",
   "articles": [
+    {
+      "title": "PySpark Transformations for Large Datasets",
+      "category": "Programming Basics",
+      "summary": "When dealing with datasets that exceed the memory of a single machine, traditional Python libraries like pandas often struggle. PySpark, the Python API for Apache Spark, solves this by distributing data across a cluster of computers. At...",
+      "url": "articles/pyspark-transformations-for-large-datasets.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
+      "published": "2026-11-10T22:36:40.887219Z",
+      "is_new": true
+    },
     {
       "title": "Azure Data Factory orchestration patterns",
       "category": "Azure",
@@ -8,7 +17,7 @@
       "url": "articles/azure-data-factory-orchestration-patterns.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
       "published": "2026-11-10T13:51:36.492158Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Python OOP for Data Engineers",
@@ -35,15 +44,6 @@
       "url": "articles/sql-window-functions-with-real-etl-use-cases.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/sql-window-functions-with-real-etl-use-cases.html",
       "published": "2026-11-08T21:24:48.943310Z",
-      "is_new": false
-    },
-    {
-      "title": "PySpark Transformations for Large Datasets",
-      "category": "Programming Basics",
-      "summary": "In the world of big data, processing millions or even billions of rows requires more than just standard Python. This is where Apache Spark comes in, providing a distributed computing framework that handles massive datasets across a cluster...",
-      "url": "articles/pyspark-transformations-for-large-datasets.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
-      "published": "2026-11-08T12:19:06.435328Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Simplified Data Engineering Trends for New Professionals",
+      "body": "<ul>\n<li>Cloud: Major cloud providers are launching serverless integration tools to help beginners build data pipelines without managing complex infrastructure.</li>\n<li>AI: Generative artificial intelligence is now automating the creation of SQL queries and Python scripts to streamline basic data transformation tasks.</li>\n<li>Tip: Focus on mastering fundamental SQL skills before diving into complex big data frameworks to build a solid career foundation.</li>\n</ul>",
+      "published": "2026-11-10T22:36:47.462645Z",
+      "published_cycle": "2026-11-10T22",
+      "is_new": true
+    },
+    {
       "headline": "Cloud Tools And AI Are Simplifying Data Engineering For Beginners",
       "body": "<p>Cloud: Major cloud platforms now provide serverless options that eliminate the need for manual server management.</p>\n<p>AI: Large language models can now generate SQL code and explain complex data transformations to learners.</p>\n<p>Tip: Master the fundamentals of data modeling and SQL before exploring advanced automation tools.</p>",
       "published": "2026-11-10T13:52:08.937892Z",
       "published_cycle": "2026-11-10T13",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Simplifying Data Pipelines for New Engineers in the Cloud Era",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are launching serverless platforms that handle infrastructure management so developers can focus purely on data pipelines.</li>\n<li>AI: New generative models are automating the creation of data documentation and helping teams explain complex table relationships.</li>\n<li>Tip: Focus on mastering SQL fundamentals first because it remains the primary language for transforming data across almost every modern platform.</li>\n</ul>",
       "published": "2026-11-07T17:26:13.315476Z",
       "published_cycle": "2026-11-07T17",
-      "is_new": false
-    },
-    {
-      "headline": "Essential Modern Data Engineering Updates for Beginners",
-      "body": "<ul>\n<li>Cloud: Major providers are releasing serverless storage solutions that make managing large datasets easier for small teams.</li>\n<li>AI: New automated coding assistants are helping engineers build more efficient data pipelines using natural language commands.</li>\n<li>Tip: Start by mastering data modeling basics to ensure your pipelines remain organized and scalable as you grow.</li>\n</ul>",
-      "published": "2026-11-07T11:59:16.842559Z",
-      "published_cycle": "2026-11-07T11",
       "is_new": false
     }
   ]
