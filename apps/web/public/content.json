@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-11-12T22:55:38.944962Z",
+  "generated_at": "2026-11-13T03:49:29.671123Z",
   "articles": [
+    {
+      "title": "Azure Data Factory orchestration patterns",
+      "category": "Azure",
+      "summary": "In the world of data engineering, moving data from point A to point B is rarely a single, isolated step. Usually, you have to coordinate a series of actions: extracting data, transforming it, verifying its quality, and then loading it into...",
+      "url": "articles/azure-data-factory-orchestration-patterns.html",
+      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
+      "published": "2026-11-13T03:49:14.786807Z",
+      "is_new": true
+    },
     {
       "title": "PySpark Transformations for Large Datasets",
       "category": "Programming Basics",
@@ -8,7 +17,7 @@
       "url": "articles/pyspark-transformations-for-large-datasets.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/pyspark-transformations-for-large-datasets.html",
       "published": "2026-11-12T22:55:31.166306Z",
-      "is_new": true
+      "is_new": false
     },
     {
       "title": "Azure Synapse Analytics fundamentals",
@@ -17,15 +26,6 @@
       "url": "articles/azure-synapse-analytics-fundamentals.html",
       "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-synapse-analytics-fundamentals.html",
       "published": "2026-11-12T14:05:41.621681Z",
-      "is_new": false
-    },
-    {
-      "title": "Azure Data Factory orchestration patterns",
-      "category": "Azure",
-      "summary": "In the world of data engineering, building a single pipeline to move data is just the beginning. The real challenge lies in managing how multiple tasks interact with one another. Azure Data Factory (ADF) uses orchestration to coordinate...",
-      "url": "articles/azure-data-factory-orchestration-patterns.html",
-      "full_url": "https://chiraggoyal98.github.io/de_coded_data_engineering/articles/azure-data-factory-orchestration-patterns.html",
-      "published": "2026-11-11T23:46:06.284605Z",
       "is_new": false
     },
     {
@@ -111,11 +111,18 @@
   ],
   "news": [
     {
+      "headline": "Key Data Engineering Trends and Tips for Modern Beginners",
+      "body": "<ul>\n<li>Cloud: Major providers are simplifying data storage by offering more automated serverless options for beginners.</li>\n<li>AI: Companies are integrating large language models directly into databases to allow for natural language data querying.</li>\n<li>Tip: Start by learning how to build a simple local pipeline before moving to expensive cloud services.</li>\n</ul>",
+      "published": "2026-11-13T03:49:29.671052Z",
+      "published_cycle": "2026-11-13T03",
+      "is_new": true
+    },
+    {
       "headline": "New Tools and Techniques for Building Modern Data Pipelines",
       "body": "<ul>\n<li>Cloud: New serverless features on major platforms allow beginners to build data pipelines without needing to configure complex backend hardware.</li>\n<li>AI: Automated coding assistants are becoming standard for generating data schemas and optimizing queries in real time.</li>\n<li>Tip: Learn the principles of data modeling early to ensure your pipelines are scalable and easy for others to understand.</li>\n</ul>",
       "published": "2026-11-12T22:55:38.944888Z",
       "published_cycle": "2026-11-12T22",
-      "is_new": true
+      "is_new": false
     },
     {
       "headline": "Latest Data Engineering Trends Simplified for Beginners",
@@ -171,13 +178,6 @@
       "body": "<ul>\n<li>Cloud: Major providers are releasing serverless tools that automatically scale data storage and processing power.</li>\n<li>AI: Generative AI is now being integrated into development environments to help debug data pipelines.</li>\n<li>Tip: Focus on understanding data modeling basics before moving on to complex orchestration tools.</li>\n</ul>",
       "published": "2026-11-10T00:55:14.395049Z",
       "published_cycle": "2026-11-10T00",
-      "is_new": false
-    },
-    {
-      "headline": "Data Engineering Simplified Trends in Cloud and AI Growth",
-      "body": "<ul>\n<li>Cloud: Major providers are launching serverless tools that automatically adjust storage needs so beginners do not have to manage servers.</li>\n<li>AI: New artificial intelligence features are now assisting developers by automatically generating the code required to clean and organize data.</li>\n<li>Tip: Beginners should focus on learning SQL first as it is the foundational language used for querying almost all modern data systems.</li>\n</ul>",
-      "published": "2026-11-09T14:30:16.805621Z",
-      "published_cycle": "2026-11-09T14",
       "is_new": false
     }
   ]
