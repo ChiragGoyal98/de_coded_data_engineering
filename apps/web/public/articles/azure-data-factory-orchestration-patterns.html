@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Azure Data Factory orchestration patterns | DE-Coded Lab</title>
-  <meta name="description" content="Azure Data Factory (ADF) is a cloud-based data integration service that allows users to create data-driven workflows. Orchestration is the process of coordinating these workflows to ensure data moves from source to destination in a..." />
+  <meta name="description" content="Azure Data Factory (ADF) is often described as a cloud-based ETL service, but its true strength lies in orchestration. Orchestration is the process of arranging, coordinating, and managing complex data workflows to ensure tasks happen in..." />
   <meta property="og:title" content="Azure Data Factory orchestration patterns" />
-  <meta property="og:description" content="Azure Data Factory (ADF) is a cloud-based data integration service that allows users to create data-driven workflows. Orchestration is the process of coordinating these workflows to ensure data moves from source to destination in a..." />
+  <meta property="og:description" content="Azure Data Factory (ADF) is often described as a cloud-based ETL service, but its true strength lies in orchestration. Orchestration is the process of arranging, coordinating, and managing complex data workflows to ensure tasks happen in..." />
   <meta property="og:type" content="article" />
   <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
@@ -27,65 +27,55 @@
       <p class="pill">Azure</p>
       <h1>Azure Data Factory orchestration patterns</h1>
       <div class="article-meta">
-        <span>Published: Nov 15, 2026</span>
+        <span>Published: Nov 16, 2026</span>
         <span aria-hidden="true">&bull;</span>
         <span>3 min read</span>
       </div>
-      <p class="article-lead">Azure Data Factory (ADF) is a cloud-based data integration service that allows users to create data-driven workflows. Orchestration is the process of coordinating these workflows to ensure data moves from source to destination in a...</p>
+      <p class="article-lead">Azure Data Factory (ADF) is often described as a cloud-based ETL service, but its true strength lies in orchestration. Orchestration is the process of arranging, coordinating, and managing complex data workflows to ensure tasks happen in...</p>
       <div class="article-body">
-      <p>Azure Data Factory (ADF) is a cloud-based data integration service that allows users to create data-driven workflows. Orchestration is the process of coordinating these workflows to ensure data moves from source to destination in a specific order and under specific conditions. By using orchestration patterns, developers can manage complex dependencies between different data tasks without manual intervention. This ensures that a database update does not begin until the preceding file ingestion has successfully completed.</p>
+      <p>Azure Data Factory (ADF) is often described as a cloud-based ETL service, but its true strength lies in orchestration. Orchestration is the process of arranging, coordinating, and managing complex data workflows to ensure tasks happen in the right order and under the right conditions. Instead of just moving data from point A to point B, orchestration allows you to build logic that handles failures, loops through multiple files, and triggers specific activities based on the outcome of previous steps.</p>
 <h2>Why it matters</h2>
-<p>In a real-world data environment, tasks rarely exist in isolation. If you have hundreds of pipelines, managing them manually is impossible. Orchestration patterns matter because they provide:</p>
+<p>In a production environment, data pipelines are rarely a single straight line. Orchestration patterns allow you to build resilience and efficiency into your data platform. By mastering these patterns, you can:</p>
 <ul>
-<li><strong>Dependency Management:</strong> Ensures tasks run in the correct sequence (e.g., Load Dim tables before Fact tables).</li>
-<li><strong>Error Handling:</strong> Allows you to define what happens if a task fails, such as sending an email or running a rollback script.</li>
-<li><strong>Efficiency:</strong> Parallel processing allows independent tasks to run simultaneously, saving time and reducing costs.</li>
-<li><strong>Reusability:</strong> By using a &quot;Master-Child&quot; pattern, you can build modular pipelines that can be triggered by multiple different processes.</li>
+<li><strong>Handle Dependencies:</strong> Ensure that a reporting table isn&#x27;t updated until the source data has been fully validated.</li>
+<li><strong>Optimize Costs:</strong> Run tasks in parallel to reduce the time an Integration Runtime is active.</li>
+<li><strong>Improve Reliability:</strong> Build automated &quot;retry&quot; logic or failure notifications so that you don&#x27;t have to monitor the pipeline manually 24/7.</li>
+<li><strong>Scalability:</strong> Use loops to process hundreds of files using a single set of activities rather than creating hundreds of separate pipelines.</li>
 </ul>
-<h2>Step-by-step walkthrough: The Master-Child Pattern</h2>
-<p>The most fundamental orchestration pattern in ADF is the Master-Child (or Parent-Child) pattern. This involves a &quot;Master&quot; pipeline that triggers one or more &quot;Child&quot; pipelines.</p>
-<h3>1. Create the Child Pipeline</h3>
-<p>Start by creating a simple pipeline that performs a specific task, such as moving a single table. Add parameters to this pipeline (e.g., <code>TableName</code>) so it isn&#x27;t hardcoded to one source.</p>
-<h3>2. Create the Master Pipeline</h3>
-<p>Create a new pipeline in your ADF instance. This will serve as the controller that decides when the child pipelines should run.</p>
-<h3>3. Add the &#x27;Execute Pipeline&#x27; Activity</h3>
-<p>Search for the <strong>Execute Pipeline</strong> activity in the Activities panel and drag it onto the Master pipeline canvas. Under the &quot;Settings&quot; tab of this activity, select the child pipeline you created in step 1.</p>
-<h3>4. Pass Parameters</h3>
-<p>If your child pipeline has parameters, the Master pipeline will show these under the &quot;Settings&quot; tab. You can pass values directly or use dynamic expressions to send data from the Master to the Child.</p>
-<h3>5. Define Dependencies</h3>
-<p>Connect activities using green (Success), red (Failure), or blue (Completion) arrows. For example, if you have two Execute Pipeline activities, connecting them with a green arrow ensures the second one only starts if the first succeeds.</p>
-<h3>Example Code: Execute Pipeline Activity</h3>
-<p>In the underlying JSON of an ADF pipeline, an orchestration step using the Execute Pipeline activity looks like this:</p>
+<h2>Step-by-step walkthrough</h2>
+<p>Let&#x27;s look at the four most common orchestration patterns you will encounter in ADF.</p>
+<h3>1. Sequential Chaining</h3>
+<p>This is the most basic pattern where activities execute one after another. You create this by dragging the green connector (the &quot;On Success&quot; path) from one activity to the next.</p>
+<ul>
+<li><strong>Use case:</strong> Loading data into a staging table and then running a stored procedure to move that data into a final data warehouse.</li>
+</ul>
+<h3>2. Parallel Execution</h3>
+<p>If two activities do not depend on each other, you should run them at the same time. In ADF, any activities that are not connected by a dependency line will start simultaneously when the pipeline runs.</p>
+<ul>
+<li><strong>Use case:</strong> Copying &quot;Customer&quot; data and &quot;Product&quot; data from two different SQL databases at the same time to save total execution time.</li>
+</ul>
+<h3>3. Conditional Branching (The &#x27;If&#x27; Logic)</h3>
+<p>The If Condition activity allows you to branch your pipeline logic based on a true/false evaluation. This is essential for handling different data formats or directing a pipeline to an &quot;Error Log&quot; task if a certain condition isn&#x27;t met.</p>
+<h3>4. Iteration (The &#x27;ForEach&#x27; Loop)</h3>
+<p>Instead of creating 10 copy activities for 10 files, you use a <strong>Get Metadata</strong> activity to list the files and a <strong>ForEach</strong> activity to loop through them. Inside the loop, you define a single Copy activity that uses a dynamic parameter for the filename.</p>
+<p>Here is a short example of how you might define a dynamic file path using an ADF expression inside a loop:</p>
 <div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-json">
-{
-    &quot;name&quot;: &quot;TriggerChildPipeline&quot;,
-    &quot;type&quot;: &quot;ExecutePipeline&quot;,
-    &quot;settings&quot;: {
-        &quot;pipeline&quot;: {
-            &quot;referenceName&quot;: &quot;Child_Copy_Data&quot;,
-            &quot;type&quot;: &quot;PipelineReference&quot;
-        },
-        &quot;waitOnCompletion&quot;: true,
-        &quot;parameters&quot;: {
-            &quot;TargetFolder&quot;: &quot;Sales_Data_2023&quot;
-        }
-    }
-}
+@dataset().DirectoryName/@item().name
 </code></pre></div>
 <h2>Common mistakes</h2>
 <ul>
-<li><strong>Wait on Completion:</strong> Forgetting to check the &quot;Wait on completion&quot; box in the Execute Pipeline activity. If unchecked, the Master pipeline will trigger the Child and immediately move to the next step without waiting for the Child to finish.</li>
-<li><strong>Infinite Loops:</strong> Creating a pattern where Pipeline A calls Pipeline B, and Pipeline B calls Pipeline A. This will quickly consume your Azure credits and cause system failures.</li>
-<li><strong>Hardcoding Values:</strong> Not using parameters. If you hardcode file paths or table names inside your child pipelines, you lose the ability to reuse those pipelines for other datasets.</li>
-<li><strong>Ignoring Failure Paths:</strong> Only planning for the &quot;Happy Path&quot; (success). Always include a logic branch for when a pipeline fails, such as a Web Activity to post a message to Microsoft Teams or Slack.</li>
+<li><strong>Hardcoding values:</strong> Beginners often type specific folder names or connection strings directly into activities. Always use <strong>Parameters</strong> and <strong>Variables</strong> to make your orchestration patterns reusable across different environments (Dev, Test, Prod).</li>
+<li><strong>Ignoring the &quot;On Failure&quot; path:</strong> Most users only use the green &quot;Success&quot; connector. If an activity fails, the pipeline simply stops. Use the red &quot;On Failure&quot; connector to trigger a Web Activity that sends an alert to Microsoft Teams or Slack.</li>
+<li><strong>Over-nesting:</strong> While you can put a ForEach inside another activity, nesting too many levels makes the pipeline difficult to debug and monitor. If it gets too complex, break it into &quot;Child Pipelines&quot; using the <strong>Execute Pipeline</strong> activity.</li>
 </ul>
 <h2>One practice task</h2>
-<p>Create a &quot;Conditional Orchestration&quot; workflow. </p>
+<p>To practice these concepts, try building a &quot;Failure Alert&quot; pattern:</p>
 <ul>
-<li>Create a Master pipeline with a <strong>Lookup Activity</strong> that checks if a specific file exists in your Azure Blob Storage.</li>
-<li>Use an <strong>If Condition Activity</strong> to evaluate the output of that lookup.</li>
-<li>If the file exists (True), use an <strong>Execute Pipeline Activity</strong> to run a data ingestion pipeline.</li>
-<li>If the file does not exist (False), use a <strong>Web Activity</strong> to send a notification or a <strong>Fail Activity</strong> to stop the process with a custom error message.</li>
+<li>Create a simple pipeline with a <strong>Copy Activity</strong> that is intentionally configured to fail (e.g., point it to a non-existent file).</li>
+<li>Drag a <strong>Web Activity</strong> onto the canvas.</li>
+<li>Connect the Copy Activity to the Web Activity using the <strong>red connector</strong> (Failure).</li>
+<li>Configure the Web Activity to ping a test URL (like a RequestBin or a logic app).</li>
+<li>Run the pipeline and verify that the Web Activity only executes when the Copy Activity fails.</li>
 </ul>
       </div>
       <footer class="article-footer">
