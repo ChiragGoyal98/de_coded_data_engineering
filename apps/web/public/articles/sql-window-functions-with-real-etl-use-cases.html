@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SQL Window Functions with Real ETL Use Cases | DE-Coded Lab</title>
-  <meta name="description" content="SQL window functions perform calculations across a set of table rows that are related to the current row. Unlike standard aggregate functions, which collapse multiple rows into a single result, window functions allow each row to retain its..." />
+  <meta name="description" content="In the world of data engineering, SQL is more than just a tool for retrieving data; it is the engine that transforms raw information into actionable insights. One of the most powerful features for these transformations is the window..." />
   <meta property="og:title" content="SQL Window Functions with Real ETL Use Cases" />
-  <meta property="og:description" content="SQL window functions perform calculations across a set of table rows that are related to the current row. Unlike standard aggregate functions, which collapse multiple rows into a single result, window functions allow each row to retain its..." />
+  <meta property="og:description" content="In the world of data engineering, SQL is more than just a tool for retrieving data; it is the engine that transforms raw information into actionable insights. One of the most powerful features for these transformations is the window..." />
   <meta property="og:type" content="article" />
   <link rel="stylesheet" href="/de_coded_data_engineering/styles.css" />
 </head>
@@ -27,42 +27,55 @@
       <p class="pill">Programming Basics</p>
       <h1>SQL Window Functions with Real ETL Use Cases</h1>
       <div class="article-meta">
-        <span>Published: Nov 17, 2026</span>
+        <span>Published: Nov 25, 2026</span>
         <span aria-hidden="true">&bull;</span>
         <span>3 min read</span>
       </div>
-      <p class="article-lead">SQL window functions perform calculations across a set of table rows that are related to the current row. Unlike standard aggregate functions, which collapse multiple rows into a single result, window functions allow each row to retain its...</p>
+      <p class="article-lead">In the world of data engineering, SQL is more than just a tool for retrieving data; it is the engine that transforms raw information into actionable insights. One of the most powerful features for these transformations is the window...</p>
       <div class="article-body">
-      <p>SQL window functions perform calculations across a set of table rows that are related to the current row. Unlike standard aggregate functions, which collapse multiple rows into a single result, window functions allow each row to retain its individual identity while still accessing data from other rows in the result set. This capability makes them a foundational tool for data engineers who need to perform complex analytical calculations without losing the granular detail of their source data.</p>
-<h2>Why it matters</h2>
-<p>In the world of ETL (Extract, Transform, Load), window functions are essential for cleaning and organizing data. They solve specific problems that would otherwise require dozens of lines of complex joins or subqueries. For example, when processing data from multiple sources, you might encounter duplicate records. A window function can help you identify the &quot;most recent&quot; version of a record instantly. They are also crucial for calculating business metrics like running totals, year-over-year growth, or ranking items within specific categories, such as finding the top-selling product for every individual region in a global dataset.</p>
-<h2>Step-by-step walkthrough</h2>
-<p>To use a window function, you need to understand three main components: the function itself, the <code>OVER</code> clause, and optional modifiers like <code>PARTITION BY</code> and <code>ORDER BY</code>.</p>
-<h3>1. The Core Syntax</h3>
-<p>The basic structure looks like this: <code>FUNCTION() OVER (PARTITION BY column_a ORDER BY column_b)</code>. The <code>PARTITION BY</code> clause acts like a group, telling the database where to start and stop the calculation. The <code>ORDER BY</code> clause determines the sequence in which the function processes the rows within those groups.</p>
-<h3>2. A Real ETL Use Case: Deduplication</h3>
-<p>Imagine an ETL pipeline where a &quot;Users&quot; table receives multiple updates for the same person. You only want to keep the most recent update based on a timestamp.</p>
-<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-sql">
-SELECT 
-    user_id, 
-    email, 
-    updated_at,
-    ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY updated_at DESC) as row_num
-FROM raw_users_table;
-</code></pre></div>
-<p>In this example, <code>ROW_NUMBER()</code> assigns a &#x27;1&#x27; to the newest record for every unique <code>user_id</code>. In your next ETL step, you can simply filter for where <code>row_num = 1</code> to get a clean, deduplicated dataset.</p>
-<h3>3. Understanding Ranking vs. Numbering</h3>
-<p>While <code>ROW_NUMBER()</code> gives every row a unique incrementing integer, functions like <code>RANK()</code> or <code>DENSE_RANK()</code> handle ties differently. If two rows have the exact same timestamp, <code>RANK()</code> might skip a number (1, 2, 2, 4), whereas <code>ROW_NUMBER()</code> will always provide a sequential list (1, 2, 3, 4).</p>
-<h2>Common mistakes</h2>
+      <p>In the world of data engineering, SQL is more than just a tool for retrieving data; it is the engine that transforms raw information into actionable insights. One of the most powerful features for these transformations is the window function. Unlike standard aggregate functions-such as SUM or AVG-which collapse multiple rows into a single result, window functions perform calculations across a specific range of rows while maintaining the identity of each individual record. This allows you to see the &quot;big picture&quot; and the &quot;fine detail&quot; at the same time.</p>
+<h2>Why it Matters in ETL</h2>
+<p>In Extract, Transform, Load (ETL) pipelines, data often arrives in a messy or historical format. You might have duplicate records, or you might need to calculate how a metric changes over time. Window functions are essential for these tasks because:</p>
 <ul>
-<li><strong>Confusing GROUP BY with PARTITION BY:</strong> Remember that <code>GROUP BY</code> reduces the number of rows returned by the query. <code>PARTITION BY</code> does not change the row count; it simply defines the &quot;window&quot; of rows the function looks at.</li>
-<li><strong>Forgetting the ORDER BY in Ranking:</strong> If you use <code>ROW_NUMBER()</code> without an <code>ORDER BY</code> clause, the database will assign numbers arbitrarily. This leads to non-deterministic results, meaning your ETL pipeline might produce different data every time it runs.</li>
-<li><strong>Performance Overload:</strong> Running window functions on millions of rows without proper indexing on the <code>PARTITION BY</code> columns can significantly slow down your database.</li>
+<li>They simplify deduplication: You can easily pick the &quot;latest&quot; version of a record based on a timestamp.</li>
+<li>They enable trend analysis: Comparing today&#x27;s sales to yesterday&#x27;s is trivial with window functions.</li>
+<li>They preserve row-level detail: You can calculate a department&#x27;s average salary and display it next to every employee&#x27;s individual salary without performing a complex JOIN.</li>
 </ul>
-<h2>One practice task</h2>
-<p>Suppose you have a table called <code>monthly_sales</code> with three columns: <code>region</code>, <code>sale_month</code>, and <code>revenue</code>. </p>
-<p><strong>Task:</strong> Write a query that calculates a running total of revenue for each region, ordered by the month. </p>
-<p><em>Hint: Use the <code>SUM()</code> function combined with <code>OVER (PARTITION BY ... ORDER BY ...)</code>.</em></p>
+<h2>Step-by-Step Walkthrough</h2>
+<p>To master window functions, you need to understand the <code>OVER</code> clause, which defines the &quot;window&quot; of data the function will look at.</p>
+<h3>1. The Basic Syntax</h3>
+<p>The standard structure of a window function looks like this:</p>
+<p><code>FUNCTION_NAME() OVER (PARTITION BY column_a ORDER BY column_b)</code></p>
+<ul>
+<li><strong>PARTITION BY</strong>: This divides the rows into groups (like a GROUP BY).</li>
+<li><strong>ORDER BY</strong>: This sorts the rows within those groups.</li>
+</ul>
+<h3>2. Deduplication with ROW_NUMBER()</h3>
+<p>A common ETL task is removing duplicate entries. Imagine a table where a user&#x27;s address is updated multiple times. To get only the most recent address, we use <code>ROW_NUMBER()</code>.</p>
+<div class="code-container"><button class="copy-button" onclick="copyCode(this)">Copy</button><pre><code class="language-sql">
+SELECT user_id, address, updated_at
+FROM (
+    SELECT user_id, address, updated_at,
+           ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY updated_at DESC) as row_num
+    FROM user_updates
+) ranked_updates
+WHERE row_num = 1;
+</code></pre></div>
+<p>In this example, the window function assigns a &quot;1&quot; to the latest record for every user. We then filter for only those rows.</p>
+<h3>3. Running Totals with SUM()</h3>
+<p>If you need to track cumulative revenue over a month, you can use an aggregate function as a window function. By providing an <code>ORDER BY</code> inside the <code>OVER</code> clause without a <code>PARTITION BY</code>, SQL calculates a running total from the first row to the current one.</p>
+<h3>4. Comparing Rows with LAG() and LEAD()</h3>
+<p>In ETL, we often need to calculate the &quot;time since the last event.&quot; <code>LAG()</code> looks at the previous row, while <code>LEAD()</code> looks at the next one. This is perfect for calculating the duration between a user logging in and logging out.</p>
+<h2>Common Mistakes</h2>
+<ul>
+<li><strong>Forgetting ORDER BY in Ranking</strong>: Functions like <code>ROW_NUMBER()</code> or <code>RANK()</code> require an <code>ORDER BY</code> to know which row comes first. Without it, the results will be unpredictable.</li>
+<li><strong>Confusing GROUP BY with PARTITION BY</strong>: Remember that <code>GROUP BY</code> reduces the number of rows in your output. <code>PARTITION BY</code> does not; it simply changes how the calculation is calculated across existing rows.</li>
+<li><strong>Performance Overload</strong>: While powerful, running complex window functions on billions of rows without proper indexing or filtering can significantly slow down your ETL jobs. Always try to filter your data in a subquery before applying the window function.</li>
+</ul>
+<h2>Practice Task</h2>
+<p><strong>Scenario:</strong> You have a table called <code>store_sales</code> with columns <code>store_id</code>, <code>sale_date</code>, and <code>amount</code>.</p>
+<p><strong>Task:</strong> Write a query that shows each sale alongside the total sales for that specific store to date (a running total).</p>
+<p><strong>Hint:</strong> You will need to use <code>SUM(amount)</code> combined with an <code>OVER</code> clause that partitions the data by the store and orders it by the date.</p>
       </div>
       <footer class="article-footer">
         <a class="link-button" href="/de_coded_data_engineering/index.html">Explore more tutorials &rarr;</a>
